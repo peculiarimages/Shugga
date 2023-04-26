@@ -1,0 +1,923 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D803D98829A9335D006F4D6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D98729A9335D006F4D6A /* ContentView.swift */; };
+		D803D98A29A9335D006F4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D98929A9335D006F4D6A /* Assets.xcassets */; };
+		D803D98D29A9335D006F4D6A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D98C29A9335D006F4D6A /* Preview Assets.xcassets */; };
+		D803D99C29A9345A006F4D6A /* Enums.Voices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99629A9345A006F4D6A /* Enums.Voices.swift */; };
+		D803D99D29A9345A006F4D6A /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
+		D803D99E29A9345A006F4D6A /* Enums.LanguagePairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */; };
+		D803D99F29A9345A006F4D6A /* Enums.WorldsUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */; };
+		D803D9A029A9345A006F4D6A /* Enums.TextBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */; };
+		D803D9A129A9345A006F4D6A /* Enums.Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */; };
+		D803D9A329A9346A006F4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
+		D803D9AD29A9347F006F4D6A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A529A9347F006F4D6A /* Extensions.swift */; };
+		D803D9AE29A9347F006F4D6A /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A629A9347F006F4D6A /* VoiceModel.swift */; };
+		D803D9AF29A9347F006F4D6A /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
+		D803D9B129A9347F006F4D6A /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A929A9347F006F4D6A /* LanguageModel.swift */; };
+		D803D9B229A9347F006F4D6A /* DebugMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AA29A9347F006F4D6A /* DebugMethods.swift */; };
+		D803D9B429A9347F006F4D6A /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
+		D803D9C729A9349C006F4D6A /* BloodGLucoseViewHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9B729A9349B006F4D6A /* BloodGLucoseViewHandlers.swift */; };
+		D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9B829A9349B006F4D6A /* BloodGlucoseViewComponents.swift */; };
+		D803D9C929A9349C006F4D6A /* BloodGlucoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9B929A9349B006F4D6A /* BloodGlucoseView.swift */; };
+		D803D9CE29A9349C006F4D6A /* SettingsViewComponentView.swft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C129A9349C006F4D6A /* SettingsViewComponentView.swft.swift */; };
+		D803D9CF29A9349C006F4D6A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C229A9349C006F4D6A /* SettingsView.swift */; };
+		D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C329A9349C006F4D6A /* SceneDelegate.swift */; };
+		D803D9D229A9349C006F4D6A /* AboutSugahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C529A9349C006F4D6A /* AboutSugahView.swift */; };
+		D8195D2129CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
+		D8195D2229CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
+		D8254D7129BBABD700294034 /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
+		D8254D7229BBABD700294034 /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
+		D849B3ED29D4AA0800003B3E /* SettingsDescriptionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */; };
+		D84A1ED129DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
+		D84A1ED229DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
+		D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A1ED329DF46C900B893D8 /* shuggaApp.swift */; };
+		D850400629EC229A00543B93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850400529EC229A00543B93 /* StoreKit.framework */; };
+		D850400829EC23B200543B93 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400729EC23B200543B93 /* Subscriptions.swift */; };
+		D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400929EC292200543B93 /* SubscriptionsView.swift */; };
+		D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */; };
+		D8532EE329D2087B0081093B /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8532EE229D2087B0081093B /* CarbohydrateData.swift */; };
+		D85A8CA829F6FC1300FC75C6 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D85A8CA729F6FC1300FC75C6 /* OAuthSwift */; };
+		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
+		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
+		D8703E2B29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
+		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
+		D8703E2E29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
+		D88005CE29B43AD800B89072 /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
+		D88005CF29B43AF300B89072 /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
+		D88005D129B43BCC00B89072 /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
+		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
+		D881F12429ABC5E300D3F9B3 /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */; };
+		D881F12629ABCCA100D3F9B3 /* StepCountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12529ABCCA100D3F9B3 /* StepCountData.swift */; };
+		D881F13A29ABE27500D3F9B3 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AB29A9347F006F4D6A /* AudioModel.swift */; };
+		D881F13B29ABE27800D3F9B3 /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
+		D881F13C29ABE27B00D3F9B3 /* DebugMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AA29A9347F006F4D6A /* DebugMethods.swift */; };
+		D881F13D29ABE28800D3F9B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A529A9347F006F4D6A /* Extensions.swift */; };
+		D881F13E29ABE28C00D3F9B3 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A929A9347F006F4D6A /* LanguageModel.swift */; };
+		D881F13F29ABE28E00D3F9B3 /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
+		D881F14029ABE29200D3F9B3 /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A629A9347F006F4D6A /* VoiceModel.swift */; };
+		D881F14129ABE29500D3F9B3 /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */; };
+		D881F14229ABE29800D3F9B3 /* StepCountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12529ABCCA100D3F9B3 /* StepCountData.swift */; };
+		D881F14329ABE2A200D3F9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
+		D881F14429ABE2A600D3F9B3 /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
+		D881F14529ABE2AA00D3F9B3 /* Enums.Voices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99629A9345A006F4D6A /* Enums.Voices.swift */; };
+		D881F14629ABE2AD00D3F9B3 /* Enums.LanguagePairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */; };
+		D881F14729ABE2B000D3F9B3 /* Enums.WorldsUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */; };
+		D881F14829ABE2B200D3F9B3 /* Enums.TextBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */; };
+		D881F14929ABE2B500D3F9B3 /* Enums.Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */; };
+		D881F14D29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */; };
+		D881F14E29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */; };
+		D8A40F6829D9989E006922C1 /* UserInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */; };
+		D8A40F6929D9989E006922C1 /* UserInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */; };
+		D8B8C3BE29C4D58400108904 /* DiabetesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */; };
+		D8B8C3BF29C4D58400108904 /* DiabetesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */; };
+		D8B8C3C129C7641800108904 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AB29A9347F006F4D6A /* AudioModel.swift */; };
+		D8BD978129B1331500F64457 /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
+		D8BD978229B1331500F64457 /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
+		D8BD978429B1390900F64457 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
+		D8BD978529B1390900F64457 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
+		D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
+		D8BD978829B148A100F64457 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D803D98229A9335D006F4D6A /* Shugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D803D98729A9335D006F4D6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D803D98929A9335D006F4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D803D98C29A9335D006F4D6A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D803D99329A933BF006F4D6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D803D99429A933C4006F4D6A /* Shugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shugga.entitlements; sourceTree = "<group>"; };
+		D803D99629A9345A006F4D6A /* Enums.Voices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.Voices.swift; sourceTree = "<group>"; };
+		D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumsAndConstants.swift; sourceTree = "<group>"; };
+		D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.LanguagePairs.swift; sourceTree = "<group>"; };
+		D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.WorldsUnit.swift; sourceTree = "<group>"; };
+		D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.TextBlocks.swift; sourceTree = "<group>"; };
+		D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.Debugging.swift; sourceTree = "<group>"; };
+		D803D9A229A9346A006F4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D803D9A529A9347F006F4D6A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D803D9A629A9347F006F4D6A /* VoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceModel.swift; sourceTree = "<group>"; };
+		D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFunctions.swift; sourceTree = "<group>"; };
+		D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseData.swift; sourceTree = "<group>"; };
+		D803D9A929A9347F006F4D6A /* LanguageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
+		D803D9AA29A9347F006F4D6A /* DebugMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMethods.swift; sourceTree = "<group>"; };
+		D803D9AB29A9347F006F4D6A /* AudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
+		D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetnessModel.swift; sourceTree = "<group>"; };
+		D803D9B729A9349B006F4D6A /* BloodGLucoseViewHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGLucoseViewHandlers.swift; sourceTree = "<group>"; };
+		D803D9B829A9349B006F4D6A /* BloodGlucoseViewComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseViewComponents.swift; sourceTree = "<group>"; };
+		D803D9B929A9349B006F4D6A /* BloodGlucoseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodGlucoseView.swift; sourceTree = "<group>"; };
+		D803D9C129A9349C006F4D6A /* SettingsViewComponentView.swft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewComponentView.swft.swift; sourceTree = "<group>"; };
+		D803D9C229A9349C006F4D6A /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D803D9C329A9349C006F4D6A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D803D9C529A9349C006F4D6A /* AboutSugahView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutSugahView.swift; sourceTree = "<group>"; };
+		D807BB3929AFE4CA000EE8D1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuggaStatusClass.swift; sourceTree = "<group>"; };
+		D8254D7029BBABD700294034 /* Enums.Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Errors.swift; sourceTree = "<group>"; };
+		D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDescriptionViews.swift; sourceTree = "<group>"; };
+		D84A1ED329DF46C900B893D8 /* shuggaApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shuggaApp.swift; sourceTree = "<group>"; };
+		D850400529EC229A00543B93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D850400729EC23B200543B93 /* Subscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
+		D850400929EC292200543B93 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
+		D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
+		D8532EE229D2087B0081093B /* CarbohydrateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateData.swift; sourceTree = "<group>"; };
+		D864794729E7CC39000CFB9F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
+		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
+		D88005BE29B43A0100B89072 /* HKDeliveryTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKDeliveryTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
+		D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateData.swift; sourceTree = "<group>"; };
+		D881F12529ABCCA100D3F9B3 /* StepCountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountData.swift; sourceTree = "<group>"; };
+		D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shugga Steps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheHealthBrain.swift; sourceTree = "<group>"; };
+		D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInterfaceModel.swift; sourceTree = "<group>"; };
+		D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiabetesModel.swift; sourceTree = "<group>"; };
+		D8BD978029B1331500F64457 /* BackgroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundModel.swift; sourceTree = "<group>"; };
+		D8BD978329B1390900F64457 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		D8BD978629B148A100F64457 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D803D97F29A9335D006F4D6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D85A8CA829F6FC1300FC75C6 /* OAuthSwift in Frameworks */,
+				D850400629EC229A00543B93 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88005BB29B43A0100B89072 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D881F12829ABE1AA00D3F9B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D803D97929A9335C006F4D6A = {
+			isa = PBXGroup;
+			children = (
+				D8703E2929BA4ECC00285703 /* SpeechModel.swift */,
+				D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */,
+				D88005D229B5A82900B89072 /* CGM_Model.swift */,
+				D803D9AB29A9347F006F4D6A /* AudioModel.swift */,
+				D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */,
+				D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */,
+				D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */,
+				D803D9AA29A9347F006F4D6A /* DebugMethods.swift */,
+				D8BD978029B1331500F64457 /* BackgroundModel.swift */,
+				D8BD978329B1390900F64457 /* DateModel.swift */,
+				D8BD978629B148A100F64457 /* ConsoleView.swift */,
+				D803D9A929A9347F006F4D6A /* LanguageModel.swift */,
+				D803D9A629A9347F006F4D6A /* VoiceModel.swift */,
+				D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */,
+				D881F12529ABCCA100D3F9B3 /* StepCountData.swift */,
+				D8532EE229D2087B0081093B /* CarbohydrateData.swift */,
+				D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */,
+				D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */,
+				D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */,
+				D803D9A229A9346A006F4D6A /* Assets.xcassets */,
+				D803D9A429A9347F006F4D6A /* extensions */,
+				D803D99529A9345A006F4D6A /* Enums */,
+				D803D98429A9335D006F4D6A /* Shugga */,
+				D803D98329A9335D006F4D6A /* Products */,
+				D850400429EC229A00543B93 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D803D98329A9335D006F4D6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D803D98229A9335D006F4D6A /* Shugga.app */,
+				D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */,
+				D88005BE29B43A0100B89072 /* HKDeliveryTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D803D98429A9335D006F4D6A /* Shugga */ = {
+			isa = PBXGroup;
+			children = (
+				D850400D29EC8D6900543B93 /* Subscriptions */,
+				D8B8C3C029C646DA00108904 /* Views */,
+				D803D99429A933C4006F4D6A /* Shugga.entitlements */,
+				D803D99329A933BF006F4D6A /* Info.plist */,
+				D803D98729A9335D006F4D6A /* ContentView.swift */,
+				D803D98929A9335D006F4D6A /* Assets.xcassets */,
+				D803D9C329A9349C006F4D6A /* SceneDelegate.swift */,
+				D84A1ED329DF46C900B893D8 /* shuggaApp.swift */,
+				D807BB3929AFE4CA000EE8D1 /* MyPlayground.playground */,
+				D803D98B29A9335D006F4D6A /* Preview Content */,
+				D864794729E7CC39000CFB9F /* LaunchScreenView.swift */,
+			);
+			path = Shugga;
+			sourceTree = "<group>";
+		};
+		D803D98B29A9335D006F4D6A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D803D98C29A9335D006F4D6A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D803D99529A9345A006F4D6A /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */,
+				D803D99629A9345A006F4D6A /* Enums.Voices.swift */,
+				D8703E2C29BA51AF00285703 /* Enums.Audio.swift */,
+				D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */,
+				D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */,
+				D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */,
+				D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */,
+				D8254D7029BBABD700294034 /* Enums.Errors.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		D803D9A429A9347F006F4D6A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D803D9A529A9347F006F4D6A /* Extensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		D803D9B529A9349B006F4D6A /* BloodGlucoseViews */ = {
+			isa = PBXGroup;
+			children = (
+				D803D9B929A9349B006F4D6A /* BloodGlucoseView.swift */,
+				D803D9B629A9349B006F4D6A /* BGViewHelpers */,
+			);
+			path = BloodGlucoseViews;
+			sourceTree = "<group>";
+		};
+		D803D9B629A9349B006F4D6A /* BGViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				D803D9B829A9349B006F4D6A /* BloodGlucoseViewComponents.swift */,
+				D803D9B729A9349B006F4D6A /* BloodGLucoseViewHandlers.swift */,
+			);
+			path = BGViewHelpers;
+			sourceTree = "<group>";
+		};
+		D803D9C029A9349C006F4D6A /* SettingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				D803D9C229A9349C006F4D6A /* SettingsView.swift */,
+				D803D9C129A9349C006F4D6A /* SettingsViewComponentView.swft.swift */,
+				D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */,
+			);
+			path = SettingsViews;
+			sourceTree = "<group>";
+		};
+		D850400429EC229A00543B93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D850400529EC229A00543B93 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D850400D29EC8D6900543B93 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				D850400729EC23B200543B93 /* Subscriptions.swift */,
+				D850400929EC292200543B93 /* SubscriptionsView.swift */,
+				D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		D8B8C3C029C646DA00108904 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D803D9C529A9349C006F4D6A /* AboutSugahView.swift */,
+				D803D9B529A9349B006F4D6A /* BloodGlucoseViews */,
+				D803D9C029A9349C006F4D6A /* SettingsViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D803D98129A9335D006F4D6A /* Shugga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D803D99029A9335D006F4D6A /* Build configuration list for PBXNativeTarget "Shugga" */;
+			buildPhases = (
+				D803D97E29A9335D006F4D6A /* Sources */,
+				D803D97F29A9335D006F4D6A /* Frameworks */,
+				D803D98029A9335D006F4D6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shugga;
+			packageProductDependencies = (
+				D85A8CA729F6FC1300FC75C6 /* OAuthSwift */,
+			);
+			productName = Shugga;
+			productReference = D803D98229A9335D006F4D6A /* Shugga.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D88005BD29B43A0100B89072 /* HKDeliveryTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D88005CB29B43A0300B89072 /* Build configuration list for PBXNativeTarget "HKDeliveryTest" */;
+			buildPhases = (
+				D88005BA29B43A0100B89072 /* Sources */,
+				D88005BB29B43A0100B89072 /* Frameworks */,
+				D88005BC29B43A0100B89072 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HKDeliveryTest;
+			productName = HKDeliveryTest;
+			productReference = D88005BE29B43A0100B89072 /* HKDeliveryTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D881F12A29ABE1AA00D3F9B3 /* Shugga Steps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D881F13629ABE1AB00D3F9B3 /* Build configuration list for PBXNativeTarget "Shugga Steps" */;
+			buildPhases = (
+				D881F12729ABE1AA00D3F9B3 /* Sources */,
+				D881F12829ABE1AA00D3F9B3 /* Frameworks */,
+				D881F12929ABE1AA00D3F9B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shugga Steps";
+			productName = "Shugga Steps";
+			productReference = D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D803D97A29A9335C006F4D6A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					D803D98129A9335D006F4D6A = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					D88005BD29B43A0100B89072 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					D881F12A29ABE1AA00D3F9B3 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = D803D97D29A9335C006F4D6A /* Build configuration list for PBXProject "Shugga" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D803D97929A9335C006F4D6A;
+			packageReferences = (
+				D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
+			);
+			productRefGroup = D803D98329A9335D006F4D6A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D803D98129A9335D006F4D6A /* Shugga */,
+				D881F12A29ABE1AA00D3F9B3 /* Shugga Steps */,
+				D88005BD29B43A0100B89072 /* HKDeliveryTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D803D98029A9335D006F4D6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D803D98D29A9335D006F4D6A /* Preview Assets.xcassets in Resources */,
+				D803D9A329A9346A006F4D6A /* Assets.xcassets in Resources */,
+				D803D98A29A9335D006F4D6A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88005BC29B43A0100B89072 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D881F12929ABE1AA00D3F9B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D881F14329ABE2A200D3F9B3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D803D97E29A9335D006F4D6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D803D9CF29A9349C006F4D6A /* SettingsView.swift in Sources */,
+				D8BD978429B1390900F64457 /* DateModel.swift in Sources */,
+				D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */,
+				D8532EE329D2087B0081093B /* CarbohydrateData.swift in Sources */,
+				D803D9C729A9349C006F4D6A /* BloodGLucoseViewHandlers.swift in Sources */,
+				D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */,
+				D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */,
+				D850400829EC23B200543B93 /* Subscriptions.swift in Sources */,
+				D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */,
+				D803D9B229A9347F006F4D6A /* DebugMethods.swift in Sources */,
+				D881F14D29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */,
+				D803D9B429A9347F006F4D6A /* SweetnessModel.swift in Sources */,
+				D803D9AE29A9347F006F4D6A /* VoiceModel.swift in Sources */,
+				D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */,
+				D881F12629ABCCA100D3F9B3 /* StepCountData.swift in Sources */,
+				D803D99E29A9345A006F4D6A /* Enums.LanguagePairs.swift in Sources */,
+				D803D9AD29A9347F006F4D6A /* Extensions.swift in Sources */,
+				D8B8C3BE29C4D58400108904 /* DiabetesModel.swift in Sources */,
+				D803D9AF29A9347F006F4D6A /* ConsoleFunctions.swift in Sources */,
+				D849B3ED29D4AA0800003B3E /* SettingsDescriptionViews.swift in Sources */,
+				D803D9B129A9347F006F4D6A /* LanguageModel.swift in Sources */,
+				D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */,
+				D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */,
+				D803D98829A9335D006F4D6A /* ContentView.swift in Sources */,
+				D803D9A129A9345A006F4D6A /* Enums.Debugging.swift in Sources */,
+				D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */,
+				D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */,
+				D84A1ED129DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */,
+				D8A40F6829D9989E006922C1 /* UserInterfaceModel.swift in Sources */,
+				D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */,
+				D8195D2129CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */,
+				D803D99F29A9345A006F4D6A /* Enums.WorldsUnit.swift in Sources */,
+				D881F12429ABC5E300D3F9B3 /* HeartRateData.swift in Sources */,
+				D803D99C29A9345A006F4D6A /* Enums.Voices.swift in Sources */,
+				D803D99D29A9345A006F4D6A /* EnumsAndConstants.swift in Sources */,
+				D8254D7129BBABD700294034 /* Enums.Errors.swift in Sources */,
+				D8BD978129B1331500F64457 /* BackgroundModel.swift in Sources */,
+				D803D9C929A9349C006F4D6A /* BloodGlucoseView.swift in Sources */,
+				D8B8C3C129C7641800108904 /* AudioModel.swift in Sources */,
+				D803D9A029A9345A006F4D6A /* Enums.TextBlocks.swift in Sources */,
+				D803D9D229A9349C006F4D6A /* AboutSugahView.swift in Sources */,
+				D803D9CE29A9349C006F4D6A /* SettingsViewComponentView.swft.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D88005BA29B43A0100B89072 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88005CF29B43AF300B89072 /* SweetnessModel.swift in Sources */,
+				D88005D129B43BCC00B89072 /* ConsoleFunctions.swift in Sources */,
+				D88005CE29B43AD800B89072 /* EnumsAndConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D881F12729ABE1AA00D3F9B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8254D7229BBABD700294034 /* Enums.Errors.swift in Sources */,
+				D881F14029ABE29200D3F9B3 /* VoiceModel.swift in Sources */,
+				D881F14729ABE2B000D3F9B3 /* Enums.WorldsUnit.swift in Sources */,
+				D881F14529ABE2AA00D3F9B3 /* Enums.Voices.swift in Sources */,
+				D881F14429ABE2A600D3F9B3 /* EnumsAndConstants.swift in Sources */,
+				D881F14E29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */,
+				D8BD978529B1390900F64457 /* DateModel.swift in Sources */,
+				D881F14629ABE2AD00D3F9B3 /* Enums.LanguagePairs.swift in Sources */,
+				D881F13C29ABE27B00D3F9B3 /* DebugMethods.swift in Sources */,
+				D881F13E29ABE28C00D3F9B3 /* LanguageModel.swift in Sources */,
+				D8BD978829B148A100F64457 /* ConsoleView.swift in Sources */,
+				D84A1ED229DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */,
+				D881F13B29ABE27800D3F9B3 /* ConsoleFunctions.swift in Sources */,
+				D8A40F6929D9989E006922C1 /* UserInterfaceModel.swift in Sources */,
+				D881F13F29ABE28E00D3F9B3 /* SweetnessModel.swift in Sources */,
+				D881F13A29ABE27500D3F9B3 /* AudioModel.swift in Sources */,
+				D881F14829ABE2B200D3F9B3 /* Enums.TextBlocks.swift in Sources */,
+				D881F14929ABE2B500D3F9B3 /* Enums.Debugging.swift in Sources */,
+				D881F14229ABE29800D3F9B3 /* StepCountData.swift in Sources */,
+				D8B8C3BF29C4D58400108904 /* DiabetesModel.swift in Sources */,
+				D8BD978229B1331500F64457 /* BackgroundModel.swift in Sources */,
+				D8195D2229CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */,
+				D8703E2B29BA4ECC00285703 /* SpeechModel.swift in Sources */,
+				D881F14129ABE29500D3F9B3 /* HeartRateData.swift in Sources */,
+				D881F13D29ABE28800D3F9B3 /* Extensions.swift in Sources */,
+				D8703E2E29BA51AF00285703 /* Enums.Audio.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D803D98E29A9335D006F4D6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D803D98F29A9335D006F4D6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D803D99129A9335D006F4D6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shugga/Shugga.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shugga/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shugga;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion. This app does not modify any Health data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = center.outside.shugga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D803D99229A9335D006F4D6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shugga/Shugga.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shugga/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shugga;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion. This app does not modify any Health data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = center.outside.shugga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D88005C929B43A0300B89072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"HKDeliveryTest/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = center.outside.sugah3.HKDeliveryTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D88005CA29B43A0300B89072 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"HKDeliveryTest/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = center.outside.sugah3.HKDeliveryTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D881F13729ABE1AB00D3F9B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shugga Steps/Shugga Steps.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga Steps/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shugga-Steps-Info.plist";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-Steps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D881F13829ABE1AB00D3F9B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shugga Steps/Shugga Steps.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 102;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga Steps/Preview Content\"";
+				DEVELOPMENT_TEAM = 8GCPJMPAY8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shugga-Steps-Info.plist";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access Health for your step data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-Steps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D803D97D29A9335C006F4D6A /* Build configuration list for PBXProject "Shugga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D803D98E29A9335D006F4D6A /* Debug */,
+				D803D98F29A9335D006F4D6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D803D99029A9335D006F4D6A /* Build configuration list for PBXNativeTarget "Shugga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D803D99129A9335D006F4D6A /* Debug */,
+				D803D99229A9335D006F4D6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D88005CB29B43A0300B89072 /* Build configuration list for PBXNativeTarget "HKDeliveryTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D88005C929B43A0300B89072 /* Debug */,
+				D88005CA29B43A0300B89072 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D881F13629ABE1AB00D3F9B3 /* Build configuration list for PBXNativeTarget "Shugga Steps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D881F13729ABE1AB00D3F9B3 /* Debug */,
+				D881F13829ABE1AB00D3F9B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D85A8CA729F6FC1300FC75C6 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D803D97A29A9335C006F4D6A /* Project object */;
+}
