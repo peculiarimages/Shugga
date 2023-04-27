@@ -16,7 +16,6 @@
 		D803D99F29A9345A006F4D6A /* Enums.WorldsUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */; };
 		D803D9A029A9345A006F4D6A /* Enums.TextBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */; };
 		D803D9A129A9345A006F4D6A /* Enums.Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */; };
-		D803D9A329A9346A006F4D6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
 		D803D9AD29A9347F006F4D6A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A529A9347F006F4D6A /* Extensions.swift */; };
 		D803D9AE29A9347F006F4D6A /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A629A9347F006F4D6A /* VoiceModel.swift */; };
 		D803D9AF29A9347F006F4D6A /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
@@ -31,59 +30,78 @@
 		D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C329A9349C006F4D6A /* SceneDelegate.swift */; };
 		D803D9D229A9349C006F4D6A /* AboutSugahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C529A9349C006F4D6A /* AboutSugahView.swift */; };
 		D8195D2129CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
-		D8195D2229CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
 		D8254D7129BBABD700294034 /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
-		D8254D7229BBABD700294034 /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
+		D82E566C29F997E1004F1DBD /* Shugga_for_LoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */; };
+		D82E566E29F997E1004F1DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E566D29F997E1004F1DBD /* ContentView.swift */; };
+		D82E567029F997E2004F1DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82E566F29F997E2004F1DBD /* Assets.xcassets */; };
+		D82E567329F997E2004F1DBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82E567229F997E2004F1DBD /* Preview Assets.xcassets */; };
+		D82E567B29F99839004F1DBD /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E567929F99839004F1DBD /* Subscriptions.swift */; };
+		D82E567C29F99839004F1DBD /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E567829F99839004F1DBD /* SubscriptionsView.swift */; };
+		D82E567D29F99839004F1DBD /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E567A29F99839004F1DBD /* SubscriptionsViewModel.swift */; };
+		D82E568929F9983C004F1DBD /* SettingsViewComponentView.swft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568429F9983C004F1DBD /* SettingsViewComponentView.swft.swift */; };
+		D82E568A29F9983C004F1DBD /* SettingsDescriptionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568529F9983C004F1DBD /* SettingsDescriptionViews.swift */; };
+		D82E568B29F9983C004F1DBD /* AboutSugahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E567F29F9983C004F1DBD /* AboutSugahView.swift */; };
+		D82E568C29F9983C004F1DBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568329F9983C004F1DBD /* SettingsView.swift */; };
+		D82E568D29F9983C004F1DBD /* BloodGlucoseViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568729F9983C004F1DBD /* BloodGlucoseViewComponents.swift */; };
+		D82E568E29F9983C004F1DBD /* BloodGlucoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568129F9983C004F1DBD /* BloodGlucoseView.swift */; };
+		D82E568F29F9983C004F1DBD /* BloodGLucoseViewHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E568829F9983C004F1DBD /* BloodGLucoseViewHandlers.swift */; };
+		D82E569129F998A6004F1DBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E569029F998A6004F1DBD /* SceneDelegate.swift */; };
+		D82E569329F998CE004F1DBD /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E569229F998CE004F1DBD /* LaunchScreenView.swift */; };
+		D82E569529F9A311004F1DBD /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
+		D82E569629F9A311004F1DBD /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
+		D82E569729F9A311004F1DBD /* DebugMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AA29A9347F006F4D6A /* DebugMethods.swift */; };
+		D82E569929F9A311004F1DBD /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
+		D82E569A29F9A311004F1DBD /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
+		D82E569B29F9A311004F1DBD /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */; };
+		D82E569C29F9A311004F1DBD /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
+		D82E569D29F9A311004F1DBD /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
+		D82E569E29F9A311004F1DBD /* StepCountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12529ABCCA100D3F9B3 /* StepCountData.swift */; };
+		D82E569F29F9A311004F1DBD /* TheHealthBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */; };
+		D82E56A029F9A311004F1DBD /* DiabetesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */; };
+		D82E56A129F9A311004F1DBD /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
+		D82E56A229F9A311004F1DBD /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AB29A9347F006F4D6A /* AudioModel.swift */; };
+		D82E56A329F9A311004F1DBD /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A629A9347F006F4D6A /* VoiceModel.swift */; };
+		D82E56A429F9A311004F1DBD /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
+		D82E56A529F9A311004F1DBD /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
+		D82E56A629F9A311004F1DBD /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A929A9347F006F4D6A /* LanguageModel.swift */; };
+		D82E56A729F9A311004F1DBD /* UserInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */; };
+		D82E56A929F9A31B004F1DBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A529A9347F006F4D6A /* Extensions.swift */; };
+		D82E56AA29F9A321004F1DBD /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
+		D82E56AB29F9A321004F1DBD /* Enums.TextBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */; };
+		D82E56AC29F9A321004F1DBD /* Enums.Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */; };
+		D82E56AD29F9A321004F1DBD /* Enums.WorldsUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */; };
+		D82E56AE29F9A321004F1DBD /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
+		D82E56AF29F9A321004F1DBD /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
+		D82E56B029F9A321004F1DBD /* Enums.Voices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99629A9345A006F4D6A /* Enums.Voices.swift */; };
+		D82E56B129F9A321004F1DBD /* Enums.LanguagePairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */; };
+		D82E56E229F9A79C004F1DBD /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E56E129F9A79C004F1DBD /* enums.swift */; };
+		D82E56E429F9A7A3004F1DBD /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E56E329F9A7A3004F1DBD /* enums.swift */; };
 		D849B3ED29D4AA0800003B3E /* SettingsDescriptionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */; };
 		D84A1ED129DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
-		D84A1ED229DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
 		D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A1ED329DF46C900B893D8 /* shuggaApp.swift */; };
 		D850400629EC229A00543B93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850400529EC229A00543B93 /* StoreKit.framework */; };
 		D850400829EC23B200543B93 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400729EC23B200543B93 /* Subscriptions.swift */; };
 		D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400929EC292200543B93 /* SubscriptionsView.swift */; };
 		D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */; };
-		D8532EE329D2087B0081093B /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8532EE229D2087B0081093B /* CarbohydrateData.swift */; };
 		D85A8CA829F6FC1300FC75C6 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D85A8CA729F6FC1300FC75C6 /* OAuthSwift */; };
 		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
-		D8703E2B29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
-		D8703E2E29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
-		D88005CE29B43AD800B89072 /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
-		D88005CF29B43AF300B89072 /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
-		D88005D129B43BCC00B89072 /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
 		D881F12429ABC5E300D3F9B3 /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */; };
 		D881F12629ABCCA100D3F9B3 /* StepCountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12529ABCCA100D3F9B3 /* StepCountData.swift */; };
-		D881F13A29ABE27500D3F9B3 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AB29A9347F006F4D6A /* AudioModel.swift */; };
-		D881F13B29ABE27800D3F9B3 /* ConsoleFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */; };
-		D881F13C29ABE27B00D3F9B3 /* DebugMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AA29A9347F006F4D6A /* DebugMethods.swift */; };
-		D881F13D29ABE28800D3F9B3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A529A9347F006F4D6A /* Extensions.swift */; };
-		D881F13E29ABE28C00D3F9B3 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A929A9347F006F4D6A /* LanguageModel.swift */; };
-		D881F13F29ABE28E00D3F9B3 /* SweetnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */; };
-		D881F14029ABE29200D3F9B3 /* VoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A629A9347F006F4D6A /* VoiceModel.swift */; };
-		D881F14129ABE29500D3F9B3 /* HeartRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */; };
-		D881F14229ABE29800D3F9B3 /* StepCountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F12529ABCCA100D3F9B3 /* StepCountData.swift */; };
-		D881F14329ABE2A200D3F9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
-		D881F14429ABE2A600D3F9B3 /* EnumsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99729A9345A006F4D6A /* EnumsAndConstants.swift */; };
-		D881F14529ABE2AA00D3F9B3 /* Enums.Voices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99629A9345A006F4D6A /* Enums.Voices.swift */; };
-		D881F14629ABE2AD00D3F9B3 /* Enums.LanguagePairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */; };
-		D881F14729ABE2B000D3F9B3 /* Enums.WorldsUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */; };
-		D881F14829ABE2B200D3F9B3 /* Enums.TextBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */; };
-		D881F14929ABE2B500D3F9B3 /* Enums.Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */; };
 		D881F14D29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */; };
-		D881F14E29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */; };
 		D8A40F6829D9989E006922C1 /* UserInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */; };
-		D8A40F6929D9989E006922C1 /* UserInterfaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */; };
 		D8B8C3BE29C4D58400108904 /* DiabetesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */; };
-		D8B8C3BF29C4D58400108904 /* DiabetesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */; };
 		D8B8C3C129C7641800108904 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9AB29A9347F006F4D6A /* AudioModel.swift */; };
 		D8BD978129B1331500F64457 /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
-		D8BD978229B1331500F64457 /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
 		D8BD978429B1390900F64457 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
-		D8BD978529B1390900F64457 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
 		D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
-		D8BD978829B148A100F64457 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
+		D8FDE37029FAEFCA00E62522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
+		D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */; };
+		D8FDE37429FAF25700E62522 /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */; };
+		D8FDE37629FAF26600E62522 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FDE37529FAF26600E62522 /* Media.xcassets */; };
+		D8FDE37729FAF26600E62522 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FDE37529FAF26600E62522 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +117,7 @@
 		D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.WorldsUnit.swift; sourceTree = "<group>"; };
 		D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.TextBlocks.swift; sourceTree = "<group>"; };
 		D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.Debugging.swift; sourceTree = "<group>"; };
-		D803D9A229A9346A006F4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D803D9A229A9346A006F4D6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		D803D9A529A9347F006F4D6A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D803D9A629A9347F006F4D6A /* VoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceModel.swift; sourceTree = "<group>"; };
 		D803D9A729A9347F006F4D6A /* ConsoleFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleFunctions.swift; sourceTree = "<group>"; };
@@ -118,27 +136,48 @@
 		D807BB3929AFE4CA000EE8D1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuggaStatusClass.swift; sourceTree = "<group>"; };
 		D8254D7029BBABD700294034 /* Enums.Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Errors.swift; sourceTree = "<group>"; };
+		D82E566929F997E1004F1DBD /* Shugga for Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shugga for Loop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shugga_for_LoopApp.swift; sourceTree = "<group>"; };
+		D82E566D29F997E1004F1DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D82E566F29F997E2004F1DBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D82E567229F997E2004F1DBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D82E567829F99839004F1DBD /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
+		D82E567929F99839004F1DBD /* Subscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
+		D82E567A29F99839004F1DBD /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
+		D82E567F29F9983C004F1DBD /* AboutSugahView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSugahView.swift; sourceTree = "<group>"; };
+		D82E568129F9983C004F1DBD /* BloodGlucoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseView.swift; sourceTree = "<group>"; };
+		D82E568329F9983C004F1DBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D82E568429F9983C004F1DBD /* SettingsViewComponentView.swft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewComponentView.swft.swift; sourceTree = "<group>"; };
+		D82E568529F9983C004F1DBD /* SettingsDescriptionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDescriptionViews.swift; sourceTree = "<group>"; };
+		D82E568729F9983C004F1DBD /* BloodGlucoseViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGlucoseViewComponents.swift; sourceTree = "<group>"; };
+		D82E568829F9983C004F1DBD /* BloodGLucoseViewHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGLucoseViewHandlers.swift; sourceTree = "<group>"; };
+		D82E569029F998A6004F1DBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D82E569229F998CE004F1DBD /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		D82E569429F9A2B9004F1DBD /* Shugga for Loop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Shugga for Loop.entitlements"; sourceTree = "<group>"; };
+		D82E56B229F9A35B004F1DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D82E56B329F9A48F004F1DBD /* Shugga-for-Loop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Shugga-for-Loop-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D82E56E129F9A79C004F1DBD /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
+		D82E56E329F9A7A3004F1DBD /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 		D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDescriptionViews.swift; sourceTree = "<group>"; };
 		D84A1ED329DF46C900B893D8 /* shuggaApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shuggaApp.swift; sourceTree = "<group>"; };
 		D850400529EC229A00543B93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D850400729EC23B200543B93 /* Subscriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscriptions.swift; sourceTree = "<group>"; };
 		D850400929EC292200543B93 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
 		D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
-		D8532EE229D2087B0081093B /* CarbohydrateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateData.swift; sourceTree = "<group>"; };
 		D864794729E7CC39000CFB9F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
-		D88005BE29B43A0100B89072 /* HKDeliveryTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKDeliveryTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
 		D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateData.swift; sourceTree = "<group>"; };
 		D881F12529ABCCA100D3F9B3 /* StepCountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountData.swift; sourceTree = "<group>"; };
-		D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shugga Steps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheHealthBrain.swift; sourceTree = "<group>"; };
 		D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInterfaceModel.swift; sourceTree = "<group>"; };
 		D8B8C3BD29C4D58400108904 /* DiabetesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiabetesModel.swift; sourceTree = "<group>"; };
 		D8BD978029B1331500F64457 /* BackgroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundModel.swift; sourceTree = "<group>"; };
 		D8BD978329B1390900F64457 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		D8BD978629B148A100F64457 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarbohydrateData.swift; sourceTree = "<group>"; };
+		D8FDE37529FAF26600E62522 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,14 +190,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D88005BB29B43A0100B89072 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D881F12829ABE1AA00D3F9B3 /* Frameworks */ = {
+		D82E566629F997E1004F1DBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -186,14 +218,16 @@
 				D803D9A629A9347F006F4D6A /* VoiceModel.swift */,
 				D881F12329ABC5E300D3F9B3 /* HeartRateData.swift */,
 				D881F12529ABCCA100D3F9B3 /* StepCountData.swift */,
-				D8532EE229D2087B0081093B /* CarbohydrateData.swift */,
+				D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */,
 				D803D9AC29A9347F006F4D6A /* SweetnessModel.swift */,
+				D8FDE37529FAF26600E62522 /* Media.xcassets */,
+				D8FDE37129FAF23000E62522 /* New Group */,
 				D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */,
 				D8A40F6729D9989E006922C1 /* UserInterfaceModel.swift */,
-				D803D9A229A9346A006F4D6A /* Assets.xcassets */,
 				D803D9A429A9347F006F4D6A /* extensions */,
 				D803D99529A9345A006F4D6A /* Enums */,
 				D803D98429A9335D006F4D6A /* Shugga */,
+				D82E566A29F997E1004F1DBD /* Shugga for Loop */,
 				D803D98329A9335D006F4D6A /* Products */,
 				D850400429EC229A00543B93 /* Frameworks */,
 			);
@@ -203,8 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				D803D98229A9335D006F4D6A /* Shugga.app */,
-				D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */,
-				D88005BE29B43A0100B89072 /* HKDeliveryTest.app */,
+				D82E566929F997E1004F1DBD /* Shugga for Loop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +245,8 @@
 		D803D98429A9335D006F4D6A /* Shugga */ = {
 			isa = PBXGroup;
 			children = (
+				D803D9A229A9346A006F4D6A /* Assets.xcassets */,
+				D82E56E129F9A79C004F1DBD /* enums.swift */,
 				D850400D29EC8D6900543B93 /* Subscriptions */,
 				D8B8C3C029C646DA00108904 /* Views */,
 				D803D99429A933C4006F4D6A /* Shugga.entitlements */,
@@ -286,6 +321,81 @@
 			path = SettingsViews;
 			sourceTree = "<group>";
 		};
+		D82E566A29F997E1004F1DBD /* Shugga for Loop */ = {
+			isa = PBXGroup;
+			children = (
+				D82E56E329F9A7A3004F1DBD /* enums.swift */,
+				D82E56B329F9A48F004F1DBD /* Shugga-for-Loop-Info.plist */,
+				D82E569429F9A2B9004F1DBD /* Shugga for Loop.entitlements */,
+				D82E56B229F9A35B004F1DBD /* Info.plist */,
+				D82E567729F99839004F1DBD /* Subscriptions */,
+				D82E567E29F9983C004F1DBD /* Views */,
+				D82E569029F998A6004F1DBD /* SceneDelegate.swift */,
+				D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */,
+				D82E566D29F997E1004F1DBD /* ContentView.swift */,
+				D82E566F29F997E2004F1DBD /* Assets.xcassets */,
+				D82E567129F997E2004F1DBD /* Preview Content */,
+				D82E569229F998CE004F1DBD /* LaunchScreenView.swift */,
+			);
+			path = "Shugga for Loop";
+			sourceTree = "<group>";
+		};
+		D82E567129F997E2004F1DBD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D82E567229F997E2004F1DBD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D82E567729F99839004F1DBD /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				D82E567929F99839004F1DBD /* Subscriptions.swift */,
+				D82E567829F99839004F1DBD /* SubscriptionsView.swift */,
+				D82E567A29F99839004F1DBD /* SubscriptionsViewModel.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		D82E567E29F9983C004F1DBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
+				D82E568029F9983C004F1DBD /* BloodGlucoseViews */,
+				D82E568229F9983C004F1DBD /* SettingsViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D82E568029F9983C004F1DBD /* BloodGlucoseViews */ = {
+			isa = PBXGroup;
+			children = (
+				D82E568129F9983C004F1DBD /* BloodGlucoseView.swift */,
+				D82E568629F9983C004F1DBD /* BGViewHelpers */,
+			);
+			path = BloodGlucoseViews;
+			sourceTree = "<group>";
+		};
+		D82E568229F9983C004F1DBD /* SettingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				D82E568329F9983C004F1DBD /* SettingsView.swift */,
+				D82E568429F9983C004F1DBD /* SettingsViewComponentView.swft.swift */,
+				D82E568529F9983C004F1DBD /* SettingsDescriptionViews.swift */,
+			);
+			path = SettingsViews;
+			sourceTree = "<group>";
+		};
+		D82E568629F9983C004F1DBD /* BGViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				D82E568729F9983C004F1DBD /* BloodGlucoseViewComponents.swift */,
+				D82E568829F9983C004F1DBD /* BloodGLucoseViewHandlers.swift */,
+			);
+			path = BGViewHelpers;
+			sourceTree = "<group>";
+		};
 		D850400429EC229A00543B93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +424,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D8FDE37129FAF23000E62522 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,38 +454,21 @@
 			productReference = D803D98229A9335D006F4D6A /* Shugga.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D88005BD29B43A0100B89072 /* HKDeliveryTest */ = {
+		D82E566829F997E1004F1DBD /* Shugga for Loop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D88005CB29B43A0300B89072 /* Build configuration list for PBXNativeTarget "HKDeliveryTest" */;
+			buildConfigurationList = D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "Shugga for Loop" */;
 			buildPhases = (
-				D88005BA29B43A0100B89072 /* Sources */,
-				D88005BB29B43A0100B89072 /* Frameworks */,
-				D88005BC29B43A0100B89072 /* Resources */,
+				D82E566529F997E1004F1DBD /* Sources */,
+				D82E566629F997E1004F1DBD /* Frameworks */,
+				D82E566729F997E1004F1DBD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = HKDeliveryTest;
-			productName = HKDeliveryTest;
-			productReference = D88005BE29B43A0100B89072 /* HKDeliveryTest.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D881F12A29ABE1AA00D3F9B3 /* Shugga Steps */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D881F13629ABE1AB00D3F9B3 /* Build configuration list for PBXNativeTarget "Shugga Steps" */;
-			buildPhases = (
-				D881F12729ABE1AA00D3F9B3 /* Sources */,
-				D881F12829ABE1AA00D3F9B3 /* Frameworks */,
-				D881F12929ABE1AA00D3F9B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Shugga Steps";
-			productName = "Shugga Steps";
-			productReference = D881F12B29ABE1AA00D3F9B3 /* Shugga Steps.app */;
+			name = "Shugga for Loop";
+			productName = "Shugga for Loop";
+			productReference = D82E566929F997E1004F1DBD /* Shugga for Loop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -378,17 +478,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					D803D98129A9335D006F4D6A = {
 						CreatedOnToolsVersion = 14.2;
 					};
-					D88005BD29B43A0100B89072 = {
-						CreatedOnToolsVersion = 14.2;
-					};
-					D881F12A29ABE1AA00D3F9B3 = {
-						CreatedOnToolsVersion = 14.2;
+					D82E566829F997E1004F1DBD = {
+						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -409,8 +506,7 @@
 			projectRoot = "";
 			targets = (
 				D803D98129A9335D006F4D6A /* Shugga */,
-				D881F12A29ABE1AA00D3F9B3 /* Shugga Steps */,
-				D88005BD29B43A0100B89072 /* HKDeliveryTest */,
+				D82E566829F997E1004F1DBD /* Shugga for Loop */,
 			);
 		};
 /* End PBXProject section */
@@ -421,23 +517,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D803D98D29A9335D006F4D6A /* Preview Assets.xcassets in Resources */,
-				D803D9A329A9346A006F4D6A /* Assets.xcassets in Resources */,
+				D8FDE37029FAEFCA00E62522 /* Assets.xcassets in Resources */,
+				D8FDE37629FAF26600E62522 /* Media.xcassets in Resources */,
 				D803D98A29A9335D006F4D6A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D88005BC29B43A0100B89072 /* Resources */ = {
+		D82E566729F997E1004F1DBD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D881F12929ABE1AA00D3F9B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D881F14329ABE2A200D3F9B3 /* Assets.xcassets in Resources */,
+				D82E567329F997E2004F1DBD /* Preview Assets.xcassets in Resources */,
+				D8FDE37729FAF26600E62522 /* Media.xcassets in Resources */,
+				D82E567029F997E2004F1DBD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,13 +542,14 @@
 			files = (
 				D803D9CF29A9349C006F4D6A /* SettingsView.swift in Sources */,
 				D8BD978429B1390900F64457 /* DateModel.swift in Sources */,
+				D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */,
 				D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */,
-				D8532EE329D2087B0081093B /* CarbohydrateData.swift in Sources */,
 				D803D9C729A9349C006F4D6A /* BloodGLucoseViewHandlers.swift in Sources */,
 				D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */,
 				D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */,
 				D850400829EC23B200543B93 /* Subscriptions.swift in Sources */,
 				D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */,
+				D82E56E229F9A79C004F1DBD /* enums.swift in Sources */,
 				D803D9B229A9347F006F4D6A /* DebugMethods.swift in Sources */,
 				D881F14D29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */,
 				D803D9B429A9347F006F4D6A /* SweetnessModel.swift in Sources */,
@@ -493,46 +586,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D88005BA29B43A0100B89072 /* Sources */ = {
+		D82E566529F997E1004F1DBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D88005CF29B43AF300B89072 /* SweetnessModel.swift in Sources */,
-				D88005D129B43BCC00B89072 /* ConsoleFunctions.swift in Sources */,
-				D88005CE29B43AD800B89072 /* EnumsAndConstants.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D881F12729ABE1AA00D3F9B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D8254D7229BBABD700294034 /* Enums.Errors.swift in Sources */,
-				D881F14029ABE29200D3F9B3 /* VoiceModel.swift in Sources */,
-				D881F14729ABE2B000D3F9B3 /* Enums.WorldsUnit.swift in Sources */,
-				D881F14529ABE2AA00D3F9B3 /* Enums.Voices.swift in Sources */,
-				D881F14429ABE2A600D3F9B3 /* EnumsAndConstants.swift in Sources */,
-				D881F14E29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */,
-				D8BD978529B1390900F64457 /* DateModel.swift in Sources */,
-				D881F14629ABE2AD00D3F9B3 /* Enums.LanguagePairs.swift in Sources */,
-				D881F13C29ABE27B00D3F9B3 /* DebugMethods.swift in Sources */,
-				D881F13E29ABE28C00D3F9B3 /* LanguageModel.swift in Sources */,
-				D8BD978829B148A100F64457 /* ConsoleView.swift in Sources */,
-				D84A1ED229DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */,
-				D881F13B29ABE27800D3F9B3 /* ConsoleFunctions.swift in Sources */,
-				D8A40F6929D9989E006922C1 /* UserInterfaceModel.swift in Sources */,
-				D881F13F29ABE28E00D3F9B3 /* SweetnessModel.swift in Sources */,
-				D881F13A29ABE27500D3F9B3 /* AudioModel.swift in Sources */,
-				D881F14829ABE2B200D3F9B3 /* Enums.TextBlocks.swift in Sources */,
-				D881F14929ABE2B500D3F9B3 /* Enums.Debugging.swift in Sources */,
-				D881F14229ABE29800D3F9B3 /* StepCountData.swift in Sources */,
-				D8B8C3BF29C4D58400108904 /* DiabetesModel.swift in Sources */,
-				D8BD978229B1331500F64457 /* BackgroundModel.swift in Sources */,
-				D8195D2229CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */,
-				D8703E2B29BA4ECC00285703 /* SpeechModel.swift in Sources */,
-				D881F14129ABE29500D3F9B3 /* HeartRateData.swift in Sources */,
-				D881F13D29ABE28800D3F9B3 /* Extensions.swift in Sources */,
-				D8703E2E29BA51AF00285703 /* Enums.Audio.swift in Sources */,
+				D82E568D29F9983C004F1DBD /* BloodGlucoseViewComponents.swift in Sources */,
+				D82E569629F9A311004F1DBD /* BackgroundModel.swift in Sources */,
+				D8FDE37429FAF25700E62522 /* CarbohydrateData.swift in Sources */,
+				D82E567D29F99839004F1DBD /* SubscriptionsViewModel.swift in Sources */,
+				D82E56A629F9A311004F1DBD /* LanguageModel.swift in Sources */,
+				D82E569929F9A311004F1DBD /* BloodGlucoseData.swift in Sources */,
+				D82E567B29F99839004F1DBD /* Subscriptions.swift in Sources */,
+				D82E568F29F9983C004F1DBD /* BloodGLucoseViewHandlers.swift in Sources */,
+				D82E567C29F99839004F1DBD /* SubscriptionsView.swift in Sources */,
+				D82E56E429F9A7A3004F1DBD /* enums.swift in Sources */,
+				D82E569C29F9A311004F1DBD /* ConsoleView.swift in Sources */,
+				D82E569529F9A311004F1DBD /* DateModel.swift in Sources */,
+				D82E568C29F9983C004F1DBD /* SettingsView.swift in Sources */,
+				D82E569F29F9A311004F1DBD /* TheHealthBrain.swift in Sources */,
+				D82E569B29F9A311004F1DBD /* HeartRateData.swift in Sources */,
+				D82E568929F9983C004F1DBD /* SettingsViewComponentView.swft.swift in Sources */,
+				D82E56A229F9A311004F1DBD /* AudioModel.swift in Sources */,
+				D82E56A129F9A311004F1DBD /* ConsoleFunctions.swift in Sources */,
+				D82E56B129F9A321004F1DBD /* Enums.LanguagePairs.swift in Sources */,
+				D82E56A029F9A311004F1DBD /* DiabetesModel.swift in Sources */,
+				D82E568A29F9983C004F1DBD /* SettingsDescriptionViews.swift in Sources */,
+				D82E569729F9A311004F1DBD /* DebugMethods.swift in Sources */,
+				D82E56AC29F9A321004F1DBD /* Enums.Debugging.swift in Sources */,
+				D82E569A29F9A311004F1DBD /* CGM_Model.swift in Sources */,
+				D82E569129F998A6004F1DBD /* SceneDelegate.swift in Sources */,
+				D82E569329F998CE004F1DBD /* LaunchScreenView.swift in Sources */,
+				D82E568B29F9983C004F1DBD /* AboutSugahView.swift in Sources */,
+				D82E56A529F9A311004F1DBD /* SweetnessModel.swift in Sources */,
+				D82E56AD29F9A321004F1DBD /* Enums.WorldsUnit.swift in Sources */,
+				D82E566E29F997E1004F1DBD /* ContentView.swift in Sources */,
+				D82E56AE29F9A321004F1DBD /* EnumsAndConstants.swift in Sources */,
+				D82E56B029F9A321004F1DBD /* Enums.Voices.swift in Sources */,
+				D82E568E29F9983C004F1DBD /* BloodGlucoseView.swift in Sources */,
+				D82E56A329F9A311004F1DBD /* VoiceModel.swift in Sources */,
+				D82E56A729F9A311004F1DBD /* UserInterfaceModel.swift in Sources */,
+				D82E56AF29F9A321004F1DBD /* Enums.Errors.swift in Sources */,
+				D82E56AA29F9A321004F1DBD /* Enums.Audio.swift in Sources */,
+				D82E569E29F9A311004F1DBD /* StepCountData.swift in Sources */,
+				D82E56A429F9A311004F1DBD /* SpeechModel.swift in Sources */,
+				D82E56A929F9A31B004F1DBD /* Extensions.swift in Sources */,
+				D82E566C29F997E1004F1DBD /* Shugga_for_LoopApp.swift in Sources */,
+				D82E56AB29F9A321004F1DBD /* Enums.TextBlocks.swift in Sources */,
+				D82E569D29F9A311004F1DBD /* ShuggaStatusClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,14 +760,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shugga/Shugga.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_ASSET_PATHS = "\"Shugga/Preview Content\"";
 				DEVELOPMENT_TEAM = 8GCPJMPAY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shugga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shugga;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion. This app does not modify any Health data";
@@ -700,14 +800,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shugga/Shugga.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 105;
 				DEVELOPMENT_ASSET_PATHS = "\"Shugga/Preview Content\"";
 				DEVELOPMENT_TEAM = 8GCPJMPAY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Shugga/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shugga;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion. This app does not modify any Health data";
@@ -733,28 +833,35 @@
 			};
 			name = Release;
 		};
-		D88005C929B43A0300B89072 /* Debug */ = {
+		D82E567429F997E2004F1DBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shugga for Loop/Shugga for Loop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
-				DEVELOPMENT_ASSET_PATHS = "\"HKDeliveryTest/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 104;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga for Loop/Preview Content\"";
 				DEVELOPMENT_TEAM = 8GCPJMPAY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shugga-for-Loop-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "For this app to work, you will need to give a read access to your blood glucose data (carb and steps are optional)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = center.outside.sugah3.HKDeliveryTest;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-for-Loop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -762,96 +869,35 @@
 			};
 			name = Debug;
 		};
-		D88005CA29B43A0300B89072 /* Release */ = {
+		D82E567529F997E2004F1DBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Shugga for Loop/Shugga for Loop.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
-				DEVELOPMENT_ASSET_PATHS = "\"HKDeliveryTest/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 104;
+				DEVELOPMENT_ASSET_PATHS = "\"Shugga for Loop/Preview Content\"";
 				DEVELOPMENT_TEAM = 8GCPJMPAY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shugga-for-Loop-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake and steps taken )inside Health to functdion.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "For this app to work, you will need to give a read access to your blood glucose data (carb and steps are optional)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = center.outside.sugah3.HKDeliveryTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D881F13729ABE1AB00D3F9B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Shugga Steps/Shugga Steps.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
-				DEVELOPMENT_ASSET_PATHS = "\"Shugga Steps/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GCPJMPAY8;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Shugga-Steps-Info.plist";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-Steps";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D881F13829ABE1AB00D3F9B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Shugga Steps/Shugga Steps.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 102;
-				DEVELOPMENT_ASSET_PATHS = "\"Shugga Steps/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GCPJMPAY8;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Shugga-Steps-Info.plist";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The app needs to access Health for your step data";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-Steps";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "center.outside.shugga.Shugga-for-Loop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -880,20 +926,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D88005CB29B43A0300B89072 /* Build configuration list for PBXNativeTarget "HKDeliveryTest" */ = {
+		D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "Shugga for Loop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D88005C929B43A0300B89072 /* Debug */,
-				D88005CA29B43A0300B89072 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D881F13629ABE1AB00D3F9B3 /* Build configuration list for PBXNativeTarget "Shugga Steps" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D881F13729ABE1AB00D3F9B3 /* Debug */,
-				D881F13829ABE1AB00D3F9B3 /* Release */,
+				D82E567429F997E2004F1DBD /* Debug */,
+				D82E567529F997E2004F1DBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

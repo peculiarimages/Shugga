@@ -74,10 +74,6 @@ let bloodGlucoseMgDlUnit = HKUnit.gramUnit(with: .milli).unitDivided(by: HKUnit.
 let stepCountCheckInterval: Double = 25
 
 
-let backgroundTaskID1 =     "center.outside.shugga.backgroundTask"
-let backgroundRefreshID1 =  "center.outside.shugga.backgroundRefresh"
-
-
 let rodisBirthday = Date(timeIntervalSince1970: 86400) // February 2, 1970 00:00:00 UTC, just a "long time ago" constant
 let rodisBirthdayTimeStamp = rodisBirthday.timeIntervalSince1970
 
