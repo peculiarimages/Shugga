@@ -9,6 +9,8 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>SKProductSubscriptionGroupIdentifier</key>
+	<string>21333724</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
