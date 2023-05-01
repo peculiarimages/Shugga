@@ -109,6 +109,7 @@ struct AboutSugahView: View {
 
                 Text ("Shugga for Loop is not associated with Loop.app or LoopKit. This version of Shugga is designed to work with HealthKit that is updated by Loop.")
                     .font(.caption)
+                    .padding()
 
                 // Text ("Tweet [@SugahApp](\twitterLink) with all your questions and concerns.")
                  Text(.init("Tweet [\(twitterHandle)](\(twitterLink)) with all your questions and concerns.")) //

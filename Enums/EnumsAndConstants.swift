@@ -163,6 +163,7 @@ let february_1_2023 = 167_520_9600
 let march_1_2023    = 167_773_9282
 let april_1_2023    = 168_033_2400
 let may_1_2023      = 168_296_8332
+let june_1_2023    =  168_565_2230
 
 
 enum BloodGlucoseUnit: String {

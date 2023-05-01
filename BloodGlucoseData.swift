@@ -1301,7 +1301,7 @@ class BloodGlucoseData: ObservableObject {
         
         // the following will make theLimit to 1 if the method is being called in the background - no need to get more than the last blood glucose (But this may result in skipped Sweetnesses but we shall see
         if whoCalledTheFunction == .myBackgroundOperation || whoCalledTheFunction == .backgroundRefresh || whoCalledTheFunction == .backgroundTask {  // ignoring two hour regressive analysis changes made to past record
-            theLimit = 1
+            theLimit = 2
         } else
         { theLimit = HKObjectQueryNoLimit }
         

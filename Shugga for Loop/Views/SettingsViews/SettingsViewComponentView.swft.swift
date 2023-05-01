@@ -985,6 +985,8 @@ struct NitPickySettingsContentView: View {
     var body: some View {
         
         List {
+            Text ("Number of time Shugga repeats during each background shugga")
+            
                 Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
                     .onChange(of: speakElapsedTime) { speakElapsedTime in
                         bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }
