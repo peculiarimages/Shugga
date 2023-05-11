@@ -391,9 +391,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIApplicationDelegate {
                    
                    if bloodGlucoseData.manySweetnesses.returnTimeSinceLastCGM() > Double(speakInterval_seconds) {
                        
-                       bloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: .healthKitBackgroundDelivery) { success in
+                       bloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: .foregroundScenePhase) { success in
                            if success {
-                               print("Latest blood glucose fetched and spoken successfully!540 \(WhoCalledTheFunction.healthKitBackgroundDelivery.rawValue)")
+                               print("Latest blood glucose fetched and spoken successfully!540 \(WhoCalledTheFunction.foregroundScenePhase.rawValue)")
                            } else {
                                print("Failed to fetch or speak latest blood glucose.")
                            }

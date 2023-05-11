@@ -190,9 +190,9 @@ struct RemindersDescriptionView: View {
     
     @Binding public var reminderIsOn: Bool
     
-    @Binding public var reminderAfterFood_30Min: Bool
-    @Binding public var reminderAfterFood_60Min: Bool
-    @Binding public var reminderAfterFood_90Min: Bool
+    @Binding public var reminderAfterFood_30Min:  Bool
+    @Binding public var reminderAfterFood_60Min:  Bool
+    @Binding public var reminderAfterFood_90Min:  Bool
     @Binding public var reminderAfterFood_120Min: Bool
     @Binding public var reminderAfterFood_150Min: Bool
     @Binding public var reminderAfterFood_180Min: Bool

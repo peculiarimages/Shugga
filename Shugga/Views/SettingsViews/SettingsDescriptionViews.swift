@@ -318,6 +318,10 @@ struct NitPickyDescriptionView: View {
 
                 
                 Group {
+                    Text ("Repeat Shugga immediately following a shugga: When this is turned on, the app will shugga at least twice in a row at a given interval or from the background.")
+                        .foregroundColor(Color.primary)
+                        .padding(.bottom)
+                    
                     Text ("Shugga Time Elapsed in Foreground: Time elapsed is always included when Shuggaed from the background. This option allows that from being toggled while the app is in the foreground. The actual Shugga may delay when in background so it will always Shugga the time elapsed when in background.")
                         .foregroundColor(Color.primary)
                         .padding(.bottom)

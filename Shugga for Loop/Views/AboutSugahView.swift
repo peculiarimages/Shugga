@@ -56,7 +56,6 @@ func showFunImage () -> Image{
     
     if thePhotoChoice == true {
         return Image ("watermelon")
-            
 
     } else
     {
@@ -87,29 +86,27 @@ struct AboutSugahView: View {
                 Text ("Shugga for Loop")
                     .foregroundColor(logoTypeColor)
                     .font(.system(size: 28, weight: .bold, design: .rounded))
-                
             }
-                
-                
-                
-                
+                                
             VStack {
-
-                
                 
                Text(getVersionNumber())
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
                     .font(.caption)
                     .padding([.top, .bottom], 2)
-                
             
                 Text ("©2023 Outside Center LLC")
                     .font(.caption)
+                    .padding(20)
 
-                Text ("Shugga for Loop is not associated with Loop.app or LoopKit. This version of Shugga is designed to work with HealthKit that is updated by Loop.")
+            
+            ScrollView {
+                
+                
+                Text ("“Shugga for Loopˮ is not associated with Loop.app nor LoopKit. This version of Shugga is designed to work with HealthKit that is updated by Loop in real-time.")
                     .font(.caption)
-                    .padding()
+                    .padding([.leading, .trailing], 35)
 
                 // Text ("Tweet [@SugahApp](\twitterLink) with all your questions and concerns.")
                  Text(.init("Tweet [\(twitterHandle)](\(twitterLink)) with all your questions and concerns.")) //
@@ -132,8 +129,6 @@ struct AboutSugahView: View {
                      .padding([.leading, .trailing], 35)
                      .lineLimit(1)
                      .minimumScaleFactor(0.5)
-            
-            ScrollView {
                 
                 Text (whatThisAppDoes)
                     .foregroundColor(.primary)
@@ -146,7 +141,7 @@ struct AboutSugahView: View {
                 VStack {
                     
                     Text (legalText)
-                        .foregroundColor(.primary)
+                        .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                         .padding([.leading, .trailing], 15)
                         .padding([.top, .bottom], 14)
@@ -156,6 +151,7 @@ struct AboutSugahView: View {
     //                    .cornerRadius(22)
     //                    .padding([.leading, .trailing], 15)
     //                    .padding(22)
+                        .opacity(0.7)
                     
                     showFunImage()
                                 .resizable()
@@ -165,7 +161,7 @@ struct AboutSugahView: View {
 
                                 .padding([.leading, .trailing], 35)
                 }
-                .background (.red)
+                .background (shuggaRed)
                 .cornerRadius(22)
                 .padding([.leading, .trailing], 15)
                 .padding(22)
@@ -185,13 +181,34 @@ struct AboutSugahView: View {
                     //
                     //                        Text (voiceName)
                     //                    }
-                    Text ("THANKS AGAIN for DOWNLOADING/PURCHASING\n\n\n\n\n\n\n")
+                    Text ("Many thanks to the following individuals who helped me get this far with Shugga:\n\nGlo GLo the Nurse\n\nLocalizations\n\n   Deutsch: My better half Ms. Fritz\n   Italiano: Tiziana\n   한국어: Alex Y.\n   Français: Haruka\n\nMoral Support: \n\n   Henri, everyone's Secret Weapon!!\n   歩く人 Justine, The only Vet I know who actually cares!!\n   Stephen🐤, the only　宇宙人 I know!!\n\nMoral Hazard & LLC: Gregman G.\n\nAnd as for my own type 1 diabetes, thanks to all of you who have supported me the last 20 odd years- including all the fantabulous doctors (1, 2, 3, 4, 5) and all the way to the tech support/accounting peeps at CGM/Pump makers. And lets not foret those of you who created and support Loop.app and LoopKit.  “Thank you all for saving my life.ˮ\n\n Hmmmm, not sure if I should thank my insurance company.... I would need over 30,000 subscriptions a year to cover just the annual premium. And we think that is ok in this country.\n\nAnd for the rest of you, THANK YOU SO MUCH for DOWNLOADING/PURCHASING. It sucks ass to have diabetes. But I hope this little app will make things a tiny bit easier to enjoy life. The only one we've got.❤️")
                         .foregroundColor(.secondary)
                         .padding([.leading, .trailing], 35)
                         .padding([.top, .bottom], 12)
                         .font(.system(size: 12, design: .rounded))
+                    
+                    Image("thePass")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(22)
+                        .padding([.top, .bottom], 12)
+                        .padding([.leading, .trailing], 35)
+                    
+                    Text ("Now that you've read this far, go get your free lifetime National Parks pass! The only free thing, beside the love from the people around you that is free for us diabetics. (link)\n")
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .trailing], 35)
+                        .padding([.top, .bottom], 12)
+                        .font(.system(size: 12, design: .rounded))
+
+                    Text ("Created by:\n\nHiroshi Howell\n\nLob all complaints and grievances to Outside Center LLC, please. I am not responsible for anything...\n\n\n\n\n\n\n")
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .trailing], 35)
+                        .padding([.top, .bottom], 12)
+                        .font(.system(size: 12, design: .rounded))
+                    
                 }
-            }.overlay(
+            } //ScrollView
+            .overlay(
                 LinearGradient(
                     gradient: Gradient(colors: [Color.clear, Color(.systemBackground).opacity(1.0)]),
                        startPoint: .top,
@@ -203,20 +220,8 @@ struct AboutSugahView: View {
                 alignment: .bottom
             )
             
-                
-                
-                
-                
-                
-                
-                
             }
-
-            
-            
-            
-            
-            
+            .padding(5)
         }
     }
 }

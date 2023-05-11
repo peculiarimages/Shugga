@@ -136,7 +136,6 @@ struct deBugGlucoseValueListFView: View {
         VStack {
                 //Text("Current BG: \(String(format: "%.0f", bloodGlucoseData.glucoseValue))")
             if let sweetness =  bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness {
-                
            
                     HStack{
                         Text ("last bkGnd 🔊:")
@@ -305,7 +304,6 @@ struct CarbStatusView: View {
                     .padding(.leading, 100)
                     .padding(.trailing, 100)
 
-
                 HStack {
                     Spacer()
                     Text("CARB HISTORY")
@@ -327,7 +325,6 @@ struct CarbStatusView: View {
                             .opacity (0.6)
                             .background(Color.clear)
                      Spacer()
-                        
                     }
                     .padding(.bottom, 3)
 
@@ -340,9 +337,7 @@ struct CarbStatusView: View {
                         
                         else {
                             VStack{
-                              
-
-                                
+                                                              
                                 ForEach(carbohydrateData.carbs.reversed(), id: \.self) { carb in
                                     HStack {
                                         Spacer()
@@ -360,8 +355,6 @@ struct CarbStatusView: View {
                                     .background(Color.clear)
                                     .padding(.bottom, 3)
                                 }
-                                
-                              
                             }
                     }
                 }
@@ -475,8 +468,7 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
                 Text ("You must agree to the User Agreement before you can use this app. It can be found in the app's settings, which you can navigate by clicking the Shugga logo or the gear icon above.")
                     .foregroundColor(.orange)
                 
-                    .padding(30)
-                
+                    .padding(15)
             }
             .padding()
         }
@@ -508,8 +500,7 @@ struct SweetnessesIsEmptyNoticeView: View {
                 Text ("You need at least one blood glucose entry in Health in the past 24 hours for this app to function.")
                     .foregroundColor(.orange)
                 
-                    .padding(30)
-                
+                    .padding(15)
             }
             .padding()
         }
@@ -571,10 +562,6 @@ struct NoBloodGlucosePermissionNoticeView: View {
 
 
 
-
-
-
-
 struct ShuggaStatusInfoView: View {
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
@@ -594,22 +581,12 @@ struct ShuggaStatusInfoView: View {
                 HStack {
                     Spacer()
                     
-                    
-                    
-                    
-                 
-                    
-                    
                     Image(systemName: "circle.inset.filled")
                         .font(.system(size: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      Float (mainBloodGlucoseDisplayFontSize)/7.7  :  18 )     ))
                         .foregroundColor(bloodGlucoseFetchColor)
                         .opacity(bloodGlucoseFetchingAlpha)
                         .frame(width: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      (mainBloodGlucoseDisplayFontSize)/7 + 1  :  21 ) )
                         .offset (y: -1)
-                    
-                    
-                    
-                    
                     
                     ZStack(alignment: .leading) {
                         Image(systemName: "bubble.left.fill")
@@ -623,7 +600,6 @@ struct ShuggaStatusInfoView: View {
                         Image(systemName: "speaker.wave.2.bubble.left.fill")
                             .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
                         
-                        
                             .opacity(shuggaStatus.shuggaState == .shuggaInProgress ? 0.75 : 0.0)
                         
                             .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7: 21))
@@ -631,20 +607,12 @@ struct ShuggaStatusInfoView: View {
                             .frame ( alignment: .leading)
                     }
                     
-                    
-                    
-                    
                     Image(systemName: bloodGlucoseData.mainViewBloodDropletWarningFlag ? "drop.circle" : "drop.circle.fill")
                         .font(.system(size: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      Float (mainBloodGlucoseDisplayFontSize)/7.7  :  18 )     ))
                         .foregroundColor(bloodGlucoseData.mainViewBloodDropletWarningFlag ? shuggaRed : .primary)
                         .opacity(bloodGlucoseData.mainViewBloodDropletWarningFlag ? 0.75 : 0.3)
                         .frame(width: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      (mainBloodGlucoseDisplayFontSize)/7 + 1  :  21 ) )
                         .offset (y: -1)
-                    
-                    
-                    
-                    
-                    
                     
                     Spacer()
                 }

@@ -586,6 +586,8 @@ struct UnitSettingsContentView:  View {
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =           false
     @AppStorage("multiplyTrendByTen")               public var multiplyTrendByTen =           false
     @AppStorage("includeUnit")                      public var includeUnit =                        true
+    @AppStorage("removeTimeUnit")                   public var removeTimeUnit =                        false
+
     var body: some View {
         
         List{
@@ -626,6 +628,10 @@ struct UnitSettingsContentView:  View {
                 Toggle("Multiply trend rate by 10", isOn: $multiplyTrendByTen)
                     .disabled(!shuggaGlucoseTrend)
                     .padding (.leading)
+                Toggle("Remove time unit", isOn: $multiplyTrendByTen)
+                .disabled(!shuggaGlucoseTrend)
+                .padding (.leading)
+
 
             }                        .textCase(.none)
 
@@ -980,14 +986,18 @@ struct NitPickySettingsContentView: View {
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
     @AppStorage("showAncillaryData")                public var showAncillaryData =                  true
     @AppStorage("showLockButton")                   public var showLockButton =                     false
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     true
 
 
     var body: some View {
         
         List {
-            Text ("Number of time Shugga repeats during each background shugga")
             
-                Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
+            Toggle(NSLocalizedString("Repeat shugga immediately following a shugga", comment: ""), isOn: $shuggaRepeats)
+                .disabled((false))
+            
+            
+            Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
                     .onChange(of: speakElapsedTime) { speakElapsedTime in
                         bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }
                 
@@ -1063,6 +1073,8 @@ struct NitPickSettingsView: View {
     @AppStorage("grayAppIcon")                      public var grayAppIcon =                        false
     @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
+
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     true
 
     @State private var showDescription = false
 

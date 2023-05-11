@@ -103,11 +103,12 @@ struct SpeechBubble<Content: View>: View {
             
             content()
                 //.padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
-
+            
         }
+        .background(.white)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .shadow(color: Color(.systemBackground).opacity(0.4), radius: 8, x: 0, y: 2)
+                    .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
 //                    .foregroundColor(Color(.systemBackground)) // Use system background color
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -116,6 +117,7 @@ struct SpeechBubble<Content: View>: View {
             )
             .offset(x: 0, y: -5)
         //Spacer()
+        
     }
 }
 
@@ -147,10 +149,7 @@ struct SlidingUnlockButton: View {
     @State private var dragOffset = CGSize.zero
     @State private var isUnlocked = false
     
-    
     @State private var grayRectangleWidth: CGFloat = 0
-    
-
     
     @State private var originalSlideText = true
     @State private var grayRectangleColor: Color = Color.gray.opacity(0.4) // Add this new state property
@@ -166,7 +165,6 @@ struct SlidingUnlockButton: View {
     @AppStorage("as_pauseDuration") public var as_pauseDuration: TimeInterval = 0
     @AppStorage("pauseForX_min")                   public var pauseForX_min =                     pauseShuggaDefault_min
 
-    
     
     let theHeight = 60.0
     var onUnlock: () -> Void = {} // Closure to be called when the slider is unlocked
@@ -268,9 +266,7 @@ struct SlidingUnlockButton: View {
                                     withAnimation {
                                         dragOffset = CGSize.zero
                                         sliderInLockPosition = true
-
                                     }
-                                    
                                 }
                             }
                     )
@@ -334,7 +330,6 @@ struct ValueSlider: ViewModifier {
                             .offset(x: thumbPosition - thumbSize / 2)
                             .animation(.none, value: value)
                             .allowsHitTesting(false) // Ignore touches on the Text view
-
                     }
                 }
             )

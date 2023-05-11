@@ -13,7 +13,6 @@ import BackgroundTasks
 func getVersionNumber() -> String{
     
     var config: [String: Any]?
-
     
     if let infoPlistPath = Bundle.main.url(forResource: "Info", withExtension: "plist") {
         do {
@@ -75,8 +74,6 @@ struct AboutSugahView: View {
         
         VStack {
             
-            
-            
             VStack {
                 
                 Image("logo 3")
@@ -87,15 +84,9 @@ struct AboutSugahView: View {
                 Text ("Shugga")
                     .foregroundColor(logoTypeColor)
                     .font(.system(size: 28, weight: .bold, design: .rounded))
-                
             }
                 
-                
-                
-                
             VStack {
-
-                
                 
                Text(getVersionNumber())
                     .multilineTextAlignment(.center)
@@ -107,7 +98,6 @@ struct AboutSugahView: View {
                 Text ("©2023 Outside Center LLC")
                     .font(.caption)
 
-                
                 // Text ("Tweet [@SugahApp](\twitterLink) with all your questions and concerns.")
                  Text(.init("Tweet [\(twitterHandle)](\(twitterLink)) with all your questions and concerns.")) //
                      .foregroundColor(.primary)
@@ -199,21 +189,7 @@ struct AboutSugahView: View {
                 .padding(.top, -30),
                 alignment: .bottom
             )
-            
-                
-                
-                
-                
-                
-                
-                
             }
-
-            
-            
-            
-            
-            
         }
     }
 }

@@ -266,21 +266,11 @@ struct BloodGlucoseView: View {
                                     
                                     
                                     
-                                    
-                                    
-                                    
-                                    
-                                    
 //                                    if pauseNow {
 //                                        PauseTimerView()
 //                                        
 //                                    }
 //                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     if theMainViewIsLocked {
@@ -300,12 +290,6 @@ struct BloodGlucoseView: View {
                                             .offset(y: -50)
                                         Spacer()
                                     }
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
                                     
                                     
                                     

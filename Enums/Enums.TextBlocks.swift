@@ -32,4 +32,4 @@ let twitterHandle: String = "@ShuggaApp"
 
 let webPageLink: String = "https://shugga.app"
 
-let listOfBugs = "•HK Background Deliveries are off\n•19 seconds .onAppear repeated Shugga bug is removed (need to implement this back but into BloodGlucoseData\n• screen lock is now disabled in Detailed (?) pop up view (because it doesn't let you unlock)"
+let listOfBugs = "AboutView returns to SettingsView w/o the user clicking the return link when SettingsView gets updated"
