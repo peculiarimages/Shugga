@@ -102,9 +102,8 @@ let deBugMode = true
 // settings
 let castAlarmInterval_inMinutes:  [Int] =   [5, 10, 20, 30, 45, 60, 120, 300, 600]
 
-let announcementInterval: [Int] =           [  10,  20,   30,    45,   60,  120,  180,  240,  300,
-                                              360, 420,  480,   540,  600,  660,  720,  780,  840,
-                                              900,  1200, 1800, 2700, 3600  ]
+let announcementInterval: [Int] =           [  10,  20,   30,     60,  150, 300,
+                                              600,  900, 1200, 1800, 2700, 3600  ]
 
 let pauseInterval: [Int] =                  [1, 5, 10, 20, 30, 60, 120, 300, 600, 900, 1200]
 
@@ -128,7 +127,7 @@ let logoTypeColor = Color(red: 0.530, green: 0.0, blue: 0.12)
 
 let settingSymbolName = "gearshape.fill"
 
-let thisIsBeta = false
+let thisIsBeta = true
 
 let settingsSFSymbolName = "gearshape.fill"
 
@@ -154,10 +153,10 @@ let defaultThreeSpeechSpeed =  SugahSpeed.normal.rawValue
 
 //https://gist.github.com/Koze/d1de49c24fc28375a9e314c72f7fdae4#file-speechvoices-tsv
 
-let languageChoices: [String] = ["US English", "UK English", "Deutsch", "日本語", "Italiano", "Français (France)",  "한글", "Español"]
+let languageChoices: [String] = ["US English", "UK English" , "Deutsch", "日本語", "Italiano", "Français (France)",  "한글", "Español"]
 
 //let languageCodeCurrentlyAvailable: [String] = ["en" /*, "ja", "de", "it", "fr", "ko", "es", "zh"]  *// this is the order in the settings menu
-let languageCodeCurrentlyAvailable: [String] = ["en", "ja", "de", "ko", "it", "fr", "ko", "es", "zh"] // this is the order in the settings menu
+let languageCodeCurrentlyAvailable: [String] = ["en" ]//, "ja", "de", "ko", "it", "fr", "ko", "es", "zh"] // this is the order in the settings menu
 
 
 let old_test_unix_timestamp = 100_000_0000

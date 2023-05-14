@@ -1048,9 +1048,12 @@ class BloodGlucoseData: ObservableObject {
             
             if   tellMeItsFromBackground &&
                     (   whoCalledTheFunction == .HKObserverQuery
-                     || whoCalledTheFunction == .backgroundFetch
-                     || whoCalledTheFunction == .backgroundRefresh
-                     || whoCalledTheFunction == .aRetryFromBackground
+                        || whoCalledTheFunction == .backgroundFetch
+                        || whoCalledTheFunction == .backgroundRefresh
+                        || whoCalledTheFunction == .aRetryFromBackground
+                        || whoCalledTheFunction == .HKObserverQuery
+                        || whoCalledTheFunction == .healthKitBackgroundDelivery
+                        || whoCalledTheFunction == .backgroundTask
                     )
             {
                 aBackGroundCalledTheFunction = true
@@ -1097,6 +1100,21 @@ class BloodGlucoseData: ObservableObject {
                 
                 shuggaUtterance += diabetes.returnSpeakableGlucoseTrendValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters)
                                 
+                    
+                    
+                    if thisIsBeta {
+                        
+                        shuggaUtterance += ". Elapsed time since: "
+                        
+                        shuggaUtterance += String(Int(self.manySweetnesses.returnTimeSinceLastCGM()))
+                        
+                    }
+                    
+                    
+                  
+                    
+                    
+                    
                     self.speech.speakAnything(speechString: shuggaUtterance, typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
                     guard let self = self else { return } // Safely unwrap self
                     

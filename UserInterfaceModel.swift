@@ -90,7 +90,6 @@ func isAppInBackground(completion: @escaping (Bool) -> Void) {
 
 
 
-
 struct SpeechBubble<Content: View>: View {
     let content: () -> Content
 
@@ -100,26 +99,22 @@ struct SpeechBubble<Content: View>: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
             content()
-                //.padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
-            
         }
-        .background(.white)
-            .background(
-                RoundedRectangle(cornerRadius: 10)
-                    .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
-//                    .foregroundColor(Color(.systemBackground)) // Use system background color
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.gray, lineWidth: 1)
-                    )
-            )
-            .offset(x: 0, y: -5)
-        //Spacer()
-        
+        .padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.white) // Apply the color directly to the RoundedRectangle
+                .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+        )
+        .offset(x: 0, y: -5)
     }
 }
+
 
 
 

@@ -465,10 +465,10 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
                     Spacer()
                 }.padding(.top, 10)
                 
-                Text ("You must agree to the User Agreement before you can use this app. It can be found in the app's settings, which you can navigate by clicking the Shugga logo or the gear icon above.")
+                Text (youMustAgreeText)
                     .foregroundColor(.orange)
                 
-                    .padding(15)
+                    .padding()
             }
             .padding()
         }
@@ -574,8 +574,10 @@ struct ShuggaStatusInfoView: View {
     @ObservedObject var speech = Speech.shared
     @AppStorage("mainBloodGlucoseDisplayFontSize")  public var mainBloodGlucoseDisplayFontSize =    200
 
+    
+    
     var body: some View {
-     
+        
         VStack {
             HStack {
                 HStack {
@@ -597,7 +599,8 @@ struct ShuggaStatusInfoView: View {
                             .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7  : 21))
                             .frame ( alignment: .leading)
                         
-                        Image(systemName: "speaker.wave.2.bubble.left.fill")
+                        Image(systemName: shuggaStatus.returnAppropriateCurrentlyPlayingShuggaStatusSystemName()
+)
                             .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
                         
                             .opacity(shuggaStatus.shuggaState == .shuggaInProgress ? 0.75 : 0.0)
@@ -647,9 +650,6 @@ struct ShuggaStatusInfoView: View {
                 }
             }
         })
-        
-        
-        
     }
 }
 
@@ -808,28 +808,17 @@ struct HowToTurnHealthKitOnView: View {
 
 
 
-
-
-
-
-
-
-
-
 struct LockButtonView: View {
+    
     @Binding var theMainViewIsLocked: Bool
     @Binding var theShuggaIsPaused: Bool
 
     @AppStorage("showLockButton") public var showLockButton = false
 
-    
     var body: some View {
         
-        
         SlidingUnlockButton(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused)
-                
-            
-        
+                        
     }
 }
 
@@ -849,12 +838,10 @@ struct MainGlucoseDisplayView: View {
     
     @Binding var dataTooOldPeriod_min: Int
     
-    
     let skipHundredth: Bool
   //  let theDataIsTooOld: Bool
     
     var body: some View {
-        
         
         let timeSinceUpdateInSeconds = Int(Date().timeIntervalSince1970) - Int(bloodGlucoseData.manySweetnesses.sweetnesses?.last?.startTimestamp ?? 0.0)
         
@@ -869,7 +856,6 @@ struct MainGlucoseDisplayView: View {
 
         }
         
-        
         VStack {
             if demoMode {
                 if userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter {
@@ -881,7 +867,9 @@ struct MainGlucoseDisplayView: View {
                         .minimumScaleFactor(((orientation.isPortrait) || (!orientation.isPortrait && !orientation.isLandscape)) ? 0.9 : 0.9)
                         .accessibilityLabel(_: "This is the last available blood glucose value from your Apple Health data.")
                 }
+                
                 else
+                
                 {
                     Text ("\(demoValue_mmolPerLiter)")
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -891,7 +879,6 @@ struct MainGlucoseDisplayView: View {
                         .minimumScaleFactor(((orientation.isPortrait) || (!orientation.isPortrait && !orientation.isLandscape)) ? 0.9 : 0.9)
                         .accessibilityLabel(_: "This is the last available blood glucose value from your Apple Health data.")
                 }
-                
             }
             
             
@@ -902,21 +889,15 @@ struct MainGlucoseDisplayView: View {
                  
                     NoBloodGlucosePermissionNoticeView()
                         .padding()
-                    
                 }
                 else
                 if bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -99 < 0 {
                     SweetnessesIsEmptyNoticeView()
                 }
                 
-                
-                
-                
                 else {
                     
-                    
                     let almostCompleteValueInString = returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : userBloodGlucoseUnit.rawValue, skipHundredth: skipHundredth)
-                    
                     
                     let completeValueInString_noSpace = almostCompleteValueInString.replacingOccurrences(of: " ", with: "")
                     let completeValueInString = completeValueInString_noSpace.replacingOccurrences(of: "O", with: "0")
@@ -930,36 +911,8 @@ struct MainGlucoseDisplayView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(((orientation.isPortrait) || (!orientation.isPortrait && !orientation.isLandscape)) ? 0.7 : 0.7)
                         .accessibilityLabel(_: "This is your last blood glucose value recorded in Apple Health.")
-                    
-                    
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .padding([.leading, .trailing, .top], 10)
@@ -989,22 +942,7 @@ struct MainGlucoseDisplayView: View {
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if bloodGlucoseData.userApprovedHealthKitBloodGlucose_Read == true {
-            
-            
             
             
             VStack {
@@ -1094,8 +1032,6 @@ struct TopMenuView: View {
                             .scaledToFit()
                             .frame(width: navigationImageSize, height: navigationImageSize)
                             .shadow(color:  Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: itemShadowOpacity)), radius: itemShadowRadius, x: itemShadowOffsetX, y: itemShadowOffsetY)
-                        
-                        
                     }
                     
                 } else
@@ -1114,8 +1050,6 @@ struct TopMenuView: View {
                             .frame(width: navigationImageSize, height: navigationImageSize)
                             .shadow(color:  Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: itemShadowOpacity)), radius: itemShadowRadius, x: itemShadowOffsetX, y: itemShadowOffsetY)
                     }
-                    
-                    
                 }
                 
             }
@@ -1132,9 +1066,6 @@ struct TopMenuView: View {
                 if theMainViewIsLocked {
                     
                     
-                    
-                 
-                        
                         Image(systemName: "gearshape.fill")
                             .foregroundColor(.gray)
                             .font(.system(size: 30))
@@ -1142,14 +1073,10 @@ struct TopMenuView: View {
                         // .frame(width: 50, height: 50)
                         //.padding([.top, .leading, .trailing], 10)
                             .accessibilityLabel(_: "This is a gray gear button. This also takes you to the settings.")
-                        
-                    
-                    
                 }
                 else
                     
                 {
-                    
                     
                     
                     NavigationLink(destination: SettingsView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused)

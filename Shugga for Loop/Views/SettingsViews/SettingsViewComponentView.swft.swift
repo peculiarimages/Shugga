@@ -469,9 +469,20 @@ struct DetailsSettingsView: View {
                 Picker(NSLocalizedString("Shugga every", comment: "Picker label for selecting frequency of readout"), selection: $speakInterval_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
-                        if interval > SecondsIn.oneMinute.rawValue { Text("\(interval/SecondsIn.oneMinute.rawValue) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency")) }
-                        else { Text("\(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency")) }
+                        if interval > SecondsIn.oneMinute.rawValue {
+                            let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
+                            if minutes.truncatingRemainder(dividingBy: 1) == 0 {
+                                // interval is a whole number of minutes
+                                Text("\(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                            } else {
+                                // interval is not a whole number of minutes
+                                Text(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                            }
+                        } else {
+                            Text("\(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                        }
                     }
+
                 }
                 .textCase(.none)
                 .pickerStyle(.menu)
@@ -628,7 +639,7 @@ struct UnitSettingsContentView:  View {
                 Toggle("Multiply trend rate by 10", isOn: $multiplyTrendByTen)
                     .disabled(!shuggaGlucoseTrend)
                     .padding (.leading)
-                Toggle("Remove time unit", isOn: $multiplyTrendByTen)
+                Toggle("Remove time unit", isOn: $removeTimeUnit)
                 .disabled(!shuggaGlucoseTrend)
                 .padding (.leading)
 
@@ -645,10 +656,13 @@ struct UnitSettingsView: View {
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
 
+    
     @AppStorage("userBloodGlucoseUnit")             public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =           false
     @AppStorage("multiplyTrendByTen")               public var multiplyTrendByTen =           false
     @AppStorage("includeUnit")                      public var includeUnit =                        true
+    @AppStorage("removeTimeUnit")                   public var removeTimeUnit =                        false
+
     @State private var showDescription = false
 
     var body: some View {
@@ -675,7 +689,8 @@ struct UnitSettingsView: View {
                 
             .font(.headline)
                 //.fontWeight(.regular)
-                
+                , footer:
+                    Text("Shugga sample:“\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")”")
         ) { UnitSettingsContentView() }
     }
 }
@@ -986,14 +1001,14 @@ struct NitPickySettingsContentView: View {
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
     @AppStorage("showAncillaryData")                public var showAncillaryData =                  true
     @AppStorage("showLockButton")                   public var showLockButton =                     false
-    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     true
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     false
 
 
     var body: some View {
         
         List {
             
-            Toggle(NSLocalizedString("Repeat shugga immediately following a shugga", comment: ""), isOn: $shuggaRepeats)
+            Toggle(NSLocalizedString("SHugga twice in a row", comment: ""), isOn: $shuggaRepeats)
                 .disabled((false))
             
             
@@ -1074,7 +1089,7 @@ struct NitPickSettingsView: View {
     @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
 
-    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     true
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     false
 
     @State private var showDescription = false
 
@@ -1472,8 +1487,24 @@ struct AcknowledgmentsSettingsView: View {
         Section(header: Text("Acknowledgments")) {
             VStack {
                 VStack {
-                    Text ("...")
-                    //                                .font(.headline)
+                    Text (acknowledgementText)
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .trailing], 35)
+                        .padding([.top, .bottom], 12)
+                        .font(.system(size: 14, design: .rounded))
+                    
+                    Image("thePass")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(22)
+                        .padding([.top, .bottom], 12)
+                        .padding([.leading, .trailing], 35)
+                    
+                    Text (nationalParksText)
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .trailing], 35)
+                        .padding([.top, .bottom], 12)
+                        .font(.system(size: 14, design: .rounded))                    //                                .font(.headline)
                 }
                 
             }

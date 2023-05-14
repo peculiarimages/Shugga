@@ -40,6 +40,7 @@ struct Diabetes {
     
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =           false
     @AppStorage("multiplyTrendByTen")               public var multiplyTrendByTen =           false
+    @AppStorage("removeTimeUnit")                   public var removeTimeUnit =                        false
 
     
     
@@ -156,7 +157,7 @@ struct Diabetes {
                     isSteady = true
                 }
                 
-                if !isSteady {
+                if !isSteady && !removeTimeUnit{
                     if let _ = theSweetness.glucoseTrendRateValue, let glucoseTrendRateUnit = theSweetness.glucoseTrendRateUnit {
                         
                         
@@ -207,6 +208,10 @@ struct Diabetes {
                         }
                         
                     }
+                }
+                else {
+                    speakableGlucoseTrendString += "."
+
                 }
                 
             }

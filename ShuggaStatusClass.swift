@@ -21,4 +21,13 @@ class ShuggaStatus: ObservableObject {
     
     
     private init() {}
+    
+    let defaultImageName =      "speaker.wave.2.bubble.left.fill"
+    let alternateImageName =    "text.bubble"
+    
+    func returnAppropriateCurrentlyPlayingShuggaStatusSystemName() -> String {
+        if UIImage(systemName: defaultImageName) != nil { return (defaultImageName) }
+        return (alternateImageName)
+
+    }
 }

@@ -34,6 +34,86 @@
             endingLineNumber = "383"
             landmarkName = "speakAnything(speechString:typesOfSpeech:language:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A9FDBF27-11C2-4669-81EB-9A2BB3196515 - a4c5f5cfc2030b81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "383"
+                  endingLineNumber = "383"
+                  offsetFromSymbolStart = "932">
+               </Location>
+               <Location
+                  uuid = "A9FDBF27-11C2-4669-81EB-9A2BB3196515 - a4c5f5cfc2030b81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "383"
+                  endingLineNumber = "383"
+                  offsetFromSymbolStart = "1281">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SweetnessModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "returnTimeSinceLastCGM(purportedLastUUID:purportedLastStartTimeStamp:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0 - 9aa4e6d67a9b4ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shugga_for_Loop.ManySweetnesses.returnTimeSinceLastCGM(purportedLastUUID: Swift.Optional&lt;Foundation.UUID&gt;, purportedLastStartTimeStamp: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Double"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SweetnessModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+               <Location
+                  uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0 - 9aa4e6d67a9b4ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shugga_for_Loop.ManySweetnesses.returnTimeSinceLastCGM(purportedLastUUID: Swift.Optional&lt;Foundation.UUID&gt;, purportedLastStartTimeStamp: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Double"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SweetnessModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "1365">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
