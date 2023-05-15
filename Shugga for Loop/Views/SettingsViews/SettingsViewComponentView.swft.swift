@@ -26,7 +26,7 @@ struct NavigationForSettingsView: View {
     var body: some View {
         
         HStack {
-            
+            /*
             VStack {
                 //                        NavigationLink(destination: GlucoseValueView()) {
                 NavigationLink(destination: SubscriptionsView()) {
@@ -41,6 +41,13 @@ struct NavigationForSettingsView: View {
             }
             .frame (width: 75)
             .padding()
+            */
+            
+            VStack {
+                Text("")
+            }
+            .frame (width: 75)
+            .padding([.leading, .trailing], 5)
             
             Spacer()
             
@@ -55,15 +62,19 @@ struct NavigationForSettingsView: View {
                                 .padding([.top, .leading, .trailing], 10)
                                 .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
                             
-                            Text ("Shugga")
+                            Text ("Shugga for Loop")
                                 .foregroundColor(logoTypeColor)
                                 .font(.system(size: 14, weight: .bold, design: .rounded))
                                 .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")
+                                .lineLimit(1)
+                                 .truncationMode(.tail)
                         }
                     }
                 }
             }
-            
+            .frame (width: 200)
+            .padding([.leading, .trailing], 5)
+
             Spacer()
             
             VStack {
@@ -79,9 +90,13 @@ struct NavigationForSettingsView: View {
                 }
             }
             .frame (width: 75)
-            .padding()
-            
+            .padding([.leading, .trailing], 5)
+
         }
+        
+        
+        
+        
     }
 }
 
@@ -362,7 +377,7 @@ struct MainSwitchSettingsView: View {
                                         .padding([.top, .leading, .trailing], 10)
                                         .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
                                     
-                                    Text ("Shugga\n")
+                                    Text ("Shugga for Loop\n")
                                         .foregroundColor(logoTypeColor)
                                         .font(.system(size: 14, weight: .bold, design: .rounded))
                                         .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")

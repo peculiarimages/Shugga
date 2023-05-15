@@ -1015,11 +1015,13 @@ struct TopMenuView: View {
 
     
     var body: some View {
-        
+        Spacer()
         HStack {
             VStack {
                 Text("")
-            }            .frame (width: 75)
+            }
+            .frame (width: 75)
+            .padding([.leading, .trailing], 5)
 
             Spacer()
             
@@ -1056,8 +1058,8 @@ struct TopMenuView: View {
             .frame (width: 75)
 
             .accessibilityLabel(_: "This button takes you to the About Page of this app. If you press this button, you will be directed to the settings menu.")
-            .padding()
-            
+            .padding([.leading, .trailing], 5)
+
             Spacer()
 
             VStack {
@@ -1107,7 +1109,8 @@ struct TopMenuView: View {
 
             }
             .frame (width: 75)
-            
+            .padding([.leading, .trailing], 5)
+
            }
         
         .padding([.top], 10)

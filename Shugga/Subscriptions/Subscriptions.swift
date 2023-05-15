@@ -16,8 +16,8 @@ extension Notification.Name {
 class Subscriptions: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     static let shared = Subscriptions()
     
-    let monthlySubscriptionProductID =  "001_all_01"
-    let yearlySubscriptionProductID =   "001_all_12"
+    let monthlySubscriptionProductID =  "Month_01"
+    let yearlySubscriptionProductID =   "Month_12"
     var monthlyProduct: SKProduct?
     var yearlyProduct: SKProduct?
     

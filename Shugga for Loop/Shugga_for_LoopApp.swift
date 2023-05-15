@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 import BackgroundTasks
+//import Purchases
 
 let currentAppEarliestBeginDate =           SecondsIn.twoMinutesAndOneSec.rawValue
 let currentAppEarliestBeginDateReSubmit =   SecondsIn.sixtyOneSeconds.rawValue
@@ -58,6 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+//        Purchases.debugLogsEnabled = true
+//        Purchases.configure(withApiKey("appl_XEptIqUOWKAKqxKaJxpmDXpNafP"))
+//        
         
         print ("APP launched")
         

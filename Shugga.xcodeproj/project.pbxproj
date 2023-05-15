@@ -79,11 +79,9 @@
 		D849B3ED29D4AA0800003B3E /* SettingsDescriptionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849B3EC29D4AA0800003B3E /* SettingsDescriptionViews.swift */; };
 		D84A1ED129DF46AD00B893D8 /* BloodGlucoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9A829A9347F006F4D6A /* BloodGlucoseData.swift */; };
 		D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A1ED329DF46C900B893D8 /* shuggaApp.swift */; };
-		D850400629EC229A00543B93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850400529EC229A00543B93 /* StoreKit.framework */; };
 		D850400829EC23B200543B93 /* Subscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400729EC23B200543B93 /* Subscriptions.swift */; };
 		D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400929EC292200543B93 /* SubscriptionsView.swift */; };
 		D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */; };
-		D85A8CA829F6FC1300FC75C6 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D85A8CA729F6FC1300FC75C6 /* OAuthSwift */; };
 		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
@@ -97,6 +95,7 @@
 		D8BD978129B1331500F64457 /* BackgroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978029B1331500F64457 /* BackgroundModel.swift */; };
 		D8BD978429B1390900F64457 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978329B1390900F64457 /* DateModel.swift */; };
 		D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD978629B148A100F64457 /* ConsoleView.swift */; };
+		D8BDA7212A11BD680076690F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D850400529EC229A00543B93 /* StoreKit.framework */; };
 		D8FDE37029FAEFCA00E62522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D803D9A229A9346A006F4D6A /* Assets.xcassets */; };
 		D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */; };
 		D8FDE37429FAF25700E62522 /* CarbohydrateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FDE37229FAF25600E62522 /* CarbohydrateData.swift */; };
@@ -185,8 +184,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85A8CA829F6FC1300FC75C6 /* OAuthSwift in Frameworks */,
-				D850400629EC229A00543B93 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BDA7212A11BD680076690F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +446,6 @@
 			);
 			name = Shugga;
 			packageProductDependencies = (
-				D85A8CA729F6FC1300FC75C6 /* OAuthSwift */,
 			);
 			productName = Shugga;
 			productReference = D803D98229A9335D006F4D6A /* Shugga.app */;
@@ -465,8 +462,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				D8BDA7152A11BA580076690F /* PBXTargetDependency */,
+				D8BDA7172A11BA580076690F /* PBXTargetDependency */,
+				D8BDA7192A11BA580076690F /* PBXTargetDependency */,
 			);
 			name = "Shugga for Loop";
+			packageProductDependencies = (
+			);
 			productName = "Shugga for Loop";
 			productReference = D82E566929F997E1004F1DBD /* Shugga for Loop.app */;
 			productType = "com.apple.product-type.application";
@@ -499,7 +501,6 @@
 			);
 			mainGroup = D803D97929A9335C006F4D6A;
 			packageReferences = (
-				D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = D803D98329A9335D006F4D6A /* Products */;
 			projectDirPath = "";
@@ -637,6 +638,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8BDA7152A11BA580076690F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = D8BDA7142A11BA580076690F /* ReceiptParser */;
+		};
+		D8BDA7172A11BA580076690F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = D8BDA7162A11BA580076690F /* RevenueCat */;
+		};
+		D8BDA7192A11BA580076690F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = D8BDA7182A11BA580076690F /* RevenueCat_CustomEntitlementComputation */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D803D98E29A9335D006F4D6A /* Debug */ = {
@@ -938,21 +954,31 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+		D8BDA7072A11B86A0076690F /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D85A8CA729F6FC1300FC75C6 /* OAuthSwift */ = {
+		D8BDA7142A11BA580076690F /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D85A8CA629F6FC1300FC75C6 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
-			productName = OAuthSwift;
+			package = D8BDA7072A11B86A0076690F /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		D8BDA7162A11BA580076690F /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8BDA7072A11B86A0076690F /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		D8BDA7182A11BA580076690F /* RevenueCat_CustomEntitlementComputation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8BDA7072A11B86A0076690F /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat_CustomEntitlementComputation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
