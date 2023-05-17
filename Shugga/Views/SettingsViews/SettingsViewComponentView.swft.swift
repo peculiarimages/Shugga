@@ -217,7 +217,7 @@ struct DeBugModeForSettingsView: View {
 
 struct MainSwitchSettingsContentView: View {
     @AppStorage("demoMode")                     public var demoMode =                           false
-    @AppStorage("announcementOn")               public var announcementOn =                     true
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -332,7 +332,7 @@ struct MainSwitchSettingsContentView: View {
 struct MainSwitchSettingsView: View {
     
     @AppStorage("demoMode")                     public var demoMode =                           false
-    @AppStorage("announcementOn")               public var announcementOn =                     true
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -455,7 +455,7 @@ struct DetailsSettingsView: View {
     
     @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
     @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  10 // this is going to be
+    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be
  
     @State private var refreshIsPressed = false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared

@@ -480,7 +480,7 @@ class TheTranslator: ObservableObject   {
     
     // =================== APP Storages ==================================
     
-    @AppStorage("announcementOn")                   public var announcementOn =                       true
+    @AppStorage("announcementOn")                   public var announcementOn =                       defaultShuggaIsOn
     @AppStorage("threeSpeechSpeed")                 public var threeSpeechSpeed =                     defaultThreeSpeechSpeed
     @AppStorage("userBloodGlucoseUnit")             public var userBloodGlucoseUnit =                 defaultBloodGlucoseUnit
 

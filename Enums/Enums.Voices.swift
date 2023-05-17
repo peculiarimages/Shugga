@@ -10,6 +10,18 @@ import BackgroundTasks
 
 
 
+/*
+let knownVoices_en = ["Alex", "Catherine", "Gordon", "Arthur", "Daniel", "Martha", "Moira", "Rishi", "Aaron", "Fred", "Nicky", "Samantha", "Tessa"]
+
+
+let knownVoices_jp = ["Hattori", "Kyoko", "O-ren"]
+
+ 
+ */
+
+let knownProblemVoices = ["Karen", "Shelley", "Grandpa", "Grandma",  "Rocko", "Shelly", "Eddy", "Flo", "Sandy"]
+
+
 
 /*
  
@@ -23,9 +35,12 @@ import BackgroundTasks
  de-DE    Helena    Default    com.apple.ttsbundle.siri_female_de-DE_compact    AVSpeechSynthesisVoice
  de-DE    Martin    Default    com.apple.ttsbundle.siri_male_de-DE_compact      AVSpeechSynthesisVoice
  
-====== 14 english voices
  
  el-GR    Melina    Default    com.apple.ttsbundle.Melina-compact               AVSpeechSynthesisVoice
+ 
+ ====== 14 english voices
+
+ en-US    Alex      Enhanced   com.apple.speech.voice.Alex                      AVAlexSpeechSynthesisVoice
  en-AU    Catherine Default    com.apple.ttsbundle.siri_female_en-AU_compact    AVSpeechSynthesisVoice
  en-AU    Gordon    Default    com.apple.ttsbundle.siri_male_en-AU_compact      AVSpeechSynthesisVoice
  en-AU    Karen     Default    com.apple.ttsbundle.Karen-compact                AVSpeechSynthesisVoice
@@ -94,7 +109,6 @@ import BackgroundTasks
  zh-HK    Sin-Ji    Default    com.apple.ttsbundle.Sin-Ji-compact               AVSpeechSynthesisVoice
  zh-TW    Mei-Jia   Default    com.apple.ttsbundle.Mei-Jia-compact              AVSpeechSynthesisVoice
  
- en-US    Alex      Enhanced   com.apple.speech.voice.Alex                      AVAlexSpeechSynthesisVoice
  
  
 

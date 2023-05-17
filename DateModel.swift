@@ -14,26 +14,64 @@ enum CutOffAt {
     case none
 }
 
-func formatSecondsToTimeString(seconds: Int, cutOffAt: CutOffAt) -> String {
+func formatSecondsToTimeString(seconds: Int, cutOffAt: CutOffAt, language: String = "en") -> String {
     let hours = seconds / 3600
     let minutes = (seconds % 3600) / 60
     let remainingSeconds = seconds % 60
 
     var formattedDuration: [String] = []
 
-    if hours > 0 {
-        formattedDuration.append("\(hours) \(hours == 1 ? "hour" : "hours")")
-    }
     
-    if cutOffAt != .hours && minutes > 0 {
-        formattedDuration.append("\(minutes) \(minutes == 1 ? "minute" : "minutes")")
-    }
     
-    if cutOffAt == .none && remainingSeconds > 0 {
-        formattedDuration.append("\(remainingSeconds) \(remainingSeconds == 1 ? "second" : "seconds")")
-    }
+    
+    switch language {
+        
+        
+    case "ja":
+        
+        if hours > 0 {
+            formattedDuration.append("\(hours)時間")
+        }
+        
+        if cutOffAt != .hours && minutes > 0 {
+            formattedDuration.append("\(minutes)分")
+        }
+        
+        if cutOffAt == .none && remainingSeconds > 0 {
+            formattedDuration.append("\(remainingSeconds)秒")
+        }
 
-    return formattedDuration.joined(separator: " and ")
+        return formattedDuration.joined(separator: "と")
+        
+        
+    default:
+        
+        if hours > 0 {
+            formattedDuration.append("\(hours) \(hours == 1 ? "hour" : "hours")")
+        }
+        
+        if cutOffAt != .hours && minutes > 0 {
+            formattedDuration.append("\(minutes) \(minutes == 1 ? "minute" : "minutes")")
+        }
+        
+        if cutOffAt == .none && remainingSeconds > 0 {
+            formattedDuration.append("\(remainingSeconds) \(remainingSeconds == 1 ? "second" : "seconds")")
+        }
+
+        return formattedDuration.joined(separator: " and ")
+        
+        
+        
+    }
+    
+   
+    
+    
+    
+    
+    
+    
+    
 }
 
 

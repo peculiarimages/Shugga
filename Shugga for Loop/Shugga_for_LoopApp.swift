@@ -27,7 +27,7 @@ let currentAppEarliestBeginDateReSubmit =   SecondsIn.sixtyOneSeconds.rawValue
 class AppDelegate: UIResponder, UIApplicationDelegate {
     @AppStorage("appEarliestBeginDate") public var appEarliestBeginDate = currentAppEarliestBeginDate
     
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  10 // this is going to be multiples of 10 seconds
+    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be multiples of 10 seconds
     
     @AppStorage("backgroundTaskIsOn") public var backgroundTaskIsOn = true
     @AppStorage("backgroundAppRefreshIsOn") public var backgroundAppRefreshIsOn = true

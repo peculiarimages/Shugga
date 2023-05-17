@@ -11,9 +11,16 @@ import SwiftUI
 import BackgroundTasks
 import HealthKit
 
-
-
+// appstorage defaults
+let defaultShuggaRepeats = false
+let defaultShuggaInterval = SecondsIn.fiveMinutes.rawValue // in seconds. 
+let defaultShuggaIsOn = false
 let pauseShuggaDefault_min = 30
+
+
+
+
+
 
 let shuggaRed = Color(red: 151/255, green: 21/255, blue: 42/255)
 //color="#97152a"
@@ -102,10 +109,34 @@ let deBugMode = true
 // settings
 let castAlarmInterval_inMinutes:  [Int] =   [5, 10, 20, 30, 45, 60, 120, 300, 600]
 
-let announcementInterval: [Int] =           [  10,  20,   30,     60,  150, 300,
-                                              600,  900, 1200, 1800, 2700, 3600  ]
 
-let pauseInterval: [Int] =                  [1, 5, 10, 20, 30, 60, 120, 300, 600, 900, 1200]
+
+
+
+// Shugga Interval defaults and optional individual CGM ===========================
+
+var announcementInterval: [Int] =
+[  10, 20, 30, 60, 150, 300, 600, 900, 1200, 1800, 2700  ]
+
+
+let announcementInterval_Default: [Int] =
+[  10, 20, 30, 60, 150, 300, 600, 900, 1200, 1800  ]
+
+let announcementInterval_DexcomG6: [Int] =
+[  10, 20, 30, 60, 150, 300, 600, 900, 1200, 1800, 2700, 3600  ]
+
+
+let announcementInterval_DexcomG7: [Int] =
+[  10, 20, 30, 60, 120, 240, 360, 480, 900, 1200, 1800, 2700, 3600  ]
+
+// =================================================================================
+
+
+
+
+
+
+let pauseInterval: [Int] =                  [1, 5, 10, 20, 30, 60, 120, 300, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440]
 
 
 let bloodGlucoseUnit : [String] = ["mg/dL", "mmol/L"]
@@ -127,7 +158,7 @@ let logoTypeColor = Color(red: 0.530, green: 0.0, blue: 0.12)
 
 let settingSymbolName = "gearshape.fill"
 
-let thisIsBeta = true
+let thisIsBeta = false
 
 let settingsSFSymbolName = "gearshape.fill"
 
@@ -166,7 +197,9 @@ let february_1_2023 = 167_520_9600
 let march_1_2023    = 167_773_9282
 let april_1_2023    = 168_033_2400
 let may_1_2023      = 168_296_8332
-let june_1_2023    =  168_565_2230
+let june_1_2023     = 168_565_2230
+
+let forever         = 999_999_9999
 
 
 enum BloodGlucoseUnit: String {

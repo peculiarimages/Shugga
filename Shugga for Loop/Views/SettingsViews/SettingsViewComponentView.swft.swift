@@ -232,7 +232,7 @@ struct DeBugModeForSettingsView: View {
 
 struct MainSwitchSettingsContentView: View {
     @AppStorage("demoMode")                     public var demoMode =                           false
-    @AppStorage("announcementOn")               public var announcementOn =                     true
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -347,7 +347,7 @@ struct MainSwitchSettingsContentView: View {
 struct MainSwitchSettingsView: View {
     
     @AppStorage("demoMode")                     public var demoMode =                           false
-    @AppStorage("announcementOn")               public var announcementOn =                     true
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -470,7 +470,7 @@ struct DetailsSettingsView: View {
     
     @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
     @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  10 // this is going to be
+    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be
  
     @State private var refreshIsPressed = false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
@@ -481,20 +481,20 @@ struct DetailsSettingsView: View {
             VStack{
                 // ___________________________________ Shugga every ___________________________________
                 
-                Picker(NSLocalizedString("Shugga every", comment: "Picker label for selecting frequency of readout"), selection: $speakInterval_seconds)
+                Picker(NSLocalizedString("Shugga", comment: "Picker label for selecting frequency of readout"), selection: $speakInterval_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
                         if interval > SecondsIn.oneMinute.rawValue {
                             let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
                             if minutes.truncatingRemainder(dividingBy: 1) == 0 {
                                 // interval is a whole number of minutes
-                                Text("\(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                                Text("Every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
                             } else {
                                 // interval is not a whole number of minutes
-                                Text(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                                Text("Every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
                             }
                         } else {
-                            Text("\(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                            Text("Every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
                         }
                     }
 
@@ -609,7 +609,7 @@ struct DetailsSettingsView: View {
 struct UnitSettingsContentView:  View {
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @AppStorage("userBloodGlucoseUnit")             public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
-    @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =           false
+    @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =             false
     @AppStorage("multiplyTrendByTen")               public var multiplyTrendByTen =           false
     @AppStorage("includeUnit")                      public var includeUnit =                        true
     @AppStorage("removeTimeUnit")                   public var removeTimeUnit =                        false
@@ -1016,14 +1016,14 @@ struct NitPickySettingsContentView: View {
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
     @AppStorage("showAncillaryData")                public var showAncillaryData =                  true
     @AppStorage("showLockButton")                   public var showLockButton =                     false
-    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     false
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     defaultShuggaRepeats
 
 
     var body: some View {
         
         List {
             
-            Toggle(NSLocalizedString("SHugga twice in a row", comment: ""), isOn: $shuggaRepeats)
+            Toggle(NSLocalizedString("Shugga twice in a row", comment: ""), isOn: $shuggaRepeats)
                 .disabled((false))
             
             
@@ -1104,7 +1104,7 @@ struct NitPickSettingsView: View {
     @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
     @AppStorage("shuggaGlucoseTrend")               public var shuggaGlucoseTrend =                 true
 
-    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     false
+    @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     defaultShuggaRepeats
 
     @State private var showDescription = false
 
@@ -1195,6 +1195,8 @@ struct VoiceSettingsView: View {
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     
+    var thisVoiceIsProblematic = false
+    
     let voiceNames: [String] = GetVoices()
     @State private var showDescription = false
 
@@ -1265,11 +1267,48 @@ struct VoiceSettingsView: View {
                         let thisLanguageCode = returnLanguageCodeFromCombinedCode(combinedCode: voice.languageCode) //es
                         let thisLanguageNamePair = languageNamePairs[thisLanguageCode]
                         
+                        
+                        
+                        
+                        
+                        
+
+                        
+
+                        
+                        
+                        
+                        
                         // Only display voices that match the selected language
                         if sugahLanguageChosen == thisLanguageNamePair?.englishName {
                             
-                            Text("\(voice.voiceName) (\(voice.languageLocaleCode))").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
+                            
+                         
+                            if !knownProblemVoices.contains(voice.voiceName) {
+                                
+                                Text("\(voice.voiceName) (\(voice.languageLocaleCode))").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
+                                
+                                
+                            }
+                            
+                           
+                            
+                            
+                            
+                            
                         }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                     }
                 }).onChange(of: sugahVoiceChosen) { selectedLanguage in
                     

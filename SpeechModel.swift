@@ -90,7 +90,7 @@ struct SynthSpeechParameters {
 
     @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
     @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  10 // this is going to be multiples of 10 seconds
+    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be multiples of 10 seconds
     @AppStorage("includeUnit")                          public var includeUnit =                        true
     @AppStorage("userBloodGlucoseUnit")                 public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
     @AppStorage("speakElapsedTime")                     public var speakElapsedTime =                   true
@@ -135,12 +135,20 @@ struct SynthSpeechParameters {
     
     
    // let voice: AVSpeechSynthesisVoice? = AVSpeechSynthesisVoice(language: AVSpeechSynthesisVoice.currentLanguageCode())
+    
+    
+    
     var voice: AVSpeechSynthesisVoice {
         if let voiceName = AVSpeechSynthesisVoice(language: sugahLanguageCombinedCodeChosen) {
             return voiceName
-        } else if let defaultVoiceName = AVSpeechSynthesisVoice(language: AVSpeechSynthesisVoice.currentLanguageCode()) {
+        }
+        
+        /*
+        else if let defaultVoiceName = AVSpeechSynthesisVoice(language: AVSpeechSynthesisVoice.currentLanguageCode()) {
             return defaultVoiceName
-        } else {
+        }
+        */
+        else {
 //            combinedLanguageCode = defaultShuggaLanguageCombinedCode
             return AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Samantha-compact")!
         }
@@ -208,6 +216,7 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
    
     @AppStorage("pauseNow")                   public var pauseNow =                     false
     @AppStorage("sugahLanguageCombinedCodeChosen")      public var sugahLanguageCombinedCodeChosen =    "en-US"
+    @AppStorage("sugahVoiceChosen")                     public var sugahVoiceChosen =                   defaultSugahVoice
 
     
     static let shared = Speech()
@@ -378,9 +387,55 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             utterance.preUtteranceDelay = synthSpeechParameters.preUtteranceDelay ?? 0.0
             utterance.postUtteranceDelay = synthSpeechParameters.postUtteranceDelay ?? 0.0
             utterance.rate  = synthSpeechParameters.rate
+//            utterance.voice = synthSpeechParameters.voice
+
+//            printTimestamp(description: "Speech voice name", content: String(synthSpeechParameters.voice), label: "声")
+           
            
             
-            utterance.voice = AVSpeechSynthesisVoice(language: (sugahLanguageCombinedCodeChosen ?? "en-US"))
+            
+            
+            
+            
+            
+            
+            
+            let desiredVoiceName = sugahVoiceChosen.dropFirst(2)
+            
+            printTimestamp(description: "desiredVoiceName", content: String(desiredVoiceName), label: "声")
+            var selectedVoice: AVSpeechSynthesisVoice?
+
+            
+            
+            
+            for voice in AVSpeechSynthesisVoice.speechVoices() {
+                print ("\(voice.name) : \(voice.language.prefix(2))")
+                if voice.name == desiredVoiceName && voice.language.prefix(2) == "en"
+                {
+                    selectedVoice = voice
+                    break
+                }
+            }
+
+            if let voice = selectedVoice {
+                // Set the voice for the utterance
+                utterance.voice = voice
+            } else {
+                // The desired voice is not available
+                
+                
+                print("Desired voice '\(desiredVoiceName)' not found")
+            }
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             

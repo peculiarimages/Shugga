@@ -197,7 +197,13 @@ class ManySweetnesses: ObservableObject {  // array of Sweetness
             switch sample.sourceRevision.source.name {
             case "Dexcom G6":
                 _ = true
+                
+                
+                
             case "Loop":
+                
+                
+                
                 _ = true
             default:
                 _ = true }

@@ -26,7 +26,7 @@ class BloodGlucoseData: ObservableObject {
     
     @AppStorage("deBugModeToggle") public var deBugModeToggle =             false
 
-    @AppStorage("speakInterval_seconds")           public var speakInterval_seconds:               Int =  10 // this is going to be multiples
+    @AppStorage("speakInterval_seconds")           public var speakInterval_seconds:               Int =  defaultShuggaInterval
         // of 10 seconds
 
     @AppStorage("includeUnit")                     public var includeUnit =                        true
@@ -62,7 +62,7 @@ class BloodGlucoseData: ObservableObject {
     @AppStorage("sugahLanguageChosen")     public var sugahLanguageChosen =         defaultSugahLanguage
 
     
-    @AppStorage("shuggaRepeats")          public var shuggaRepeats =                     true
+    @AppStorage("shuggaRepeats")          public var shuggaRepeats =                     defaultShuggaRepeats
 
    
     static let shared = BloodGlucoseData()
@@ -1093,8 +1093,13 @@ class BloodGlucoseData: ObservableObject {
                 if let theSweetness = self.manySweetnesses.sweetnesses?.last {
                 
                     if !self.appIsInForeground || self.speakElapsedTime {
-                    shuggaUtterance += diabetes.returnSpeakableGlucoseFetchTime(sweetness: theSweetness)
+                        
+                        shuggaUtterance += diabetes.returnSpeakableGlucoseFetchTime(sweetness: theSweetness, language: self.sugahLanguageChosen)
+                        
                     shuggaUtterance += " ago: " }
+                    
+                    
+                    
                 //
                 shuggaUtterance += diabetes.returnSpeakableGlucoseValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters, skipHundredth: synthSpeechParameters.skipHundredth)
                 
@@ -1247,6 +1252,18 @@ class BloodGlucoseData: ObservableObject {
                                         do {
                                             let glucoseMonitor = try self.glucoseMonitorModel.returnGlucoseMonitor(modelShortName: theLastCGM)
                                             self.glucoseMonitorModel.currentGlucoseMonitor = glucoseMonitor
+                                            
+                                        switch glucoseMonitor.modelShortName {
+                                            
+                                            
+                                            case "G6": announcementInterval = announcementInterval_DexcomG6
+                                                
+                                            case "G7": announcementInterval = announcementInterval_DexcomG7
+                                        
+                                            default: announcementInterval = announcementInterval_Default
+                                        }
+                                            
+                                            
                                         } catch GlucoseMonitorError.noMatchingGlucoseMonitorShortName(let modelShortName) {
                                             print("Error: No matching glucose monitor with short name: \(modelShortName)")
                                         } catch GlucoseMonitorError.noMatchingGlucoseMonitorFDA_ID(let fdaID) {

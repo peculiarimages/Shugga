@@ -24,7 +24,7 @@ struct Diabetes {
     @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
     
     @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  10 // this is going to be multiples of 10 seconds
+    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval
     @AppStorage("includeUnit")                          public var includeUnit =                        true
     @AppStorage("userBloodGlucoseUnit")                 public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
     @AppStorage("speakElapsedTime")                     public var speakElapsedTime =                   true
@@ -62,7 +62,7 @@ struct Diabetes {
     
     
 
-    func returnSpeakableGlucoseFetchTime (sweetness: Sweetness) -> String {
+    func returnSpeakableGlucoseFetchTime (sweetness: Sweetness, language: String = "en") -> String {
         
         @Environment(\.scenePhase)  var scenePhase
 
