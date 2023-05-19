@@ -173,12 +173,14 @@ class BloodGlucoseData: ObservableObject {
     
     @Published var mainViewBloodDropletWarningFlag = false
     
+//    @Published var currentCGM: GlucoseMonitor
+    
     let healthStoreWrapper = HealthStoreWrapper()
     
     var timer: Timer?
     
     
-    
+    var mainTimerAdjustmentCreep: Int = 0
     
     
     
@@ -280,7 +282,7 @@ class BloodGlucoseData: ObservableObject {
         let limit = 5 // latest only, but want to explore getting a larger set
         
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-        let startDate = Date().addingTimeInterval(-1 * Double(SecondsIn.halfDay.rawValue))
+        let startDate = Date().addingTimeInterval(-1 * Double(SecondsIn.fourHours.rawValue))
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: [])
 
         
@@ -666,9 +668,71 @@ class BloodGlucoseData: ObservableObject {
     
     
     func startMainSugahTimer () {
+        
+        // adjust shugga timer time to adjust so it will be closer soon
+
+        
+        let timestamp = self.manySweetnesses.sweetnesses?.last?.startTimestamp ?? Date().timeIntervalSince1970
+        let timeInterval = Date().timeIntervalSince(Date(timeIntervalSince1970: timestamp))
+                     print("timeInterval: \(timeInterval)")                                                               // eg 194
+
+        
+        let theCGM_samplingPeriod = Int(self.glucoseMonitorModel.currentGlucoseMonitor?.samplingSeconds ?? 0)
+        print ("theCGM_samplingPeriod: \(theCGM_samplingPeriod)")
+        print ("speakInterval_seconds: \(speakInterval_seconds)")
+        if theCGM_samplingPeriod != 0 {
+            if self.speakInterval_seconds <= theCGM_samplingPeriod  {                //     10 and 300
+                
+                let theMultiplier = theCGM_samplingPeriod / speakInterval_seconds   //  30
+                print ("theMultiplier: \(theMultiplier)")
+                
+                let theCurrentMultiplier: Int = Int(timeInterval) / speakInterval_seconds     //  13
+                print ("theCurrentMultiplier: \(theCurrentMultiplier)")
+                
+                let theCurrentReminder: Int =  Int(timeInterval) % speakInterval_seconds // 6
+                print ("theCurrentReminder: \(theCurrentReminder)")
+                
+                let thisCreepFactor = theCurrentReminder / theCurrentMultiplier
+                print ("thisCreepFactor: \(thisCreepFactor)")
+                
+                self.mainTimerAdjustmentCreep = theCurrentReminder - 1
+//                self.mainTimerAdjustmentCreep =  1
+
+            }
+            else {  //     600 and 300
+                
+                
+                let theMultiplier = speakInterval_seconds / theCGM_samplingPeriod  //  2
+                print ("theMultiplier: \(theMultiplier)")
+                
+                let theCurrentMultiplier: Int = Int(timeInterval) / speakInterval_seconds     //433/300 = 1
+                print ("theCurrentMultiplier: \(theCurrentMultiplier)")
+                
+                let theCurrentReminder: Int = Int(timeInterval) % speakInterval_seconds  // 133
+                print ("theCurrentReminder: \(theCurrentReminder)")
+                
+                // let thisCreepFactor = theCurrentReminder / theCurrentMultiplier
+                //print ("thisCreepFactor: \(thisCreepFactor)")
+                
+                self.mainTimerAdjustmentCreep = theCurrentReminder - 1
+                
+                
+                
+                
+                
+            }
+        }
+        
+        // ---------------------------------------------------------------
+       
+        
+        
+        
         print ("startMainSugahTimer")
-        self.timer = Timer.scheduledTimer(withTimeInterval: Double(speakInterval_seconds), repeats: true) { [weak self] _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: Double(speakInterval_seconds - mainTimerAdjustmentCreep ), repeats: false) { [weak self] _ in
             
+            self?.mainTimerAdjustmentCreep = 0
+            self?.setMainSugarTimerInterval()
             self?.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: .mainTimer) { success in
                 if success {
                     print("Latest blood glucose fetched and spoken successfully! \(WhoCalledTheFunction.mainTimer.rawValue)")
@@ -1248,6 +1312,8 @@ class BloodGlucoseData: ObservableObject {
                     
                     self.manySweetnesses.addQueryDirectly(limit: HKObjectQueryNoLimit , whoCalledTheFunction: whoCalledTheFunction, samples: hkSamples) { (success) in
                         if success {
+                            
+                            
                                     if let theLastCGM = self.manySweetnesses.sweetnesses?.last?.model {
                                         do {
                                             let glucoseMonitor = try self.glucoseMonitorModel.returnGlucoseMonitor(modelShortName: theLastCGM)
@@ -1255,11 +1321,17 @@ class BloodGlucoseData: ObservableObject {
                                             
                                         switch glucoseMonitor.modelShortName {
                                             
-                                            
+                                            // changes the settings menu:  announcementInterval
                                             case "G6": announcementInterval = announcementInterval_DexcomG6
-                                                
+                                            
+                                            if let tempCGM = self.glucoseMonitorModel.glucoseMonitors.first(where: { $0.modelShortName == "G6" }) {
+                                                self.glucoseMonitorModel.currentGlucoseMonitor = tempCGM
+                                            }
+                                            
                                             case "G7": announcementInterval = announcementInterval_DexcomG7
-                                        
+                                            if let tempCGM = self.glucoseMonitorModel.glucoseMonitors.first(where: { $0.modelShortName == "G7" }) {
+                                                self.glucoseMonitorModel.currentGlucoseMonitor = tempCGM
+                                            }
                                             default: announcementInterval = announcementInterval_Default
                                         }
                                             
@@ -1282,6 +1354,52 @@ class BloodGlucoseData: ObservableObject {
                                         print("Query added successfully")
                                         // Add any other code that needs to be delayed by one second here
                                     
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                  
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                             

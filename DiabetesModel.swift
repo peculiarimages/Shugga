@@ -94,6 +94,8 @@ struct Diabetes {
     
     
     func returnSpeakableGlucoseTrendValue (sweetness: Sweetness, synthSpeechParameters: SynthSpeechParameters) -> String {
+        
+
         // this reads the recorded glucose trend unit. ignores the user set glucose unit
         var isSteady = false
         var speakableGlucoseTrendString = ""
@@ -229,6 +231,8 @@ struct Diabetes {
         
         )  -> String {
         
+            let bloodGlucoseData = BloodGlucoseData.shared
+
             let elapsedTime: TimeInterval = Date().timeIntervalSince(Date(timeIntervalSince1970: sweetness.startTimestamp))
             
             if Int(elapsedTime) > Int(rodisBirthdayTimeStamp) {return ""}
@@ -342,9 +346,9 @@ struct Diabetes {
             
             
             
+            let cgmSamplingInterval = (bloodGlucoseData.glucoseMonitorModel.currentGlucoseMonitor?.samplingSeconds ?? Double(SecondsIn.fiveMinutes.rawValue))
             
-            
-        if warnNoFreshData && elapsedTime > (Double(dataTooOldPeriod_min * SecondsIn.oneMinute.rawValue) + warningMargin_sec )  {
+            if warnNoFreshData && elapsedTime > (Double(dataTooOldPeriod_min * SecondsIn.oneMinute.rawValue) + warningMargin_sec +  cgmSamplingInterval)  {
             
             print ("elapsedTime: \(elapsedTime)")
             

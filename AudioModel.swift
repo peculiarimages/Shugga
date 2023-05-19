@@ -118,6 +118,9 @@ func returnSpeakableGlucoseValue(
         
     )  -> String {
     
+        
+    let bloodGlucoseData = BloodGlucoseData.shared
+
     var letHundredSkip: Bool
 //    print ("warnNoFreshData: \(warnNoFreshData) ")
 //    print ("dataTooOldPeriod_min: \(dataTooOldPeriod_min)")
@@ -225,6 +228,9 @@ func returnSpeakableGlucoseValue(
 //    print ("dataTooOldPeriod_min:  \(dataTooOldPeriod_min)")
 //    print ("dataTooOldPeriod_sec:  \(dataTooOldPeriod_min * SecondsIn.oneMinute.rawValue * 2)")
 //
+        
+//        let glucoseSamplePeriodInSeconds = bloodGlucoseData.returnGlucoseMonitor
+        
     if warnNoFreshData && elapsedTime > ((dataTooOldPeriod_min * SecondsIn.oneMinute.rawValue) + warningMargin_sec )  {
         
         print ("elapsedTime: \(elapsedTime)")

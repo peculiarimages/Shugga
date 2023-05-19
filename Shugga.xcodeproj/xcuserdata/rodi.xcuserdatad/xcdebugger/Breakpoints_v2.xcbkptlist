@@ -433,7 +433,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1866624E-94EE-400A-A027-9CBFD7704A70"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeechModel.swift"
@@ -496,7 +496,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "986190B4-2848-46C1-9143-C3196D024A91"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SpeechModel.swift"
@@ -544,14 +544,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "886"
-            endingLineNumber = "886"
+            startingLineNumber = "950"
+            endingLineNumber = "950"
             landmarkName = "fetchLatestBloodGlucoseAndSpeak(limit:whoCalledTheFunction:completion:)"
             landmarkType = "7">
             <Locations>
@@ -598,9 +598,104 @@
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1256"
-            endingLineNumber = "1256"
+            startingLineNumber = "1322"
+            endingLineNumber = "1322"
             landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BloodGlucoseData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
+            landmarkName = "startMainSugahTimer()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C - 3a961fbd3fc6d84f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shugga_for_Loop.BloodGlucoseData.startMainSugahTimer() -&gt; ()"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "680"
+                  endingLineNumber = "680"
+                  offsetFromSymbolStart = "1144">
+               </Location>
+               <Location
+                  uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C - 3a961fbd3fc6d84f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shugga_for_Loop.BloodGlucoseData.startMainSugahTimer() -&gt; ()"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "680"
+                  endingLineNumber = "680"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+               <Location
+                  uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C - 3a961fbd3fc6d84f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shugga_for_Loop.BloodGlucoseData.startMainSugahTimer() -&gt; ()"
+                  moduleName = "Shugga for Loop"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "680"
+                  endingLineNumber = "680"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF1986C7-10EF-4D59-9B44-9BF553F55BA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BloodGlucoseData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "736"
+            endingLineNumber = "736"
+            landmarkName = "startMainSugahTimer()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01FFEFC1-7C22-4A3E-9EC1-DDAE949A4A8F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BloodGlucoseData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
+            landmarkName = "startMainSugahTimer()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
