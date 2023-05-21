@@ -106,7 +106,7 @@ class BloodGlucoseData: ObservableObject {
         requestStepsAuthorization()
         
         startMainSugahTimer()
-        
+        startGlucoseViewRefreshTimer()
 //        startMonitoringBloodGlucose()
         //enableHKBackgroundDelivery()
         
@@ -178,7 +178,7 @@ class BloodGlucoseData: ObservableObject {
     let healthStoreWrapper = HealthStoreWrapper()
     
     var timer: Timer?
-    
+    var displayRefreshTimer: Timer?
     
     var mainTimerAdjustmentCreep: Int = 0
     
@@ -492,11 +492,11 @@ class BloodGlucoseData: ObservableObject {
             if !success {
                 let status = self.healthStore.authorizationStatus(for: bloodGlucoseType!)
 
-                if status == .notDetermined || status == .sharingDenied {
+                if status == .notDetermined /*|| status == .sharingDenied */ {
                     DispatchQueue.main.async {
                         self.userApprovedHealthKitBloodGlucose_Read = false
                                                 
-                        self.speakBloodGlucoseError(errorMessage: "HK permission undertermined") { result in
+                        if thisIsBeta { self.speakBloodGlucoseError(errorMessage: "HK permission undetermined") { result in
                             switch result {
                             case .success(let value):
                                 print("s\(value)")
@@ -504,20 +504,26 @@ class BloodGlucoseData: ObservableObject {
                                 print("\(error)")
                             }
                         }
+                        }
+                        
+                        
                     }
                     completion(.failure(.userPermissionNotGranted))
-                } else if let error = error {
+                }
+                else if let error = error {
                     DispatchQueue.main.async {
                         self.userApprovedHealthKitBloodGlucose_Read = false
-                                                
-                        self.speakBloodGlucoseError(errorMessage: "HK permission not tGranted") { result in
-                            switch result {
-                            case .success(let value):
-                                print("s\(value)")
-                            case .failure(let error):
-                                print("\(error)")
-                            }
+                        
+                        if thisIsBeta {
+                            self.speakBloodGlucoseError(errorMessage: "HK permission not Granted") { result in
+                                switch result {
+                                case .success(let value):
+                                    print("s\(value)")
+                                case .failure(let error):
+                                    print("\(error)")
+                                }
                         }
+                    }
                     }
                     completion(.failure(.fetchError(error)))
                 } else {
@@ -663,14 +669,29 @@ class BloodGlucoseData: ObservableObject {
     
     
     
-    
-    
+    func startGlucoseViewRefreshTimer () {
+        
+        self.displayRefreshTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [weak self] _ in
+            
+            self?.fetchLatestBloodGlucose(limit: 1, whoCalledTheFunction: .displayRefreshTimer) { result in
+                switch result {
+                    
+                case .success:
+                    print("foregroundViewTimer blood glucose fetch complete")
+                    
+                case .failure(let error):
+                    print("❌ foregroundViewTimer fetch blood glucose failed: \(error)")
+                }
+            }
+        }
+    }
     
     
     func startMainSugahTimer () {
         
         // adjust shugga timer time to adjust so it will be closer soon
 
+        var thisCreepFactor = 1
         
         let timestamp = self.manySweetnesses.sweetnesses?.last?.startTimestamp ?? Date().timeIntervalSince1970
         let timeInterval = Date().timeIntervalSince(Date(timeIntervalSince1970: timestamp))
@@ -691,10 +712,10 @@ class BloodGlucoseData: ObservableObject {
                 
                 let theCurrentReminder: Int =  Int(timeInterval) % speakInterval_seconds // 6
                 print ("theCurrentReminder: \(theCurrentReminder)")
-                
-                let thisCreepFactor = theCurrentReminder / theCurrentMultiplier
-                print ("thisCreepFactor: \(thisCreepFactor)")
-                
+//                if theCurrentMultiplier > 0 {
+//                    thisCreepFactor = theCurrentReminder / theCurrentMultiplier
+//                    print ("thisCreepFactor: \(thisCreepFactor)")
+//                }
                 self.mainTimerAdjustmentCreep = theCurrentReminder - 1
 //                self.mainTimerAdjustmentCreep =  1
 

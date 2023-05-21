@@ -33,7 +33,7 @@ let twitterHandle: String = "@ShuggaApp"
 
 let webPageLink: String = "https://shugga.app"
 
-let listOfBugs = "AboutView returns to SettingsView w/o the user clicking the return link when SettingsView gets updated"
+let listOfBugs = "The main blood glucose value display needs to refresh sooner.  \n\nAboutView returns to SettingsView w/o the user clicking the return link when SettingsView gets updated"
 
 let youMustAgreeText = "You must agree to the User Agreement before you can use this app. It can be found in the app's settings, which you can navigate by clicking the Shugga logo or the gear icon above."
 

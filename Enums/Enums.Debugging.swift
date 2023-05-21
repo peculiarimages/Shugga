@@ -21,6 +21,7 @@ enum WhoCalledTheFunction: String {
     case aRetryFromBackground =             "a retry from background"
     
     case appTimer =                         "app Timer"
+    case displayRefreshTimer =              "display Refresh Timer"
     case locationManger =                   "location Manger"
     case speakBloodGlucose =                "speak Blood Glucose"
     case bloodGlucoseView_onAppear =        "blood Glucose View on Appear"

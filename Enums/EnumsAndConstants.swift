@@ -120,10 +120,10 @@ var announcementInterval: [Int] =
 
 
 let announcementInterval_Default: [Int] =
-[  10, 20, 30, 60, 150, 300, 600, 900, 1200, 1800  ]
+[  10, 20, 30, 60, 120, 300, 600, 900, 1200, 1800  ]
 
 let announcementInterval_DexcomG6: [Int] =
-[  10, 20, 30, 60, 150, 300, 600, 900, 1200, 1800, 2700, 3600  ]
+[  10, 20, 30, 60, 120, 300, 600, 900, 1200, 1800, 2700, 3600  ]
 
 
 let announcementInterval_DexcomG7: [Int] =

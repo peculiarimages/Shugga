@@ -705,7 +705,7 @@ struct UnitSettingsView: View {
             .font(.headline)
                 //.fontWeight(.regular)
                 , footer:
-                    Text("Shugga sample:“\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")”")
+                    Text("Shugga sample:“\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "")\(multiplyTrendByTen && shuggaGlucoseTrend ? "0" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")”")
         ) { UnitSettingsContentView() }
     }
 }
@@ -1025,7 +1025,6 @@ struct NitPickySettingsContentView: View {
             
             Toggle(NSLocalizedString("Shugga twice in a row", comment: ""), isOn: $shuggaRepeats)
                 .disabled((false))
-            
             
             Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
                     .onChange(of: speakElapsedTime) { speakElapsedTime in
