@@ -716,7 +716,7 @@ class BloodGlucoseData: ObservableObject {
 //                    thisCreepFactor = theCurrentReminder / theCurrentMultiplier
 //                    print ("thisCreepFactor: \(thisCreepFactor)")
 //                }
-                self.mainTimerAdjustmentCreep = theCurrentReminder - 1
+                self.mainTimerAdjustmentCreep = theCurrentReminder - 10
 //                self.mainTimerAdjustmentCreep =  1
 
             }
@@ -735,7 +735,7 @@ class BloodGlucoseData: ObservableObject {
                 // let thisCreepFactor = theCurrentReminder / theCurrentMultiplier
                 //print ("thisCreepFactor: \(thisCreepFactor)")
                 
-                self.mainTimerAdjustmentCreep = theCurrentReminder - 1
+                self.mainTimerAdjustmentCreep = theCurrentReminder - 10
                 
                 
                 

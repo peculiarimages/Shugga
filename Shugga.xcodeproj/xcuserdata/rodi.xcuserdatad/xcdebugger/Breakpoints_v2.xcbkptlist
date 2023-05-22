@@ -553,7 +553,7 @@
             startingLineNumber = "971"
             endingLineNumber = "971"
             landmarkName = "fetchLatestBloodGlucoseAndSpeak(limit:whoCalledTheFunction:completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927 - a4d88df2f222fa4b"
@@ -601,7 +601,7 @@
             startingLineNumber = "1343"
             endingLineNumber = "1343"
             landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -617,7 +617,7 @@
             startingLineNumber = "701"
             endingLineNumber = "701"
             landmarkName = "startMainSugahTimer()"
-            landmarkType = "9">
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C - 3a961fbd3fc6d84f"
@@ -680,7 +680,7 @@
             startingLineNumber = "757"
             endingLineNumber = "757"
             landmarkName = "startMainSugahTimer()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -696,7 +696,7 @@
             startingLineNumber = "755"
             endingLineNumber = "755"
             landmarkName = "startMainSugahTimer()"
-            landmarkType = "9">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
