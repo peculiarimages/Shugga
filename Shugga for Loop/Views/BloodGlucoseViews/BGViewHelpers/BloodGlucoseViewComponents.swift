@@ -590,25 +590,30 @@ struct ShuggaStatusInfoView: View {
                         .frame(width: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      (mainBloodGlucoseDisplayFontSize)/7 + 1  :  21 ) )
                         .offset (y: -1)
                     
+                    
                     ZStack(alignment: .leading) {
                         Image(systemName: "bubble.left.fill")
                             .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
-                        
-                            .opacity(shuggaStatus.shuggaState == .shuggaInProgress ? 0 : 0.3)
-                        
+                            .opacity(!bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : (shuggaStatus.shuggaState == .shuggaInProgress  ? 0 : 0.3))
                             .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7  : 21))
                             .frame ( alignment: .leading)
                         
-                        Image(systemName: shuggaStatus.returnAppropriateCurrentlyPlayingShuggaStatusSystemName()
-)
+                        
+                        Image(systemName: shuggaStatus.returnAppropriateCurrentlyPlayingShuggaStatusSystemName())
                             .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
-                        
-                            .opacity(shuggaStatus.shuggaState == .shuggaInProgress ? 0.75 : 0.0)
-                        
+                            .opacity(!bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : (shuggaStatus.shuggaState == .shuggaInProgress ? 0.75 : 0.0))
                             .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7: 21))
-                        
                             .frame ( alignment: .leading)
+                        
+                        
+                        Image(systemName: "x.circle.fill")
+                            .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
+                            .foregroundColor(shuggaRed)
+                            .opacity(bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : 0.75)
+                            .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7: 21))
+                            .frame ( alignment: .center)
                     }
+                    
                     
                     Image(systemName: bloodGlucoseData.mainViewBloodDropletWarningFlag ? "drop.circle" : "drop.circle.fill")
                         .font(.system(size: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      Float (mainBloodGlucoseDisplayFontSize)/7.7  :  18 )     ))

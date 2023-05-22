@@ -214,6 +214,8 @@ class CustomOperation: Operation {
 
 class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
    
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
+
     @AppStorage("pauseNow")                   public var pauseNow =                     false
     @AppStorage("sugahLanguageCombinedCodeChosen")      public var sugahLanguageCombinedCodeChosen =    "en-US"
     @AppStorage("sugahVoiceChosen")                     public var sugahVoiceChosen =                   defaultSugahVoice
@@ -440,7 +442,7 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             
             
             // Speak the utterance
-            if !pauseNow {
+            if !self.pauseNow || self.announcementOn {
                 self.synth.speak(utterance)
             }else {
                 if let completion = completion {

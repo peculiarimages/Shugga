@@ -22,7 +22,7 @@ enum BloodGlucoseDataError: Error {
 
 
 class BloodGlucoseData: ObservableObject {
-    
+
     
     @AppStorage("deBugModeToggle") public var deBugModeToggle =             false
 
@@ -1176,20 +1176,20 @@ class BloodGlucoseData: ObservableObject {
              //   print ("delaying \(letItSettleDelay) second(s)...")
             
                 if let theSweetness = self.manySweetnesses.sweetnesses?.last {
-                
+                    
                     if !self.appIsInForeground || self.speakElapsedTime {
                         
                         shuggaUtterance += diabetes.returnSpeakableGlucoseFetchTime(sweetness: theSweetness, language: self.sugahLanguageChosen)
                         
-                    shuggaUtterance += " ago: " }
+                        shuggaUtterance += " ago: " }
                     
                     
                     
-                //
-                shuggaUtterance += diabetes.returnSpeakableGlucoseValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters, skipHundredth: synthSpeechParameters.skipHundredth)
-                
-                shuggaUtterance += diabetes.returnSpeakableGlucoseTrendValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters)
-                                
+                    //
+                    shuggaUtterance += diabetes.returnSpeakableGlucoseValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters, skipHundredth: synthSpeechParameters.skipHundredth)
+                    
+                    shuggaUtterance += diabetes.returnSpeakableGlucoseTrendValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters)
+                    
                     
                     
                     if thisIsBeta {
@@ -1201,61 +1201,65 @@ class BloodGlucoseData: ObservableObject {
                     }
                     
                     
-                  
                     
-                    
+                    if self.theTranslator.currentSugahMeStatus == true
+                    {
                     
                     self.speech.speakAnything(speechString: shuggaUtterance, typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
-                    guard let self = self else { return } // Safely unwrap self
-                    
-                    switch result {
+                        guard let self = self else { return } // Safely unwrap self
                         
-                    case .success:
-                        print("Speech finished successfully")
-                        
-            
-                        
-                        
-                        
+                        switch result {
+                            
+                        case .success:
+                            print("Speech finished successfully")
+                            
+                            
+                            
+                            
+                            
                             // check for any new blood glucose after speaking:
-                        self.fetchLatestBloodGlucose(whoCalledTheFunction: aBackGroundCalledTheFunction ? .aRetryFromBackground : .afterCompletingSpeaking) { result in
-                            switch result {
-                            case .success:
-                                DispatchQueue.main.async {
-                                    if self.manySweetnesses.sweetnesses?.last?.assignedID != theSweetness.assignedID { // a new blood glucose
-                                        
-                                        self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
+                            self.fetchLatestBloodGlucose(whoCalledTheFunction: aBackGroundCalledTheFunction ? .aRetryFromBackground : .afterCompletingSpeaking) { result in
+                                switch result {
+                                case .success:
+                                    DispatchQueue.main.async {
+                                        if self.manySweetnesses.sweetnesses?.last?.assignedID != theSweetness.assignedID { // a new blood glucose
                                             
-                                            switch result {
-                                            case .success:
-                                                print("Speech finished. it's a sequential output since a new value was found after the first utterance ended.")
-                                            case .failure(let error):
-                                                print("❌ 166 Speech failed with error: \(error)")
-                                                self.speech.resetSynth()
-                                            }
-                                        })
+                                            self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
+                                                
+                                                switch result {
+                                                case .success:
+                                                    print("Speech finished. it's a sequential output since a new value was found after the first utterance ended.")
+                                                case .failure(let error):
+                                                    print("❌ 166 Speech failed with error: \(error)")
+                                                    self.speech.resetSynth()
+                                                }
+                                            })
+                                        }
+                                        print("Latest blood glucose fetched and spoken successfully!412 \(WhoCalledTheFunction.healthKitBackgroundDelivery.rawValue)")
                                     }
-                                    print("Latest blood glucose fetched and spoken successfully!412 \(WhoCalledTheFunction.healthKitBackgroundDelivery.rawValue)")
+                                case .failure(_):
+                                    print("❌ 177Failed to fetch or speak latest blood glucose.")
+                                    self.speech.resetSynth()
                                 }
-                            case .failure(_):
-                                print("❌ 177Failed to fetch or speak latest blood glucose.")
-                                self.speech.resetSynth()
                             }
+                            DispatchQueue.main.async {
+                                self.shuggaStatus.shuggaState = .finishedShugga
+                            }
+                            completion(.success(())) // Call the completion handler with a success result
+                            
+                        case .failure(let error):
+                            DispatchQueue.main.async {
+                                self.shuggaStatus.shuggaState = .encounteredErrorWhileShugga
+                            }
+                            print("❌ 12 Speech failed with error: \(error)")
+                            self.speech.resetSynth()
+                            completion(.failure(BloodGlucoseError.speechError(error)))
                         }
-                        DispatchQueue.main.async {
-                            self.shuggaStatus.shuggaState = .finishedShugga
-                        }
-                        completion(.success(())) // Call the completion handler with a success result
-                        
-                    case .failure(let error):
-                        DispatchQueue.main.async {
-                            self.shuggaStatus.shuggaState = .encounteredErrorWhileShugga
-                        }
-                        print("❌ 12 Speech failed with error: \(error)")
-                        self.speech.resetSynth()
-                        completion(.failure(BloodGlucoseError.speechError(error)))
-                    }
-                })
+                    })
+                    
+                    
+                }
+                    
             }
         }
     }
