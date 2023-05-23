@@ -70,6 +70,7 @@ func showFunImage () -> Image{
 
 struct AboutSugahView: View {
 
+    
     var body: some View {
         
         VStack {
@@ -104,7 +105,7 @@ struct AboutSugahView: View {
             ScrollView {
                 
                 
-                Text ("“Shugga for Loopˮ is not associated with Loop.app nor LoopKit. This version of Shugga is designed to work with HealthKit that is updated by Loop in real-time. Please read and understand Loop before using this app:")
+                Text (disclaimerBoilerplate)
                     .font(.caption)
                     .padding([.leading, .trailing], 35)
 
@@ -176,7 +177,7 @@ struct AboutSugahView: View {
                         .padding([.leading, .trailing], 35)
                         .font(.system(size: 12, design: .rounded))
                     
-                    Text ("The future version will have language and accent pickers as well as most voices from the iOS to choose from.")
+                    Text ("The future version will have other languages.")
                         .foregroundColor(.secondary)
                         .padding([.leading, .trailing], 35)
                         .font(.system(size: 12, design: .rounded))
@@ -185,6 +186,7 @@ struct AboutSugahView: View {
                     //                        Text (voiceName)
                     //                    }
                    
+                    AcknowledgmentsSettingsView()
 
                     Text ("Created by:\n\nHiroshi Howell\n\nLob all complaints and grievances to Outside Center LLC, please. I am not responsible for anything...\n\n\n\n\n\n\n")
                         .foregroundColor(.secondary)

@@ -609,9 +609,13 @@ struct ShuggaStatusInfoView: View {
                         Image(systemName: "x.circle.fill")
                             .font(.system(size: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7 : 20)))
                             .foregroundColor(shuggaRed)
-                            .opacity(bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : 0.75)
+//                            .opacity(bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : 0.75)
+                            .opacity(bloodGlucoseData.theTranslator.currentSugahMeStatus ? 0.0 : bloodGlucoseFetchingAlpha)
+
                             .frame(width: CGFloat(mainBloodGlucoseDisplayFontSize > 140 ? (mainBloodGlucoseDisplayFontSize)/7: 21))
                             .frame ( alignment: .center)
+                            .offset (y: -1)
+
                     }
                     
                     
@@ -832,7 +836,7 @@ struct LockButtonView: View {
 struct MainGlucoseDisplayView: View {
     
     @AppStorage("userAgreedToAgreement")                 public var userAgreedToAgreement =  false
-
+    @AppStorage("whiteBackground")                  public var whiteBackground =                    false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
 
     @Binding var bloodGlucoseValueTextColor: Color
@@ -911,6 +915,8 @@ struct MainGlucoseDisplayView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .font(Font.system(size: CGFloat(mainBloodGlucoseDisplayFontSize), weight: .bold,design: .rounded))
                         .foregroundColor( (timeSinceUpdateInSeconds > dataTooOldPeriod_min * SecondsIn.oneMinute.rawValue) ? shuggaRed : bloodGlucoseValueTextColor )//.background(.red)
+                        .opacity(whiteBackground ? 1.0 : 0.9)
+
                         .allowsTightening(false) // Disable automatic scaling
                     //.foregroundColor(bloodGlucoseValueTextColor)//.background(.red)
                         .lineLimit(1)
@@ -952,7 +958,8 @@ struct MainGlucoseDisplayView: View {
             
             VStack {
                 Text(userBloodGlucoseUnit.rawValue)
-                    .opacity(0.5)
+                    .opacity(whiteBackground ? 1.0 : 0.4)
+
                     .accessibilityLabel(_: "This is the unit currently selected in this app for your blood glucose measurements.")
             }
             Spacer()
@@ -990,6 +997,7 @@ struct TopMenuView: View {
     @AppStorage("theMainViewIsLocked")  public var theMainViewIsLocked =    true
     @AppStorage("theShuggaIsPaused")    public var theShuggaIsPaused =      true
     @AppStorage("pauseNow")                   public var pauseNow =                     false
+    @AppStorage("whiteBackground")                  public var whiteBackground =                    false
 
     @Binding var grayAppIcon: Bool
     @Binding var settingsSymbol: Image
@@ -1023,7 +1031,15 @@ struct TopMenuView: View {
         Spacer()
         HStack {
             VStack {
-                Text("")
+                NavigationLink(destination: AboutSugahView()) {
+                    
+                    Image(systemName: "info.circle.fill")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 30))
+                        .opacity(whiteBackground ? 1.0 : 0.4)
+                    //.padding([.top, .leading, .trailing], 10)
+                        .accessibilityLabel(_: "This gray question mark button takes you to the about page.")
+                }
             }
             .frame (width: 75)
             .padding([.leading, .trailing], 5)
@@ -1076,7 +1092,7 @@ struct TopMenuView: View {
                         Image(systemName: "gearshape.fill")
                             .foregroundColor(.gray)
                             .font(.system(size: 30))
-                            .opacity(0.25)
+                            .opacity(whiteBackground ? 1.0 : 0.4)
                         // .frame(width: 50, height: 50)
                         //.padding([.top, .leading, .trailing], 10)
                             .accessibilityLabel(_: "This is a gray gear button. This also takes you to the settings.")
@@ -1096,7 +1112,7 @@ struct TopMenuView: View {
                         Image(systemName: "gearshape.fill")
                             .foregroundColor(.gray)
                             .font(.system(size: 30))
-                            .opacity(0.25)
+                            .opacity(whiteBackground ? 1.0 : 0.4)
                         // .frame(width: 50, height: 50)
                         //.padding([.top, .leading, .trailing], 10)
                             .accessibilityLabel(_: "This is a gray gear button. This also takes you to the settings.")

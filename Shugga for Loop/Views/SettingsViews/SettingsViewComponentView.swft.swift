@@ -78,16 +78,8 @@ struct NavigationForSettingsView: View {
             Spacer()
             
             VStack {
-                //                        NavigationLink(destination: GlucoseValueView()) {
-                NavigationLink(destination: AboutSugahView()) {
-                    
-                    Image(systemName: "info.circle.fill")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 30))
-                        .opacity(0.4)
-                    //.padding([.top, .leading, .trailing], 10)
-                        .accessibilityLabel(_: "This gray question mark button takes you to the about page.")
-                }
+                Text("")
+
             }
             .frame (width: 75)
             .padding([.leading, .trailing], 5)

@@ -97,7 +97,7 @@ struct SettingsView: View {
                         
                         UserAgreementView()
                         
-                        AcknowledgmentsSettingsView()
+                     //   AcknowledgmentsSettingsView()
                         
                     } // end of form
 //                    .navigationBarTitle("Settings")
