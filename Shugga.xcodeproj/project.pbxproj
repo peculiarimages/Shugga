@@ -83,6 +83,7 @@
 		D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400929EC292200543B93 /* SubscriptionsView.swift */; };
 		D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */; };
 		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
+		D86B56922A23E22F007A1B6D /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56912A23E22F007A1B6D /* HubView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
@@ -164,6 +165,7 @@
 		D850400929EC292200543B93 /* SubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsView.swift; sourceTree = "<group>"; };
 		D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
 		D864794729E7CC39000CFB9F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		D86B56912A23E22F007A1B6D /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
 				D82E568029F9983C004F1DBD /* BloodGlucoseViews */,
 				D82E568229F9983C004F1DBD /* SettingsViews */,
+				D86B56912A23E22F007A1B6D /* HubView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				D82E567D29F99839004F1DBD /* SubscriptionsViewModel.swift in Sources */,
 				D82E56A629F9A311004F1DBD /* LanguageModel.swift in Sources */,
 				D82E569929F9A311004F1DBD /* BloodGlucoseData.swift in Sources */,
+				D86B56922A23E22F007A1B6D /* HubView.swift in Sources */,
 				D82E567B29F99839004F1DBD /* Subscriptions.swift in Sources */,
 				D82E568F29F9983C004F1DBD /* BloodGLucoseViewHandlers.swift in Sources */,
 				D82E567C29F99839004F1DBD /* SubscriptionsView.swift in Sources */,

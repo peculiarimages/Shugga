@@ -21,9 +21,13 @@ let knownVoices_jp = ["Hattori", "Kyoko", "O-ren"]
 
 let knownProblemVoices = ["Karen", "Shelley", "Grandpa", "Grandma",  "Rocko", "Shelly", "Eddy", "Flo", "Sandy"]
 
+let quarantinedVoices = ["Catherine", "Daniel",  "Reed", "Arthur", "Moira", "Bahh", "Albert", "Fred", "Jester", "Organ", "Cellos", "Zarvox", "Superstar", "Bells", "Trinoids", "Kathy","Boing", "Whisper", "Wobble", "Good News", "Nicky", "Bad News", "Aaron", "Bubbles", "Junior", "Ralph", "Tessa"]
 
-
+// known to work well voices: "Gordon" (very sure), "Martha" (pretty sure), "Samantha" (pretty sure)
 /*
+ 
+// testing Rishi now
+ 
  
  
  Language Name   Quality       Identifier                                       Class
@@ -148,6 +152,9 @@ let knownProblemVoices = ["Karen", "Shelley", "Grandpa", "Grandma",  "Rocko", "S
  
  Language:en-IN, Name: Rishi, Quality: Default [com.apple.voice.compact.en-IN.Rishi], [AVSpeechSynthesisVoice 0x600002990040]
  
+ 
+ 
+ 
  Language: en-US, Name: Monster, Quality: Default [com.apple.speech.synthesis.voice.Trinoids], [AVSpeechSynthesisVoice 0x600002990070]
  
  Language:en-US, Name: Albert, Quality: Default [com.apple.speech.synthesis.voice.Albert], [AVSpeechSynthesisVoice 0x600002990100]
@@ -187,6 +194,9 @@ let knownProblemVoices = ["Karen", "Shelley", "Grandpa", "Grandma",  "Rocko", "S
  Language:en-US, Name: Katrin, Quality: Default [com.apple.speech.synthesis.voice.Kathy], [AVSpeechSynthesisVoice 0x600002990450]
  
  Language: en-US, Name: Fred, Quality: Default [com.apple.speech.synthesis.voice.Fred], [AVSpeechSynthesisVoice 0x6000029901b0]
+ 
+ 
+ 
  
  Language:en-ZA, Name: Tessa, Quality: Default [com.apple.voice.compact.en-ZA.Tessa], [AVSpeechSynthesisVoice 0x600002990400]
  

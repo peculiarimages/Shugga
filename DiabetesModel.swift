@@ -67,7 +67,11 @@ struct Diabetes {
         @Environment(\.scenePhase)  var scenePhase
 
         
-        if !self.speakElapsedTime && scenePhase == .active { return ("")}
+        if !self.speakElapsedTime //&& scenePhase == .active
+        {
+            return ("")
+            
+        }
 
         
         var sampleTime: Date

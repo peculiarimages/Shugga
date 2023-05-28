@@ -105,27 +105,41 @@ struct AboutSugahView: View {
             ScrollView {
                 
                 
+                Text (whatThisAppDoes)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.leading)
+                    .padding([.leading, .trailing], 35)
+                    .padding([.top, .bottom], 3)
+                    .frame(alignment: .center)
+                    .font(.system(size: 13, design: .rounded))
+                
+                Link("CLick here to see the playlist of all the videos we made for the app on YouTube", destination: URL(string: "https://youtube.com/playlist?list=PLk5rQBc5hAiMtojLe-aJYYALgaHOT1UGn")!)
+                    .padding([.leading, .trailing], 35)
+
+                Text("")
+                
                 Text (disclaimerBoilerplate)
                     .font(.caption)
                     .padding([.leading, .trailing], 35)
 
-                
-                Link("LoopDocs", destination: URL(string: "https://loopkit.github.io/loopdocs/")!)
+
+                Link("Read about loop in LoopDocs here", destination: URL(string: "https://loopkit.github.io/loopdocs/")!)
 
                 // Text ("Tweet [@SugahApp](\twitterLink) with all your questions and concerns.")
-                 Text(.init("Tweet [\(twitterHandle)](\(twitterLink)) with all your questions and concerns.")) //
-                     .foregroundColor(.primary)
-                     .padding([.top, .bottom], 12)
-                     .padding([.leading, .trailing], 35)
-                     .lineLimit(1)
-                     .minimumScaleFactor(0.5)
+//                 Text(.init("Tweet [\(twitterHandle)](\(twitterLink)) with all your questions and concerns.")) //
+//                     .foregroundColor(.primary)
+//                     .padding([.top, .bottom], 12)
+//                     .padding([.leading, .trailing], 35)
+//                     .lineLimit(1)
+//                     .minimumScaleFactor(0.5)
                  
                  Text(pleaseSendUsANote)
+                    .font(.caption)
                      .foregroundColor(.primary)
                      .padding([.top, .bottom], 5)
                      .padding([.leading, .trailing], 35)
-                     .lineLimit(3)
-                     .minimumScaleFactor(0.5)
+//                     .lineLimit(3)
+//                     .minimumScaleFactor(0.5)
                  
                  Text(.init("[\(webPageLink)](\(webPageLink))")) //
                      .foregroundColor(.primary)
@@ -133,14 +147,6 @@ struct AboutSugahView: View {
                      .padding([.leading, .trailing], 35)
                      .lineLimit(1)
                      .minimumScaleFactor(0.5)
-                
-                Text (whatThisAppDoes)
-                    .foregroundColor(.primary)
-                    .multilineTextAlignment(.leading)
-                    .padding([.leading, .trailing], 35)
-                    //.padding([.top, .bottom], 3)
-                    .frame(alignment: .center)
-                    .font(.system(size: 13, design: .rounded))
                 
                 VStack {
                     
@@ -171,24 +177,29 @@ struct AboutSugahView: View {
                 .padding(22)
 
                 VStack {
-                    Text("Bugs:")
+                    Text("Known bugs and future plans:")
                     Text (listOfBugs)
-                        .foregroundColor(.orange)
+//                        .foregroundColor(.orange)
                         .padding([.leading, .trailing], 35)
                         .font(.system(size: 12, design: .rounded))
+                        .padding([.top, .bottom], 12)
+
                     
-                    Text ("The future version will have other languages.")
-                        .foregroundColor(.secondary)
-                        .padding([.leading, .trailing], 35)
-                        .font(.system(size: 12, design: .rounded))
-                    //                    ForEach(voiceNames, id: \.self) { voiceName in
-                    //
-                    //                        Text (voiceName)
-                    //                    }
                    
                     AcknowledgmentsSettingsView()
 
-                    Text ("Created by:\n\nHiroshi Howell\n\nLob all complaints and grievances to Outside Center LLC, please. I am not responsible for anything...\n\n\n\n\n\n\n")
+                    Image("rodi-nobackground")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+//                        .padding([.top, .leading, .trailing], 5)
+                    
+                    Text (whyShugga)
+                        .foregroundColor(.secondary)
+                        .padding([.leading, .trailing], 35)
+                        .padding([.top], 12)
+                        .font(.system(size: 14, design: .rounded))
+                    
+                    Text ("Lob all complaints and grievances to Outside Center LLC, please. I am not responsible for anything...\n\n\n\n\n\n\n")
                         .foregroundColor(.secondary)
                         .padding([.leading, .trailing], 35)
                         .padding([.top, .bottom], 12)

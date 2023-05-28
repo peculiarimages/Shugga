@@ -637,7 +637,7 @@ struct UnitSettingsContentView:  View {
             }                        .textCase(.none)
 
             
-            let includeUnitTextWithChosenUnit = "Shugga [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])]" + (shuggaGlucoseTrend ? " & [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])/\(multiplyTrendByTen ? "10" : "") min]" : "")
+            let includeUnitTextWithChosenUnit = "Shugga unit [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])]" + (shuggaGlucoseTrend ? " & [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])/\(multiplyTrendByTen ? "10" : "") min]" : "")
                 
                 Toggle(includeUnitTextWithChosenUnit, isOn: $includeUnit)
                     .onChange(of: includeUnit) { speakUnit in
@@ -697,7 +697,7 @@ struct UnitSettingsView: View {
             .font(.headline)
                 //.fontWeight(.regular)
                 , footer:
-                    Text("Shugga sample:“\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "")\(multiplyTrendByTen && shuggaGlucoseTrend ? "0" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")”")
+                    Text("Shugga sample: “\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "")\(multiplyTrendByTen && shuggaGlucoseTrend ? "0" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit && shuggaGlucoseTrend ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit && shuggaGlucoseTrend ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")\"")
         ) { UnitSettingsContentView() }
     }
 }
@@ -719,7 +719,7 @@ struct UnitSettingsView: View {
 struct ReminderSettingsContentView:  View {
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     
-    @AppStorage("reminderIsOn")                    public var reminderIsOn =  true
+    @AppStorage("reminderIsOn")                    public var reminderIsOn =  defaultReminderIsOn
     
     @AppStorage("reminderAfterFood_05Min")         public var reminderAfterFood_05Min =  false // for testing purpose
 
@@ -775,7 +775,7 @@ struct ReminderSettingsContentView:  View {
 
 
 struct ReminderSettingsView: View {
-    @AppStorage("reminderIsOn")                    public var reminderIsOn =  true
+    @AppStorage("reminderIsOn")                    public var reminderIsOn =  defaultReminderIsOn
     
     @AppStorage("reminderAfterFood_05Min")         public var reminderAfterFood_05Min =  false // for testing purpose
 
@@ -817,7 +817,7 @@ struct ReminderSettingsView: View {
                    //.fontWeight(.regular)
                    
            ){
-               Text ("Time restricted feeding: 8 hours (future option)")
+//               Text ("Time restricted feeding: 8 hours (future option)")
                ReminderSettingsContentView(showDescription: $showDescription, showReminders: $showReminders)
         }
     }
@@ -1050,10 +1050,12 @@ struct NitPickySettingsContentView: View {
                     bloodGlucoseData.theTranslator.setToGrayAppIcon(isSetToGrayAppIcon: grayAppIcon)}
             
                 Toggle("Shugga while in background", isOn: $shuggaInBackground)
+
                 Toggle("Add \"from the background\"", isOn: $tellMeItsFromBackground)
                 .disabled(!shuggaInBackground)
                 .padding(.leading)
-             
+                .listRowSeparator(.hidden)
+
             
             
             /*
@@ -1177,6 +1179,18 @@ struct DemoSettingsView: View {
     
 }
 
+struct VoiceSettingsContentView:  View {
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+
+    
+    var body: some View {
+                
+        VStack{
+            
+            Text ("Choose your language and available voice.")
+        }
+        }
+    }
 struct VoiceSettingsView: View {
     
     @AppStorage("sugahLanguageChosen")     public var sugahLanguageChosen =         defaultSugahLanguage
@@ -1202,7 +1216,10 @@ struct VoiceSettingsView: View {
                 Spacer()
                             HelpButton(showDescription: $showDescription, title: "Voice & Language Setting")  {
                                 VStack(alignment: .leading) {
-                                    Text("Help on Demo Setting")
+//                                    SpeechBubble {
+//                                        Form { VoiceSettingsContentView() }
+//                                    }
+                                    Text("Choose your language and available voice.")
                                         .textCase(.none)
                                 }
                             }
@@ -1275,9 +1292,24 @@ struct VoiceSettingsView: View {
                             
                             
                          
-                            if !knownProblemVoices.contains(voice.voiceName) {
+                            if !knownProblemVoices.contains(voice.voiceName){
                                 
-                                Text("\(voice.voiceName) (\(voice.languageLocaleCode))").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
+                                
+                                
+                                if thisIsBeta {
+                                    
+                                    
+                                    Text("\(voice.voiceName) (\(voice.languageLocaleCode))\(quarantinedVoices.contains(voice.voiceName)  ? "*" : "")").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
+                                    
+                                }
+                                else if !quarantinedVoices.contains(voice.voiceName)
+                                    
+                                {
+                                    
+                                    Text("\(voice.voiceName) (\(voice.languageLocaleCode))").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
+                                    
+                                }
+                                
                                 
                                 
                             }
@@ -1341,6 +1373,8 @@ struct ExperimentSettingsView: View {
     
     @AppStorage("outputSelectionOption")            public var outputSelectionOption =              outputOptionsDefault
    
+    @AppStorage("turnOffDuringPhoneCalls")          public var turnOffDuringPhoneCalls =                     false
+
     
     @AppStorage("showLockButton")                   public var showLockButton =                     false
 
@@ -1378,8 +1412,9 @@ struct ExperimentSettingsView: View {
 //                Toggle("Sync Shugga with new CGM entries", isOn: $syncWithCGM)
 //                    .disabled(true)
                 
-           
-               
+                Toggle("Shugga while on phone call is turned \(turnOffDuringPhoneCalls ? "on" : "off")", isOn: $turnOffDuringPhoneCalls)
+                    .disabled(true)
+
                 Toggle("Background haptic is \(backgroundHaptics ? "on" : "off")", isOn: $backgroundHaptics)
                     .disabled(true)
                 //
@@ -1548,7 +1583,7 @@ struct AcknowledgmentsSettingsView: View {
                     Text (nationalParksText)
                         .foregroundColor(.secondary)
                         .padding([.leading, .trailing], 35)
-                        .padding([.top, .bottom], 12)
+                        .padding([.top], 12)
                         .font(.system(size: 14, design: .rounded))                    //                                .font(.headline)
                 }
                 

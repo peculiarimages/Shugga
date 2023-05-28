@@ -15,6 +15,7 @@ struct SettingsView: View {
     
     @AppStorage("appExpirationDate")            public var appExpirationDate =             june_1_2023 // 1672559996 = jan 1 2023 unix time stamp
     @AppStorage("userAgreedToAgreement")        public var userAgreedToAgreement =              false
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
 
 
 
@@ -73,25 +74,28 @@ struct SettingsView: View {
                             
                             MainSwitchSettingsView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused)
 
-                            
-                            DetailsSettingsView()
-                            
-                            UnitSettingsView()
-                            
-                            
-                            WarningSettingsView()
-                            
-                         VoiceSettingsView() // suspecting this to cause an app to crash
-                            
-                            AncillaryDataSettingsView()
-                            
-                            NitPickSettingsView()
-                            
-                            ReminderSettingsView()
+                            if announcementOn {
+                                
+                                DetailsSettingsView()
+                                UnitSettingsView()
+                                
+                                
+                                WarningSettingsView()
+                                
+                             VoiceSettingsView() // suspecting this to cause an app to crash
+                                
+                                AncillaryDataSettingsView()
+                                
+                                NitPickSettingsView()
+                                
+                                ReminderSettingsView()
 
-                            DemoSettingsView()
+//                                DemoSettingsView()
+                                
+                                ExperimentSettingsView( theMainViewIsLocked: $theMainViewIsLocked)
+                            }
                             
-                            ExperimentSettingsView( theMainViewIsLocked: $theMainViewIsLocked)
+                            
                             
                         } // if userAgreedToAgreement
                         

@@ -8,6 +8,7 @@
 import Foundation
 import HealthKit
 
+
 class StepCountData {
     
     let healthStore = HKHealthStore()

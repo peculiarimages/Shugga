@@ -9,6 +9,9 @@ import Foundation
 import AVFoundation
 import SwiftUI
 import BackgroundTasks
+//import CoreTelephony
+//import CallKit
+
 
 enum AudioOutputPort: String, CaseIterable {
     
@@ -219,6 +222,8 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
     @AppStorage("pauseNow")                   public var pauseNow =                     false
     @AppStorage("sugahLanguageCombinedCodeChosen")      public var sugahLanguageCombinedCodeChosen =    "en-US"
     @AppStorage("sugahVoiceChosen")                     public var sugahVoiceChosen =                   defaultSugahVoice
+    
+    @AppStorage("turnOffDuringPhoneCalls")          public var turnOffDuringPhoneCalls =                     false
 
     
     static let shared = Speech()
@@ -332,11 +337,17 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
     
     
     
-    
-    
-    
-    
-    
+//
+//
+//    func checkIfTelephoneIsActive () -> Bool {
+//
+//
+//        return true
+//
+//
+//    }
+//
+//
     
     
     
@@ -390,25 +401,12 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             utterance.postUtteranceDelay = synthSpeechParameters.postUtteranceDelay ?? 0.0
             utterance.rate  = synthSpeechParameters.rate
 //            utterance.voice = synthSpeechParameters.voice
-
 //            printTimestamp(description: "Speech voice name", content: String(synthSpeechParameters.voice), label: "声")
            
-           
-            
-            
-            
-            
-            
-            
-            
-            
             let desiredVoiceName = sugahVoiceChosen.dropFirst(2)
             
             printTimestamp(description: "desiredVoiceName", content: String(desiredVoiceName), label: "声")
             var selectedVoice: AVSpeechSynthesisVoice?
-
-            
-            
             
             for voice in AVSpeechSynthesisVoice.speechVoices() {
                 print ("\(voice.name) : \(voice.language.prefix(2))")
@@ -424,24 +422,16 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
                 utterance.voice = voice
             } else {
                 // The desired voice is not available
-                
-                
+                utterance.voice = AVSpeechSynthesisVoice(identifier:    defaultSugahVoice)
+                utterance.voice = AVSpeechSynthesisVoice(language:      defaultShuggaLanguageCombinedCode)
+
                 print("Desired voice '\(desiredVoiceName)' not found")
             }
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             // Speak the utterance
+            
+            
+            
             if !self.pauseNow || self.announcementOn {
                 self.synth.speak(utterance)
             }else {
@@ -466,12 +456,6 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
                 }
             }
         }
-        
-        
-                
-      
-            
-           
         
         speechQueue.addOperation(speechRequest)
     }

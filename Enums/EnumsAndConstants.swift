@@ -11,12 +11,17 @@ import SwiftUI
 import BackgroundTasks
 import HealthKit
 
+
+let thisIsBeta = false
+
+
+
 // appstorage defaults
 let defaultShuggaRepeats = false
 let defaultShuggaInterval = SecondsIn.fiveMinutes.rawValue // in seconds. 
 let defaultShuggaIsOn = false
 let pauseShuggaDefault_min = 30
-
+let defaultReminderIsOn = false
 
 
 
@@ -158,7 +163,6 @@ let logoTypeColor = Color(red: 0.530, green: 0.0, blue: 0.12)
 
 let settingSymbolName = "gearshape.fill"
 
-let thisIsBeta = false
 
 let settingsSFSymbolName = "gearshape.fill"
 

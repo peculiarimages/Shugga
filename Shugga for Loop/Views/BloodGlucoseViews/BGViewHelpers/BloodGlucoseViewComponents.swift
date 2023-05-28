@@ -202,7 +202,7 @@ struct deBugGlucoseValueListFView: View {
         VStack {
             Text ("Location").foregroundColor(.red) + Text ("BackgroundTask").foregroundColor(.green) + Text ("AppRefresh").foregroundColor(.orange) + Text ("HKObserver").foregroundColor(.blue)
             ScrollView {
-                ForEach(bloodGlucoseData.manySweetnesses.sweetnesses?.reversed() ?? [], id: \.id) { sweetness in
+                ForEach(bloodGlucoseData.manySweetnesses.sweetnesses?.reversed() ?? [], id: \.id) { sweetness in 
                     HStack {
 
                         if sweetness.whoRecorded == WhoCalledTheFunction.locationManger {
@@ -411,13 +411,13 @@ struct NoCarbHistoryPermissionNoticeView: View {
                 
                 Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
                     .font(.system(size: 40 ))
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                 
                 Text ("Please grant permission for the app to access your blood glucose data from the Health for it to function correctly. \n\nTo do this, go to the Settings.app, select \"Health,\" then choose Shugga from \"Data Access & Devices\" section. Finally, enable the app to read Blood Glucose data.")
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                     .padding([.bottom])
                 Text ("Also, You will need at least one blood glucose entry in Health in the past 24 hours for this app to function.")
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                     .padding([.bottom])
                 Button(action: {
                     if let url = URL(string: "App-Prefs:") {
@@ -426,7 +426,7 @@ struct NoCarbHistoryPermissionNoticeView: View {
                 }) {
                     Text("Open System Settings")
                         .padding()
-                        .background(Color.orange)
+                        .background(shuggaRed)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
@@ -461,12 +461,12 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
                     Spacer()
                     Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
                         .font(.system(size: 40 ))
-                        .foregroundColor(.orange)
+                        .foregroundColor(shuggaRed)
                     Spacer()
                 }.padding(.top, 10)
                 
                 Text (youMustAgreeText)
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                 
                     .padding()
             }
@@ -493,12 +493,12 @@ struct SweetnessesIsEmptyNoticeView: View {
                     Spacer()
                     Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
                         .font(.system(size: 40 ))
-                        .foregroundColor(.orange)
+                        .foregroundColor(shuggaRed)
                     Spacer()
                 }.padding(.top, 10)
                 
                 Text ("You need at least one blood glucose entry in Health in the past 24 hours for this app to function.")
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                 
                     .padding(15)
             }
@@ -520,13 +520,13 @@ struct NoBloodGlucosePermissionNoticeView: View {
                 
                 Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
                     .font(.system(size: 40 ))
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                 
                 Text ("Please grant permission for the app to access your blood glucose data from the Health for it to function correctly. \n\nTo do this, go to the Settings.app, select \"Health,\" then choose Shugga from \"Data Access & Devices\" section. Finally, enable the app to read Blood Glucose data.")
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                     .padding([.bottom])
                 Text ("Also, You will need at least one blood glucose entry in Health in the past 24 hours for this app to function.")
-                    .foregroundColor(.orange)
+                    .foregroundColor(shuggaRed)
                     .padding([.bottom])
                 Button(action: {
                     if let url = URL(string: "App-Prefs:") {
@@ -535,7 +535,7 @@ struct NoBloodGlucosePermissionNoticeView: View {
                 }) {
                     Text("Open System Settings")
                         .padding()
-                        .background(Color.orange)
+                        .background(shuggaRed)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }

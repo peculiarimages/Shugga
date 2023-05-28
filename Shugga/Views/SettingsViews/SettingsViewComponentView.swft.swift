@@ -691,7 +691,7 @@ struct UnitSettingsView: View {
 struct ReminderSettingsContentView:  View {
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     
-    @AppStorage("reminderIsOn")                    public var reminderIsOn =  true
+    @AppStorage("reminderIsOn")                    public var reminderIsOn =  defaultReminderIsOn
     
     @AppStorage("reminderAfterFood_05Min")         public var reminderAfterFood_05Min =  false // for testing purpose
 
@@ -747,7 +747,7 @@ struct ReminderSettingsContentView:  View {
 
 
 struct ReminderSettingsView: View {
-    @AppStorage("reminderIsOn")                    public var reminderIsOn =  true
+    @AppStorage("reminderIsOn")                    public var reminderIsOn =  defaultReminderIsOn
     
     @AppStorage("reminderAfterFood_05Min")         public var reminderAfterFood_05Min =  false // for testing purpose
 
