@@ -165,18 +165,11 @@ struct BloodGlucoseView: View {
     
     let dateForExpirationPurpose = NSDate() // current date
     
-    let whiteBackgroundColor = LinearGradient(
-        gradient: Gradient(colors: [Color(UIColor.systemBackground), Color(UIColor.systemBackground)]),
-        startPoint: .topTrailing,
-        endPoint: .bottomLeading)
-    
+  
     
     var glucoseMonitorModel = GlucoseMonitorModel()
     
-    let backgroundGradient = LinearGradient(
-        gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))]),
-        startPoint: .topTrailing,
-        endPoint: .bottomLeading)
+   
     
     var backgroundDeliveryStatus = false
     

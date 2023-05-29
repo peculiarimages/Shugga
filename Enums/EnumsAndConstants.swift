@@ -24,7 +24,34 @@ let pauseShuggaDefault_min = 30
 let defaultReminderIsOn = false
 
 
+let backgroundGradient = LinearGradient(
+    gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))]),
+    startPoint: .topTrailing,
+    endPoint: .bottomLeading)
 
+let whiteBackgroundColor = LinearGradient(
+    gradient: Gradient(colors: [Color(UIColor.systemBackground), Color(UIColor.systemBackground)]),
+    startPoint: .topTrailing,
+    endPoint: .bottomLeading)
+
+
+
+
+let itemShadowOffsetX:  CGFloat = 4
+let itemShadowOffsetY:  CGFloat = 8
+
+let itemShadowOpacity:  Float =              0.7
+let itemShadowOpacity_darkmode:  Float =    0.75
+
+let itemShadowRadius:   CGFloat = 12
+
+
+
+let startingBlendColor: UIColor = .systemGray3
+let endingBlendColor:   UIColor = .gray
+
+let startingBlendColor_darkmode: UIColor = .systemGray4
+let endingBlendColor_darkmode:   UIColor = .systemGray6
 
 
 let shuggaRed = Color(red: 151/255, green: 21/255, blue: 42/255)

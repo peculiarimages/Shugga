@@ -1010,20 +1010,7 @@ struct TopMenuView: View {
     
 //    var logoFileName: String
     
-    let itemShadowOpacity:  Float =              0.7
-    let itemShadowOpacity_darkmode:  Float =    0.75
-    
-    let itemShadowRadius:   CGFloat = 12
-    
-    let itemShadowOffsetX:  CGFloat = 4
-    let itemShadowOffsetY:  CGFloat = 8
-    
-    let startingBlendColor: UIColor = .systemGray3
-    let endingBlendColor:   UIColor = .gray
-    
-    let startingBlendColor_darkmode: UIColor = .systemGray4
-    let endingBlendColor_darkmode:   UIColor = .systemGray6
-    
+ 
     @Environment(\.colorScheme) var colorScheme
 
     
@@ -1031,7 +1018,7 @@ struct TopMenuView: View {
         Spacer()
         HStack {
             VStack {
-                NavigationLink(destination: AboutSugahView()) {
+                NavigationLink(destination: HubView()) {
                     
                     Image(systemName: "info.circle.fill")
                         .foregroundColor(.gray)

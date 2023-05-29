@@ -84,6 +84,7 @@
 		D850400C29EC296100543B93 /* SubscriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */; };
 		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
 		D86B56922A23E22F007A1B6D /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56912A23E22F007A1B6D /* HubView.swift */; };
+		D86B56942A24A4F8007A1B6D /* AboutShuggaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
@@ -166,6 +167,7 @@
 		D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewModel.swift; sourceTree = "<group>"; };
 		D864794729E7CC39000CFB9F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		D86B56912A23E22F007A1B6D /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
+		D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShuggaView.swift; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
@@ -361,10 +363,11 @@
 		D82E567E29F9983C004F1DBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D86B56912A23E22F007A1B6D /* HubView.swift */,
 				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
+				D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */,
 				D82E568029F9983C004F1DBD /* BloodGlucoseViews */,
 				D82E568229F9983C004F1DBD /* SettingsViews */,
-				D86B56912A23E22F007A1B6D /* HubView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				D82E568A29F9983C004F1DBD /* SettingsDescriptionViews.swift in Sources */,
 				D82E569729F9A311004F1DBD /* DebugMethods.swift in Sources */,
 				D82E56AC29F9A321004F1DBD /* Enums.Debugging.swift in Sources */,
+				D86B56942A24A4F8007A1B6D /* AboutShuggaView.swift in Sources */,
 				D82E569A29F9A311004F1DBD /* CGM_Model.swift in Sources */,
 				D82E569129F998A6004F1DBD /* SceneDelegate.swift in Sources */,
 				D82E569329F998CE004F1DBD /* LaunchScreenView.swift in Sources */,

@@ -52,7 +52,7 @@ struct NavigationForSettingsView: View {
             Spacer()
             
             VStack{
-                NavigationLink(destination: AboutSugahView()) {
+                NavigationLink(destination: HubView()) {
                     
                     HStack {
                         VStack {

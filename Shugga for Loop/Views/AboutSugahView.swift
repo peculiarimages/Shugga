@@ -68,13 +68,35 @@ func showFunImage () -> Image{
 //let logoTypeColor = Color(red: 0.530, green: 0.0, blue: 0.12)
 
 
+
+
+
 struct AboutSugahView: View {
 
-    
+    @Binding var navigateToAboutShugga: Bool
+
     var body: some View {
+        
         
         VStack {
             
+            
+            VStack {
+                Button(action: {
+                    navigateToAboutShugga = false
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                    }
+                }
+                .padding()
+                
+                // The rest of your view content goes here
+                Text("About Sugah Content")
+                    .font(.title)
+                    .padding()
+            }
             
             
             VStack {
@@ -222,11 +244,14 @@ struct AboutSugahView: View {
             }
             .padding(5)
         }
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarHidden(true)  // This hides the default navigation bar
+
     }
 }
 
 struct AboutSugah_Previews: PreviewProvider {
     static var previews: some View {
-        AboutSugahView()
+        AboutSugahView(navigateToAboutShugga: .constant(true))
     }
 }
