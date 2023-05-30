@@ -82,7 +82,24 @@ struct Diabetes {
         let timeInterval = Int(Date().timeIntervalSince(sampleTime))
         
         if timeInterval < Int(rodisBirthdayTimeStamp) {
-            shuggaUtterance = formatSecondsToTimeString(seconds: timeInterval, cutOffAt: CutOffAt.none)// colon makes for a longer pause
+            
+            
+            if timeInterval > 15 {
+                
+                shuggaUtterance = formatSecondsToTimeString(seconds: timeInterval, cutOffAt: CutOffAt.none) + " ago: "// colon makes for a longer pause
+                
+            }
+            
+            else { // less than 15 seconds
+                
+                return ("Just in: ")
+                
+            }
+            
+            
+            
+            
+            
         }
         
         

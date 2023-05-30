@@ -267,11 +267,14 @@ struct MainSwitchSettingsContentView: View {
                 }
                 .padding(.leading)
             // ___________________________________ Pause for ___________________________________
-
+            
+            
+            
+            if thisIsBeta {
             HStack{
                 Text (announcementOn ? (pauseNow ? "Paused for" : "Pause for" ): "Shugga paused by the main switch above")
                     .padding(.trailing, -20)
-
+                
                 
                 if !pauseNow {
                     
@@ -282,13 +285,13 @@ struct MainSwitchSettingsContentView: View {
                             if interval > 60 {
                                 Text("\(interval / 60) " + NSLocalizedString("hrs.", comment: "hrs. to pause"))
                                     .padding(.leading, -5)
-
+                                
                                     .lineLimit(1)
-
+                                
                             }
                             else {
                                 Text("\(interval) " + NSLocalizedString("min.", comment: "min to pause"))
-                                    
+                                
                                     .padding(.leading, -5)
                                     .lineLimit(1)
                             }
@@ -329,6 +332,9 @@ struct MainSwitchSettingsContentView: View {
                     .disabled(disableLock || !announcementOn)
             }
             .padding(.leading)
+            
+            
+        }
         }
         .textCase(.none)
     }

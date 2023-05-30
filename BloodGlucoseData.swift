@@ -1179,9 +1179,10 @@ class BloodGlucoseData: ObservableObject {
                     
                     if !self.appIsInForeground || self.speakElapsedTime {
                         
+                        
                         shuggaUtterance += diabetes.returnSpeakableGlucoseFetchTime(sweetness: theSweetness, language: self.sugahLanguageChosen)
                         
-                        shuggaUtterance += " ago: " }
+                        }
                     
                     
                     

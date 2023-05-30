@@ -196,16 +196,28 @@ struct BloodGlucoseView: View {
         
         
         
-        ZStack {
+        VStack {
             NavigationView (
                 content: {
                     
                     //   if whiteBackground { whiteBackgroundColor .edgesIgnoringSafeArea(.all) }
                     
+                    
+                    
+                    
+                    
+                    
                     VStack {
                         TopMenuView( grayAppIcon: $grayAppIcon,     settingsSymbol: $settingsSymbol,    navigationImageSize: $navigationImageSize,
                                      userAgreedToAgreement: $userAgreedToAgreement,                     orientation: $orientation,
                                      theHealthKitIsAvailableOnThisDevice: $theHealthKitIsAvailableOnThisDevice)
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         Spacer()
                         
@@ -396,32 +408,50 @@ struct BloodGlucoseView: View {
 
 
 
+func generateTestData(numberOfDataPoints: Int, intervalBetweenDataPointsInMinutes: Int) -> [Sweetness] {
+    var testData: [Sweetness] = []
+
+    let currentDate = Date() // Get the current date and time
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // This format can be changed to suit your needs
+
+    let calendar = Calendar.current // Get the current calendar
+
+    for i in 0..<numberOfDataPoints {
+        // Subtract i*5 minutes from the current date to create each data point
+        let newDate = calendar.date(byAdding: .minute, value: -(i*intervalBetweenDataPointsInMinutes), to: currentDate)!
+
+        let timeString = formatter.string(from: newDate)
+
+        let debugStruct = DebugStruct(timeString: timeString)
+
+        // Create a new Sweetness object with the adjusted date and add it to the testData array
+        let newSweetness = Sweetness(sweetness: Double.random(in: 70...120), // For simplicity, generating random glucose levels in range 70 - 120
+                                     startTimestamp: newDate.timeIntervalSince1970 + 3600,
+                                     deBug: debugStruct)
+        testData.append(newSweetness)
+    }
+
+    return testData
+}
+
+
 
 
 struct BloodGlucoseView_Previews: PreviewProvider {
-    
-    
-    
-    
-    
-  
-    
+
     static var previews: some View {
-        
-        let healthStore = HKHealthStore()
-        
- 
-    
-    
-        var sweetness =  Sweetness(sweetness: 99.9)
-        
+
+        // Instantiate BloodGlucoseData and ManySweetnesses.
         let bloodGlucoseData = BloodGlucoseData()
-        
-        bloodGlucoseData.manySweetnesses.addSweetness(sweetness: sweetness)
-        
-        
-        
-       return  BloodGlucoseView()
+
+        // Generate test data.
+        let testData = generateTestData(numberOfDataPoints: 10, intervalBetweenDataPointsInMinutes: 5)
+
+        // Add test data to manySweetnesses.
+        bloodGlucoseData.manySweetnesses.sweetnesses = testData
+
+        return BloodGlucoseView()
             .environmentObject(bloodGlucoseData)
             .previewDisplayName("sample data")
             .colorScheme(.light)

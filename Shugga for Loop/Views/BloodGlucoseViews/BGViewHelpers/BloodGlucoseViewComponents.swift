@@ -850,6 +850,7 @@ struct MainGlucoseDisplayView: View {
     let skipHundredth: Bool
   //  let theDataIsTooOld: Bool
     
+    /// <#Description#>
     var body: some View {
         
         let timeSinceUpdateInSeconds = Int(Date().timeIntervalSince1970) - Int(bloodGlucoseData.manySweetnesses.sweetnesses?.last?.startTimestamp ?? 0.0)
@@ -902,6 +903,8 @@ struct MainGlucoseDisplayView: View {
                 else
                 if bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -99 < 0 {
                     SweetnessesIsEmptyNoticeView()
+                   
+                    
                 }
                 
                 else {
