@@ -91,6 +91,16 @@
 		D86B56A02A26306A007A1B6D /* Enums.docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B569E2A26306A007A1B6D /* Enums.docs.swift */; };
 		D86B56A22A263153007A1B6D /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */; };
 		D86B56A32A263153007A1B6D /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */; };
+		D86B56A52A264606007A1B6D /* ManualsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A42A264606007A1B6D /* ManualsView.swift */; };
+		D86B56A62A264606007A1B6D /* ManualsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A42A264606007A1B6D /* ManualsView.swift */; };
+		D86B56A82A26482E007A1B6D /* Enum.Text.manuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A72A26482E007A1B6D /* Enum.Text.manuals.swift */; };
+		D86B56A92A26482E007A1B6D /* Enum.Text.manuals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A72A26482E007A1B6D /* Enum.Text.manuals.swift */; };
+		D86B56AB2A2652FC007A1B6D /* YouGotDis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */; };
+		D86B56AC2A2652FC007A1B6D /* YouGotDis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */; };
+		D86B56AE2A26535E007A1B6D /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86B56AD2A26535E007A1B6D /* audio.mp3 */; };
+		D86B56AF2A26535E007A1B6D /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86B56AD2A26535E007A1B6D /* audio.mp3 */; };
+		D86B56B12A265388007A1B6D /* Kiyoshi.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */; };
+		D86B56B22A265388007A1B6D /* Kiyoshi.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
@@ -177,6 +187,11 @@
 		D86B569B2A262E18007A1B6D /* FAQsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsView.swift; sourceTree = "<group>"; };
 		D86B569E2A26306A007A1B6D /* Enums.docs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.docs.swift; sourceTree = "<group>"; };
 		D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsView.swift; sourceTree = "<group>"; };
+		D86B56A42A264606007A1B6D /* ManualsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualsView.swift; sourceTree = "<group>"; };
+		D86B56A72A26482E007A1B6D /* Enum.Text.manuals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.Text.manuals.swift; sourceTree = "<group>"; };
+		D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouGotDis.swift; sourceTree = "<group>"; };
+		D86B56AD2A26535E007A1B6D /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
+		D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Kiyoshi.xcassets; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
@@ -294,6 +309,7 @@
 				D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */,
 				D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */,
 				D8254D7029BBABD700294034 /* Enums.Errors.swift */,
+				D86B56A72A26482E007A1B6D /* Enum.Text.manuals.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -439,10 +455,14 @@
 		D86B56962A261054007A1B6D /* HubVIew contents */ = {
 			isa = PBXGroup;
 			children = (
+				D86B56AD2A26535E007A1B6D /* audio.mp3 */,
+				D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */,
 				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
 				D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */,
 				D86B569B2A262E18007A1B6D /* FAQsView.swift */,
 				D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */,
+				D86B56A42A264606007A1B6D /* ManualsView.swift */,
+				D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */,
 			);
 			name = "HubVIew contents";
 			sourceTree = "<group>";
@@ -563,6 +583,8 @@
 				D8FDE37029FAEFCA00E62522 /* Assets.xcassets in Resources */,
 				D8FDE37629FAF26600E62522 /* Media.xcassets in Resources */,
 				D803D98A29A9335D006F4D6A /* Assets.xcassets in Resources */,
+				D86B56B12A265388007A1B6D /* Kiyoshi.xcassets in Resources */,
+				D86B56AE2A26535E007A1B6D /* audio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +593,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D82E567329F997E2004F1DBD /* Preview Assets.xcassets in Resources */,
+				D86B56AF2A26535E007A1B6D /* audio.mp3 in Resources */,
+				D86B56B22A265388007A1B6D /* Kiyoshi.xcassets in Resources */,
 				D8FDE37729FAF26600E62522 /* Media.xcassets in Resources */,
 				D82E567029F997E2004F1DBD /* Assets.xcassets in Resources */,
 			);
@@ -588,9 +612,11 @@
 				D8BD978429B1390900F64457 /* DateModel.swift in Sources */,
 				D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */,
 				D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */,
+				D86B56A52A264606007A1B6D /* ManualsView.swift in Sources */,
 				D803D9C729A9349C006F4D6A /* BloodGLucoseViewHandlers.swift in Sources */,
 				D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */,
 				D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */,
+				D86B56A82A26482E007A1B6D /* Enum.Text.manuals.swift in Sources */,
 				D850400829EC23B200543B93 /* Subscriptions.swift in Sources */,
 				D84A1ED429DF46CA00B893D8 /* shuggaApp.swift in Sources */,
 				D82E56E229F9A79C004F1DBD /* enums.swift in Sources */,
@@ -602,6 +628,7 @@
 				D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */,
 				D881F12629ABCCA100D3F9B3 /* StepCountData.swift in Sources */,
 				D803D99E29A9345A006F4D6A /* Enums.LanguagePairs.swift in Sources */,
+				D86B56AB2A2652FC007A1B6D /* YouGotDis.swift in Sources */,
 				D803D9AD29A9347F006F4D6A /* Extensions.swift in Sources */,
 				D8B8C3BE29C4D58400108904 /* DiabetesModel.swift in Sources */,
 				D803D9AF29A9347F006F4D6A /* ConsoleFunctions.swift in Sources */,
@@ -661,6 +688,7 @@
 				D82E56A029F9A311004F1DBD /* DiabetesModel.swift in Sources */,
 				D82E568A29F9983C004F1DBD /* SettingsDescriptionViews.swift in Sources */,
 				D82E569729F9A311004F1DBD /* DebugMethods.swift in Sources */,
+				D86B56A92A26482E007A1B6D /* Enum.Text.manuals.swift in Sources */,
 				D82E56AC29F9A321004F1DBD /* Enums.Debugging.swift in Sources */,
 				D86B56942A24A4F8007A1B6D /* AboutShuggaView.swift in Sources */,
 				D82E569A29F9A311004F1DBD /* CGM_Model.swift in Sources */,
@@ -670,6 +698,7 @@
 				D82E56A529F9A311004F1DBD /* SweetnessModel.swift in Sources */,
 				D82E56AD29F9A321004F1DBD /* Enums.WorldsUnit.swift in Sources */,
 				D82E566E29F997E1004F1DBD /* ContentView.swift in Sources */,
+				D86B56A62A264606007A1B6D /* ManualsView.swift in Sources */,
 				D82E56AE29F9A321004F1DBD /* EnumsAndConstants.swift in Sources */,
 				D82E56B029F9A321004F1DBD /* Enums.Voices.swift in Sources */,
 				D82E568E29F9983C004F1DBD /* BloodGlucoseView.swift in Sources */,
@@ -681,6 +710,7 @@
 				D82E569E29F9A311004F1DBD /* StepCountData.swift in Sources */,
 				D82E56A429F9A311004F1DBD /* SpeechModel.swift in Sources */,
 				D82E56A929F9A31B004F1DBD /* Extensions.swift in Sources */,
+				D86B56AC2A2652FC007A1B6D /* YouGotDis.swift in Sources */,
 				D82E566C29F997E1004F1DBD /* Shugga_for_LoopApp.swift in Sources */,
 				D82E56AB29F9A321004F1DBD /* Enums.TextBlocks.swift in Sources */,
 				D82E569D29F9A311004F1DBD /* ShuggaStatusClass.swift in Sources */,
