@@ -208,6 +208,9 @@ struct BloodGlucoseView: View {
                     
                     
                     VStack {
+                        
+                        
+                        
                         TopMenuView( grayAppIcon: $grayAppIcon,     settingsSymbol: $settingsSymbol,    navigationImageSize: $navigationImageSize,
                                      userAgreedToAgreement: $userAgreedToAgreement,                     orientation: $orientation,
                                      theHealthKitIsAvailableOnThisDevice: $theHealthKitIsAvailableOnThisDevice)

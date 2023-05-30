@@ -85,6 +85,12 @@
 		D864794829E7CC39000CFB9F /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864794729E7CC39000CFB9F /* LaunchScreenView.swift */; };
 		D86B56922A23E22F007A1B6D /* HubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56912A23E22F007A1B6D /* HubView.swift */; };
 		D86B56942A24A4F8007A1B6D /* AboutShuggaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */; };
+		D86B569C2A262E18007A1B6D /* FAQsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B569B2A262E18007A1B6D /* FAQsView.swift */; };
+		D86B569D2A262E18007A1B6D /* FAQsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B569B2A262E18007A1B6D /* FAQsView.swift */; };
+		D86B569F2A26306A007A1B6D /* Enums.docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B569E2A26306A007A1B6D /* Enums.docs.swift */; };
+		D86B56A02A26306A007A1B6D /* Enums.docs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B569E2A26306A007A1B6D /* Enums.docs.swift */; };
+		D86B56A22A263153007A1B6D /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */; };
+		D86B56A32A263153007A1B6D /* AcknowledgmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
@@ -168,6 +174,9 @@
 		D864794729E7CC39000CFB9F /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		D86B56912A23E22F007A1B6D /* HubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubView.swift; sourceTree = "<group>"; };
 		D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutShuggaView.swift; sourceTree = "<group>"; };
+		D86B569B2A262E18007A1B6D /* FAQsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsView.swift; sourceTree = "<group>"; };
+		D86B569E2A26306A007A1B6D /* Enums.docs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.docs.swift; sourceTree = "<group>"; };
+		D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsView.swift; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
@@ -205,6 +214,7 @@
 		D803D97929A9335C006F4D6A = {
 			isa = PBXGroup;
 			children = (
+				D86B56972A2628D2007A1B6D /* pdf */,
 				D8703E2929BA4ECC00285703 /* SpeechModel.swift */,
 				D881F14C29ABE39400D3F9B3 /* TheHealthBrain.swift */,
 				D88005D229B5A82900B89072 /* CGM_Model.swift */,
@@ -279,6 +289,7 @@
 				D803D99629A9345A006F4D6A /* Enums.Voices.swift */,
 				D8703E2C29BA51AF00285703 /* Enums.Audio.swift */,
 				D803D99829A9345A006F4D6A /* Enums.LanguagePairs.swift */,
+				D86B569E2A26306A007A1B6D /* Enums.docs.swift */,
 				D803D99929A9345A006F4D6A /* Enums.WorldsUnit.swift */,
 				D803D99A29A9345A006F4D6A /* Enums.TextBlocks.swift */,
 				D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */,
@@ -363,9 +374,7 @@
 		D82E567E29F9983C004F1DBD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D86B56912A23E22F007A1B6D /* HubView.swift */,
-				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
-				D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */,
+				D86B56952A261029007A1B6D /* HubView */,
 				D82E568029F9983C004F1DBD /* BloodGlucoseViews */,
 				D82E568229F9983C004F1DBD /* SettingsViews */,
 			);
@@ -416,6 +425,33 @@
 				D850400B29EC296100543B93 /* SubscriptionsViewModel.swift */,
 			);
 			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		D86B56952A261029007A1B6D /* HubView */ = {
+			isa = PBXGroup;
+			children = (
+				D86B56912A23E22F007A1B6D /* HubView.swift */,
+				D86B56962A261054007A1B6D /* HubVIew contents */,
+			);
+			path = HubView;
+			sourceTree = "<group>";
+		};
+		D86B56962A261054007A1B6D /* HubVIew contents */ = {
+			isa = PBXGroup;
+			children = (
+				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
+				D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */,
+				D86B569B2A262E18007A1B6D /* FAQsView.swift */,
+				D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */,
+			);
+			name = "HubVIew contents";
+			sourceTree = "<group>";
+		};
+		D86B56972A2628D2007A1B6D /* pdf */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pdf;
 			sourceTree = "<group>";
 		};
 		D8B8C3C029C646DA00108904 /* Views */ = {
@@ -548,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D803D9CF29A9349C006F4D6A /* SettingsView.swift in Sources */,
+				D86B56A22A263153007A1B6D /* AcknowledgmentsView.swift in Sources */,
 				D8BD978429B1390900F64457 /* DateModel.swift in Sources */,
 				D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */,
 				D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */,
@@ -561,6 +598,7 @@
 				D881F14D29ABE39400D3F9B3 /* TheHealthBrain.swift in Sources */,
 				D803D9B429A9347F006F4D6A /* SweetnessModel.swift in Sources */,
 				D803D9AE29A9347F006F4D6A /* VoiceModel.swift in Sources */,
+				D86B569F2A26306A007A1B6D /* Enums.docs.swift in Sources */,
 				D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */,
 				D881F12629ABCCA100D3F9B3 /* StepCountData.swift in Sources */,
 				D803D99E29A9345A006F4D6A /* Enums.LanguagePairs.swift in Sources */,
@@ -586,6 +624,7 @@
 				D8254D7129BBABD700294034 /* Enums.Errors.swift in Sources */,
 				D8BD978129B1331500F64457 /* BackgroundModel.swift in Sources */,
 				D803D9C929A9349C006F4D6A /* BloodGlucoseView.swift in Sources */,
+				D86B569C2A262E18007A1B6D /* FAQsView.swift in Sources */,
 				D8B8C3C129C7641800108904 /* AudioModel.swift in Sources */,
 				D803D9A029A9345A006F4D6A /* Enums.TextBlocks.swift in Sources */,
 				D803D9D229A9349C006F4D6A /* AboutSugahView.swift in Sources */,
@@ -614,7 +653,9 @@
 				D82E569F29F9A311004F1DBD /* TheHealthBrain.swift in Sources */,
 				D82E569B29F9A311004F1DBD /* HeartRateData.swift in Sources */,
 				D82E568929F9983C004F1DBD /* SettingsViewComponentView.swft.swift in Sources */,
+				D86B569D2A262E18007A1B6D /* FAQsView.swift in Sources */,
 				D82E56A229F9A311004F1DBD /* AudioModel.swift in Sources */,
+				D86B56A02A26306A007A1B6D /* Enums.docs.swift in Sources */,
 				D82E56A129F9A311004F1DBD /* ConsoleFunctions.swift in Sources */,
 				D82E56B129F9A321004F1DBD /* Enums.LanguagePairs.swift in Sources */,
 				D82E56A029F9A311004F1DBD /* DiabetesModel.swift in Sources */,
@@ -632,6 +673,7 @@
 				D82E56AE29F9A321004F1DBD /* EnumsAndConstants.swift in Sources */,
 				D82E56B029F9A321004F1DBD /* Enums.Voices.swift in Sources */,
 				D82E568E29F9983C004F1DBD /* BloodGlucoseView.swift in Sources */,
+				D86B56A32A263153007A1B6D /* AcknowledgmentsView.swift in Sources */,
 				D82E56A329F9A311004F1DBD /* VoiceModel.swift in Sources */,
 				D82E56A729F9A311004F1DBD /* UserInterfaceModel.swift in Sources */,
 				D82E56AF29F9A321004F1DBD /* Enums.Errors.swift in Sources */,

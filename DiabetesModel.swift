@@ -90,7 +90,7 @@ struct Diabetes {
                 
             }
             
-            else { // less than 15 seconds
+            else { // less than 15 seconds elapsed since the last sample
                 
                 return ("Just in: ")
                 

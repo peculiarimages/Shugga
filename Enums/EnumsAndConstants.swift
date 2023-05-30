@@ -110,6 +110,9 @@ let bloodGlucoseMgDlUnit = HKUnit.gramUnit(with: .milli).unitDivided(by: HKUnit.
 
 
 
+
+
+
 let stepCountCheckInterval: Double = 25
 
 

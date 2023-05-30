@@ -83,8 +83,28 @@ struct NavigationForHubView: View {
 
 struct HubView: View {
     
-    @State private var navigateToAboutShugga = false
+    let rotationPeriod =  0.3
+    let rotationEarlyCutOffBy = 0.02
 
+    @State private var navigateToAboutShugga = false
+    @State private var aboutShuggaIsRotating = false
+
+    @State private var navigateToFAQs = false
+    @State private var faqsIsRotating = false
+
+    
+    @State private var youTubeIsRotating = false
+
+    
+    
+    @State private var navigateToAcknowledgement = false
+    @State private var acknowledgementIsRotating = false
+
+
+    
+    
+    
+    
     
     @AppStorage("whiteBackground")                      public var whiteBackground =                        false
     @AppStorage("theMainViewIsLocked")  public var theMainViewIsLocked =    true
@@ -101,8 +121,7 @@ struct HubView: View {
         VStack {
 
             
-            VStack (
-                content: {
+          
             
                     
                    
@@ -114,32 +133,88 @@ struct HubView: View {
               
 //                Spacer()
                 VStack {
+//                    Spacer()
                     NavigationForHubView()
                         .padding(.bottom, 50)
 
 //                    Spacer()
                     if navigateToAboutShugga {
                         AboutShuggaView(navigateToAboutShugga: $navigateToAboutShugga)
-                    } else {
+                    }
+                    else if navigateToFAQs {
+                        FAQsView(navigateToFAQs: $navigateToFAQs)
+                    }
+                    else if navigateToAcknowledgement {
+                        AcknowledgmentsView(navigateToAcknowledgement: $navigateToAcknowledgement)
+
+                        
+                    }
+                    
+                    else {
                         
                         ScrollView {
                             LazyVGrid(columns: columns, spacing: 20) {
+                                
+                          
+                                
+                                
+                                VStack {
+                                    Image(systemName: "info.circle.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100, height: 100)
+                                        .foregroundColor(.primary)
+                                        .opacity(aboutShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
+                                        .rotationEffect(.degrees(aboutShuggaIsRotating ? 360 : 0))
+                                        .onTapGesture {
+                                            withAnimation(.linear(duration: rotationPeriod)) {
+                                                aboutShuggaIsRotating.toggle()
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                navigateToAboutShugga = true
+                                                withAnimation {
+                                                    aboutShuggaIsRotating = false
+                                                }
+                                            }
+                                        }
+                                    
+                                    Text("About...")
+                                        .foregroundColor(.primary)
+                                }
+
+
+                                
+                                
+                                
+                                
+                                
                                 
                                 VStack {
                                     Image (systemName: "questionmark.circle.fill")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: geometry.size.width/3, height: geometry.size.width/theImageWidthRatio)
+                                        .frame(width: 100, height: 100)
                                         .foregroundColor(.primary)
-                                        .opacity(0.7)
+                                        .opacity(faqsIsRotating ? 0 : 0.7) // Fade out when rotating
+                                        .rotationEffect(.degrees(faqsIsRotating ? 360 : 0))
+                                        .onTapGesture {
+                                            withAnimation(.linear(duration: rotationPeriod)) {
+                                                faqsIsRotating.toggle()
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                navigateToFAQs = true
+                                                withAnimation {
+                                                    faqsIsRotating = false
+                                                }
+                                            }
+                                        }
                                     
                                     Text("FAQs")
                                         .foregroundColor(.primary)
                                     
                                 }
-                                .onTapGesture { navigateToAboutShugga = true }
-                                
-                                
                                     
                                     VStack {
                                         Image (systemName: "newspaper.circle.fill")
@@ -166,15 +241,34 @@ struct HubView: View {
                                 
                                 
                                     
+                                Link(destination: URL(string: youTubePlayListLink)!) {
                                     VStack {
-                                        Image (systemName: "video.circle.fill")
+                                        Image(systemName: "video.circle.fill")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: geometry.size.width/3, height: geometry.size.width/theImageWidthRatio)
-                                            .opacity(0.7)
+                                            .foregroundColor(.primary)
+                                            .opacity(youTubeIsRotating ? 0 : 0.7) // Fade out when rotating
+                                            .rotationEffect(.degrees(youTubeIsRotating ? 360 : 0))
                                         
                                         Text("Watch on YouTube")
+                                            .foregroundColor(.primary)
                                     }
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            youTubeIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod) {
+                                            UIApplication.shared.open(URL(string: youTubePlayListLink)!, options: [:], completionHandler: nil)
+                                            withAnimation {
+                                                youTubeIsRotating = false
+                                            }
+                                        }
+                                    }
+                                }
+
+
                                 
                                 
                                     
@@ -194,12 +288,26 @@ struct HubView: View {
                                         Image (systemName: "heart.circle.fill")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/3, height: geometry.size.width/theImageWidthRatio)
-                                            .opacity(0.7)
+                                            .frame(width: 100, height: 100)
+                                            .foregroundColor(.primary)
+                                            .opacity(acknowledgementIsRotating ? 0 : 0.7) // Fade out when rotating
+                                            .rotationEffect(.degrees(acknowledgementIsRotating ? 360 : 0))
+                                            .onTapGesture {
+                                                withAnimation(.linear(duration: rotationPeriod)) {
+                                                    acknowledgementIsRotating.toggle()
+                                                }
+                                                
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                    navigateToAcknowledgement = true
+                                                    withAnimation {
+                                                        acknowledgementIsRotating = false
+                                                    }
+                                                }
+                                            }
                                         
                                         Text("Acknowledgements")
                                     }
-                                
+
                                 
                                     
                                     VStack {
@@ -236,10 +344,10 @@ struct HubView: View {
             
             Spacer()
             
-        })
             
         }
-       
+        .edgesIgnoringSafeArea(.bottom)
+
     }
 }
 
