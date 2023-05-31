@@ -63,6 +63,11 @@ struct AboutShuggaView: View {
                         Text(aboutHealthKitPermissions)
                             .padding([.leading, .trailing, .bottom])
                         
+                        
+                        Image ("health_permissions")
+                            .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        
                         Text ("Background App Refresh ")
                             .bold()
                             .font(.subheadline)
@@ -70,10 +75,12 @@ struct AboutShuggaView: View {
 
                         Text(aboutAppInBackgroundSetting)
                             .padding([.leading, .trailing, .bottom])
-
+                        Image ("background_appRefresh")
+                            .resizable()
+                                .aspectRatio(contentMode: .fit)
                         Text("- end - ")
                             .padding([.leading, .trailing, .bottom])
-                        
+                            .opacity(0.66)
                     }
                     .padding()
                     

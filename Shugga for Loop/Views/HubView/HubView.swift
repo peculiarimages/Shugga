@@ -98,9 +98,21 @@ struct HubView: View {
     @State private var navigateToManuals = false
     @State private var manualsIsRotating = false
     
+    @State private var navigateToUserAgreement = false
+    @State private var UserAgreementIsRotating = false
+    
     @State private var navigateToAcknowledgement = false
     @State private var acknowledgementIsRotating = false
 
+    
+    @State private var navigateToContactView = false
+    @State private var contactIsRotating = false
+
+    @State private var navigateToWhyShugga = false
+    @State private var whyShuggaIsRotating = false
+
+    
+    
     @State private var kiyoshiIsRotating = false
 
     
@@ -120,7 +132,6 @@ struct HubView: View {
         let theImageWidthRatio = 7.0
         
         
-        VStack {
 
             
           
@@ -151,10 +162,13 @@ struct HubView: View {
                     }
                     else if navigateToAcknowledgement {
                         AcknowledgmentsView(navigateToAcknowledgement: $navigateToAcknowledgement)
-
-                        
                     }
-                    
+                    else if navigateToWhyShugga {
+                        WhyShuggaView(navigateToWhyShugga: $navigateToWhyShugga)
+                    }
+                    else if navigateToUserAgreement {
+                        UserAgreementHubView(navigateToUserAgreement: $navigateToUserAgreement)
+                    }
                     else {
                         
                         ScrollView {
@@ -244,8 +258,21 @@ struct HubView: View {
                                         Image (systemName:"building.columns.circle.fill")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/3, height: geometry.size.width/theImageWidthRatio)
-                                            .opacity(0.7)
+                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
+                                            .opacity(UserAgreementIsRotating ? 0 : 0.7) // Fade out when rotating
+                                            .rotationEffect(.degrees(UserAgreementIsRotating ? 360 : 0))
+                                            .onTapGesture {
+                                                withAnimation(.linear(duration: rotationPeriod)) {
+                                                    UserAgreementIsRotating.toggle()
+                                                }
+                                                
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                    navigateToUserAgreement = true
+                                                    withAnimation {
+                                                        UserAgreementIsRotating = false
+                                                    }
+                                                }
+                                            }
                                         
                                         Text("User Agreement")
                                     }
@@ -322,8 +349,21 @@ struct HubView: View {
                                         Image (systemName: "lightbulb.circle.fill")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)
-                                            .opacity(0.7)
+                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
+                                            .opacity(whyShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
+                                            .rotationEffect(.degrees(whyShuggaIsRotating ? 360 : 0))
+                                            .onTapGesture {
+                                                withAnimation(.linear(duration: rotationPeriod)) {
+                                                    whyShuggaIsRotating.toggle()
+                                                }
+                                                
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                    navigateToWhyShugga = true
+                                                    withAnimation {
+                                                        whyShuggaIsRotating = false
+                                                    }
+                                                }
+                                            }
                                         
                                         Text("Why Shugga?")
                                     }
@@ -336,39 +376,55 @@ struct HubView: View {
                             
                             HStack {
                                 Spacer()
-                                Spacer()
-
-                                YouGotDis()
-                                
-                                    .opacity(kiyoshiIsRotating ? 0 : 0.7) // Fade out when rotating
-                                    .rotationEffect(.degrees(kiyoshiIsRotating ? 360 : 0))
-                                    .onTapGesture {
-                                        withAnimation(.linear(duration: rotationPeriod)) {
-                                            kiyoshiIsRotating.toggle()
-                                        }
-                                        
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                            kiyoshiIsRotating = true
-                                            withAnimation {
-                                                kiyoshiIsRotating = false
+                                VStack{
+                                    
+                                    
+                                    YouGotDis()
+                                        .frame(height: geometry.size.width/theImageWidthRatio * 0.8)
+                                    
+                                        .opacity(kiyoshiIsRotating ? 0 : 0.7) // Fade out when rotating
+                                        .rotationEffect(.degrees(kiyoshiIsRotating ? 360 : 0))
+                                        .onTapGesture {
+                                            withAnimation(.linear(duration: rotationPeriod)) {
+                                                kiyoshiIsRotating.toggle()
+                                            }
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                                kiyoshiIsRotating = true
+                                                withAnimation {
+                                                    kiyoshiIsRotating = false
+                                                }
                                             }
                                         }
-                                    }
-                                
+//                                        .overlay(
+//                                                    RoundedRectangle(cornerRadius: 8)
+//                                                        .stroke(Color.black, lineWidth: 2)
+//                                                )
+                                    
+                                }
+                                .padding([.leading, .trailing])
+
                                 Spacer()
+                                
                                 VStack {
                                     Image ("outside-center-logotype")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: geometry.size.width/2, height: geometry.size.width/2)
+                                        .frame(width: geometry.size.width/theImageWidthRatio * 2)
+//                                        .overlay(
+//                                                    RoundedRectangle(cornerRadius: 8)
+//                                                        .stroke(Color.black, lineWidth: 2)
+//                                                )
                                     
                                     //                               Text("Why Shugga?")
                                 }
+                                .padding([.leading, .trailing])
+
                                 Spacer()
 
                             }
-                            .padding ()
-                            
+                            .padding([.leading, .trailing])
+
                         }
                     }
                     
@@ -380,11 +436,11 @@ struct HubView: View {
                 Spacer()
             } .edgesIgnoringSafeArea(.bottom)
                         .background(whiteBackground ? whiteBackgroundColor : backgroundGradient)
+                        .edgesIgnoringSafeArea(.bottom)
+
             
             
-            
-        }
-        .edgesIgnoringSafeArea(.bottom)
+        
 
     }
 }

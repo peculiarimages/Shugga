@@ -32,9 +32,15 @@ struct AcknowledgmentsView: View {
                 Spacer()
             }
             
-            Section(header: Text("Acknowledgments")) {
+            Section() {
                 ScrollView {
                     VStack {
+                        
+                        Text ("Acknoledgements")
+                            .bold()
+                            .font(.headline)
+                            .padding([.bottom], 5)
+                        
                         Text (acknowledgementText)
                             .foregroundColor(.primary)
                             .padding([.leading, .trailing], 35)
@@ -54,7 +60,8 @@ struct AcknowledgmentsView: View {
                         
                         Text("- end - ")
                             .padding([.leading, .trailing, .bottom])
-                        
+                            .opacity(0.66)
+
 
                     }
                     

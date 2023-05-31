@@ -101,6 +101,10 @@
 		D86B56AF2A26535E007A1B6D /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86B56AD2A26535E007A1B6D /* audio.mp3 */; };
 		D86B56B12A265388007A1B6D /* Kiyoshi.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */; };
 		D86B56B22A265388007A1B6D /* Kiyoshi.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */; };
+		D86B56B42A2688D5007A1B6D /* WhyShuggaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56B32A2688D5007A1B6D /* WhyShuggaView.swift */; };
+		D86B56B52A2688D5007A1B6D /* WhyShuggaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56B32A2688D5007A1B6D /* WhyShuggaView.swift */; };
+		D86B56B72A268C92007A1B6D /* UserAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56B62A268C92007A1B6D /* UserAgreementView.swift */; };
+		D86B56B82A268C92007A1B6D /* UserAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B56B62A268C92007A1B6D /* UserAgreementView.swift */; };
 		D8703E2A29BA4ECC00285703 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2929BA4ECC00285703 /* SpeechModel.swift */; };
 		D8703E2D29BA51AF00285703 /* Enums.Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8703E2C29BA51AF00285703 /* Enums.Audio.swift */; };
 		D88005D329B5A82900B89072 /* CGM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88005D229B5A82900B89072 /* CGM_Model.swift */; };
@@ -192,6 +196,8 @@
 		D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouGotDis.swift; sourceTree = "<group>"; };
 		D86B56AD2A26535E007A1B6D /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 		D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Kiyoshi.xcassets; sourceTree = "<group>"; };
+		D86B56B32A2688D5007A1B6D /* WhyShuggaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyShuggaView.swift; sourceTree = "<group>"; };
+		D86B56B62A268C92007A1B6D /* UserAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreementView.swift; sourceTree = "<group>"; };
 		D8703E2929BA4ECC00285703 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		D8703E2C29BA51AF00285703 /* Enums.Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Audio.swift; sourceTree = "<group>"; };
 		D88005D229B5A82900B89072 /* CGM_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGM_Model.swift; sourceTree = "<group>"; };
@@ -458,8 +464,10 @@
 				D86B56AD2A26535E007A1B6D /* audio.mp3 */,
 				D86B56B02A265388007A1B6D /* Kiyoshi.xcassets */,
 				D82E567F29F9983C004F1DBD /* AboutSugahView.swift */,
+				D86B56B62A268C92007A1B6D /* UserAgreementView.swift */,
 				D86B56932A24A4F8007A1B6D /* AboutShuggaView.swift */,
 				D86B569B2A262E18007A1B6D /* FAQsView.swift */,
+				D86B56B32A2688D5007A1B6D /* WhyShuggaView.swift */,
 				D86B56A12A263153007A1B6D /* AcknowledgmentsView.swift */,
 				D86B56A42A264606007A1B6D /* ManualsView.swift */,
 				D86B56AA2A2652FB007A1B6D /* YouGotDis.swift */,
@@ -613,6 +621,8 @@
 				D8FDE37329FAF25700E62522 /* CarbohydrateData.swift in Sources */,
 				D803D9C829A9349C006F4D6A /* BloodGlucoseViewComponents.swift in Sources */,
 				D86B56A52A264606007A1B6D /* ManualsView.swift in Sources */,
+				D86B56B42A2688D5007A1B6D /* WhyShuggaView.swift in Sources */,
+				D86B56B72A268C92007A1B6D /* UserAgreementView.swift in Sources */,
 				D803D9C729A9349C006F4D6A /* BloodGLucoseViewHandlers.swift in Sources */,
 				D850400A29EC292200543B93 /* SubscriptionsView.swift in Sources */,
 				D8BD978729B148A100F64457 /* ConsoleView.swift in Sources */,
@@ -675,7 +685,9 @@
 				D82E567C29F99839004F1DBD /* SubscriptionsView.swift in Sources */,
 				D82E56E429F9A7A3004F1DBD /* enums.swift in Sources */,
 				D82E569C29F9A311004F1DBD /* ConsoleView.swift in Sources */,
+				D86B56B52A2688D5007A1B6D /* WhyShuggaView.swift in Sources */,
 				D82E569529F9A311004F1DBD /* DateModel.swift in Sources */,
+				D86B56B82A268C92007A1B6D /* UserAgreementView.swift in Sources */,
 				D82E568C29F9983C004F1DBD /* SettingsView.swift in Sources */,
 				D82E569F29F9A311004F1DBD /* TheHealthBrain.swift in Sources */,
 				D82E569B29F9A311004F1DBD /* HeartRateData.swift in Sources */,

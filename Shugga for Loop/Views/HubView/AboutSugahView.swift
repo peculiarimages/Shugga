@@ -215,11 +215,11 @@ struct AboutSugahView: View {
                         .frame(width: 100, height: 100)
 //                        .padding([.top, .leading, .trailing], 5)
                     
-                    Text (whyShugga)
-                        .foregroundColor(.secondary)
-                        .padding([.leading, .trailing], 35)
-                        .padding([.top], 12)
-                        .font(.system(size: 14, design: .rounded))
+//                    Text (whyShugga)
+//                        .foregroundColor(.secondary)
+//                        .padding([.leading, .trailing], 35)
+//                        .padding([.top], 12)
+//                        .font(.system(size: 14, design: .rounded))
                     
                     Text ("Lob all complaints and grievances to Outside Center LLC, please. I am not responsible for anything...\n\n\n\n\n\n\n")
                         .foregroundColor(.secondary)

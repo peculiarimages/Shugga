@@ -1553,14 +1553,16 @@ struct UserAgreementView: View {
                                 .font(.footnote)
                                 .accessibilityLabel(_: "This is the agreement that you must agree by clicking the button below for the app to work.")
                         }
-                       
+                        .background(shuggaRed.opacity(0.5))
+
                     }
                 }
+
                 //                if userAgreedToAgreement {
                 //                    NavigationLink(destination: BloodGlucoseView(), isActive: $userAgreedToAgreement, label: { EmptyView() } )
                 //                }
             }
-            
+
             .frame(height: 400)
         }
     }

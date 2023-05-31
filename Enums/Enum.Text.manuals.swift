@@ -22,7 +22,7 @@ let manuals_foreground_background = " It's important to understand that there ar
 let manual_foreground_background_explained = """
 Foreground Mode
 
- This is when the app is in the foreground and being actively used by you or being left turned on. You can expect the app to behave exactly as you set the parameters in the settings.
+This is when the app is in the foreground and being actively used by you or being left turned on. You can expect the app to behave exactly as you set the parameters in the settings.
 
 Background Mode
 

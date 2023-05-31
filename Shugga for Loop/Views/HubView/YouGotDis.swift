@@ -36,10 +36,10 @@ struct YouGotDis: View {
             }) {
                 ZStack {
                         RoundedRectangle(cornerRadius: 22)
-                            .fill(Color.clear)
+                            .fill(Color.gray)
                             .frame(width: 100, height: 100)
-                            .shadow(color: Color.black.opacity(0.8), radius: 4, x: -3, y: 4)
-                            .shadow(color: Color.black.opacity(0.8), radius: 4, x: 2, y: 2)
+                            .shadow(color: Color.black.opacity(0.5), radius: 4, x: -2, y: 3)
+//                            .shadow(color: Color.black.opacity(0.5), radius: 4, x: 2, y: 2)
                      
                     
                     Image("buttonImage")
@@ -47,6 +47,7 @@ struct YouGotDis: View {
                                    .aspectRatio(contentMode: .fit)
                                    .frame(width: 90, height: 90)
                                    .clipShape(RoundedRectangle(cornerRadius: 22))
+                    
                     }
                 
             }

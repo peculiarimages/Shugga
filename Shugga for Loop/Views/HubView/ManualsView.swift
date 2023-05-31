@@ -120,7 +120,8 @@ struct ManualsView: View {
                     }
                     Text("- end - ")
                         .padding([.leading, .trailing, .bottom])
-                    
+                        .opacity(0.66)
+
                     
                 }
                 .padding()
