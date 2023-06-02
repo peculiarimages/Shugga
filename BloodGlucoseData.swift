@@ -1186,42 +1186,25 @@ class BloodGlucoseData: ObservableObject {
             // Delay execution of code by one second
 //            DispatchQueue.main.asyncAfter(deadline: .now() + letItSettleDelay) {
             DispatchQueue.main.async {
-
-                // Add any code that needs to be delayed here
-                
-             //   print ("delaying \(letItSettleDelay) second(s)...")
             
                 if let theSweetness = self.manySweetnesses.sweetnesses?.last {
                     
                     if !self.appIsInForeground || self.speakElapsedTime {
                         
-                        
                         shuggaUtterance += diabetes.returnSpeakableGlucoseFetchTime(sweetness: theSweetness, language: self.sugahLanguageChosen)
-                        
                         }
-                    
-                    
-                    
                     //
                     shuggaUtterance += diabetes.returnSpeakableGlucoseValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters, skipHundredth: synthSpeechParameters.skipHundredth)
                     
                     shuggaUtterance += diabetes.returnSpeakableGlucoseTrendValue(sweetness: theSweetness, synthSpeechParameters: synthSpeechParameters)
-                    
-                    
-                    
+                                        
                     if thisIsBeta {
-                        
                         shuggaUtterance += ". Elapsed time since: "
-                        
                         shuggaUtterance += String(Int(self.manySweetnesses.returnTimeSinceLastCGM()))
-                        
                     }
-                    
-                    
-                    
+                                        
                     if self.theTranslator.currentSugahMeStatus == true
-                    {
-                    
+                      {
                         self.speech.speakAnything(speechString: shuggaUtterance, whoCalledTheFunction: whoCalledTheFunction,  typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
                         guard let self = self else { return } // Safely unwrap self
                         
@@ -1231,29 +1214,41 @@ class BloodGlucoseData: ObservableObject {
                             print("Speech finished successfully")
                             
                             let currentTime = Date().timeIntervalSince1970
-                            DispatchQueue.main.async {
-                                
-                                self.lastTimeBloodGlucoseWasSentToSpeak = currentTime
-                            }
-                            
-                            
+                            DispatchQueue.main.async { self.lastTimeBloodGlucoseWasSentToSpeak = currentTime }
+ 
                             // check for any new blood glucose after speaking:
                             self.fetchLatestBloodGlucose(whoCalledTheFunction: aBackGroundCalledTheFunction ? .aRetryFromBackground : .afterCompletingSpeaking) { result in
                                 switch result {
                                 case .success:
                                     DispatchQueue.main.async {
+                
+                                        //=========================================================================================================
+                                        //=========================================================================================================
+                                        //=========================================================================================================
+                                        //=========================================================================================================
+
+                                        //=========================================================================================================
+                                        // the next line implies the same blood glucose number different ID to be spoken => sounds like a repeat.
+                                        
                                         if self.manySweetnesses.sweetnesses?.last?.assignedID != theSweetness.assignedID { // a new blood glucose
+                                            
+                                         //=========================================================================================================
+                                         //=========================================================================================================
+                                         //=========================================================================================================
+                                         //=========================================================================================================
+
+                                            
+                                            
                                             
                                             self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
                                                 
                                                 switch result {
-                                                    
-                                                    
-                                                case .success:
-                                                    print("Speech finished. it's a sequential output since a new value was found after the first utterance ended.")
-                                                case .failure(let error):
-                                                    print("❌ 166 Speech failed with error: \(error)")
-                                                    self.speech.resetSynth()
+ 
+                                                    case .success:
+                                                        print("Speech finished. it's a sequential output since a new value was found after the first utterance ended.")
+                                                    case .failure(let error):
+                                                        print("❌ 166 Speech failed with error: \(error)")
+                                                        self.speech.resetSynth()
                                                 }
                                             })
                                         }
@@ -1278,14 +1273,11 @@ class BloodGlucoseData: ObservableObject {
                             completion(.failure(BloodGlucoseError.speechError(error)))
                         }
                     })
-                    
-                    
                 }
-                    
             }
         }
     }
-    }
+}
     
     
     

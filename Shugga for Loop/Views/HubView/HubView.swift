@@ -7,6 +7,41 @@
 
 import SwiftUI
 
+struct SubHubViewTopMenuLogoPortionView: View {
+    
+    var body: some View {
+        
+        Spacer()
+        
+        VStack {
+            Image("logo 3")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .padding([.top, .leading, .trailing], 10)
+                .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
+            
+            Text ("Shugga for Loop")
+                .foregroundColor(logoTypeColor)
+                .font(.system(size: 14, weight: .bold, design: .rounded))
+                .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")
+                .lineLimit(1)
+                 .truncationMode(.tail)
+        }
+        .frame (width: 150)
+
+        
+        Spacer()
+        VStack {
+            
+            Text("")
+            
+        }
+        .frame (width: 75)
+
+    }
+    
+    
+}
 
 
 struct NavigationForHubView: View {
@@ -135,311 +170,311 @@ struct HubView: View {
 
             
           
+        if navigateToAboutShugga {
+            AboutShuggaView(navigateToAboutShugga: $navigateToAboutShugga)
+        }
+        else if navigateToFAQs {
+            FAQsView(navigateToFAQs: $navigateToFAQs)
+        }
+        else if navigateToManuals {
+            ManualsView(navigateToManuals: $navigateToManuals)
+        }
+        else if navigateToAcknowledgement {
+            AcknowledgmentsView(navigateToAcknowledgement: $navigateToAcknowledgement)
+        }
+        else if navigateToWhyShugga {
+            WhyShuggaView(navigateToWhyShugga: $navigateToWhyShugga)
+        }
+        else if navigateToUserAgreement {
+            UserAgreementHubView(navigateToUserAgreement: $navigateToUserAgreement)
+        }
+        else {
             
-                    
-                   
-//                    .background(.clear)
-//                    Text ("test")
-                    
+            
+            //                    .background(.clear)
+            //                    Text ("test")
+            
             GeometryReader { geometry in
                 
-              
-//                Spacer()
+                
+                //                Spacer()
                 VStack {
-//                    Spacer()
+                    //                    Spacer()
+                    
+                    
+                    //                    Spacer()
+                    
                     NavigationForHubView()
                         .padding(.bottom, 50)
-
-//                    Spacer()
-                    if navigateToAboutShugga {
-                        AboutShuggaView(navigateToAboutShugga: $navigateToAboutShugga)
-                    }
-                    else if navigateToFAQs {
-                        FAQsView(navigateToFAQs: $navigateToFAQs)
-                    }
-                    else if navigateToManuals {
-                        ManualsView(navigateToManuals: $navigateToManuals)
-                    }
-                    else if navigateToAcknowledgement {
-                        AcknowledgmentsView(navigateToAcknowledgement: $navigateToAcknowledgement)
-                    }
-                    else if navigateToWhyShugga {
-                        WhyShuggaView(navigateToWhyShugga: $navigateToWhyShugga)
-                    }
-                    else if navigateToUserAgreement {
-                        UserAgreementHubView(navigateToUserAgreement: $navigateToUserAgreement)
-                    }
-                    else {
-                        
-                        ScrollView {
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                
-                          
-                                
-                                
-                                VStack {
-                                    Image(systemName: "info.circle.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
-                                        .opacity(aboutShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
-                                        .rotationEffect(.degrees(aboutShuggaIsRotating ? 360 : 0))
-                                        .onTapGesture {
-                                            withAnimation(.linear(duration: rotationPeriod)) {
-                                                aboutShuggaIsRotating.toggle()
-                                            }
-                                            
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                navigateToAboutShugga = true
-                                                withAnimation {
-                                                    aboutShuggaIsRotating = false
-                                                }
-                                            }
-                                        }
-                                    
-                                    Text("About...")
-                                        .foregroundColor(.primary)
-                                }
-
-                       
-                                
-                                VStack {
-                                    Image (systemName: "questionmark.circle.fill")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
-                                        .opacity(faqsIsRotating ? 0 : 0.7) // Fade out when rotating
-                                        .rotationEffect(.degrees(faqsIsRotating ? 360 : 0))
-                                        .onTapGesture {
-                                            withAnimation(.linear(duration: rotationPeriod)) {
-                                                faqsIsRotating.toggle()
-                                            }
-                                            
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                navigateToFAQs = true
-                                                withAnimation {
-                                                    faqsIsRotating = false
-                                                }
-                                            }
-                                        }
-                                    
-                                    Text("FAQs")
-                                        .foregroundColor(.primary)
-                                    
-                                }
-                                    
-                                    VStack {
-                                        Image (systemName: "newspaper.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
-                                            .opacity(manualsIsRotating ? 0 : 0.7) // Fade out when rotating
-                                            .rotationEffect(.degrees(manualsIsRotating ? 360 : 0))
-                                            .onTapGesture {
-                                                withAnimation(.linear(duration: rotationPeriod)) {
-                                                    manualsIsRotating.toggle()
-                                                }
-                                                
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                    navigateToManuals = true
-                                                    withAnimation {
-                                                        manualsIsRotating = false
-                                                    }
-                                                }
-                                            }
-                                        
-                                        
-                                        Text("Documentation")
-                                    }
-                                
-                                
-                                    
-                                    VStack {
-                                        Image (systemName:"building.columns.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
-                                            .opacity(UserAgreementIsRotating ? 0 : 0.7) // Fade out when rotating
-                                            .rotationEffect(.degrees(UserAgreementIsRotating ? 360 : 0))
-                                            .onTapGesture {
-                                                withAnimation(.linear(duration: rotationPeriod)) {
-                                                    UserAgreementIsRotating.toggle()
-                                                }
-                                                
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                    navigateToUserAgreement = true
-                                                    withAnimation {
-                                                        UserAgreementIsRotating = false
-                                                    }
-                                                }
-                                            }
-                                        
-                                        Text("User Agreement")
-                                    }
-                                
-                                
-                                    
-                                Link(destination: URL(string: youTubePlayListLink)!) {
-                                    VStack {
-                                        Image(systemName: "video.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
-                                            .opacity(youTubeIsRotating ? 0 : 0.7) // Fade out when rotating
-                                            .rotationEffect(.degrees(youTubeIsRotating ? 360 : 0))
-                                        
-                                        Text("Watch on YouTube")
-                                            .foregroundColor(.primary)
-                                    }
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            
+                            
+                            
+                            
+                            VStack {
+                                Image(systemName: "info.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
+                                    .opacity(aboutShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(aboutShuggaIsRotating ? 360 : 0))
                                     .onTapGesture {
                                         withAnimation(.linear(duration: rotationPeriod)) {
-                                            youTubeIsRotating.toggle()
+                                            aboutShuggaIsRotating.toggle()
                                         }
                                         
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod) {
-                                            UIApplication.shared.open(URL(string: youTubePlayListLink)!, options: [:], completionHandler: nil)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToAboutShugga = true
                                             withAnimation {
-                                                youTubeIsRotating = false
+                                                aboutShuggaIsRotating = false
                                             }
+                                        }
+                                    }
+                                
+                                Text("About...")
+                                    .foregroundColor(.primary)
+                            }
+                            
+                            
+                            
+                            VStack {
+                                Image (systemName: "questionmark.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
+                                    .opacity(faqsIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(faqsIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            faqsIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToFAQs = true
+                                            withAnimation {
+                                                faqsIsRotating = false
+                                            }
+                                        }
+                                    }
+                                
+                                Text("FAQs")
+                                    .foregroundColor(.primary)
+                                
+                            }
+                            
+                            VStack {
+                                Image (systemName: "newspaper.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
+                                    .opacity(manualsIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(manualsIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            manualsIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToManuals = true
+                                            withAnimation {
+                                                manualsIsRotating = false
+                                            }
+                                        }
+                                    }
+                                
+                                
+                                Text("Documentation")
+                            }
+                            
+                            
+                            
+                            VStack {
+                                Image (systemName:"building.columns.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                        .foregroundColor(.primary)
+                                    .opacity(UserAgreementIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(UserAgreementIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            UserAgreementIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToUserAgreement = true
+                                            withAnimation {
+                                                UserAgreementIsRotating = false
+                                            }
+                                        }
+                                    }
+                                
+                                Text("User Agreement")
+                            }
+                            
+                            
+                            
+                            Link(destination: URL(string: youTubePlayListLink)!) {
+                                VStack {
+                                    Image(systemName: "video.circle.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
+                                        .opacity(youTubeIsRotating ? 0 : 0.7) // Fade out when rotating
+                                        .rotationEffect(.degrees(youTubeIsRotating ? 360 : 0))
+                                    
+                                    Text("Watch on YouTube")
+                                        .foregroundColor(.primary)
+                                }
+                                .onTapGesture {
+                                    withAnimation(.linear(duration: rotationPeriod)) {
+                                        youTubeIsRotating.toggle()
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod) {
+                                        UIApplication.shared.open(URL(string: youTubePlayListLink)!, options: [:], completionHandler: nil)
+                                        withAnimation {
+                                            youTubeIsRotating = false
                                         }
                                     }
                                 }
-
-
+                            }
+                            
+                            
+                            
+                            
+                            
+                            VStack {
+                                Image (systemName: "paperplane.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .opacity(0.7)
                                 
-                                
-                                    
-                                    VStack {
-                                        Image (systemName: "paperplane.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .opacity(0.7)
+                                Text("Contact Us")
+                            }
+                            
+                            
+                            
+                            VStack {
+                                Image (systemName: "heart.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
+                                    .opacity(acknowledgementIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(acknowledgementIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            acknowledgementIsRotating.toggle()
+                                        }
                                         
-                                        Text("Contact Us")
-                                    }
-                                
-                                
-                                    
-                                    VStack {
-                                        Image (systemName: "heart.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
-                                            .opacity(acknowledgementIsRotating ? 0 : 0.7) // Fade out when rotating
-                                            .rotationEffect(.degrees(acknowledgementIsRotating ? 360 : 0))
-                                            .onTapGesture {
-                                                withAnimation(.linear(duration: rotationPeriod)) {
-                                                    acknowledgementIsRotating.toggle()
-                                                }
-                                                
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                    navigateToAcknowledgement = true
-                                                    withAnimation {
-                                                        acknowledgementIsRotating = false
-                                                    }
-                                                }
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToAcknowledgement = true
+                                            withAnimation {
+                                                acknowledgementIsRotating = false
                                             }
-                                        
-                                        Text("Acknowledgements")
+                                        }
                                     }
-
                                 
-                                    
-                                    VStack {
-                                        Image (systemName: "lightbulb.circle.fill")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
-                                            .opacity(whyShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
-                                            .rotationEffect(.degrees(whyShuggaIsRotating ? 360 : 0))
-                                            .onTapGesture {
-                                                withAnimation(.linear(duration: rotationPeriod)) {
-                                                    whyShuggaIsRotating.toggle()
-                                                }
-                                                
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                    navigateToWhyShugga = true
-                                                    withAnimation {
-                                                        whyShuggaIsRotating = false
-                                                    }
-                                                }
+                                Text("Acknowledgements")
+                            }
+                            
+                            
+                            
+                            VStack {
+                                Image (systemName: "lightbulb.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .foregroundColor(.primary)
+                                    .opacity(whyShuggaIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(whyShuggaIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            whyShuggaIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            navigateToWhyShugga = true
+                                            withAnimation {
+                                                whyShuggaIsRotating = false
                                             }
-                                        
-                                        Text("Why Shugga?")
+                                        }
                                     }
                                 
+                                Text("Why Shugga?")
+                            }
+                            
+                            
+                        }
+                        .padding(.all)
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            VStack{
+                                
+                                
+                                YouGotDis()
+                                    .frame(height: geometry.size.width/theImageWidthRatio * 0.8)
+                                
+                                    .opacity(kiyoshiIsRotating ? 0 : 0.7) // Fade out when rotating
+                                    .rotationEffect(.degrees(kiyoshiIsRotating ? 360 : 0))
+                                    .onTapGesture {
+                                        withAnimation(.linear(duration: rotationPeriod)) {
+                                            kiyoshiIsRotating.toggle()
+                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
+                                            kiyoshiIsRotating = true
+                                            withAnimation {
+                                                kiyoshiIsRotating = false
+                                            }
+                                        }
+                                    }
+                                //                                        .overlay(
+                                //                                                    RoundedRectangle(cornerRadius: 8)
+                                //                                                        .stroke(Color.black, lineWidth: 2)
+                                //                                                )
                                 
                             }
-                            .padding(.all)
+                            .padding([.leading, .trailing])
                             
                             Spacer()
                             
-                            HStack {
-                                Spacer()
-                                VStack{
-                                    
-                                    
-                                    YouGotDis()
-                                        .frame(height: geometry.size.width/theImageWidthRatio * 0.8)
-                                    
-                                        .opacity(kiyoshiIsRotating ? 0 : 0.7) // Fade out when rotating
-                                        .rotationEffect(.degrees(kiyoshiIsRotating ? 360 : 0))
-                                        .onTapGesture {
-                                            withAnimation(.linear(duration: rotationPeriod)) {
-                                                kiyoshiIsRotating.toggle()
-                                            }
-                                            
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + rotationPeriod - rotationEarlyCutOffBy) {
-                                                kiyoshiIsRotating = true
-                                                withAnimation {
-                                                    kiyoshiIsRotating = false
-                                                }
-                                            }
-                                        }
-//                                        .overlay(
-//                                                    RoundedRectangle(cornerRadius: 8)
-//                                                        .stroke(Color.black, lineWidth: 2)
-//                                                )
-                                    
-                                }
-                                .padding([.leading, .trailing])
-
-                                Spacer()
+                            VStack {
+                                Image ("outside-center-logotype")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: geometry.size.width/theImageWidthRatio * 2)
+                                //                                        .overlay(
+                                //                                                    RoundedRectangle(cornerRadius: 8)
+                                //                                                        .stroke(Color.black, lineWidth: 2)
+                                //                                                )
                                 
-                                VStack {
-                                    Image ("outside-center-logotype")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: geometry.size.width/theImageWidthRatio * 2)
-//                                        .overlay(
-//                                                    RoundedRectangle(cornerRadius: 8)
-//                                                        .stroke(Color.black, lineWidth: 2)
-//                                                )
-                                    
-                                    //                               Text("Why Shugga?")
-                                }
-                                .padding([.leading, .trailing])
-
-                                Spacer()
-
+                                //                               Text("Why Shugga?")
                             }
                             .padding([.leading, .trailing])
-
+                            
+                            Spacer()
+                            
                         }
+                        .padding([.leading, .trailing])
+                        
                     }
                     
-                  
+                    
+                    
                     
                     Spacer()
-                }
+                } // the vstack
                 .padding()
                 Spacer()
-            } .edgesIgnoringSafeArea(.bottom)
-                        .background(whiteBackground ? whiteBackgroundColor : backgroundGradient)
-                        .edgesIgnoringSafeArea(.bottom)
-
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            .background(whiteBackground ? whiteBackgroundColor : backgroundGradient)
             
             
+        }
         
 
     }

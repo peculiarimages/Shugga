@@ -18,28 +18,26 @@ struct ManualsView: View {
 
     var body: some View {
         
-        
-        
+     
+        HStack (alignment: .top){
+            VStack{
+                Button(action: {
+                    navigateToManuals = false
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                        
+                    }
+                }
+            }
+            .frame (width: 75)
+            
+            SubHubViewTopMenuLogoPortionView()
+        }
+        .padding()
         
         VStack {
-            VStack{
-                HStack {
-                    
-                    Button(action: {
-                        navigateToManuals = false
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
-                        }
-                    }
-//                        .padding()
-                    Spacer()
-                }
-                
-             
-                
-
                 
                 Text ("Shugga for Loop Docs")
                     .bold()
@@ -127,11 +125,11 @@ struct ManualsView: View {
                 .padding()
                 
 //                    Spacer(fon)
-            }
+            
         }
         .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea(.all)
-        
+        .edgesIgnoringSafeArea(.bottom)
+
         
         
         

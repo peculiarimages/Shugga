@@ -17,26 +17,32 @@ struct AcknowledgmentsView: View {
     @Binding var navigateToAcknowledgement: Bool
 
     var body: some View {
-        VStack{
-            HStack {
-                
+        
+        HStack (alignment: .top){
+            VStack{
                 Button(action: {
                     navigateToAcknowledgement = false
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")
                         Text("Back")
+                        
                     }
                 }
-                //                        .padding()
-                Spacer()
             }
+            .frame (width: 75)
             
+            SubHubViewTopMenuLogoPortionView()
+        }
+        .padding()
+        
+        VStack{
+          
             Section() {
                 ScrollView {
                     VStack {
                         
-                        Text ("Acknoledgements")
+                        Text ("Acknowledgments")
                             .bold()
                             .font(.headline)
                             .padding([.bottom], 5)
@@ -68,7 +74,7 @@ struct AcknowledgmentsView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

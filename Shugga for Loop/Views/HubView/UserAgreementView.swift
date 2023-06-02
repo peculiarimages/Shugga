@@ -18,38 +18,39 @@ struct UserAgreementHubView: View {
 
     var body: some View {
         
-        
-            
-            VStack {
-                VStack{
+        HStack (alignment: .top){
+            VStack{
+                Button(action: {
+                    navigateToUserAgreement = false
+                }) {
                     HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
                         
-                        Button(action: {
-                            navigateToUserAgreement = false
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                Text("Back")
-                            }
-                        }
-//                        .padding()
-                        Spacer()
                     }
-                    
-                 
-                    
-
-                    
-                    Text ("User Agreement")
-                        .bold()
-                        .font(.title)
-                    UserAgreementView()
-                        .padding()
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .edgesIgnoringSafeArea(.all)
-       
+            .frame (width: 75)
+            
+            SubHubViewTopMenuLogoPortionView()
+        }
+        .padding()
+        
+        
+        VStack {
+            
+            
+            
+            
+            Text ("User Agreement")
+                .bold()
+                .font(.title)
+            UserAgreementView()
+                .padding()
+        }
+        .navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea(.bottom)
+
     }
 }
 

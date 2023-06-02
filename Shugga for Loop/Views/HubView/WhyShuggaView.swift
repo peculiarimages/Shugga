@@ -18,27 +18,26 @@ struct WhyShuggaView: View {
 
     var body: some View {
         
+        HStack (alignment: .top){
+            VStack{
+                Button(action: {
+                    navigateToWhyShugga = false
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        Text("Back")
+                        
+                    }
+                }
+            }
+            .frame (width: 75)
+            
+            SubHubViewTopMenuLogoPortionView()
+        }
+        .padding()
         
             
             VStack {
-                VStack{
-                    HStack {
-                        
-                        Button(action: {
-                            navigateToWhyShugga = false
-                        }) {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                Text("Back")
-                            }
-                        }
-//                        .padding()
-                        Spacer()
-                    }
-                    
-                 
-                    
-
                     
                     Text ("Why Shugga?")
                         .bold()
@@ -76,11 +75,11 @@ struct WhyShuggaView: View {
                     .padding()
                     
 //                    Spacer()
-                }
+                
             }
             .navigationBarBackButtonHidden(true)
-            .edgesIgnoringSafeArea(.all)
-       
+            .edgesIgnoringSafeArea(.bottom)
+
     }
 }
 
