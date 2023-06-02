@@ -516,7 +516,7 @@ struct DetailsSettingsView: View {
 
                 // ___________________________________ Background Shugga every ___________________________________
                 
-                Picker(NSLocalizedString("Do not shugga in background more than once every", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
+                Picker(NSLocalizedString("Do not shugga from the background more frequently than once every", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
                         if interval > SecondsIn.oneMinute.rawValue {
@@ -653,7 +653,7 @@ struct UnitSettingsContentView:  View {
     @AppStorage("multiplyTrendByTen")               public var multiplyTrendByTen =           false
     @AppStorage("includeUnit")                      public var includeUnit =                        true
     @AppStorage("removeTimeUnit")                   public var removeTimeUnit =                        false
-
+    @AppStorage("displayBothUnits")                   public var displayBothUnits =                        false
     var body: some View {
         
         List{
@@ -698,8 +698,8 @@ struct UnitSettingsContentView:  View {
                 .disabled(!shuggaGlucoseTrend)
                 .padding (.leading)
 
-
-            }                        .textCase(.none)
+            Toggle("Display both units", isOn: $displayBothUnits)
+            }  .textCase(.none)
 
         
     }
@@ -1146,6 +1146,8 @@ struct NitPickSettingsView: View {
 
     @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     defaultShuggaRepeats
 
+
+    
     @State private var showDescription = false
 
     var body: some View {
@@ -1313,7 +1315,7 @@ struct VoiceSettingsView: View {
                     
                     sugahVoiceChosen = "\(returnLocaleCodeFromCombinedLanguageCode(combinedLanguageCode: firstVoiceForSelectedLanguage?.combinedCode ?? defaultSugahVoiceName)    )\(firstVoiceForSelectedLanguage?.voiceName ?? defaultSugahVoiceName)"
                 }
-                
+            
                 //  ======================== Second picker to select the voice ========================================================
                 Picker(selection: $sugahVoiceChosen, label: Text(NSLocalizedString("Voice", comment: "")), content: {
                     
@@ -1322,29 +1324,11 @@ struct VoiceSettingsView: View {
                         let thisLanguageCode = returnLanguageCodeFromCombinedCode(combinedCode: voice.languageCode) //es
                         let thisLanguageNamePair = languageNamePairs[thisLanguageCode]
                         
-                        
-                        
-                        
-                        
-                        
-
-                        
-
-                        
-                        
-                        
-                        
                         // Only display voices that match the selected language
                         if sugahLanguageChosen == thisLanguageNamePair?.englishName {
                             
-                            
-                         
                             if !knownProblemVoices.contains(voice.voiceName){
-                                
-                                
-                                
                                 if thisIsBeta {
-                                    
                                     
                                     Text("\(voice.voiceName) (\(voice.languageLocaleCode))\(quarantinedVoices.contains(voice.voiceName)  ? "*" : "")").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
                                     
@@ -1354,33 +1338,16 @@ struct VoiceSettingsView: View {
                                 {
                                     
                                     Text("\(voice.voiceName) (\(voice.languageLocaleCode))").textCase(.none).tag(voice.languageLocaleCode + voice.voiceName)
-                                    
                                 }
-                                
-                                
-                                
                             }
-                            
-                           
-                            
-                            
-                            
                             
                         }
                         
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
                     }
-                }).onChange(of: sugahVoiceChosen) { selectedLanguage in
+                })
+               
+                .onChange(of: sugahVoiceChosen) { selectedLanguage in
                     
                     let sugahVoiceLocal = sugahVoiceChosen.prefix(2)
                     let justVoiceNameChosen = sugahVoiceChosen.dropFirst(2)

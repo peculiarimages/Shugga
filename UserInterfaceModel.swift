@@ -203,7 +203,7 @@ struct SlidingUnlockButton: View {
                                     .opacity (0.2)
                               )
                     
-                    Text( (sliderInLockPosition && theMainViewIsLocked ) ? "Slide to unlock settings" : (sliderInLockPosition && theShuggaIsPaused) ? "Shugga is paused for \(remainingTimeFormatted) \nSlide to resume" :    (  theMainViewIsLocked ?   "Release to unlock settings" : "Release to resume Shugga")     )
+                    Text( (sliderInLockPosition && theMainViewIsLocked ) ? "Slide to unlock help and settings buttons" : (sliderInLockPosition && theShuggaIsPaused) ? "Shugga is paused for \(remainingTimeFormatted) \nSlide to resume" :    (  theMainViewIsLocked ?   "Release to unlock settings" : "Release to resume Shugga")     )
                             .font(.system(size: 18))
                             .foregroundColor(.primary)
                             .frame(width: geometry.size.width - 32  - (theHeight * 3))

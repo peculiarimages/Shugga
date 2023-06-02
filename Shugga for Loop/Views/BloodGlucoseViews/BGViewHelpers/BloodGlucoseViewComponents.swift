@@ -838,6 +838,7 @@ struct MainGlucoseDisplayView: View {
     @AppStorage("userAgreedToAgreement")                 public var userAgreedToAgreement =  false
     @AppStorage("whiteBackground")                  public var whiteBackground =                    false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+    @AppStorage("displayBothUnits")                   public var displayBothUnits =                        false
 
     @Binding var bloodGlucoseValueTextColor: Color
     @Binding var orientation: UIDeviceOrientation
@@ -965,7 +966,28 @@ struct MainGlucoseDisplayView: View {
 
                     .accessibilityLabel(_: "This is the unit currently selected in this app for your blood glucose measurements.")
             }
+            
             Spacer()
+
+            if displayBothUnits {
+//                Spacer()
+                HStack {
+                    if userBloodGlucoseUnit == .milligramsPerDeciliter
+                    {
+                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.millimolesPerLiter.rawValue, skipHundredth: skipHundredth))
+                        Text (" \(BloodGlucoseUnit.millimolesPerLiter.rawValue)")
+                    }
+                    if userBloodGlucoseUnit == .millimolesPerLiter
+                    {
+                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.milligramsPerDeciliter.rawValue, skipHundredth: skipHundredth))
+                        Text (" \(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)")
+                    }
+                }
+                .opacity(whiteBackground ? 1.0 : 0.4)
+                .padding()
+            }
+            
+            
             VStack {
                 
                 if (timeSinceUpdateInSeconds > Int(dataTooOldPeriod_min *  SecondsIn.oneMinute.rawValue)) {
@@ -986,6 +1008,8 @@ struct MainGlucoseDisplayView: View {
             
         }
         
+        
+
         
     }
 }

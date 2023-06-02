@@ -202,14 +202,14 @@ enum LanguageNamesInEnglish: String {
 }
 
 
-let defaultSugahVoice =  "Samantha"
+let defaultSugahVoice =  "USSamantha"
 let defaultSugahLanguage = "English"
 let defaultShuggaLanguageCode = "en"
 let defaultShuggaLanguageRegionCode = "US"
 let defaultShuggaLanguageCombinedCode = "en-US"
 
 let defaultSugahLanguageCombinedCode = "en-US"
-let defaultSugahVoiceName = "Sandy"
+let defaultSugahVoiceName = "Samantha"
 let defaultVoiceIdentifier = "com.apple.ttsbundle.siri_female_en-US_compact"
 let defaultBloodGlucoseUnit = BloodGlucoseUnit.milligramsPerDeciliter.rawValue
 

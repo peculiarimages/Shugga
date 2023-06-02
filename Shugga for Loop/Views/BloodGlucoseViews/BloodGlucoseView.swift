@@ -137,7 +137,8 @@ struct BloodGlucoseView: View {
     @AppStorage("showCGM_info")                         public var showCGM_info =  false
     @AppStorage("showCarbHistory")                      public var showCarbHistory =  false
  
-    
+    @AppStorage("displayBothUnits")                   public var displayBothUnits =                        false
+
     
     
     
@@ -328,6 +329,8 @@ struct BloodGlucoseView: View {
                                 if deBugMode && deBugModeToggle {
                                     
                                     deBugGlucoseValueListFView()
+                                    
+                                    
                                     debugShowCGM_View () }
                             }.padding()
                         }
