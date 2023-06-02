@@ -470,6 +470,10 @@ struct DetailsSettingsView: View {
     @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
     @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be
  
+    @AppStorage("speakInterval_background_seconds")                public var speakInterval_background_seconds:               Int =  defaultShuggaInterval // this is going to be
+    @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
+
+    
     @State private var refreshIsPressed = false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -504,6 +508,44 @@ struct DetailsSettingsView: View {
                     bloodGlucoseData.setMainSugarTimerInterval()
                 }
             }
+            
+            
+            
+            VStack{
+                Toggle("Shugga while in background", isOn: $shuggaInBackground)
+
+                // ___________________________________ Background Shugga every ___________________________________
+                
+                Picker(NSLocalizedString("Do not shugga in background more than once every", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
+                {
+                    ForEach(announcementInterval, id: \.self) { interval in
+                        if interval > SecondsIn.oneMinute.rawValue {
+                            let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
+                            if minutes.truncatingRemainder(dividingBy: 1) == 0 {
+                                // interval is a whole number of minutes
+                                Text("\(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                            } else {
+                                // interval is not a whole number of minutes
+                                Text("Every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
+                            }
+                        } else {
+                            Text("Every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                        }
+                    }
+
+                }
+                .padding (.leading)
+
+                .textCase(.none)
+                .pickerStyle(.menu)
+                .disabled(!shuggaInBackground)
+                .onChange(of: speakInterval_seconds) {  newInterval in
+                    let intervalInSeconds = Double(newInterval)
+                    bloodGlucoseData.setMainSugarTimerInterval()
+                }
+            }
+            
+            
             //___________________________________                   ___________________________________
             // ___________________________________  Shugga Volume   ___________________________________
             VStack{
@@ -1055,7 +1097,6 @@ struct NitPickySettingsContentView: View {
                     .onChange(of: grayAppIcon) { grayAppIcon in
                     bloodGlucoseData.theTranslator.setToGrayAppIcon(isSetToGrayAppIcon: grayAppIcon)}
             
-                Toggle("Shugga while in background", isOn: $shuggaInBackground)
 
                 Toggle("Add \"from the background\"", isOn: $tellMeItsFromBackground)
                 .disabled(!shuggaInBackground)

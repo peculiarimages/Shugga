@@ -13,7 +13,7 @@ import BackgroundTasks
 
 struct SettingsView: View {
     
-    @AppStorage("appExpirationDate")            public var appExpirationDate =             june_1_2023 // 1672559996 = jan 1 2023 unix time stamp
+    @AppStorage("appExpirationDate")            public var appExpirationDate =             july_1_2023 // 1672559996 = jan 1 2023 unix time stamp
     @AppStorage("userAgreedToAgreement")        public var userAgreedToAgreement =              false
     @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
 

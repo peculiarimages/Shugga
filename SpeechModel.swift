@@ -217,6 +217,9 @@ class CustomOperation: Operation {
 
 class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
    
+//    let bloodGlucoseData = BloodGlucoseData.shared
+
+    
     @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
 
     @AppStorage("pauseNow")                   public var pauseNow =                     false
@@ -224,6 +227,10 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
     @AppStorage("sugahVoiceChosen")                     public var sugahVoiceChosen =                   defaultSugahVoice
     
     @AppStorage("turnOffDuringPhoneCalls")          public var turnOffDuringPhoneCalls =                     false
+    
+    @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
+
+    @AppStorage("speakInterval_background_seconds")                public var speakInterval_background_seconds:               Int =  defaultShuggaInterval // this is going to be
 
     
     static let shared = Speech()
@@ -351,8 +358,10 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
     
     
     
-    func speakAnything(speechString: String, typesOfSpeech: TypesOfSpeech, language: String? = nil, completion: ((Result<Void, Error>) -> Void)? = nil) {
+    func speakAnything(speechString: String, whoCalledTheFunction: WhoCalledTheFunction = .unassigned, typesOfSpeech: TypesOfSpeech, language: String? = nil, completion: ((Result<Void, Error>) -> Void)? = nil) {
         
+        let bloodGlucoseData = BloodGlucoseData.shared
+
         
         if typesOfSpeech == .bloodGlucoseValue ||  typesOfSpeech == .carbReminder {
                // Iterate through existing operations in the queue and cancel specific ones
@@ -374,13 +383,13 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             
             //self.prepareSpeechSynthesizer()
             
-//            DispatchQueue.main.async {
-//
-//                self?.updateCurrentAudioPortType()
-//                if ((self?.isSpeaking) != nil) {
-//                    self?.stopSpeakingNow()
-//                }
-//            }
+            //            DispatchQueue.main.async {
+            //
+            //                self?.updateCurrentAudioPortType()
+            //                if ((self?.isSpeaking) != nil) {
+            //                    self?.stopSpeakingNow()
+            //                }
+            //            }
             
             //            let synthSpeechParameters = SynthSpeechParameters()
             let audioSession = AVAudioSession.sharedInstance()
@@ -400,9 +409,9 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             utterance.preUtteranceDelay = synthSpeechParameters.preUtteranceDelay ?? 0.0
             utterance.postUtteranceDelay = synthSpeechParameters.postUtteranceDelay ?? 0.0
             utterance.rate  = synthSpeechParameters.rate
-//            utterance.voice = synthSpeechParameters.voice
-//            printTimestamp(description: "Speech voice name", content: String(synthSpeechParameters.voice), label: "声")
-           
+            //            utterance.voice = synthSpeechParameters.voice
+            //            printTimestamp(description: "Speech voice name", content: String(synthSpeechParameters.voice), label: "声")
+            
             let desiredVoiceName = sugahVoiceChosen.dropFirst(2)
             
             printTimestamp(description: "desiredVoiceName", content: String(desiredVoiceName), label: "声")
@@ -416,7 +425,7 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
                     break
                 }
             }
-
+            
             if let voice = selectedVoice {
                 // Set the voice for the utterance
                 utterance.voice = voice
@@ -424,7 +433,7 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
                 // The desired voice is not available
                 utterance.voice = AVSpeechSynthesisVoice(identifier:    defaultSugahVoice)
                 utterance.voice = AVSpeechSynthesisVoice(language:      defaultShuggaLanguageCombinedCode)
-
+                
                 print("Desired voice '\(desiredVoiceName)' not found")
             }
             
@@ -433,8 +442,25 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             
             
             if !self.pauseNow || self.announcementOn {
-                self.synth.speak(utterance)
-            }else {
+                
+                if  (      whoCalledTheFunction == .HKObserverQuery
+                        || whoCalledTheFunction == .backgroundFetch
+                        || whoCalledTheFunction == .backgroundRefresh
+                        || whoCalledTheFunction == .aRetryFromBackground
+                        || whoCalledTheFunction == .HKObserverQuery
+                        || whoCalledTheFunction == .healthKitBackgroundDelivery
+                        || whoCalledTheFunction == .backgroundTask
+                ) {
+                    
+                    let secondsSinceLastSuccessfulShugga =  Date().timeIntervalSince1970
+                    - (bloodGlucoseData.lastTimeBloodGlucoseWasAnnounced ?? 0)
+                    self.synth.speak(utterance)
+                }
+                else  { self.synth.speak(utterance)  }
+        }
+                
+            
+        else {
                 if let completion = completion {
                     completion(.failure(SpeechError.shuggaPaused))
                 }
@@ -447,7 +473,15 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
                 self.speechCompletionHandler = { result in
                     switch result {
                     case .success:
+                        
+                        let currentTime = Date().timeIntervalSince1970
+
+                        DispatchQueue.main.async {
+                            
+                            bloodGlucoseData.lastTimeBloodGlucoseWasAnnounced = currentTime
+                        }
                         completion(.success(()))
+                        
                     case .failure(let error):
                         self.resetSynth()
                         

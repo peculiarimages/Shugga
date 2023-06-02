@@ -54,8 +54,8 @@ enum WhoCalledTheFunction: String {
     
     case deBugView =                             "debug"
     
-    
-    
+    case backgroundImmediateSecondTry = "background Immediate Second Try"
+    // if there is a new bg data while speaking
     
     
 }

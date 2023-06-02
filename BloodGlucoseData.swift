@@ -155,6 +155,8 @@ class BloodGlucoseData: ObservableObject {
     @Published var appScenePhase: ScenePhase = .inactive
     
     @Published var lastTimeBloodGlucoseWasAnnounced: Double? // timeIntervalSince1970 timestamp
+    @Published var lastTimeBloodGlucoseWasSentToSpeak: Double? // timeIntervalSince1970 timestamp
+
     @Published var lastSweetnessThatWasAnnounced: Sweetness?
     
     @Published var isFetching = false
@@ -954,74 +956,87 @@ class BloodGlucoseData: ObservableObject {
     
     func fetchLatestBloodGlucoseAndSpeak(limit: Int = oneTimeBloodGlucoseFetchCountLimit, whoCalledTheFunction: WhoCalledTheFunction = .unassigned, completion: @escaping (Bool) -> Void) {
         
-       var theLimit = limit
-        
+        var localWhoCalledTheFunction = whoCalledTheFunction
+        var theLimit = limit
         var secondsSinceLastSample: Double = 60
         
         if let currentGlucoseMonitor = self.glucoseMonitorModel.currentGlucoseMonitor
         {
-            
             secondsSinceLastSample = Date().timeIntervalSince(Date(timeIntervalSince1970: self.manySweetnesses.sweetnesses?.last?.startTimestamp ?? Date().timeIntervalSince1970 ))
-            
             theLimit = Int (secondsSinceLastSample / currentGlucoseMonitor.samplingSeconds) + 5
         }
                 
         let repeatShuggaThisManyTimes = 1...(shuggaRepeats ?  2 : 1)
         
+        var counter: Int = 0
+        
         for _ in repeatShuggaThisManyTimes {
-            fetchLatestBloodGlucose(limit: theLimit, whoCalledTheFunction: whoCalledTheFunction) { result in
+            
+            counter = counter + 1
+            
+            if counter == 2 {
+                
+                if (           whoCalledTheFunction == .HKObserverQuery
+                            || whoCalledTheFunction == .backgroundFetch
+                            || whoCalledTheFunction == .backgroundRefresh
+                            || whoCalledTheFunction == .aRetryFromBackground
+                            || whoCalledTheFunction == .HKObserverQuery
+                            || whoCalledTheFunction == .healthKitBackgroundDelivery
+                            || whoCalledTheFunction == .backgroundTask
+                ) {
+                    localWhoCalledTheFunction = .backgroundImmediateSecondTry
+                }
+            }
+        
+            fetchLatestBloodGlucose(limit: theLimit, whoCalledTheFunction: localWhoCalledTheFunction) { result in
                 switch result {
                     
-                case .success:
-                    print("fetched. about to speak....")
-                    
-                    DispatchQueue.main.async {
+                    case .success:
                         
-                        self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
-                            
-                            switch result {
-                                
-                            case .success:
-                                print("fetchLatestBloodGlucoseAndSpeak finished successfully")
-                                completion(true)
-                                
-                            case .failure(let error):
-                                print("❌ 144 fetchLatestBloodGlucoseAndSpeak failed with error: \(error)")
-                                self.speech.resetSynth()
-                                
-                                if thisIsBeta {self.speech.speakAnything(speechString: "fetch Latest Blood Glucose And Speak Speak portion failed ", typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
-                                    guard let self = self else { return } // Safely unwrap self
-                                    switch result {
-                                    case .success:  print ("9355")
-                                        return
+                        DispatchQueue.main.async {
+                            print("fetched. about to speak....")
+
+                            self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
+                                switch result {
+                                    case .success:
+                                        print("fetchLatestBloodGlucoseAndSpeak finished successfully")
+                                        completion(true)
+                                        
                                     case .failure(let error):
-                                        self.speech.speakAnything(speechString: "Failed to speak fetch Latest Blood Glucose And Speak failed : 9355", typesOfSpeech: .error)
-                                        print ("9355")
+                                        print("❌ 144 fetchLatestBloodGlucoseAndSpeak failed with error: \(error)")
+                                        self.speech.resetSynth()
+                                        
+                                        if thisIsBeta {self.speech.speakAnything(speechString: "fetch Latest Blood Glucose And Speak Speak portion failed ", typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
+                                            guard let self = self else { return } // Safely unwrap self
+                                            switch result {
+                                            case .success:  print ("9355")
+                                                return
+                                            case .failure(let error):
+                                                self.speech.speakAnything(speechString: "Failed to speak fetch Latest Blood Glucose And Speak failed : 9355", typesOfSpeech: .error)
+                                                print ("9355")
+                                            }
+                                    })
                                     }
-                                })
+                                    completion(false)
                                 }
-                                completion(false)
+                            })
+                        }
+                        
+                    case .failure(let error):
+                        print("❌ 1345 fetchLatestBloodGlucose failed with error: \(error)")
+                        self.speech.resetSynth()
+                        if thisIsBeta {self.speech.speakAnything(speechString: "1345 fetchLatestBloodGlucose failed with error: \(error)", typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
+                            guard let self = self else { return } // Safely unwrap self
+                            switch result {
+                            case .success:  print ("1345")
+                                return
+                            case .failure(let error):
+                                self.speech.speakAnything(speechString: "Failed to speak fetch Latest Blood Glucose  failed : 1345", typesOfSpeech: .error)
+                                print ("1345")
                             }
+                        })
                         }
-                        )
-                    }
-                    
-                case .failure(let error):
-                    print("❌ 1345 fetchLatestBloodGlucose failed with error: \(error)")
-                    self.speech.resetSynth()
-                    
-                    if thisIsBeta {self.speech.speakAnything(speechString: "1345 fetchLatestBloodGlucose failed with error: \(error)", typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
-                        guard let self = self else { return } // Safely unwrap self
-                        switch result {
-                        case .success:  print ("1345")
-                            return
-                        case .failure(let error):
-                            self.speech.speakAnything(speechString: "Failed to speak fetch Latest Blood Glucose  failed : 1345", typesOfSpeech: .error)
-                            print ("1345")
-                        }
-                    })
-                    }
-                    completion(false)
+                        completion(false)
                 }
             }
         }
@@ -1139,6 +1154,7 @@ class BloodGlucoseData: ObservableObject {
                         || whoCalledTheFunction == .HKObserverQuery
                         || whoCalledTheFunction == .healthKitBackgroundDelivery
                         || whoCalledTheFunction == .backgroundTask
+                        || whoCalledTheFunction == .backgroundImmediateSecondTry
                     )
             {
                 aBackGroundCalledTheFunction = true
@@ -1206,7 +1222,7 @@ class BloodGlucoseData: ObservableObject {
                     if self.theTranslator.currentSugahMeStatus == true
                     {
                     
-                    self.speech.speakAnything(speechString: shuggaUtterance, typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
+                        self.speech.speakAnything(speechString: shuggaUtterance, whoCalledTheFunction: whoCalledTheFunction,  typesOfSpeech: .bloodGlucoseValue,   completion: { [weak self] result in
                         guard let self = self else { return } // Safely unwrap self
                         
                         switch result {
@@ -1214,8 +1230,11 @@ class BloodGlucoseData: ObservableObject {
                         case .success:
                             print("Speech finished successfully")
                             
-                            
-                            
+                            let currentTime = Date().timeIntervalSince1970
+                            DispatchQueue.main.async {
+                                
+                                self.lastTimeBloodGlucoseWasSentToSpeak = currentTime
+                            }
                             
                             
                             // check for any new blood glucose after speaking:
@@ -1228,6 +1247,8 @@ class BloodGlucoseData: ObservableObject {
                                             self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
                                                 
                                                 switch result {
+                                                    
+                                                    
                                                 case .success:
                                                     print("Speech finished. it's a sequential output since a new value was found after the first utterance ended.")
                                                 case .failure(let error):
@@ -1309,7 +1330,9 @@ class BloodGlucoseData: ObservableObject {
         if  whoCalledTheFunction == .myBackgroundOperation ||
             whoCalledTheFunction == .backgroundRefresh ||
             whoCalledTheFunction == .backgroundTask ||
-            whoCalledTheFunction == .backgroundFetch {  // ignoring two hour regressive analysis changes made to past record
+            whoCalledTheFunction == .backgroundFetch ||
+                whoCalledTheFunction == .HKObserverQuery ||
+                whoCalledTheFunction == .healthKitBackgroundDelivery{  // ignoring two hour regressive analysis changes made to past record
             theLimit = 2
         } else
         { theLimit = HKObjectQueryNoLimit }
@@ -1324,17 +1347,10 @@ class BloodGlucoseData: ObservableObject {
         let query = HKSampleQuery(sampleType: bloodGlucoseHKSampleType, predicate: predicate, limit: theLimit, sortDescriptors: [sortDescriptor]) { [self] (query, samples, error) in // HKObjectQueryNoLimit instead of limit to get all data inside the predicate
             if let samples = samples, !samples.isEmpty {
                 
-                
-                
-       
-                            
             let hkSamples = samples.compactMap { $0 as? HKQuantitySample }
 
                 DispatchQueue.main.async {
                     self.userApprovedHealthKitBloodGlucose_Read = true
-                    
-                    
-                    
                     
                     self.manySweetnesses.addQueryDirectly(limit: HKObjectQueryNoLimit , whoCalledTheFunction: whoCalledTheFunction, samples: hkSamples) { (success) in
                         if success {
@@ -1382,65 +1398,11 @@ class BloodGlucoseData: ObservableObject {
                                     
                             
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                  
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                                 } else {
                             print("Query failed")
                             self.speech.speakAnything(speechString: "Query failed", typesOfSpeech: .error)
                         }
                     }
-                    
-                    
-                    
-                    
-                    
                     
                 } // DispatchQueue.main.async
                 
@@ -1480,28 +1442,9 @@ class BloodGlucoseData: ObservableObject {
                             print("By going back a week: Latest blood glucose fetched and spoken successfully!143 \(WhoCalledTheFunction.healthKitBackgroundDelivery.rawValue)")
                             completion(.success(()))
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                         case .failure(_):
                             print("Failed to fetch or speak latest blood glucose.")
                            // self.speech.speakAnything(speechString: "Failed to fetch or speak latest blood glucose: 8394", typesOfSpeech: .error)
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             
                             
                             

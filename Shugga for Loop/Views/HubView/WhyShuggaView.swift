@@ -49,9 +49,16 @@ struct WhyShuggaView: View {
                            Text(whyShugga_1)
                                .padding([.leading, .trailing])
 
+                        
+                        
+                        
                         Image ("bodegabay")
                             .resizable()
                                 .aspectRatio(contentMode: .fit)
+                        
+                        
+                        
+                        
                         
                         Text(whyShugga_2)
                             .padding([.leading, .trailing, .bottom])

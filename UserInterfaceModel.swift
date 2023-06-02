@@ -10,13 +10,8 @@ import UIKit
 import SwiftUI
 import CoreHaptics
 import PDFKit
-
-
-
-
-
-
-
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 
 

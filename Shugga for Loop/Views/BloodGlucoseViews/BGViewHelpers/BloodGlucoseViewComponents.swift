@@ -1020,20 +1020,41 @@ struct TopMenuView: View {
     var body: some View {
         Spacer()
         HStack {
-            VStack {
-                NavigationLink(destination: HubView()) {
+            
+            if theMainViewIsLocked {
+                VStack {
+                        
+                        Image(systemName: "info.circle.fill")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 30))
+                            .opacity(whiteBackground ? 1.0 : 0.4)
+                        //.padding([.top, .leading, .trailing], 10)
+                            .accessibilityLabel(_: "This gray question mark button takes you to the about page.")
                     
-                    Image(systemName: "info.circle.fill")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 30))
-                        .opacity(whiteBackground ? 1.0 : 0.4)
-                    //.padding([.top, .leading, .trailing], 10)
-                        .accessibilityLabel(_: "This gray question mark button takes you to the about page.")
                 }
-            }
-            .frame (width: 75)
-            .padding([.leading, .trailing], 5)
+                .frame (width: 75)
+                .padding([.leading, .trailing], 5)
 
+            }
+            else
+            {
+                
+                VStack {
+                    NavigationLink(destination: HubView()) {
+                        
+                        Image(systemName: "info.circle.fill")
+                            .foregroundColor(.gray)
+                            .font(.system(size: 30))
+                            .opacity(whiteBackground ? 1.0 : 0.4)
+                        //.padding([.top, .leading, .trailing], 10)
+                            .accessibilityLabel(_: "This gray question mark button takes you to the about page.")
+                    }
+                }
+                .frame (width: 75)
+                .padding([.leading, .trailing], 5)
+
+            }
+          
             Spacer()
             
             VStack {
