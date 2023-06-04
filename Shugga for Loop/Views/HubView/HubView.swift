@@ -410,10 +410,10 @@ struct HubView: View {
                         Spacer()
                         
                         HStack {
-                            Spacer()
+//                            Spacer()
                             VStack{
                                 
-                                
+                               /*
                                 YouGotDis()
                                     .frame(height: geometry.size.width/theImageWidthRatio * 0.8)
                                 
@@ -431,6 +431,7 @@ struct HubView: View {
                                             }
                                         }
                                     }
+                                */
                                 //                                        .overlay(
                                 //                                                    RoundedRectangle(cornerRadius: 8)
                                 //                                                        .stroke(Color.black, lineWidth: 2)
@@ -439,7 +440,7 @@ struct HubView: View {
                             }
                             .padding([.leading, .trailing])
                             
-                            Spacer()
+//                            Spacer()
                             
                             VStack {
                                 Image ("outside-center-logotype")
@@ -455,7 +456,7 @@ struct HubView: View {
                             }
                             .padding([.leading, .trailing])
                             
-                            Spacer()
+//                            Spacer()
                             
                         }
                         .padding([.leading, .trailing])

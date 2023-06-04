@@ -1066,6 +1066,11 @@ struct NitPickySettingsContentView: View {
             Toggle(NSLocalizedString("Shugga twice in a row", comment: ""), isOn: $shuggaRepeats)
                 .disabled((false))
             
+            Toggle(NSLocalizedString("Only when blood glucose is out of range", comment: ""), isOn: $shuggaRepeats)
+                .disabled((true))
+                .padding (.leading)
+
+
             Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
                     .onChange(of: speakElapsedTime) { speakElapsedTime in
                         bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }

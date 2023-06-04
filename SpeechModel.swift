@@ -439,7 +439,7 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
             
             // Speak the utterance
             
-            
+           
             
             if !self.pauseNow || self.announcementOn {
                 

@@ -559,7 +559,67 @@ struct NoBloodGlucosePermissionNoticeView: View {
 }
 
 
+struct StatusHelpPopupView: View {
+    @Environment(\.dismiss) var dismiss
 
+    var body: some View {
+        VStack {
+            Spacer()
+            Text ("Shugga Status Symbols Help")
+                .padding()
+            HStack {
+                Image(systemName: "circle.inset.filled")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                
+                Image(systemName: "bubble.left.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                
+                Image(systemName:  "text.bubble")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                
+                Image(systemName:  "speaker.wave.2.bubble.left.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                
+                Image(systemName: "x.circle.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                
+                Image(systemName: "drop.circle")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+                    .foregroundColor(shuggaRed)
+                
+                Image(systemName: "drop.circle.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.primary)
+                    .opacity(0.5)
+                    .frame(width: 40)
+            }
+            .padding()
+            
+            Spacer()
+            Button("OK") {
+                dismiss()
+            }
+        }
+    }
+}
 
 
 struct ShuggaStatusInfoView: View {
@@ -574,7 +634,8 @@ struct ShuggaStatusInfoView: View {
     @ObservedObject var speech = Speech.shared
     @AppStorage("mainBloodGlucoseDisplayFontSize")  public var mainBloodGlucoseDisplayFontSize =    200
 
-    
+    @State private var showingStatusHelpPopup: Bool = false
+
     
     var body: some View {
         
@@ -582,6 +643,11 @@ struct ShuggaStatusInfoView: View {
             HStack {
                 HStack {
                     Spacer()
+                    
+                    
+                    
+                    
+                    
                     
                     Image(systemName: "circle.inset.filled")
                         .font(.system(size: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      Float (mainBloodGlucoseDisplayFontSize)/7.7  :  18 )     ))
@@ -630,6 +696,19 @@ struct ShuggaStatusInfoView: View {
                 }
                 .frame(height: CGFloat(    mainBloodGlucoseDisplayFontSize > 140 ?      (mainBloodGlucoseDisplayFontSize)/7 :  21 ) )
                 .frame(minWidth: 0, maxWidth: .infinity)
+                
+                .onTapGesture {
+                    showingStatusHelpPopup = true
+                    
+                    // Automatically dismiss after 1 minute.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+                        showingStatusHelpPopup = false
+                    }
+                }
+                .sheet(isPresented: $showingStatusHelpPopup) {
+                    StatusHelpPopupView()
+                }
+                
             }
 //            .opacity (0.75)
             
@@ -979,7 +1058,9 @@ struct MainGlucoseDisplayView: View {
                     }
                     if userBloodGlucoseUnit == .millimolesPerLiter
                     {
-                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.milligramsPerDeciliter.rawValue, skipHundredth: skipHundredth))
+
+                        // let sWithoutSpaces = s.replacingOccurrences(of: " ", with: "")
+                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.milligramsPerDeciliter.rawValue, skipHundredth: skipHundredth).replacingOccurrences(of: " ", with: "")) // eg: "1 46" to "146" for skip hundred
                         Text (" \(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)")
                     }
                 }

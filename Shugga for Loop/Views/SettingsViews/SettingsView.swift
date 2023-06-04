@@ -168,6 +168,12 @@ struct HelpButton<Content: View>: View {
                         showDescription = false
                     }
                     .padding(.top)
+                    .background(Color.white)
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.blue, lineWidth: 1)
+                    )
                 }
             }
             .padding()
