@@ -23,38 +23,22 @@ func GetVoices() -> [String]
 // ---------------------------------------------------
 struct NavigationForSettingsView: View {
     
+        let bloodGlucoseData = BloodGlucoseData.shared
+    
+    @AppStorage("userBloodGlucoseUnit")             public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
+    @AppStorage("displayBothUnits")                   public var displayBothUnits =                        false
+    @AppStorage("doubleTapForSugah")                public var doubleTapForSugah =                  false
+
     var body: some View {
         
         HStack {
-            /*
-            VStack {
-                //                        NavigationLink(destination: GlucoseValueView()) {
-                NavigationLink(destination: SubscriptionsView()) {
-                    
-                    Image(systemName: "cart.circle.fill")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 30))
-                        .opacity(0.4)
-                    //.padding([.top, .leading, .trailing], 10)
-                        .accessibilityLabel(_: "")
-                }
-            }
-            .frame (width: 75)
-            .padding()
-            */
-            
-            VStack {
-                Text("")
-            }
-            .frame (width: 75)
-            .padding([.leading, .trailing], 5)
+           
             
             Spacer()
             
-            VStack{
-                NavigationLink(destination: HubView()) {
-                    
-                    HStack {
+            
+                  
+
                         VStack {
                             Image("logo 3")
                                 .resizable()
@@ -62,27 +46,33 @@ struct NavigationForSettingsView: View {
                                 .padding([.top, .leading, .trailing], 10)
                                 .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
                             
-                            Text ("Shugga for Loop")
+                            Text ("ShuggaShugga")
                                 .foregroundColor(logoTypeColor)
                                 .font(.system(size: 14, weight: .bold, design: .rounded))
                                 .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")
                                 .lineLimit(1)
                                  .truncationMode(.tail)
                         }
+                        .frame (width: 200)
+                        .padding([.leading, .trailing], 5)
+            
+                        .onTapGesture(count: 2) {
+                            
+//                                        triggerHaptic(binaryPattern: "10101", timeUnit: 0.1)
+
+                            handleSettingsLogoTapGesture(
+                             doubleTapForSugah: doubleTapForSugah, bloodGlucoseData: bloodGlucoseData)
+                            
+
+                      
+                        
                     }
-                }
-            }
-            .frame (width: 200)
-            .padding([.leading, .trailing], 5)
+            
+          
 
             Spacer()
             
-            VStack {
-                Text("")
-
-            }
-            .frame (width: 75)
-            .padding([.leading, .trailing], 5)
+        
 
         }
         
@@ -266,75 +256,78 @@ struct MainSwitchSettingsContentView: View {
                     theMainViewIsLocked = showLockButton
                 }
                 .padding(.leading)
+                .listRowSeparator(.hidden)
+
             // ___________________________________ Pause for ___________________________________
             
             
             
             if thisIsBeta {
-            HStack{
-                Text (announcementOn ? (pauseNow ? "Paused for" : "Pause for" ): "Shugga paused by the main switch above")
-                    .padding(.trailing, -20)
-                
-                
-                if !pauseNow {
+                HStack{
+                    Text (announcementOn ? (pauseNow ? "Paused for" : "Pause for" ): "Shugga paused by the main switch above")
+                        .padding(.trailing, -20)
                     
-                    Picker(NSLocalizedString("", comment: ""), selection: $pauseForX_min)
-                    {
-                        ForEach(pauseInterval, id: \.self) { interval in
-                            
-                            if interval > 60 {
-                                Text("\(interval / 60) " + NSLocalizedString("hrs.", comment: "hrs. to pause"))
-                                    .padding(.leading, -5)
-                                
-                                    .lineLimit(1)
-                                
-                            }
-                            else {
-                                Text("\(interval) " + NSLocalizedString("min.", comment: "min to pause"))
-                                
-                                    .padding(.leading, -5)
-                                    .lineLimit(1)
-                            }
-                        }
-                    }
-                    .textCase(.none)
-                    .pickerStyle(.menu)
-                    .disabled(pauseNow)
-                    .onChange(of: pauseForX_min) {  pauseInterval in
-                        
-                        bloodGlucoseData.remainingPauseTime = Double(pauseForX_min * SecondsIn.oneMinute.rawValue)
-                    }
                     
-                } else
-                {
-                    PauseTimerView()
-                        .padding(.leading, 20)
-                }
-                
-                
-                Toggle("", isOn: $pauseNow)
-                    .onChange(of: pauseNow) {  pauseNow in
-                        theShuggaIsPaused = pauseNow
+                    if !pauseNow {
                         
-                        
-                        if pauseNow {
-                            bloodGlucoseData.startPauseSugahTimer()
-                            as_pauseDuration = 0
-                            as_pauseStartTime = 0
-                        }
-                        else
+                        Picker(NSLocalizedString("", comment: ""), selection: $pauseForX_min)
                         {
-                            bloodGlucoseData.stopPauseSugahTimer()
-                            as_pauseDuration = 0
-                            as_pauseStartTime = 0
+                            ForEach(pauseInterval, id: \.self) { interval in
+                                
+                                if interval > 60 {
+                                    Text("\(interval / 60) " + NSLocalizedString("hrs.", comment: "hrs. to pause"))
+                                        .padding(.leading, -5)
+                                    
+                                        .lineLimit(1)
+                                    
+                                }
+                                else {
+                                    Text("\(interval) " + NSLocalizedString("min.", comment: "min to pause"))
+                                    
+                                        .padding(.leading, -5)
+                                        .lineLimit(1)
+                                }
+                            }
                         }
+                        .textCase(.none)
+                        .pickerStyle(.menu)
+                        .disabled(pauseNow)
+                        .onChange(of: pauseForX_min) {  pauseInterval in
+                            
+                            bloodGlucoseData.remainingPauseTime = Double(pauseForX_min * SecondsIn.oneMinute.rawValue)
+                        }
+                        
+                    } else
+                    {
+                        PauseTimerView()
+                            .padding(.leading, 20)
                     }
-                    .disabled(disableLock || !announcementOn)
+                    
+                    
+                    Toggle("", isOn: $pauseNow)
+                        .onChange(of: pauseNow) {  pauseNow in
+                            theShuggaIsPaused = pauseNow
+                            
+                            
+                            if pauseNow {
+                                bloodGlucoseData.startPauseSugahTimer()
+                                as_pauseDuration = 0
+                                as_pauseStartTime = 0
+                            }
+                            else
+                            {
+                                bloodGlucoseData.stopPauseSugahTimer()
+                                as_pauseDuration = 0
+                                as_pauseStartTime = 0
+                            }
+                        }
+                        .disabled(disableLock || !announcementOn)
+                }
+                .padding(.leading)
+                
+                
             }
-            .padding(.leading)
             
-            
-        }
         }
         .textCase(.none)
     }
@@ -368,6 +361,7 @@ struct MainSwitchSettingsView: View {
                         Form {
                             HStack {
                                 Spacer()
+                                
                                 VStack {
                                     Image("logo 3")
                                         .resizable()
@@ -388,7 +382,6 @@ struct MainSwitchSettingsView: View {
                         }
                     }
                     .background(Color.clear)
-                    
                 }
                 .padding(.top, 15)
                 
@@ -398,7 +391,13 @@ struct MainSwitchSettingsView: View {
             .font(.headline)
             .accessibilityLabel(NSLocalizedString("When this is turned on, the readout is turned on. If these accessibility label readouts are being cut off by the blood glucose readout, you can turn this off to explore the app first.", comment: "Accessibility label for Shugga ME toggle"))
                 , footer:
-                    Text(demoMode ? NSLocalizedString("The demo mode is turned on. Check the setting below.", comment: "Footer text for demo mode") : "")
+                    VStack{
+            if announcementOn {
+                Text ("When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pant pocket) to prevent unintentional changes to the settings.")
+                    .foregroundColor(shuggaRed)
+            }
+        }
+//                    Text(demoMode ? NSLocalizedString("The demo mode is turned on. Check the setting below.", comment: "Footer text for demo mode") : "")
             .font(.footnote)
             .font(.body )
         ) {
@@ -473,7 +472,8 @@ struct DetailsSettingsView: View {
     @AppStorage("speakInterval_background_seconds")                public var speakInterval_background_seconds:               Int =  defaultShuggaInterval // this is going to be
     @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
 
-    
+    @AppStorage("tellMeItsFromBackground")               public var tellMeItsFromBackground =                 true
+
     @State private var refreshIsPressed = false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
@@ -490,13 +490,13 @@ struct DetailsSettingsView: View {
                             let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
                             if minutes.truncatingRemainder(dividingBy: 1) == 0 {
                                 // interval is a whole number of minutes
-                                Text("Every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                                Text("every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
                             } else {
                                 // interval is not a whole number of minutes
-                                Text("Every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
+                                Text("every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
                             }
                         } else {
-                            Text("Every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                            Text("every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
                         }
                     }
 
@@ -516,20 +516,20 @@ struct DetailsSettingsView: View {
 
                 // ___________________________________ Background Shugga every ___________________________________
                 
-                Picker(NSLocalizedString("Do not shugga from the background more frequently than once every", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
+                Picker(NSLocalizedString("Max. background shugga frequency", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
                         if interval > SecondsIn.oneMinute.rawValue {
                             let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
                             if minutes.truncatingRemainder(dividingBy: 1) == 0 {
                                 // interval is a whole number of minutes
-                                Text("\(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                                Text("once every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
                             } else {
                                 // interval is not a whole number of minutes
-                                Text("Every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
+                                Text("once every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
                             }
                         } else {
-                            Text("Every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                            Text("once every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
                         }
                     }
 
@@ -543,9 +543,14 @@ struct DetailsSettingsView: View {
                     let intervalInSeconds = Double(newInterval)
                     bloodGlucoseData.setMainSugarTimerInterval()
                 }
+                
+                
+                Toggle("Add \"From the background...\"", isOn: $tellMeItsFromBackground)
+                .disabled(!shuggaInBackground)
+                .padding(.leading)
+                .listRowSeparator(.hidden)
             }
-            
-            
+          
             //___________________________________                   ___________________________________
             // ___________________________________  Shugga Volume   ___________________________________
             VStack{
@@ -685,7 +690,7 @@ struct UnitSettingsContentView:  View {
             }                        .textCase(.none)
 
             
-            let includeUnitTextWithChosenUnit = "Shugga unit [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])]" + (shuggaGlucoseTrend ? " & [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])/\(multiplyTrendByTen ? "10" : "") min]" : "")
+            let includeUnitTextWithChosenUnit = "Shugga unit [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])]" + (shuggaGlucoseTrend ? " & [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])/\(multiplyTrendByTen ? "10 " : "")min]" : "")
                 
                 Toggle(includeUnitTextWithChosenUnit, isOn: $includeUnit)
                     .onChange(of: includeUnit) { speakUnit in
@@ -1080,7 +1085,7 @@ struct NitPickySettingsContentView: View {
                     .onChange(of: skipHundredth) { skipHundredthBool in
                         bloodGlucoseData.theTranslator.setSkipHundredths(skipHundredth: skipHundredthBool) }
                 
-                Toggle(NSLocalizedString("Double tap screen for Shugga", comment: ""), isOn: $doubleTapForSugah)
+                Toggle(NSLocalizedString("Double tap the main blood glucose value or app logo above for Shugga", comment: ""), isOn: $doubleTapForSugah)
                     .onChange(of: doubleTapForSugah) { doubleTapForSugah in
                         bloodGlucoseData.theTranslator.setAnnounceWithDoubleTap(doubleTapForSugah: doubleTapForSugah) }
                 
@@ -1103,10 +1108,7 @@ struct NitPickySettingsContentView: View {
                     bloodGlucoseData.theTranslator.setToGrayAppIcon(isSetToGrayAppIcon: grayAppIcon)}
             
 
-                Toggle("Add \"from the background\"", isOn: $tellMeItsFromBackground)
-                .disabled(!shuggaInBackground)
-                .padding(.leading)
-                .listRowSeparator(.hidden)
+             
 
             
             

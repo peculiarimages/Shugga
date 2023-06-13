@@ -8,6 +8,32 @@
 import Foundation
 import SwiftUI
 
+
+func handleSettingsLogoTapGesture(doubleTapForSugah: Bool, bloodGlucoseData: BloodGlucoseData) {
+    
+    if doubleTapForSugah {
+      //  bloodGlucoseData.thePlayer.speakTimeNow(sampleTime: Date(timeIntervalSince1970: Double(bloodGlucoseData.manySweetnesses.sweetnesses?.last?.startTimestamp ?? rodisBirthdayTimeStamp)))
+        triggerHaptic(binaryPattern: "10100100010000100001", timeUnit: 1)
+        
+        if bloodGlucoseData.manySweetnesses.sugahNow {
+                
+            bloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: .bloodGlucoseView_on2Tap) { success in
+                if success {
+                    print("👄Latest blood glucose fetched and spoken successfully! \(WhoCalledTheFunction.bloodGlucoseView_on2Tap.rawValue)")
+                } else {
+                    print("Failed to fetch or speak latest blood glucose.")
+                    print ("handleBloodGlucoseViewOnTapGesture")
+                    
+                }
+            }
+        }
+
+    }
+    
+    
+}
+
+
 func handleBloodGlucoseViewOnTapGesture(view: BloodGlucoseView, doubleTapForSugah: Bool, bloodGlucoseData: BloodGlucoseData) {
     
     if doubleTapForSugah {

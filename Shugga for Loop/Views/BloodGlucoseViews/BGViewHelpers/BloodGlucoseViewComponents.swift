@@ -558,6 +558,120 @@ struct NoBloodGlucosePermissionNoticeView: View {
     }
 }
 
+struct UnitConversionHelpPopupView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    let diabetes = Diabetes()
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    let numbers = Array(5...1200).filter { $0 % 5 == 0 }
+
+    var body: some View {
+        
+        VStack {
+            Text ("Blood Glucose Units Table")
+                .font(.title)
+//            LazyVGrid(columns: columns) {
+
+                HStack {
+                    Spacer()
+
+                    Text(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)
+                        .font(.headline)
+                        .lineLimit(1)
+                    
+              
+
+//                Spacer()
+                
+                    Spacer()
+//                        .padding(0)
+
+                    Text("mmol/L")
+                        .font(.headline)
+                        .lineLimit(1)
+//                        .padding(0)
+//                        .frame(alignment: .trailing)
+                    Spacer()
+
+                }
+                .frame(alignment: .center)
+                .padding([.top], 10)
+                
+             
+//            }
+            
+            
+            HStack {
+                Text ("\".\" represents a decimal point")
+                    .font(.caption2)
+                    .padding([.top], 5)
+
+            }
+            
+            
+            ScrollView {
+                
+                LazyVGrid(columns: columns) {
+
+                               ForEach(numbers.indices, id: \.self) { index in
+                                   let number = numbers[index]
+                                   HStack {
+                                       Spacer()
+                                       
+                                       Text("\(number)")
+                                           .frame(alignment: .trailing)
+                                           .lineLimit(1)
+                                       Text (" ")
+
+                                   }
+                                   .frame(alignment: .trailing)
+
+//                                       .padding(.vertical, 5)
+                                   
+                                   let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
+                                   let integerPart = Int(mmol)
+                                   let fractionalPart = String(String(format: "%.2f", mmol).split(separator: ".").last ?? "")
+                                   
+                                   HStack {
+                                       Spacer()
+
+                                       Text("\(integerPart).")
+                                           .lineLimit(1)
+                                   }
+                                   .frame(alignment: .trailing)
+//                                   .padding(.vertical, 5)
+                                   .padding(-5.0)
+
+                                   
+                                   HStack {
+                                       Text("\(fractionalPart)")
+                                           .font(Font.system(.body).monospacedDigit())
+                                           .lineLimit(1)
+
+                                       Spacer()
+                                   }
+                                   .frame(alignment: .leading)
+
+                                   .padding(0)
+
+//                                   .padding(.vertical, 5)
+                                  
+                                }
+                           }
+                    .padding()
+                }
+            
+            
+            Spacer()
+            Button("OK") {
+                dismiss()
+            }
+            
+        }
+        .padding()
+    }
+}
+
 
 struct StatusHelpPopupView: View {
     @Environment(\.dismiss) var dismiss
@@ -927,6 +1041,9 @@ struct MainGlucoseDisplayView: View {
     
     @Binding var dataTooOldPeriod_min: Int
     
+    @State private var showingUnitConverionHelpPopup: Bool = false
+
+    
     let skipHundredth: Bool
   //  let theDataIsTooOld: Bool
     
@@ -1050,22 +1167,40 @@ struct MainGlucoseDisplayView: View {
 
             if displayBothUnits {
 //                Spacer()
-                HStack {
-                    if userBloodGlucoseUnit == .milligramsPerDeciliter
-                    {
-                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.millimolesPerLiter.rawValue, skipHundredth: skipHundredth))
-                        Text (" \(BloodGlucoseUnit.millimolesPerLiter.rawValue)")
-                    }
-                    if userBloodGlucoseUnit == .millimolesPerLiter
-                    {
+                
+                
+                if let currentBloodGlucoseInmgdL = bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness
+                {
+                    //showingUnitConverionHelpPopup
+                    HStack {
+                        if userBloodGlucoseUnit == .milligramsPerDeciliter
+                        {
+                            Text(returnCorrectValueForUnit_string(rawValue : currentBloodGlucoseInmgdL, userBloodGlucoseUnit : BloodGlucoseUnit.millimolesPerLiter.rawValue, skipHundredth: false))
+                            Text (" \(BloodGlucoseUnit.millimolesPerLiter.rawValue)")
+                        }
+                        if userBloodGlucoseUnit == .millimolesPerLiter
+                        {
 
-                        // let sWithoutSpaces = s.replacingOccurrences(of: " ", with: "")
-                        Text(returnCorrectValueForUnit_string(rawValue : bloodGlucoseData.manySweetnesses.sweetnesses?.last?.sweetness ?? -0.5, userBloodGlucoseUnit : BloodGlucoseUnit.milligramsPerDeciliter.rawValue, skipHundredth: skipHundredth).replacingOccurrences(of: " ", with: "")) // eg: "1 46" to "146" for skip hundred
-                        Text (" \(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)")
+                            // let sWithoutSpaces = s.replacingOccurrences(of: " ", with: "")
+                            Text(returnCorrectValueForUnit_string(rawValue : currentBloodGlucoseInmgdL, userBloodGlucoseUnit : BloodGlucoseUnit.milligramsPerDeciliter.rawValue, skipHundredth: skipHundredth).replacingOccurrences(of: " ", with: "")) // eg: "1 46" to "146" for skip hundred
+                            Text (" \(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)")
+                        }
+                    }
+                    .opacity(whiteBackground ? 1.0 : 0.4)
+                    .padding()
+                    .onTapGesture {
+                        showingUnitConverionHelpPopup = true
+                           }
+                    .sheet(isPresented: $showingUnitConverionHelpPopup) {
+                        // Your pop up content here.
+                        UnitConversionHelpPopupView()
                     }
                 }
-                .opacity(whiteBackground ? 1.0 : 0.4)
-                .padding()
+               
+                
+                
+                
+                
             }
             
             

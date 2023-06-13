@@ -50,7 +50,7 @@ struct FAQsView: View {
                     .font(.title2)
                 
                 Text("""
-Shugga for Loop should work with G7. However, it has been tested on G6 only. There may be some glitches with its 1 min sampling cycles. Let us know how it works for you.
+Shugga for Loop should work with G7. However, it has been tested on G6 only. There may be some glitches when used with CGMs with 1 min sampling cycles. Let us know how it works for you.
 
 
 """)

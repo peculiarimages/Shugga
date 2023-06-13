@@ -157,7 +157,7 @@
 		D807BB3929AFE4CA000EE8D1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuggaStatusClass.swift; sourceTree = "<group>"; };
 		D8254D7029BBABD700294034 /* Enums.Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Errors.swift; sourceTree = "<group>"; };
-		D82E566929F997E1004F1DBD /* Shugga for Loop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shugga for Loop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82E566929F997E1004F1DBD /* ShuggaShugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuggaShugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shugga_for_LoopApp.swift; sourceTree = "<group>"; };
 		D82E566D29F997E1004F1DBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D82E566F29F997E2004F1DBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				D803D98229A9335D006F4D6A /* Shugga.app */,
-				D82E566929F997E1004F1DBD /* Shugga for Loop.app */,
+				D82E566929F997E1004F1DBD /* ShuggaShugga.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,9 +521,9 @@
 			productReference = D803D98229A9335D006F4D6A /* Shugga.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D82E566829F997E1004F1DBD /* Shugga for Loop */ = {
+		D82E566829F997E1004F1DBD /* ShuggaShugga */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "Shugga for Loop" */;
+			buildConfigurationList = D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "ShuggaShugga" */;
 			buildPhases = (
 				D82E566529F997E1004F1DBD /* Sources */,
 				D82E566629F997E1004F1DBD /* Frameworks */,
@@ -536,11 +536,11 @@
 				D8BDA7172A11BA580076690F /* PBXTargetDependency */,
 				D8BDA7192A11BA580076690F /* PBXTargetDependency */,
 			);
-			name = "Shugga for Loop";
+			name = ShuggaShugga;
 			packageProductDependencies = (
 			);
 			productName = "Shugga for Loop";
-			productReference = D82E566929F997E1004F1DBD /* Shugga for Loop.app */;
+			productReference = D82E566929F997E1004F1DBD /* ShuggaShugga.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -577,7 +577,7 @@
 			projectRoot = "";
 			targets = (
 				D803D98129A9335D006F4D6A /* Shugga */,
-				D82E566829F997E1004F1DBD /* Shugga for Loop */,
+				D82E566829F997E1004F1DBD /* ShuggaShugga */,
 			);
 		};
 /* End PBXProject section */
@@ -1034,7 +1034,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "Shugga for Loop" */ = {
+		D82E567629F997E2004F1DBD /* Build configuration list for PBXNativeTarget "ShuggaShugga" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D82E567429F997E2004F1DBD /* Debug */,

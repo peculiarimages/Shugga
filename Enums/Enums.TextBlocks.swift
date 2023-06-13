@@ -16,7 +16,6 @@ let acknowledgementText = """
    Glo Glo the Nurse
 
      Future localizations:
-       Deutsch: Ms. Fritz
        Italiano: Tiziana
        한국어: Alex Y.
        Français: Haruka
@@ -72,7 +71,7 @@ let youMustAgreeText = "You must agree to the User Agreement, then turn Shugga O
 
 let nationalParksText = "Now that you've read this far, go get your free lifetime US National Parks pass! This is the only free thing, beside the love from the people around you that is free for us diabetics. Just show up at the gate of a national park, then inform the park ranger that you are an insulin dpendent diabetic and you can get a freebie. WOO HOO!\n"
 
-let disclaimerBoilerplate = "Disclaimer: “Shugga for Loopˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom. This version of Shugga works with Apple's HealthKit, leveraging real-time updates of blood glucose values provided by Loop. Even without a continuous glucose monitor and Loop, “Shugga for Loopˮ could facilitate manual blood glucose testing, provided you enter carbohydrate consumption into the Health app. We strongly recommend reviewing and understanding Loop's documentation and guidelines before using this app to ensure a seamless experience.\n\nPlease note, this version has been tested with the Dexcom G6 and its 5-minute sampling frequencies. However, it hasn't been tested with the G7 yet. \n\nAlways check your blood glucose data against blood glucose measuring devices approved by your regulatory agencies. You are on your own because it's your own body.\n"
+let disclaimerBoilerplate = "Disclaimer: “Shugga for Loopˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom. This version of Shugga works with Apple's HealthKit, leveraging real-time updates of blood glucose values provided by Loop. Even without a continuous glucose monitor and Loop, “Shugga for Loopˮ could facilitate manual blood glucose testing, provided you enter carbohydrate consumption into the Health app. We strongly recommend reviewing and understanding Loop's documentation and guidelines before using this app to ensure a seamless experience.\n\nAlways check your blood glucose data against blood glucose measuring devices approved by your regulatory agencies. You are on your own because it's your own body.\n"
 
 let whyShugga_1 = """
 This is why I decided to make Shugga:

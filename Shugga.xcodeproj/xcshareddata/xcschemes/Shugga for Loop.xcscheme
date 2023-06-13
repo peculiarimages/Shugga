@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D82E566829F997E1004F1DBD"
-               BuildableName = "Shugga for Loop.app"
-               BlueprintName = "Shugga for Loop"
+               BuildableName = "ShuggaShugga.app"
+               BlueprintName = "ShuggaShugga"
                ReferencedContainer = "container:Shugga.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D82E566829F997E1004F1DBD"
-            BuildableName = "Shugga for Loop.app"
-            BlueprintName = "Shugga for Loop"
+            BuildableName = "ShuggaShugga.app"
+            BlueprintName = "ShuggaShugga"
             ReferencedContainer = "container:Shugga.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,8 +61,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D82E566829F997E1004F1DBD"
-            BuildableName = "Shugga for Loop.app"
-            BlueprintName = "Shugga for Loop"
+            BuildableName = "ShuggaShugga.app"
+            BlueprintName = "ShuggaShugga"
             ReferencedContainer = "container:Shugga.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

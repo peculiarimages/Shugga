@@ -96,11 +96,16 @@ enum TheAppState: String {
 
 
 
-enum CGM_sampleFrequencies: Double { // in seconds
+enum CGMSampleFrequencies {
+    case dexcom_G6
+    case dexcom_G7
     
-    case dexcom_G6 =            300
-    case dexcom_G7 =            60
-    
+    var value: Double { // because you can't have same raw values in case this is the workaround
+        switch self {
+        case .dexcom_G6, .dexcom_G7:
+            return 300.0
+        }
+    }
 }
 
 
@@ -162,7 +167,7 @@ let announcementInterval_DexcomG6: [Int] =
 
 
 let announcementInterval_DexcomG7: [Int] =
-[   20, 30, 60, 120, 240, 360, 480, 900, 1200, 1800, 2700, 3600  ]
+[  20, 30, 60, 150, 300, 600, 900, 1200, 1800, 2700, 3600  ]
 
 // =================================================================================
 
