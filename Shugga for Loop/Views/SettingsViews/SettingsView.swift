@@ -86,6 +86,8 @@ struct SettingsView: View {
                                 
                                 AncillaryDataSettingsView()
                                 
+                                DoNotSleepDisplaySettingView()
+                                
                                 NitPickSettingsView()
                                 
                                 ReminderSettingsView()

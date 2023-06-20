@@ -25,17 +25,13 @@ let currentAppEarliestBeginDateReSubmit =   SecondsIn.sixtyOneSeconds.rawValue
 
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    @AppStorage("appEarliestBeginDate") public var appEarliestBeginDate = currentAppEarliestBeginDate
-    
-    @AppStorage("speakInterval_seconds")                public var speakInterval_seconds:               Int =  defaultShuggaInterval // this is going to be multiples of 10 seconds
-    
-    @AppStorage("backgroundTaskIsOn") public var backgroundTaskIsOn = true
+    @AppStorage("appEarliestBeginDate")     public var appEarliestBeginDate = currentAppEarliestBeginDate
+    @AppStorage("speakInterval_seconds")    public var speakInterval_seconds: Int =  defaultShuggaInterval
+    // this is going to be multiples of 10 seconds
+    @AppStorage("backgroundTaskIsOn")       public var backgroundTaskIsOn = true
     @AppStorage("backgroundAppRefreshIsOn") public var backgroundAppRefreshIsOn = true
-    
-    
-    @AppStorage("shuggaInBackground")               public var shuggaInBackground =                     true
+    @AppStorage("shuggaInBackground")       public var shuggaInBackground =                     true
 
-    
     //    let app = UIApplication.shared
     
     let bloodGlucoseData = BloodGlucoseData.shared
@@ -46,7 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //    let theAppVoices = TheAppVoices.shared
     
     
-    
+        var isIdleTimerDisabled: Bool {
+            get { UIApplication.shared.isIdleTimerDisabled }
+            set { UIApplication.shared.isIdleTimerDisabled = newValue }
+        }
+        
+        
+
     
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
     // vs var backgroundTaskIdentifier: UIBackgroundTaskIdentifier!
@@ -54,17 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //You could alternatively use a regular optional and assign a default value of
     //UIBackgroundTaskIdentifier.invalid when you declare the variable (see above).
     
-    
     let operationQueue = OperationQueue()
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
 //        Purchases.debugLogsEnabled = true
 //        Purchases.configure(withApiKey("appl_XEptIqUOWKAKqxKaJxpmDXpNafP"))
-//        
         
+        
+        
+        /*
+         
+         In addition, BGProcessingTask can run while the device is on battery power (as long as there is enough battery left), while BGAppRefreshTask usually runs when the device is connected to Wi-Fi or a power source.
+         
+         */
         print ("APP launched")
         
         bloodGlucoseData.manySweetnesses.deBug.timeString = formatTime_HH_mm_ss(Date())
@@ -72,15 +77,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bloodGlucoseData.lastKnownForegroundEntryDate = Date.init() // the original setting of it when the app opens
 
         print ("@@ lastKnownForegroundEntryDate: \(dateObjectToLocalDateString(dateObject: bloodGlucoseData.lastKnownForegroundEntryDate))")
-        
-        
-   
+           
         BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundTaskID1, using: nil) { task in
             // Perform the background task
             self.handleOSBackgroundTask(task: task as! BGProcessingTask)
         }
-
-        
 
         BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundRefreshID1, using: nil) { task in
             // Perform the background refresh task
@@ -89,7 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set audio session category
         
         do {
-          
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .mixWithOthers)
             //To allow your app's audio to play over the system's audio, you can set the category of the app's AVAudioSession to .playback with the option .mixWithOthers. This allows your app's audio to be mixed with other audio from the system, such as from other apps, while still allowing the user to control the volume of your app's audio separately.
             
@@ -97,41 +97,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print ("ERROR:")
             print("Could not set audio session category")
         }
-        
-        
-        
+                
         if backgroundTaskIsOn { scheduleBackgroundProcessingTask(whoCalledTheFunction: .appDelegate)}
         else {BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: backgroundTaskID1)}// Processing TASK   *****  プロセッシング
         if backgroundAppRefreshIsOn {scheduleBackgroundAppRefreshTask(whoCalledTheFunction: .appDelegate)}
         else {BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: backgroundRefreshID1)}//APP RefreshTask   *****　　リフレッシュ
-        
-        
         return true
         
     }
     // ####################################################################################################################
     
     
-    
-    
-    
-    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
         sceneConfig.delegateClass = SceneDelegate.self
         
-        
-        
         isBGProcessingTaskSubmitted(withIdentifier:backgroundTaskID1, whoCalledTheFunction: .applicationConfigurationForConnecting) { isSubmitted in
             if isSubmitted {
 //                print("1️⃣ Background task ID: \(backgroundTaskID1) is already submitted")
-                
             }
         }
         isBGAppRefreshTaskSubmitted(withIdentifier:backgroundRefreshID1, whoCalledTheFunction: .applicationConfigurationForConnecting) { isSubmitted in
             if isSubmitted {
 //                print("2️⃣ Background app refresh ID: \(backgroundRefreshID1) is already submitted")
-                
             }
         }
         
@@ -197,6 +185,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if whoCalledTheFunction == .iOSBackgroundCall { request.earliestBeginDate = Date() + Double(currentAppEarliestBeginDateReSubmit) }
         else {  request.earliestBeginDate = Date() + Double(currentAppEarliestBeginDate) }
 
+        
+        
+        
+        
+        
+        
         do {
             try BGTaskScheduler.shared.submit(request)
             print("\n\nSuccessfully scheduled app refresh\n\n")
@@ -227,12 +221,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("An unknown error occurred(app refresh): \(error)")
             }
         }
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
     }
     // ####################################################################################################################
     
     func handleOSBackgroundTask(task: BGTask ) { //BGTaskScheduler
         // Create an operation that performs the main part of the background task.
-        
         
         let highPriorityQueue = DispatchQueue(label: "shugga.dispatch", qos: .userInitiated)
 
@@ -275,9 +278,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func handleOSBackgroundRefreshCall(task: BGAppRefreshTask) { //BGTaskScheduler®
         // Schedule a new refresh task.
         
-       
             scheduleBackgroundAppRefreshTask(whoCalledTheFunction: .iOSBackgroundCall)
-       
       
         // Create an operation that performs the main part of the background task.
         let operation = BlockOperation {
@@ -306,9 +307,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // ####################################################################################################################
     
-    
-    
-    
+        
     func myBackgroundOperation(whoCalledTheFunction: WhoCalledTheFunction) {
         
         print ("My Background Operation, called by: \(whoCalledTheFunction.rawValue)" )
@@ -321,13 +320,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             
-            
-            
-            
-            
-            
                 if true {
 
+                    
+                    
+                    
+                    
+                    
+                   // check here the last time it shuggaed 
+                    
+                    
+                    
+                    
+                    
+                    
                 self.bloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: whoCalledTheFunction) { success in
                     if success {
                         print("Latest blood glucose fetched and spoken successfully! \(whoCalledTheFunction.rawValue)")
@@ -339,20 +345,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             else {
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 self.bloodGlucoseData.fetchLatestBloodGlucose(whoCalledTheFunction: whoCalledTheFunction) { result in
                     switch result {
                     case .success:
@@ -361,24 +353,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("Failed to fetch latest blood glucose from \(whoCalledTheFunction.rawValue).")
                     }
                 }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
         }
         else {  print("HealthKit is not available on this device.") }
@@ -396,49 +370,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             } }
     }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 } // ##########################################   End of AppDelegate  #######################################################
 
 //

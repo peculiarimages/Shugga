@@ -167,6 +167,35 @@ struct DetailedSettingsDescriptionView: View {
 }
 
 
+struct DisplaySettingsDescriptionView: View {
+    @Binding public var doNotSleepDisplay: Bool
+    @Binding public var turnBrightnessDow: Bool
+
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+    
+    var body: some View {
+        VStack () {
+            ScrollView {
+                Text("Example:\n\nIn the USA, it's typically in mg/dL.\n\nThe rate is usually represented in a \"per min\" format. When the \"Multiply glucose trend rate by 10\" option is selected, the rate will be in \"per 10 min\" format, and will only be provided in integer values.")
+                    .foregroundColor(Color.primary)
+                    .padding(.bottom)
+
+                Text("The app attempts to read the glucose trend from the blood glucose data in Health, and when this data is available, the app can include it in the Shugga notifications.")
+                    .foregroundColor(Color.primary)
+                    .padding([.bottom, .leading, .trailing])
+
+                endOfDescriptionScrollView
+                Spacer()
+            }
+            .scrollOverlayOnTheBottom()
+
+        }
+        .textCase(.none)
+        .padding()
+    }
+}
+
+
 struct UnitSettingsDescriptionView: View {
     @Binding public var userBloodGlucoseUnit: String
     @Binding public var shuggaGlucoseTrend: Bool
@@ -195,8 +224,6 @@ struct UnitSettingsDescriptionView: View {
         .textCase(.none)
         .padding()
     }
-    
-    
 }
 
 

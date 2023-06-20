@@ -152,6 +152,7 @@ struct DeBugModeForSettingsView: View {
                                         }
                                     }
                                 VStack {
+                                    
                                     if isTaskSubmitted {
                                         Text("  The task is already submitted:").frame(maxWidth: .infinity, alignment: .leading)
                                         Text("  EBD: \(formatTime_HH_mm_ss(earliestBeginDateTask ?? rodisBirthday))").foregroundColor(.gray).frame(maxWidth: .infinity, alignment: .leading)
@@ -210,6 +211,75 @@ struct DeBugModeForSettingsView: View {
 }
 
 
+
+struct DoNotSleepDisplaySettingContentView: View {
+    @AppStorage("doNotSleepDisplay") var doNotSleepDisplay = false
+    @AppStorage("turnBrightnessDow ") var turnBrightnessDow = false
+
+
+    var body: some View {
+        Toggle("Prevent display from going to sleep", isOn: $doNotSleepDisplay)
+                    .onChange(of: doNotSleepDisplay) { newScreenSleepValue in
+                        DispatchQueue.main.async {
+                            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                                appDelegate.isIdleTimerDisabled = newScreenSleepValue
+                            }
+                        }
+                    }
+
+        Toggle ("Turn display brightness down when the app is locked", isOn: $turnBrightnessDow)
+            .padding(.leading)
+            .onChange(of: turnBrightnessDow) { newSetting in
+                DispatchQueue.main.async {
+                    if let app = UIApplication.shared.delegate as? AppDelegate {
+
+
+                    }
+                }
+            }
+    }
+}
+
+struct DoNotSleepDisplaySettingView:  View {
+    @AppStorage("doNotSleepDisplay") var doNotSleepDisplay = false
+    @AppStorage("turnBrightnessDow ") var turnBrightnessDow = false
+    @State private var showDescription = false
+
+    var body: some View {
+        
+        Section(header:
+                    HStack {
+                        Text("Display")
+                            .font(.headline)
+                    Spacer()
+                        HelpButton(showDescription: $showDescription, title: "Display option")  {
+                            VStack(alignment: .leading) {
+                                    SpeechBubble {
+                                        Form {
+
+                                            DoNotSleepDisplaySettingContentView()
+                                    }
+                                }
+                                DisplaySettingsDescriptionView(doNotSleepDisplay: $doNotSleepDisplay, turnBrightnessDow: $turnBrightnessDow)
+                            }
+                        }
+                    }
+                
+            .accessibilityLabel(NSLocalizedString("Blood Glucose Unit. This sets the blood glucose unit. Milligrams per deciliter or millimoles per liter", comment: ""))
+                
+            .font(.headline)
+                //.fontWeight(.regular)
+                , footer:
+                    Text("If shugga setting shuggas before the system display lock period, it will remain unlocked.")
+                
+                
+        ) { DoNotSleepDisplaySettingContentView() }
+        
+    }
+    
+    
+    
+}
 
 
 struct MainSwitchSettingsContentView: View {
@@ -393,7 +463,7 @@ struct MainSwitchSettingsView: View {
                 , footer:
                     VStack{
             if announcementOn {
-                Text ("When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pant pocket) to prevent unintentional changes to the settings.")
+                Text ("⚠️When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pant pocket) to prevent unintentional changes to the settings.")
                     .foregroundColor(shuggaRed)
             }
         }
@@ -661,52 +731,48 @@ struct UnitSettingsContentView:  View {
     @AppStorage("displayBothUnits")                   public var displayBothUnits =                        false
     var body: some View {
         
+    
         List{
             
             Picker(NSLocalizedString("Blood Glucose & Trend Unit", comment: ""), selection: $userBloodGlucoseUnit) {
                 
-                    ForEach(bloodGlucoseUnit, id: \.self) { unit in
-                        
-                        Text(unit)
-                            .foregroundColor(.primary)
-                        
-                            .accessibilityLabel(NSLocalizedString("Toggles between milligrams per deciliter to millimoes per liter.", comment: "Toggles between milligrams per deciliter to millimoles per liter."))
-                    }
-                
+                ForEach(bloodGlucoseUnit, id: \.self) { unit in
+                    
+                    Text(unit)
+                        .foregroundColor(.primary)
+                    
+                        .accessibilityLabel(NSLocalizedString("Toggles between milligrams per deciliter to millimoes per liter.", comment: "Toggles between milligrams per deciliter to millimoles per liter."))
+                }
             }
-            
             .pickerStyle(SegmentedPickerStyle())
             .onChange(of: userBloodGlucoseUnit) { newUnit in
                 
                 if newUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue {
-                    
                     bloodGlucoseData.theTranslator.setCurrentUserBloodGlucoseUnit(theNewUnit: BloodGlucoseUnit.milligramsPerDeciliter)
                 }
                 
                 if newUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue {
-                    
                     bloodGlucoseData.theTranslator.setCurrentUserBloodGlucoseUnit(theNewUnit: BloodGlucoseUnit.millimolesPerLiter)
                 }
-            }                        .textCase(.none)
-
+            }
+            .textCase(.none)
             
             let includeUnitTextWithChosenUnit = "Shugga unit [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])]" + (shuggaGlucoseTrend ? " & [\(userBloodGlucoseUnit == bloodGlucoseUnit[0] ? bloodGlucoseUnit[0] : bloodGlucoseUnit[1])/\(multiplyTrendByTen ? "10 " : "")min]" : "")
-                
-                Toggle(includeUnitTextWithChosenUnit, isOn: $includeUnit)
-                    .onChange(of: includeUnit) { speakUnit in
-                        bloodGlucoseData.theTranslator.setSpeakUnit(speakUnit: speakUnit) }
-                Toggle("Include trend when available", isOn: $shuggaGlucoseTrend)
-                Toggle("Multiply trend rate by 10", isOn: $multiplyTrendByTen)
-                    .disabled(!shuggaGlucoseTrend)
-                    .padding (.leading)
-                Toggle("Remove time unit", isOn: $removeTimeUnit)
+            
+            Toggle(includeUnitTextWithChosenUnit, isOn: $includeUnit)
+                .onChange(of: includeUnit) { speakUnit in
+                    bloodGlucoseData.theTranslator.setSpeakUnit(speakUnit: speakUnit) }
+            Toggle("Include trend when available", isOn: $shuggaGlucoseTrend)
+            Toggle("Multiply trend rate by 10", isOn: $multiplyTrendByTen)
                 .disabled(!shuggaGlucoseTrend)
                 .padding (.leading)
-
+            Toggle("Remove time unit", isOn: $removeTimeUnit)
+                .disabled(!shuggaGlucoseTrend)
+                .padding (.leading)
+            
             Toggle("Display both units", isOn: $displayBothUnits)
-            }  .textCase(.none)
-
-        
+        }  .textCase(.none)
+    
     }
 }
 
@@ -729,9 +795,9 @@ struct UnitSettingsView: View {
         
         Section(header:
                     HStack {
-//                        Text("Blood Glucose & Trend Units")
-//                            .font(.headline)
-            Spacer()
+                        Text("Blood Glucose & Trend Units")
+                            .font(.headline)
+                    Spacer()
                         HelpButton(showDescription: $showDescription, title: "Blood Glucose & Trend Units")  {
                             VStack(alignment: .leading) {
                                     SpeechBubble {
@@ -750,7 +816,9 @@ struct UnitSettingsView: View {
             .font(.headline)
                 //.fontWeight(.regular)
                 , footer:
-                    Text("Shugga sample: “\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "")\(multiplyTrendByTen && shuggaGlucoseTrend ? "0" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit && shuggaGlucoseTrend ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit && shuggaGlucoseTrend ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")\"")
+                    Text("Shugga sample: “\(shuggaGlucoseTrend ? "One minute ago," : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue ? "98" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue ? "5.4" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit ? " mmol/L" : "")\(shuggaGlucoseTrend ? ", down 1" : "")\(multiplyTrendByTen && shuggaGlucoseTrend ? "0" : "") \(userBloodGlucoseUnit == BloodGlucoseUnit.milligramsPerDeciliter.rawValue && includeUnit && shuggaGlucoseTrend ? " mg/dL" : "")\(userBloodGlucoseUnit == BloodGlucoseUnit.millimolesPerLiter.rawValue && includeUnit && shuggaGlucoseTrend ? " mmol/L" : "")\(multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per ten minutes." : "")\(!multiplyTrendByTen && shuggaGlucoseTrend && !removeTimeUnit ? " per one minute." : "")\"\(multiplyTrendByTen ? "\n\n⚠️The app simply multiplies a given per 1 min rate by ten." : "")")
+                
+                
         ) { UnitSettingsContentView() }
     }
 }
