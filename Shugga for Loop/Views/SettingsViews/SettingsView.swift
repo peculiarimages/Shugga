@@ -166,17 +166,23 @@ struct HelpButton<Content: View>: View {
                 
                 HStack {
                     Spacer()
-                    Button("Close") {
+                    Button(action: {
                         showDescription = false
+                    }) {
+                        Text("Close")
+                            .padding(.vertical)
+                            .padding(.horizontal, 10)
+                            .background(Color.white)
+                            .cornerRadius(5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color.blue, lineWidth: 1)
+                            )
+                            .minimumScaleFactor(0.5) // Adjust this value as needed
+                            .lineLimit(1) // Ensure that the text is limited to a single line
                     }
-                    .padding(.top)
-                    .background(Color.white)
-                    .cornerRadius(5)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(Color.blue, lineWidth: 1)
-                    )
                 }
+
             }
             .padding()
 //            .frame(width: UIScreen.main.bounds.width * 0.95)
