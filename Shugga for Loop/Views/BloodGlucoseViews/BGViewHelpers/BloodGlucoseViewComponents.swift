@@ -558,19 +558,38 @@ struct NoBloodGlucosePermissionNoticeView: View {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 struct UnitConversionHelpPopupView: View {
     @Environment(\.dismiss) var dismiss
-    
-    let diabetes = Diabetes()
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
-    let numbers = Array(5...1200).filter { $0 % 5 == 0 }
+    @State private var selectedRow: Int?
 
+    let diabetes = Diabetes()
+    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
+    let numbers = Array(5...1200).filter { $0 % 5 == 0 }
+    @State private var backgroundToggle = false
+
+    
     var body: some View {
         
         VStack {
             Text ("Blood Glucose Units Table")
                 .font(.title)
 //            LazyVGrid(columns: columns) {
+            Spacer()
 
                 HStack {
                     Spacer()
@@ -608,69 +627,96 @@ struct UnitConversionHelpPopupView: View {
 
             }
             
-            
+            Spacer()
+
             ScrollView {
                 
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: 5) {
 
-                               ForEach(numbers.indices, id: \.self) { index in
-                                   let number = numbers[index]
-                                   HStack {
-                                       Spacer()
-                                       
-                                       Text("\(number)")
-                                           .frame(alignment: .trailing)
-                                           .lineLimit(1)
-                                       Text (" ")
-
-                                   }
-                                   .frame(alignment: .trailing)
-
-//                                       .padding(.vertical, 5)
-                                   
-                                   let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
-                                   let integerPart = Int(mmol)
-                                   let fractionalPart = String(String(format: "%.2f", mmol).split(separator: ".").last ?? "")
-                                   
-                                   HStack {
-                                       Spacer()
-
-                                       Text("\(integerPart).")
-                                           .lineLimit(1)
-                                   }
-                                   .frame(alignment: .trailing)
-//                                   .padding(.vertical, 5)
-                                   .padding(-5.0)
-
-                                   
-                                   HStack {
-                                       Text("\(fractionalPart)")
-                                           .font(Font.system(.body).monospacedDigit())
-                                           .lineLimit(1)
-
-                                       Spacer()
-                                   }
-                                   .frame(alignment: .leading)
-
-                                   .padding(0)
-
-//                                   .padding(.vertical, 5)
-                                  
-                                }
-                           }
-                    .padding()
+                    ForEach(numbers.indices, id: \.self) { index in
+                        let number = numbers[index]
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            Text("\(number)")
+                                .frame(alignment: .trailing)
+                                .lineLimit(1)
+                            Text (" ")
+                        }
+                        .frame(alignment: .trailing)
+                        
+                        let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
+                        let integerPart = Int(mmol)
+                        let fractionalPart = String(String(format: "%.1f", mmol).split(separator: ".").last ?? "")
+                        
+                        HStack {
+                            Spacer()
+                            Text("\(integerPart).")
+                                .lineLimit(1)
+                        }
+                        .frame(alignment: .trailing)
+                        .padding(-5.0)
+                        
+                        HStack {
+                            Text("\(fractionalPart)")
+                                .font(Font.system(.body).monospacedDigit())
+                                .lineLimit(1)
+                            Spacer()
+                        }
+                        .frame(alignment: .leading)
+                        .padding(0)
+                        
+                        Spacer()
+                    }
                 }
+            }
             
             
             Spacer()
-            Button("OK") {
-                dismiss()
+            
+            
+            HStack {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Text("Close")
+                        .padding(.vertical)
+                        .padding(.horizontal, 10)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+                        .minimumScaleFactor(0.5) // Adjust this value as needed
+                        .lineLimit(1) // Ensure that the text is limited to a single line
+                }
+                
             }
+
             
         }
         .padding()
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 struct StatusHelpPopupView: View {

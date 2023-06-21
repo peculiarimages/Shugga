@@ -7,614 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D53EC1F-F8B4-4D27-8BF2-365B0778D6F5"
-            shouldBeEnabled = "No"
+            uuid = "69E78A71-A36D-41E4-95A3-18D6CC7C20B0"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
+            filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
+            startingLineNumber = "1677"
+            endingLineNumber = "1677"
+            landmarkName = "startBackgroundDelivery(whoCalledTheFunction:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "69E78A71-A36D-41E4-95A3-18D6CC7C20B0 - 652e73be0d610fcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.HKAnchoredObjectQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Array&lt;__C.HKDeletedObject&gt;&gt;, Swift.Optional&lt;__C.HKQueryAnchor&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ShuggaShugga.BloodGlucoseData.startBackgroundDelivery(whoCalledTheFunction: ShuggaShugga.WhoCalledTheFunction) -&gt; ()"
+                  moduleName = "ShuggaShugga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1677"
+                  endingLineNumber = "1677"
+                  offsetFromSymbolStart = "2668">
+               </Location>
+               <Location
+                  uuid = "69E78A71-A36D-41E4-95A3-18D6CC7C20B0 - 652e73be0d610fcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.HKAnchoredObjectQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKSample&gt;&gt;, Swift.Optional&lt;Swift.Array&lt;__C.HKDeletedObject&gt;&gt;, Swift.Optional&lt;__C.HKQueryAnchor&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ShuggaShugga.BloodGlucoseData.startBackgroundDelivery(whoCalledTheFunction: ShuggaShugga.WhoCalledTheFunction) -&gt; ()"
+                  moduleName = "ShuggaShugga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1677"
+                  endingLineNumber = "1677"
+                  offsetFromSymbolStart = "2580">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0"
-            shouldBeEnabled = "No"
+            uuid = "93215AAF-863A-4F4B-B2BA-A5E258EE45C4"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SweetnessModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "returnTimeSinceLastCGM(purportedLastUUID:purportedLastStartTimeStamp:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0 - 9aa4e6d67a9b4ea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.ManySweetnesses.returnTimeSinceLastCGM(purportedLastUUID: Swift.Optional&lt;Foundation.UUID&gt;, purportedLastStartTimeStamp: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Double"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SweetnessModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "1536">
-               </Location>
-               <Location
-                  uuid = "CE1890BD-0B05-401A-84D2-F035C4F69ED0 - 9aa4e6d67a9b4ea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.ManySweetnesses.returnTimeSinceLastCGM(purportedLastUUID: Swift.Optional&lt;Foundation.UUID&gt;, purportedLastStartTimeStamp: Swift.Optional&lt;Swift.Double&gt;) -&gt; Swift.Double"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SweetnessModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "1365">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D19CD5AC-A810-4D36-9ADE-035CB3339F79"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D19CD5AC-A810-4D36-9ADE-035CB3339F79 - a4c5f5cfc20308aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "390"
-                  endingLineNumber = "390"
-                  offsetFromSymbolStart = "1584">
-               </Location>
-               <Location
-                  uuid = "D19CD5AC-A810-4D36-9ADE-035CB3339F79 - a4c5f5cfc20308aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "390"
-                  endingLineNumber = "390"
-                  offsetFromSymbolStart = "992">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E1A27177-065A-4185-8C49-CC47EEB26C63"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "SynthSpeechParameters"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "E1A27177-065A-4185-8C49-CC47EEB26C63 - 37cda99814341b23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.voice.getter : __C.AVSpeechSynthesisVoice"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "65">
-               </Location>
-               <Location
-                  uuid = "E1A27177-065A-4185-8C49-CC47EEB26C63 - 9c17ebc635d7adbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.init() -&gt; Shugga_for_Loop.SynthSpeechParameters"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "992">
-               </Location>
-               <Location
-                  uuid = "E1A27177-065A-4185-8C49-CC47EEB26C63 - f26b109882206e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.init(demoMode: Swift.Bool, voiceVolume: Swift.Double, threeSpeechSpeed: Swift.String, speakInterval_seconds: Swift.Int, includeUnit: Swift.Bool, userBloodGlucoseUnit: Swift.String, speakElapsedTime: Swift.Bool, warnNoFreshData: Swift.Bool, dataTooOldPeriod_min: Swift.Int, speechGender: Swift.String, sugahLanguageChosen: Swift.String, skipHundredth: Swift.Bool, mixToTelephone: Swift.Bool, usesApplicationAudioSession: Swift.Bool, sugahVoiceChosen: Swift.String, sugahLanguageCombinedCodeChosen: Swift.String, combinedLanguageCode: Swift.Optional&lt;Swift.String&gt;) -&gt; Shugga_for_Loop.SynthSpeechParameters"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "536">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "voice"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26 - 37cda9981434189d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.voice.getter : __C.AVSpeechSynthesisVoice"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141"
-                  offsetFromSymbolStart = "161">
-               </Location>
-               <Location
-                  uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26 - 9c17ebc635d7a871"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.init() -&gt; Shugga_for_Loop.SynthSpeechParameters"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "1088">
-               </Location>
-               <Location
-                  uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26 - f26b1098822032b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.init(demoMode: Swift.Bool, voiceVolume: Swift.Double, threeSpeechSpeed: Swift.String, speakInterval_seconds: Swift.Int, includeUnit: Swift.Bool, userBloodGlucoseUnit: Swift.String, speakElapsedTime: Swift.Bool, warnNoFreshData: Swift.Bool, dataTooOldPeriod_min: Swift.Int, speechGender: Swift.String, sugahLanguageChosen: Swift.String, skipHundredth: Swift.Bool, mixToTelephone: Swift.Bool, usesApplicationAudioSession: Swift.Bool, sugahVoiceChosen: Swift.String, sugahLanguageCombinedCodeChosen: Swift.String, combinedLanguageCode: Swift.Optional&lt;Swift.String&gt;) -&gt; Shugga_for_Loop.SynthSpeechParameters"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "158"
-                  endingLineNumber = "158"
-                  offsetFromSymbolStart = "616">
-               </Location>
-               <Location
-                  uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26 - 37cda998143418bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.voice.getter : __C.AVSpeechSynthesisVoice"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "072FEEFE-1F2E-4E2A-9301-D70FF9ADED26 - 37cda998143418bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.SynthSpeechParameters.voice.getter : __C.AVSpeechSynthesisVoice"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51287234-88C5-4FEC-BBDE-F7DDB2A190C2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "addQueryDirectly(limit:whoCalledTheFunction:samples:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B - 36cb9daf77f5c478"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;(), Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "205">
-               </Location>
-               <Location
-                  uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B - a4c5f5cfc2030e9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "1308">
-               </Location>
-               <Location
-                  uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B - a4c5f5cfc2030e9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "1320">
-               </Location>
-               <Location
-                  uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B - a4c5f5cfc2030e9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "1328">
-               </Location>
-               <Location
-                  uuid = "B039D5DD-9E22-4FA7-A717-279B7025163B - a4c5f5cfc2030e9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "406"
-                  endingLineNumber = "406"
-                  offsetFromSymbolStart = "1332">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "916B032A-F13B-4C4A-911D-C367D5243FC2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "916B032A-F13B-4C4A-911D-C367D5243FC2 - a4c5f5cfc2030fdc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "412"
-                  endingLineNumber = "412"
-                  offsetFromSymbolStart = "2627">
-               </Location>
-               <Location
-                  uuid = "916B032A-F13B-4C4A-911D-C367D5243FC2 - a4c5f5cfc2030fdc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "412"
-                  endingLineNumber = "412"
-                  offsetFromSymbolStart = "1528">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1866624E-94EE-400A-A027-9CBFD7704A70"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1866624E-94EE-400A-A027-9CBFD7704A70 - a4c5f5cfc2030fa3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "413"
-                  endingLineNumber = "413"
-                  offsetFromSymbolStart = "2632">
-               </Location>
-               <Location
-                  uuid = "1866624E-94EE-400A-A027-9CBFD7704A70 - a4c5f5cfc2030fa3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "413"
-                  endingLineNumber = "413"
-                  offsetFromSymbolStart = "2140">
-               </Location>
-               <Location
-                  uuid = "1866624E-94EE-400A-A027-9CBFD7704A70 - a4c5f5cfc2030fa3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "413"
-                  endingLineNumber = "413"
-                  offsetFromSymbolStart = "2148">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "986190B4-2848-46C1-9143-C3196D024A91"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "426"
-            endingLineNumber = "426"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "986190B4-2848-46C1-9143-C3196D024A91 - 9e4e29ac7e833d4d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "421"
-                  endingLineNumber = "421"
-                  offsetFromSymbolStart = "710">
-               </Location>
-               <Location
-                  uuid = "986190B4-2848-46C1-9143-C3196D024A91 - a4c5f5cfc2030f61"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Shugga_for_Loop.Speech.speakAnything(speechString: Swift.String, typesOfSpeech: Shugga_for_Loop.TypesOfSpeech, language: Swift.Optional&lt;Swift.String&gt;, completion: Swift.Optional&lt;(Swift.Result&lt;(), Swift.Error&gt;) -&gt; ()&gt;) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/SpeechModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "415"
-                  endingLineNumber = "415"
-                  offsetFromSymbolStart = "2596">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927"
+            uuid = "BE3982AB-DA8A-420F-8C89-5709D82094FF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "980"
-            endingLineNumber = "980"
-            landmarkName = "fetchLatestBloodGlucoseAndSpeak(limit:whoCalledTheFunction:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927 - a4d88df2f222fa4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.BloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(limit: Swift.Int, whoCalledTheFunction: Shugga_for_Loop.WhoCalledTheFunction, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "886"
-                  endingLineNumber = "886"
-                  offsetFromSymbolStart = "1978">
-               </Location>
-               <Location
-                  uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927 - a4d88df2f222fa4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.BloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(limit: Swift.Int, whoCalledTheFunction: Shugga_for_Loop.WhoCalledTheFunction, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "886"
-                  endingLineNumber = "886"
-                  offsetFromSymbolStart = "2488">
-               </Location>
-               <Location
-                  uuid = "76B284BC-F537-4060-BAE2-E02F87FE1927 - a4d88df2f222e15c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Shugga_for_Loop.BloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(limit: Swift.Int, whoCalledTheFunction: Shugga_for_Loop.WhoCalledTheFunction, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Shugga for Loop"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rodi/Desktop/xcode_apps/Shugga/BloodGlucoseData.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "971"
-                  endingLineNumber = "971"
-                  offsetFromSymbolStart = "2488">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "67618BEB-8F55-4439-9212-BEF1204A8F4C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BloodGlucoseData.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1363"
-            endingLineNumber = "1363"
+            startingLineNumber = "1349"
+            endingLineNumber = "1349"
             landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,113 +87,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "13E85A94-06F8-43A2-B7DE-ECF9B5FD281C"
-            shouldBeEnabled = "No"
+            uuid = "B058DAA7-F365-4066-A4EF-11C35D98E983"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "710"
-            endingLineNumber = "710"
-            landmarkName = "startMainSugahTimer()"
+            startingLineNumber = "1350"
+            endingLineNumber = "1350"
+            landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DF1986C7-10EF-4D59-9B44-9BF553F55BA5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BloodGlucoseData.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "766"
-            endingLineNumber = "766"
-            landmarkName = "startMainSugahTimer()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "01FFEFC1-7C22-4A3E-9EC1-DDAE949A4A8F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BloodGlucoseData.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "764"
-            endingLineNumber = "764"
-            landmarkName = "startMainSugahTimer()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF112DC8-91E5-4D23-877C-AB871EFACDE8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SpeechModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "452"
-            endingLineNumber = "452"
-            landmarkName = "speakAnything(speechString:whoCalledTheFunction:typesOfSpeech:language:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "88C633A2-4D8E-4C97-ACC5-D0A0C0A71B13"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shugga for Loop/Views/AboutSugahView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "00A5DB12-B335-44E0-A985-FE9624A2FEB9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shugga for Loop/Views/SettingsViews/SettingsViewComponentView.swft.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "819"
-            endingLineNumber = "819"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BA6743B2-D8D2-4313-9875-A290E03E9040"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Shugga/Views/SettingsViews/SettingsViewComponentView.swft.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2"
-            endingLineNumber = "2"
-            landmarkName = "unknown"
-            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

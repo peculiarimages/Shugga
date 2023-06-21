@@ -14,7 +14,7 @@ import HealthKit
 
 let thisIsBeta = false
 
-
+let goneToBackgroundWarningString = "Warning: Shugah has gone into the background."
 
 // appstorage defaults
 let defaultShuggaRepeats = false
@@ -61,7 +61,7 @@ enum TypesOfSpeech {
     case backgroundBloodGlucoseValue
     case notSoFreshWarning
     case carbReminder
-    
+    case goneToBackgroundWarning
     case other
     case error
     

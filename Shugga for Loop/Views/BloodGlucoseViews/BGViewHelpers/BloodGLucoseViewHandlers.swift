@@ -62,7 +62,12 @@ func handleBloodGlucoseViewOnTapGesture(view: BloodGlucoseView, doubleTapForSuga
 
 func handleBloodGlucoseViewOnChange(view: BloodGlucoseView, newPhase: ScenePhase, bloodGlucoseData: BloodGlucoseData) {
     
+    @AppStorage("warnGoingToBackground ")  var warnGoingToBackground = false
+    @AppStorage("showLockButton")  var showLockButton =                     false
 
+    var speech = Speech.shared
+
+    
     
     switch newPhase {
     case .active:
@@ -74,14 +79,6 @@ func handleBloodGlucoseViewOnChange(view: BloodGlucoseView, newPhase: ScenePhase
        // bloodGlucoseData.setMainSugarTimerInterval()
 //                                    bloodGlucoseData.speakBloodGlucose(whoCalledTheFunction: WhoCalledTheFunction.foregroundScenePhase)
      
-    
-        
-        
-        
-        
-        
-        
-    
     case .inactive:
         print("\nNEW PHASE: Inactive ================================")
         bloodGlucoseData.appScenePhase = .inactive
@@ -90,7 +87,11 @@ func handleBloodGlucoseViewOnChange(view: BloodGlucoseView, newPhase: ScenePhase
     case .background:
         print("\nNEW PHASE: Background ==============================")
         
-
+        if (showLockButton && warnGoingToBackground) {
+            
+            speech.speakAnything(speechString: goneToBackgroundWarningString, typesOfSpeech: .goneToBackgroundWarning)
+            
+        }
       //  checkForBGTaskScheduler()
        // bloodGlucoseData.stopMainSugahTimer()
 

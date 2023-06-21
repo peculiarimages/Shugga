@@ -1339,8 +1339,18 @@ class BloodGlucoseData: ObservableObject {
         let query = HKSampleQuery(sampleType: bloodGlucoseHKSampleType, predicate: predicate, limit: theLimit, sortDescriptors: [sortDescriptor]) { [self] (query, samples, error) in // HKObjectQueryNoLimit instead of limit to get all data inside the predicate
             if let samples = samples, !samples.isEmpty {
                 
+                
+                
+                
             let hkSamples = samples.compactMap { $0 as? HKQuantitySample }
 
+                
+                
+                for sample in hkSamples {
+                    print("Sample: \(sample)")
+                    print ("=========================================\n\n")
+                }
+                
                 DispatchQueue.main.async {
                     self.userApprovedHealthKitBloodGlucose_Read = true
                     

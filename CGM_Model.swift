@@ -78,7 +78,7 @@ class GlucoseMonitorModel {
     GlucoseMonitor(manufacturer:        "Dexcom",
                    modelName:           "Dexcom G7 Continuous Glucose Monitoring System",
                    modelShortName:      "G7",
-                   samplingSeconds:     Double(SecondsIn.oneMinute.rawValue),
+                   samplingSeconds:     Double(SecondsIn.fiveMinutes.rawValue),
                    warmupSeconds:       Double(SecondsIn.thirtyMinutes.rawValue)
                    )
 

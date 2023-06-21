@@ -213,8 +213,9 @@ struct DeBugModeForSettingsView: View {
 
 
 struct DoNotSleepDisplaySettingContentView: View {
-    @AppStorage("doNotSleepDisplay") var doNotSleepDisplay = false
-    @AppStorage("turnBrightnessDow ") var turnBrightnessDow = false
+    @AppStorage("doNotSleepDisplay")  public var doNotSleepDisplay = false
+    @AppStorage("turnBrightnessDow ") public var turnBrightnessDow = false
+    @AppStorage("warnGoingToBackground ") public var warnGoingToBackground = false
 
 
     var body: some View {
@@ -237,6 +238,13 @@ struct DoNotSleepDisplaySettingContentView: View {
                     }
                 }
             }
+        
+        Toggle("Warn me when the app goes into the background while Shugga settings are locked", isOn: $warnGoingToBackground)
+                    .onChange(of: warnGoingToBackground) { newScreenSleepValue in
+                        DispatchQueue.main.async {
+                          print ("warnGoingToBackground")
+                        }
+                    }
     }
 }
 
@@ -463,7 +471,7 @@ struct MainSwitchSettingsView: View {
                 , footer:
                     VStack{
             if announcementOn {
-                Text ("⚠️When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pant pocket) to prevent unintentional changes to the settings.")
+                Text ("⚠️ When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pocket) to prevent unintentional changes to the settings.")
                     .foregroundColor(shuggaRed)
             }
         }

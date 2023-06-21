@@ -374,11 +374,12 @@ struct MainSwitchSettingsView: View {
                             // in the settings view users have access to these toggles
                         }
                     }
-                    .background(Color.clear)
-                    
+                    .background(Color(.systemBackground)) // Use system primary color
+
                 }
                 .padding(.top, 15)
-                
+                .background(Color(.systemBackground)) // Use system primary color
+
                 MainSwitchDescriptionView(announcementOn: $announcementOn)
             }
         }

@@ -172,7 +172,7 @@ struct HelpButton<Content: View>: View {
                         Text("Close")
                             .padding(.vertical)
                             .padding(.horizontal, 10)
-                            .background(Color.white)
+                            .background(Color(.systemBackground)) // Use system primary color
                             .cornerRadius(5)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 5)
@@ -181,6 +181,8 @@ struct HelpButton<Content: View>: View {
                             .minimumScaleFactor(0.5) // Adjust this value as needed
                             .lineLimit(1) // Ensure that the text is limited to a single line
                     }
+                    Spacer()
+
                 }
 
             }

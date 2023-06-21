@@ -112,13 +112,14 @@ struct SpeechBubble<Content: View>: View {
         .padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.white) // Apply the color directly to the RoundedRectangle
+                .foregroundColor(Color(.systemBackground)) // Apply the color directly to the RoundedRectangle
                 .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.gray, lineWidth: 1)
                 )
         )
+        .background(Color(.systemBackground)) // Use system primary color
         .offset(x: 0, y: -5)
     }
 }
