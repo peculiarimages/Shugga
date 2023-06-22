@@ -42,14 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //    let theAppVoices = TheAppVoices.shared
     
     
-        var isIdleTimerDisabled: Bool {
-            get { UIApplication.shared.isIdleTimerDisabled }
-            set { UIApplication.shared.isIdleTimerDisabled = newValue }
-        }
-        
-        
-
-    
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
     // vs var backgroundTaskIdentifier: UIBackgroundTaskIdentifier!
     //It's worth noting that it's not strictly necessary to use an implicitly unwrapped optional here.

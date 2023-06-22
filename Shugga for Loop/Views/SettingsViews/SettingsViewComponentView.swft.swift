@@ -223,7 +223,7 @@ struct DoNotSleepDisplaySettingContentView: View {
                     .onChange(of: doNotSleepDisplay) { newScreenSleepValue in
                         DispatchQueue.main.async {
                             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                                appDelegate.isIdleTimerDisabled = newScreenSleepValue
+//                                appDelegate.isIdleTimerDisabled = newScreenSleepValue
                             }
                         }
                     }

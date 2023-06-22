@@ -172,10 +172,12 @@ struct HelpButton<Content: View>: View {
                         Text("Close")
                             .padding(.vertical)
                             .padding(.horizontal, 10)
-                            .background(Color(.systemBackground)) // Use system primary color
+                            .foregroundColor(.white) // Use white text color
+
+                            .background(Color(.systemBlue)) // Use system blue color
                             .cornerRadius(5)
                             .overlay(
-                                RoundedRectangle(cornerRadius: 5)
+                                RoundedRectangle(cornerRadius: 7.5)
                                     .stroke(Color.blue, lineWidth: 1)
                             )
                             .minimumScaleFactor(0.5) // Adjust this value as needed

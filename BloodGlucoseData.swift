@@ -1326,7 +1326,7 @@ class BloodGlucoseData: ObservableObject {
                 whoCalledTheFunction == .HKObserverQuery ||
                 whoCalledTheFunction == .healthKitBackgroundDelivery{  // ignoring two hour regressive analysis changes made to past record
             theLimit = 2
-        } else
+        } else 
         { theLimit = HKObjectQueryNoLimit }
         
         //Setting end: nil in the HKQuery.predicateForSamples(withStart:end:options:) method means that the query will include samples from the startDate all the way up to the current time.

@@ -628,52 +628,59 @@ struct UnitConversionHelpPopupView: View {
             }
             
             Spacer()
-
-            ScrollView {
-                
-                LazyVGrid(columns: columns, spacing: 5) {
-
-                    ForEach(numbers.indices, id: \.self) { index in
-                        let number = numbers[index]
+            HStack {
+                Spacer()
+                ScrollView {
+                    
+                    LazyVGrid(columns: columns, spacing: 5) {
                         
-                        Spacer()
-                        
-                        HStack {
+                        ForEach(numbers.indices, id: \.self) { index in
+                            let number = numbers[index]
+                            
                             Spacer()
-                            Text("\(number)")
-                                .frame(alignment: .trailing)
-                                .lineLimit(1)
-                            Text (" ")
-                        }
-                        .frame(alignment: .trailing)
-                        
-                        let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
-                        let integerPart = Int(mmol)
-                        let fractionalPart = String(String(format: "%.1f", mmol).split(separator: ".").last ?? "")
-                        
-                        HStack {
+                            
+                            HStack {
+                                Spacer()
+                                Text("\(number)")
+                                    .frame(alignment: .trailing)
+                                    .lineLimit(1)
+                                Text (" ")
+                            }
+                            .frame(alignment: .trailing)
+                            
+                            let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
+                            let integerPart = Int(mmol)
+                            let fractionalPart = String(String(format: "%.1f", mmol).split(separator: ".").last ?? "")
+                            
+                            HStack {
+                                Spacer()
+                                Text("\(integerPart).")
+                                    .lineLimit(1)
+                            }
+                            .frame(alignment: .trailing)
+                            .padding(-5.0)
+                            
+                            HStack {
+                                Text("\(fractionalPart)")
+                                    .font(Font.system(.body).monospacedDigit())
+                                    .lineLimit(1)
+                                Spacer()
+                            }
+                            .frame(alignment: .leading)
+                            .padding(0)
+                            
                             Spacer()
-                            Text("\(integerPart).")
-                                .lineLimit(1)
                         }
-                        .frame(alignment: .trailing)
-                        .padding(-5.0)
-                        
-                        HStack {
-                            Text("\(fractionalPart)")
-                                .font(Font.system(.body).monospacedDigit())
-                                .lineLimit(1)
-                            Spacer()
-                        }
-                        .frame(alignment: .leading)
-                        .padding(0)
-                        
-                        Spacer()
                     }
+                    .padding()
                 }
+                .scrollOverlayOnTheBottom()
+
+                .background(Color(.systemGray5))
+                
+                .padding()
+                Spacer()
             }
-            
-            
             Spacer()
             
             
@@ -684,10 +691,12 @@ struct UnitConversionHelpPopupView: View {
                     Text("Close")
                         .padding(.vertical)
                         .padding(.horizontal, 10)
-                        .background(Color.white)
+                        .foregroundColor(.white) // Use white text color
+                        .background(Color(.systemBlue)) // Use system blue color
+
                         .cornerRadius(5)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 5)
+                            RoundedRectangle(cornerRadius: 7.5)
                                 .stroke(Color.blue, lineWidth: 1)
                         )
                         .minimumScaleFactor(0.5) // Adjust this value as needed
