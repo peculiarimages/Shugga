@@ -30,6 +30,8 @@
 		D803D9D029A9349C006F4D6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C329A9349C006F4D6A /* SceneDelegate.swift */; };
 		D803D9D229A9349C006F4D6A /* AboutSugahView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D803D9C529A9349C006F4D6A /* AboutSugahView.swift */; };
 		D8195D2129CB325500D0B6A8 /* ShuggaStatusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */; };
+		D8216F8D2A4A150500CEA923 /* version info.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D8216F8C2A4A150500CEA923 /* version info.rtf */; };
+		D8216F8E2A4A150500CEA923 /* version info.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D8216F8C2A4A150500CEA923 /* version info.rtf */; };
 		D8254D7129BBABD700294034 /* Enums.Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8254D7029BBABD700294034 /* Enums.Errors.swift */; };
 		D82E566C29F997E1004F1DBD /* Shugga_for_LoopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */; };
 		D82E566E29F997E1004F1DBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82E566D29F997E1004F1DBD /* ContentView.swift */; };
@@ -156,6 +158,7 @@
 		D803D9C529A9349C006F4D6A /* AboutSugahView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutSugahView.swift; sourceTree = "<group>"; };
 		D807BB3929AFE4CA000EE8D1 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D8195D2029CB325500D0B6A8 /* ShuggaStatusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuggaStatusClass.swift; sourceTree = "<group>"; };
+		D8216F8C2A4A150500CEA923 /* version info.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "version info.rtf"; sourceTree = "<group>"; };
 		D8254D7029BBABD700294034 /* Enums.Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.Errors.swift; sourceTree = "<group>"; };
 		D82E566929F997E1004F1DBD /* ShuggaShugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuggaShugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D82E566B29F997E1004F1DBD /* Shugga_for_LoopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shugga_for_LoopApp.swift; sourceTree = "<group>"; };
@@ -316,6 +319,7 @@
 				D803D99B29A9345A006F4D6A /* Enums.Debugging.swift */,
 				D8254D7029BBABD700294034 /* Enums.Errors.swift */,
 				D86B56A72A26482E007A1B6D /* Enum.Text.manuals.swift */,
+				D8216F8C2A4A150500CEA923 /* version info.rtf */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -591,6 +595,7 @@
 				D8FDE37029FAEFCA00E62522 /* Assets.xcassets in Resources */,
 				D8FDE37629FAF26600E62522 /* Media.xcassets in Resources */,
 				D803D98A29A9335D006F4D6A /* Assets.xcassets in Resources */,
+				D8216F8D2A4A150500CEA923 /* version info.rtf in Resources */,
 				D86B56B12A265388007A1B6D /* Kiyoshi.xcassets in Resources */,
 				D86B56AE2A26535E007A1B6D /* audio.mp3 in Resources */,
 			);
@@ -602,6 +607,7 @@
 			files = (
 				D82E567329F997E2004F1DBD /* Preview Assets.xcassets in Resources */,
 				D86B56AF2A26535E007A1B6D /* audio.mp3 in Resources */,
+				D8216F8E2A4A150500CEA923 /* version info.rtf in Resources */,
 				D86B56B22A265388007A1B6D /* Kiyoshi.xcassets in Resources */,
 				D8FDE37729FAF26600E62522 /* Media.xcassets in Resources */,
 				D82E567029F997E2004F1DBD /* Assets.xcassets in Resources */,

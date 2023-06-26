@@ -22,7 +22,10 @@ struct ManualsView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToManuals = false
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        
+                        navigateToManuals = false
+                    }
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")
@@ -39,57 +42,52 @@ struct ManualsView: View {
         
         VStack {
                 
-                Text ("Shugga for Loop Docs")
+                Text ("ShuggaShugga Docs")
                     .bold()
                     .font(.title)
+            Text ("IMPORTANT CONCEPTS WHEN USING THE APP")
+                .bold()
+                .font(.headline)
+                .padding(5)
+            
                 ScrollView {
                     
-                    VStack {
-                        Text ("IMPORTANT CONCEPTS WHEN USING THE APP")
-                            .bold()
-                            .font(.headline)
-                            .padding([.bottom], 5)                    // The rest of your view content goes here
-                        
-                        Text ("Shugga and shugga")
-                            .bold()
-                            .font(.subheadline)
-                            .padding([.bottom], 5)
-                        
+                    Section(header: Text("Shugga and shugga")
+                        .bold()
+                        .padding()
+                    ) {
                         Text(manuals_Shugga_and_shugga)
-                            .padding([.leading, .trailing, .bottom])
-                        
-                        
-                        
-                        
-                        Text (manuals_foreground_background_subheadline)
-                            .bold()
-                            .font(.subheadline)
-                            .padding([.bottom], 5)
-                        
+                            .padding()
+                    }
+                    
+                    
+                    Section(header: Text(manuals_foreground_background_subheadline)
+                        .bold()
+                        .padding()
+                    ) {
                         Text(manuals_foreground_background)
-                            .padding([.leading, .trailing, .bottom])
+                            .padding()
                         
                         Text(manual_foreground_background_explained)
-                            .padding([.leading, .trailing, .bottom])
-                        
+                            .padding()
+
                         Text(manual_foreground_background_optimization)
-                            .padding([.leading, .trailing, .bottom])
-                        
-                        
-                        
+                            .padding()
+
                         Text(manual_foreground_background_belief)
-                            .padding([.leading, .trailing, .bottom])
-                        
-                        
-                        
-                        
+                            .padding()
+
                         Text (manual_doesnt_work_locked)
-                            .bold()
-                            .font(.headline)
-                            .foregroundColor(shuggaRed)
-                            .padding([.bottom], 5)
-                        
+                            .padding()
+
                     }
+                    
+                    
+                     
+                        
+                        
+                        
+                        
                     
                     VStack {
                         

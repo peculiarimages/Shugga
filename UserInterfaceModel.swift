@@ -15,6 +15,15 @@ import CoreImage.CIFilterBuiltins
 
 
 
+struct FeatheredEdgeShape: Shape {
+    var featherWidth: CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.addRect(rect.insetBy(dx: featherWidth, dy: featherWidth))
+        }
+    }
+}
 
 
 
@@ -256,6 +265,11 @@ struct SlidingUnlockButton: View {
                                 if dragOffset.width > threshold {
                                     isUnlocked = true
                                     showLockButton = false
+                                    
+                                    let currentBrightness = UIScreen.main.brightness
+                                    UIScreen.main.brightness = CGFloat(0.8) // sets the brightness to 50%
+                                    
+
                                     if theMainViewIsLocked { theMainViewIsLocked = false }
                                     if pauseNow {
                                         pauseNow   = false

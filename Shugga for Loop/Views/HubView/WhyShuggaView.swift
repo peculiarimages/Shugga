@@ -21,7 +21,10 @@ struct WhyShuggaView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToWhyShugga = false
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        
+                        navigateToWhyShugga = false
+                    }
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")
@@ -39,7 +42,7 @@ struct WhyShuggaView: View {
             
             VStack {
                     
-                    Text ("Why Shugga?")
+                    Text ("Why ShuggaShugga?")
                         .bold()
                         .font(.title)
                     ScrollView {
@@ -54,7 +57,10 @@ struct WhyShuggaView: View {
                         Image ("bodegabay")
                             .resizable()
                                 .aspectRatio(contentMode: .fit)
-                        
+                                .mask(
+                                       FeatheredEdgeShape(featherWidth: 25)
+                                           .blur(radius: 10, opaque: false)
+                                   )
                         
                         
                         
@@ -66,6 +72,11 @@ struct WhyShuggaView: View {
                         Image ("seagull")
                             .resizable()
                                 .aspectRatio(contentMode: .fit)
+                                .mask(
+                                       FeatheredEdgeShape(featherWidth: 25)
+                                           .blur(radius: 10, opaque: false)
+                                   )
+                        
                         
                         Text("- end - ")
                             .padding([.leading, .trailing, .bottom])

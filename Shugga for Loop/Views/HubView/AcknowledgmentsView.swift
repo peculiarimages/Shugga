@@ -21,7 +21,10 @@ struct AcknowledgmentsView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToAcknowledgement = false
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        
+                        navigateToAcknowledgement = false
+                    }
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")

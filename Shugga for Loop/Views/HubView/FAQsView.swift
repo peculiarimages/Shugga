@@ -21,7 +21,10 @@ struct FAQsView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToFAQs = false
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        
+                        navigateToFAQs = false
+                    }
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")
@@ -50,11 +53,23 @@ struct FAQsView: View {
                     .font(.title2)
                 
                 Text("""
-Shugga for Loop should work with G7. However, it has been tested on G6 only. There may be some glitches when used with CGMs with 1 min sampling cycles. Let us know how it works for you.
-
+If you go back to using G6 after G7, you may need to delete and re-sync the G6 using your Loop.app if the trend is no longer available on ShuggaShugga.app. You can check if the trend is missing by checking the latest blood glucose entry in the Health: Blood Glucose: Show All Data. It should have an entry for "...GlucoseTrendRateValue".
 
 """)
                 .padding([.leading, .trailing, .bottom])
+                
+                
+                Text("What does 'Just now...' mean?")
+                    .padding([.leading, .trailing, .bottom])
+                    .font(.title2)
+                
+                Text("""
+It means ShuggaShugga has read the latest blood glucose from Health and it is less than 15 seconds old from the time it was sampled.
+
+""")
+                .padding([.leading, .trailing, .bottom])
+                
+                
                 
                 
                 Text("- end - ")

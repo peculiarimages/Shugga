@@ -81,7 +81,7 @@ struct MainSwitchDescriptionView: View {
                         .foregroundColor(shuggaRed)
                         .padding(.bottom)
                     
-                    Text("We also recommend not enabling the lock screen in the Display & Brightness settings of your phone, especially during extended periods of activity. This ensures that you continue to receive Shugga notifications during those hard-to-manage times.")
+                    Text("We also recommend not enabling the lock screen in the Display & Brightness settings of your phone, especially during extended periods of activity. This ensures that you continue to receive Shugga notifications during those hard-to-manage times.\(shuggaBackgroundWarning)")
                         .foregroundColor(Color.primary)
                         .padding([.bottom, .leading, .trailing])
                         .foregroundColor(shuggaRed)
@@ -104,7 +104,7 @@ struct MainSwitchDescriptionView: View {
                     VStack{Text("*")
                             .foregroundColor(shuggaRed) // Change the color of the "*" here
                         +
-                        Text(" Please note that if you are using a CGM, it may take some time for the data to get recorded into your Health. The app relies on the data on Health for the latest blood glucose value.")
+                        Text(" Please note that it may take some time for the data to get recorded into your Health. The app relies on the data on Health for the latest blood glucose value.")
                             .foregroundColor(Color.primary)
                             .italic()
 

@@ -214,7 +214,7 @@ struct DeBugModeForSettingsView: View {
 
 struct DoNotSleepDisplaySettingContentView: View {
     @AppStorage("doNotSleepDisplay")  public var doNotSleepDisplay = false
-    @AppStorage("turnBrightnessDow ") public var turnBrightnessDow = false
+    @AppStorage("turnBrightnessDown") public var turnBrightnessDown = false
     @AppStorage("warnGoingToBackground ") public var warnGoingToBackground = false
 
 
@@ -230,10 +230,12 @@ struct DoNotSleepDisplaySettingContentView: View {
                         }
                     }
 
-        Toggle ("Turn display brightness down when the app is locked", isOn: $turnBrightnessDow)
+        Toggle ("Turn display brightness down when this app settings are locked", isOn: $turnBrightnessDown)
             .padding(.leading)
-            .onChange(of: turnBrightnessDow) { newSetting in
+            .onChange(of: turnBrightnessDown) { newSetting in
                 DispatchQueue.main.async {
+                    
+                  
                     if let app = UIApplication.shared.delegate as? AppDelegate {
 
 
@@ -241,7 +243,7 @@ struct DoNotSleepDisplaySettingContentView: View {
                 }
             }
         
-        Toggle("Warn me when the app goes into the background while Shugga settings are locked", isOn: $warnGoingToBackground)
+        Toggle("Warn me when the app goes into the background while this app settings are locked", isOn: $warnGoingToBackground)
                     .onChange(of: warnGoingToBackground) { newScreenSleepValue in
                         DispatchQueue.main.async {
                           print ("warnGoingToBackground")
@@ -472,10 +474,16 @@ struct MainSwitchSettingsView: View {
             .accessibilityLabel(NSLocalizedString("When this is turned on, the readout is turned on. If these accessibility label readouts are being cut off by the blood glucose readout, you can turn this off to explore the app first.", comment: "Accessibility label for Shugga ME toggle"))
                 , footer:
                     VStack{
+            
+            
+            /*
             if announcementOn {
-                Text ("⚠️ When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" above while working out (eg: jogging with the phone in your pocket) to prevent unintentional changes to the settings.")
+                Text (shuggaBackgroundWarning)
                     .foregroundColor(shuggaRed)
             }
+            */
+            
+            
         }
 //                    Text(demoMode ? NSLocalizedString("The demo mode is turned on. Check the setting below.", comment: "Footer text for demo mode") : "")
             .font(.footnote)
@@ -563,7 +571,7 @@ struct DetailsSettingsView: View {
             VStack{
                 // ___________________________________ Shugga every ___________________________________
                 
-                Picker(NSLocalizedString("Shugga", comment: "Picker label for selecting frequency of readout"), selection: $speakInterval_seconds)
+                Picker(NSLocalizedString("Foreground shugga", comment: "Picker label for selecting frequency of readout"), selection: $speakInterval_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
                         if interval > SecondsIn.oneMinute.rawValue {
@@ -592,24 +600,24 @@ struct DetailsSettingsView: View {
             
             
             VStack{
-                Toggle("Shugga while in background", isOn: $shuggaInBackground)
+                Toggle("Background shugga", isOn: $shuggaInBackground)
 
                 // ___________________________________ Background Shugga every ___________________________________
                 
-                Picker(NSLocalizedString("Max. background shugga frequency", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
+                Picker(NSLocalizedString("", comment: "Picker label for selecting maximum background frequency of readout"), selection: $speakInterval_background_seconds)
                 {
                     ForEach(announcementInterval, id: \.self) { interval in
                         if interval > SecondsIn.oneMinute.rawValue {
                             let minutes = Double(interval) / Double(SecondsIn.oneMinute.rawValue)
                             if minutes.truncatingRemainder(dividingBy: 1) == 0 {
                                 // interval is a whole number of minutes
-                                Text("once every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
+                                Text("At most once every \(Int(minutes)) " + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))
                             } else {
                                 // interval is not a whole number of minutes
-                                Text("once every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
+                                Text("At most once every \(String(format: "%.1f ", minutes) + NSLocalizedString("minutes", comment: "Minutes unit for readout frequency"))")
                             }
                         } else {
-                            Text("once every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
+                            Text("At most once every \(interval) " + NSLocalizedString("seconds", comment: "Seconds unit for readout frequency"))
                         }
                     }
 
@@ -744,7 +752,7 @@ struct UnitSettingsContentView:  View {
     
         List{
             
-            Picker(NSLocalizedString("Blood Glucose & Trend Unit", comment: ""), selection: $userBloodGlucoseUnit) {
+            Picker(NSLocalizedString("Trend & Unit", comment: ""), selection: $userBloodGlucoseUnit) {
                 
                 ForEach(bloodGlucoseUnit, id: \.self) { unit in
                     
@@ -1086,6 +1094,8 @@ struct WarningSettingsContentView:  View {
                      .onChange(of: dataTooOldPeriod_min) { newPeriod in
                          bloodGlucoseData.theTranslator.setCurrentDataTooOldPeriod_min(dataTooOldPeriod_min: dataTooOldPeriod_min)
                      }
+                     .listRowSeparator(.hidden)
+
                 }
                 .textCase(.none)
 //                .padding()
@@ -1178,6 +1188,7 @@ struct NitPickySettingsContentView: View {
             Toggle(NSLocalizedString("Only when blood glucose is out of range", comment: ""), isOn: $shuggaRepeats)
                 .disabled((true))
                 .padding (.leading)
+                .listRowSeparator(.hidden)
 
 
             Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
@@ -1371,7 +1382,7 @@ struct VoiceSettingsView: View {
             
             Section(header:
                         HStack {
-                            Text("Voice & Language Settings")
+                            Text("")
                                 .font(.headline)
                 Spacer()
                             HelpButton(showDescription: $showDescription, title: "Voice & Language Setting")  {
@@ -1650,7 +1661,8 @@ struct UserAgreementView: View {
                     
                 }
                 .accessibilityLabel(_: "Privacy notice")
-            }
+            }                        .padding()
+
             
             VStack {
                 Section( footer: Text(userAgreedToAgreement ? "" : "You have to agree to this before the app is functional.").foregroundColor(shuggaRed)
@@ -1671,12 +1683,15 @@ struct UserAgreementView: View {
 //                                bloodGlucoseData.thePlayer.stopSpeakingNow()
                             }
                         }
-                        ScrollView(.vertical, showsIndicators: true) {
-                            Text(legalText)
-                                .font(.footnote)
-                                .accessibilityLabel(_: "This is the agreement that you must agree by clicking the button below for the app to work.")
+                        VStack {
+                            ScrollView(.vertical, showsIndicators: true) {
+                                Text(legalText)
+                                    .font(.footnote)
+                                    .accessibilityLabel(_: "This is the agreement that you must agree by clicking the button below for the app to work.")
+                            }.padding()
                         }
                         .background(shuggaRed.opacity(0.5))
+                        .cornerRadius(10)
 
                     }
                 }

@@ -20,8 +20,9 @@ struct AboutShuggaView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToAboutShugga = false
-                }) {
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        navigateToAboutShugga = false
+                    }                }) {
                     HStack {
                         Image(systemName: "chevron.left")
                         Text("Back")
@@ -32,6 +33,7 @@ struct AboutShuggaView: View {
             .frame (width: 75)
             
             SubHubViewTopMenuLogoPortionView()
+
         }
 //        .padding()
         
@@ -55,49 +57,67 @@ struct AboutShuggaView: View {
             
             
             
-            
-            Text ("About Shugga for Loop")
-                .bold()
-                .font(.title)
+//
+//            Text ("About ShuggaShugga")
+//                .bold()
+//                .font(.title)
             ScrollView {
-                // The rest of your view content goes here
-                
-                Text(aboutShuggaText)
-                    .padding([.leading, .trailing, .bottom])
-                
-                Text(shuggaIndependentAppDisclaimer)
-                    .padding([.leading, .trailing, .bottom])
-                
-                Text ("Your Privacy")
-                    .bold()
-                    .font(.subheadline)
-                    .padding([.bottom], 5)
-                
-                Text(aboutPrivacy)
-                    .padding([.leading, .trailing, .bottom])
-                
-                Text(aboutHealthKitPermissions)
-                    .padding([.leading, .trailing, .bottom])
-                
-                
-                Image ("health_permissions")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Text ("Background App Refresh ")
-                    .bold()
-                    .font(.subheadline)
-                    .padding([.bottom], 5)
-                
-                Text(aboutAppInBackgroundSetting)
-                    .padding([.leading, .trailing, .bottom])
-                Image ("background_appRefresh")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Text("- end - ")
-                    .padding([.leading, .trailing, .bottom])
-                    .opacity(0.66)
+                VStack {
+                    Section(header: Text("About Shugga")
+                        .bold()
+                        .padding()
+                    ) {
+                        Text(aboutShuggaText)
+                            .padding()
+                    }
+                    
+                    Section(header: Text("Disclaimer")
+                        .bold()
+                        .padding()
+                    ) {
+                        Text(shuggaIndependentAppDisclaimer)
+                            .padding([.leading, .trailing, .bottom])
+                    }
+
+                    Section(header: Text("Your Privacy")
+                        .bold()
+                        .padding()
+                    ) {
+                        Text(aboutPrivacy)
+                            .padding()
+                    }
+
+                    Section(header: Text("Health Permissions")
+                        .bold()
+                        .padding()
+                    ) {
+                        Text(aboutHealthKitPermissions)
+                            .padding()
+                        Image ("health_permissions")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+
+                    Section(header: Text("Background App Refresh")
+                        .bold()
+                        .padding()
+                    ) {
+                        Text(aboutAppInBackgroundSetting)
+                            .padding()
+                        Image ("background_appRefresh")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+
+                    Section {
+                        Text("- end -")
+                            .padding()
+                            .opacity(0.66)
+                    }
+                }
             }
+
+
             .padding()
             
             //                    Spacer(fon)

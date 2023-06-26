@@ -12,8 +12,11 @@ import BackgroundTasks
 import HealthKit
 
 
+var theScreenBrightnessBefore = 100
+
 let thisIsBeta = false
 
+let hubViewEaseBackToDuration = 0.5
 let goneToBackgroundWarningString = "Warning: Shugah has gone into the background."
 
 // appstorage defaults

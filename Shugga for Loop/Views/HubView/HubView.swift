@@ -84,7 +84,7 @@ struct NavigationForHubView: View {
                                 .padding([.top, .leading, .trailing], 10)
                                 .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
                             
-                            Text ("Shugga for Loop")
+                            Text ("ShuggaShugga")
                                 .foregroundColor(logoTypeColor)
                                 .font(.system(size: 14, weight: .bold, design: .rounded))
                                 .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")
@@ -155,10 +155,10 @@ struct HubView: View {
     
     
     
-    @AppStorage("whiteBackground")                      public var whiteBackground =                        false
+    @AppStorage("whiteBackground")      public var whiteBackground =        false
     @AppStorage("theMainViewIsLocked")  public var theMainViewIsLocked =    true
     @AppStorage("theShuggaIsPaused")    public var theShuggaIsPaused =      true
-    @AppStorage("grayAppIcon")                      public var grayAppIcon =                        false
+    @AppStorage("grayAppIcon")          public var grayAppIcon =            false
 
     var body: some View {
         
@@ -206,10 +206,8 @@ struct HubView: View {
                     
                     NavigationForHubView()
                         .padding(.bottom, 50)
-                    ScrollView {
+//                    ScrollView {
                         LazyVGrid(columns: columns, spacing: 20) {
-                            
-                            
                             
                             
                             VStack {
@@ -232,11 +230,9 @@ struct HubView: View {
                                         }
                                     }
                                 
-                                Text("About...")
+                                Text("About")
                                     .foregroundColor(.primary)
                             }
-                            
-                            
                             
                             VStack {
                                 Image (systemName: "questionmark.circle.fill")
@@ -287,8 +283,6 @@ struct HubView: View {
                                 Text("Documentation")
                             }
                             
-                            
-                            
                             VStack {
                                 Image (systemName:"building.columns.circle.fill")
                                     .resizable()
@@ -311,9 +305,7 @@ struct HubView: View {
                                 
                                 Text("User Agreement")
                             }
-                            
-                            
-                            
+                                                        
                             Link(destination: URL(string: youTubePlayListLink)!) {
                                 VStack {
                                     Image(systemName: "video.circle.fill")
@@ -340,20 +332,19 @@ struct HubView: View {
                                 }
                             }
                             
-                            
-                            
-                            
-                            
                             VStack {
-                                Image (systemName: "paperplane.circle.fill")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .opacity(0.7)
+                                
+                                Link(destination: URL(string: "mailto:hello@outside.center?subject=ShuggShugga")!) {
+                                    
+                                    Image (systemName: "paperplane.circle.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(Color.primary)
+                                        .frame(width: geometry.size.width/theImageWidthRatio, height: geometry.size.width/theImageWidthRatio)                                            .opacity(0.7)
+                                }
                                 
                                 Text("Contact Us")
                             }
-                            
-                            
                             
                             VStack {
                                 Image (systemName: "heart.circle.fill")
@@ -377,9 +368,7 @@ struct HubView: View {
                                 
                                 Text("Acknowledgements")
                             }
-                            
-                            
-                            
+                                                        
                             VStack {
                                 Image (systemName: "lightbulb.circle.fill")
                                     .resizable()
@@ -400,7 +389,7 @@ struct HubView: View {
                                         }
                                     }
                                 
-                                Text("Why Shugga?")
+                                Text("Why ShuggaShugga?")
                             }
                             
                             
@@ -410,7 +399,8 @@ struct HubView: View {
                         Spacer()
                         
                         HStack {
-//                            Spacer()
+                            Spacer()
+                            /*
                             VStack{
                                 
                                /*
@@ -439,45 +429,39 @@ struct HubView: View {
                                 
                             }
                             .padding([.leading, .trailing])
-                            
+                            */
 //                            Spacer()
                             
                             VStack {
-                                Image ("outside-center-logotype")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: geometry.size.width/theImageWidthRatio * 2)
-                                //                                        .overlay(
-                                //                                                    RoundedRectangle(cornerRadius: 8)
-                                //                                                        .stroke(Color.black, lineWidth: 2)
-                                //                                                )
                                 
-                                //                               Text("Why Shugga?")
+                                Link(destination: URL(string: "https://outside.center")!) {
+                                    
+                                    Image ("outside-center-logotype")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: geometry.size.width/theImageWidthRatio * 1)
+                                    //                                        .overlay(
+                                    //                                                    RoundedRectangle(cornerRadius: 8)
+                                    //                                                        .stroke(Color.black, lineWidth: 2)
+                                    //                                                )
+                                    
+                                    //                               Text("Why Shugga?")
+                                }
+                                .padding([.leading, .trailing])
                             }
-                            .padding([.leading, .trailing])
                             
-//                            Spacer()
-                            
+                            Spacer()
                         }
                         .padding([.leading, .trailing])
-                        
-                    }
-                    
-                    
-                    
-                    
+//                    } // scrollview
                     Spacer()
                 } // the vstack
                 .padding()
-                Spacer()
+//                Spacer()
             }
             .edgesIgnoringSafeArea(.bottom)
             .background(whiteBackground ? whiteBackgroundColor : backgroundGradient)
-            
-            
         }
-        
-
     }
 }
 

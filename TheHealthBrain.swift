@@ -29,14 +29,14 @@ class TheHealthBrain: ObservableObject {
         bloodGlucoseData.requestBloodGlucoseAuthorization()
         bloodGlucoseData.requestStepsAuthorization()
 
-        stepCountData.startMonitoringStepCount()
+//        stepCountData.startMonitoringStepCount()
 
     }
     
     
     let bloodGlucoseData = BloodGlucoseData()
     
-    let stepCountData = StepCountData()
+//    let stepCountData = StepCountData()
     
     
     

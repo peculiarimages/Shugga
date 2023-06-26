@@ -21,7 +21,10 @@ struct UserAgreementHubView: View {
         HStack (alignment: .top){
             VStack{
                 Button(action: {
-                    navigateToUserAgreement = false
+                    withAnimation(.easeOut(duration: hubViewEaseBackToDuration)) {
+                        
+                        navigateToUserAgreement = false
+                    }
                 }) {
                     HStack {
                         Image(systemName: "chevron.left")

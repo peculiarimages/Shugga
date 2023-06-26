@@ -533,7 +533,18 @@ class Speech: NSObject, AVSpeechSynthesizerDelegate, ObservableObject {
         private func updateCurrentAudioPortType() {
             let audioSession = AVAudioSession.sharedInstance()
             if let currentRoute = audioSession.currentRoute.outputs.first {
+                
+                
+                
+                
                 currentAudioPortType = currentRoute.portType.rawValue
+                
+                
+                
+                
+                
+                
+                
             }
         }
 

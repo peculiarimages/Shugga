@@ -179,6 +179,8 @@ struct BloodGlucoseView: View {
     
     @AppStorage("theMainViewIsLocked")                       public var theMainViewIsLocked =                     false
     @AppStorage("theShuggaIsPaused")                         public var theShuggaIsPaused =                     false
+    @AppStorage("turnBrightnessDown") public var turnBrightnessDown = false
+
     @AppStorage("pauseNow")                   public var pauseNow =                     false
     @AppStorage("pauseForX_min")                   public var pauseForX_min =                     pauseShuggaDefault_min
 
@@ -289,7 +291,12 @@ struct BloodGlucoseView: View {
                                             .padding()
                                             .offset(y: -50)
                                         Spacer()
+                                        
+                                     
                                     }
+                                    
+                                    
+                                    
                                     
                                     if pauseNow {
                                         //                                    Spacer()
@@ -352,7 +359,17 @@ struct BloodGlucoseView: View {
                             }
                         }
                         
+                        
+                        
+                        if theMainViewIsLocked && turnBrightnessDown {
+                            UIScreen.main.brightness = CGFloat(0.0) // sets the brightness to 50%
+                        }
+                        
+                        
+                        
                     }
+                   
+                    
                     .background(whiteBackground ? whiteBackgroundColor : backgroundGradient)
                     
                     

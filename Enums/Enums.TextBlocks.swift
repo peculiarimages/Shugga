@@ -8,7 +8,7 @@
 import Foundation
 import BackgroundTasks
 
-let shuggaIndependentAppDisclaimer = "Shugga for Loopˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom."
+let shuggaIndependentAppDisclaimer = "ShuggaShuggaˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom."
 
 let acknowledgementText = """
 "While this app is a project of a single mere mortal behind the veil of an LLC, many thanks to the following individuals who helped me get this far with Shugga:
@@ -71,10 +71,10 @@ let youMustAgreeText = "You must agree to the User Agreement, then turn Shugga O
 
 let nationalParksText = "Now that you've read this far, go get your free lifetime US National Parks pass! This is the only free thing, beside the love from the people around you that is free for us diabetics. Just show up at the gate of a national park, then inform the park ranger that you are an insulin dpendent diabetic and you can get a freebie. WOO HOO!\n"
 
-let disclaimerBoilerplate = "Disclaimer: “Shugga for Loopˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom. This version of Shugga works with Apple's HealthKit, leveraging real-time updates of blood glucose values provided by Loop. Even without a continuous glucose monitor and Loop, “Shugga for Loopˮ could facilitate manual blood glucose testing, provided you enter carbohydrate consumption into the Health app. We strongly recommend reviewing and understanding Loop's documentation and guidelines before using this app to ensure a seamless experience.\n\nAlways check your blood glucose data against blood glucose measuring devices approved by your regulatory agencies. You are on your own because it's your own body.\n"
+let disclaimerBoilerplate = "Disclaimer: “ShuggaShuggaˮ is an independent app and is not affiliated with Loop.app, LoopKit, or Dexcom. This version of Shugga works with Apple's HealthKit, leveraging real-time updates of blood glucose values provided by Loop. Even without a continuous glucose monitor and Loop, “ShuggaShuggaˮ could facilitate manual blood glucose testing, provided you enter carbohydrate consumption into the Health app. We strongly recommend reviewing and understanding Loop's documentation and guidelines before using this app to ensure a seamless experience.\n\nAlways check your blood glucose data against blood glucose measuring devices approved by your regulatory agencies. You are on your own because it's your own body.\n"
 
 let whyShugga_1 = """
-This is why I decided to make Shugga:
+This is why I decided to make ShuggaShugga:
 
 Two summers earlier, I had capsized three times in a single day due to an unexpected storm during solo kayak fishing on Bodega Bay, CA. My trusted NOAA's Maine-Point-Forecast hadn't predicted this. A slew of boaters, also rushing back to safety, blew past me in the water, waving to them after I announced on the marine radio that I'm thinking about ringing the Coast Guard... I was about to turn my radio channel from 69 to 16 (Coast Guard) when one boat rescued me (Thank you! Your comments about sharks were \"hilarious!\").
 
@@ -88,21 +88,41 @@ As the sea grew rougher, with my left hand maneuvering the rudder and my right m
 """
 
 let aboutShuggaText = """
-Shugga for Loop is a simple yet highly customizable iPhone app that announces your latest blood glucose (BG) data found in your HealthKit. Primarily built as a companion for Loop.app, it also serves those who have their live BG values written to HealthKit by other means. It also caters to those who manually enter their BG values into Health app, though in a limited capacity.
+ShuggaShugga is a simple yet highly customizable iPhone app that announces your latest blood glucose (BG) data found in your HealthKit. Primarily built as a companion for Loop.app, it also serves those who have their live BG values written to HealthKit by other means. It also caters to those who manually enter their BG values into Health app, though in a limited capacity. This particular version is offered at no charge for Loop users only.
 
 Additionally, it provides an optional display of your carb intake in the past 24 hrs. (also sourced from Health data)
 
 The app's design and customization cater to a wide range of users, offering enhanced accessibility for visually impaired individuals and features for active users. The main page is deliberately kept simple for quick visual cues.
 
-Shugga for Loop is exclusively compatible with iPhones due to its dependence on Apple Health, which is not available on other devices (iPads, etc).
+ShuggaShugga is exclusively compatible with iPhones due to its dependence on Apple Health, which is not available on other devices (iPads, etc).
 """
 
-let aboutPrivacy = "We take your privacy seriously and want you to know that Shugga for Loop does not use your data for any other purpose. Your data is never stored, transmitted, or shared outside the confines of this app. Your privacy is important to us and we are committed to keeping your data to you only."
+let aboutPrivacy = "We take your privacy seriously and want you to know that ShuggaShugga.app does not use your data for any other purpose. Your data is never stored, transmitted, or shared outside the confines of this app. Your privacy is important to us and we are committed to keeping your data to you only."
 
 let aboutHealthKitPermissions = """
 You will need to grant the app an ongoing “Read Access” to your blood glucose data in HealthKit for this app to work at all. Optionally, you can give the same access to your carbohydrate data if you are interested in being able to see your carbohydrate history in the app.
 
-You will be prompted only once for the permissions by the Shugga for Loop, per Apple’s design at the very first time you use the app. If you don't grant access(es) then, you can do so later in the iPhone’s Settings: Health: Data Access and Devices: Shugga for Loop.
+You will be prompted only once for the permissions by the ShuggaShugga, per Apple’s design at the very first time you use the app. If you don't grant access(es) then, you can do so later in the iPhone’s Settings: Health: Data Access and Devices: ShuggaShugga.
 """
 
-let aboutAppInBackgroundSetting = "If you want Shugga for Loop to work while the app is in the background, make sure you enable Background App Refresh in the iPhone’s Settings: Shugga for Loop:  Background App Refresh."
+let aboutAppInBackgroundSetting = "If you want ShuggaShugga to work while the app is in the background, make sure you enable Background App Refresh in the iPhone’s Settings: ShuggaShugga:  Background App Refresh."
+
+
+let shuggaBackgroundWarning = """
+⚠️ When this device is locked, ShuggaShugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" above while working out (eg: jogging with the phone in your pocket) to prevent unintentional changes to the settings.
+"""
+
+
+/*
+ 
+ 
+ 
+ 
+ if turnBrightnessDow {
+     
+     UIScreen.main.brightness = CGFloat(0.5) // sets the brightness to 50%
+     
+ }
+ 
+ 
+ */

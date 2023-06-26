@@ -9,15 +9,15 @@ import Foundation
 
 
 let manuals_Shugga_and_shugga = """
-Within the app and in this document, the word shugga (lowercase) is used as a verb to express the latest BG reading available in HealthKit data being announced.
+Within the app and in this document, the word shugga (lowercase) is used as a verb.  It refers to the action of announcing the latest blood glucose (BG) reading that is available in the HealthKit data.
 
-Eg: “Shugga for Loop will shugga every five minutes.
+Eg: “The app will shugga every five minutes.
 
-Meaning: The app will announce the latest BG stored in your HealthKit.
+Meaning: The app will announce every five minutes, the latest blood glucose stored in your HealthKit.
 """
 
 let manuals_foreground_background_subheadline = "App Modes"
-let manuals_foreground_background = " It's important to understand that there are two main phases of the app you experience and the different exceptions you should have from the them:"
+let manuals_foreground_background = "It's important to understand that there are two main phases of the app you experience and the different exceptions you should have from the them:"
 
 let manual_foreground_background_explained = """
 Foreground Mode
@@ -28,16 +28,16 @@ Background Mode
 
 This is when the app runs in the background while you may be using other apps or when the phone is unlocked but not otherwise being used. The app, when the background mode is turned on, is capable of making the announcement.
 
-The frequencies of shugga, however, is limited while in this mode. The iPhone’s operating system will dictate when the app can shugga. It has been shown, under some conditions, the app is capable to shugga about every ten minutes. The exact nature of optimizing for this is not well publicized.
+The frequencies of shugga, however, is limited while in this mode. The iPhone’s operating system will dictate when the app can shugga. It has been shown, under some conditions, the app is capable to shugga about every ten minutes. The exact nature of optimizing for this is not well publicized. They do mention it does perform some sort of machine learning algorithms to decide when to allow apps to perform tasks in the background.
 
-We believe having the iPhone in the following conditions greatly improves the odds of the operating system allowing Shugga for Loop to shugga (these are guesses):
+We believe having the iPhone in the following conditions greatly improves the odds of the operating system allowing ShuggaShugga to shugga (these are our guesses):
 """
 
 let manual_foreground_background_optimization = """
   • A good battery charge
   • Not a degraded battery
   • Currently charging
-  • Using quick charger
+  • Using a quick charger
   • App higher up in the list of running app order
   • App in one of the positions in the doc
   • Good mobile and/or WIFI reception
@@ -47,12 +47,12 @@ let manual_foreground_background_optimization = """
 
 let manual_foreground_background_belief = "We believe all the above conditions will help to get the operating system “feeling relaxed” to spend the resources allowing the app to do its things."
 
-let manual_foreground_background_suggestion = "We recommend you keep Shugga for Loop in the foreground and turn off the auto-lock feature and lower the brightness in the main iPhone Display & Brightness settings when doing some activities you want frequent and consistent shugga to occur."
+let manual_foreground_background_suggestion = "We recommend you keep ShuggaShugga in the foreground and turn off the auto-lock feature and lower the brightness in the main iPhone Display & Brightness settings when doing some activities you want frequent and consistent shugga to occur."
 let manual_doesnt_work_locked = "The app doesn't function when the phone is locked or turned off."
 
 let manual_shugga_foreground_subhedline = "SHUGGA FREQUENCIES: Foreground Mode"
 let manual_shugga_foreground = """
-When the app is in the foreground, you get the total experience and the control with shugga in Shugga for Loop.
+When the app is in the foreground, you get the total experience and the control with shugga in ShuggaShugga.
 
 You can customize the app functionality by using the settings available by tapping on the gear icon. The frequencies in which the app announce the latest available BG in your record will be the value you set it in.
 
@@ -84,11 +84,11 @@ let manual_shugga_background_subhedline = "SHUGGA FREQUENCIES: Background Mode"
 
 
 let manual_shugga_background = """
-As explained earlier, when Shugga for Loop is in the background, the app is at a mercy of the operating system. The operating system rations its resources tightly and allows the apps in the background to have less in order to maintain better battery performances and user experiences.
+As explained earlier, when ShuggaShugga is in the background, the app is at a mercy of the operating system. The operating system rations its resources tightly and allows the apps in the background to have less in order to maintain better battery performances and user experiences.
 
 There are a few things that are happening when the app is in the background.
 
-The operating system decides to “wake up” Shugga for Loop at a certain time.
+The operating system decides to “wake up” ShuggaShugga at a certain time.
 
 Then the app queries for the latest BG in HealthKit.
 
@@ -96,7 +96,7 @@ It will then shugga that to you accompanied by how old that BG data is.
 
 While the shugga is in progress, CGM/Loop may update your BG entry in HealthKit.
 
-After Shugga for Loop is done with that instance of shugga, it will check once more to see if any new BG data was entered to Health.
+After ShuggaShugga is done with that instance of shugga, it will check once more to see if any new BG data was entered to Health.
 
 If it finds a new data, it will then shugga that immediately after the earlier background Shugga (3).
 
@@ -104,54 +104,3 @@ Eg: “Eight minutes and 12 seconds ago, 112 mg/dL. Up 1.1 mg/dL per minute. Thr
 
 What had happened here is that when the app was awaken by the system, the latest value in HealthKit was 112 (which was sampled 8 min and 12 seconds ago). While the app is making that announcement, Loop has entered a new value from the CGM to your HealthKit data. Just be mindful of the battery consumption rate.
 """
-/*
- 
- 
- IMPORTANT CONCEPTS WHEN USING THE APP
-
- Shugga and shugga
-
- Within the app and this document, the word shugga (lowercase) is used as a verb to express the latest BG reading available in HealthKit data being announced.
-
- Eg: “Shugga for Loop will shugga every five minutes.
-
- Meaning: The app will announce the latest BG stored in your HealthKit.
-
- App Modes
-
- It's important to understand that there are two main phases of the app you experience and the different exceptions you should have from the app:
-
- Foreground Mode
-
- This is when the app is in the foreground and being actively used by you or being left turned on. You can expect the app to behave exactly as you set the parameters in the settings.
-
- Background Mode
-
- This is when the app runs in the background while you may be using other apps or when the phone is unlocked but not otherwise being used. The app, when the background mode is turned on, is capable of making the announcement.
-
- The frequencies of shugga, however, is limited while in this mode. The iPhone’s operating system will dictate when the app can shugga. It has been shown, under some conditions, the app is capable to shugga about every ten minutes. The exact nature of optimizing for this is not well publicized.
-
- We believe having the iPhone in the following conditions greatly improves the odds of the operating system allowing Shugga for Loop to shugga:
-
- Having the iPhone with some good battery reserve,
- Having the iPhone being charged
- Having the app higher up in the list of running app order
- Having the app in one of the positions in the doc
- Having good mobile and/or WIFI reception
- Not playing any media in foreground or background
- Having to have used the app often
-
- We believe all the above conditions will help to get the operating system “feeling relaxed” to spend the resources allowing the app to do its things.
-
- The app doesn't function when the phone is locked or turned off.
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- */
