@@ -220,6 +220,8 @@ struct DoNotSleepDisplaySettingContentView: View {
 
     var body: some View {
         Toggle("Prevent display from going to sleep", isOn: $doNotSleepDisplay)
+                        .listRowSeparator(.hidden)
+
                     .onChange(of: doNotSleepDisplay) { newScreenSleepValue in
                         DispatchQueue.main.async {
                             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
@@ -471,7 +473,7 @@ struct MainSwitchSettingsView: View {
                 , footer:
                     VStack{
             if announcementOn {
-                Text ("⚠️ When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" while working out (eg: jogging with the phone in your pocket) to prevent unintentional changes to the settings.")
+                Text ("⚠️ When this device is locked, Shugga will be silent. To ensure uninterrupted shugga, keep this device unlocked and ensure that this app stays in the foreground. Additionally, activate the \"Lock setting access\" above while working out (eg: jogging with the phone in your pocket) to prevent unintentional changes to the settings.")
                     .foregroundColor(shuggaRed)
             }
         }
@@ -774,11 +776,15 @@ struct UnitSettingsContentView:  View {
             Toggle("Multiply trend rate by 10", isOn: $multiplyTrendByTen)
                 .disabled(!shuggaGlucoseTrend)
                 .padding (.leading)
+                .listRowSeparator(.hidden)
+
             Toggle("Remove time unit", isOn: $removeTimeUnit)
                 .disabled(!shuggaGlucoseTrend)
                 .padding (.leading)
+//                .listRowSeparator(.hidden)
+
             
-            Toggle("Display both units", isOn: $displayBothUnits)
+            Toggle("Display mg/dL and mmol/L", isOn: $displayBothUnits)
         }  .textCase(.none)
     
     }
@@ -884,13 +890,29 @@ struct ReminderSettingsContentView:  View {
                             }
                         }
                         Toggle(NSLocalizedString("30 min.",     comment: ""),       isOn: $reminderAfterFood_30Min)
+                                        .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("60 min.",     comment: ""),       isOn: $reminderAfterFood_60Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("90 min.",     comment: ""),       isOn: $reminderAfterFood_90Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("2 hours.",    comment: ""),       isOn: $reminderAfterFood_120Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("2.5 hours.",  comment: ""),       isOn: $reminderAfterFood_150Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("3 hours.",    comment: ""),       isOn: $reminderAfterFood_180Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("3.5 hours.",  comment: ""),       isOn: $reminderAfterFood_210Min)
+                            .listRowSeparator(.hidden)
+
                         Toggle(NSLocalizedString("4 hours.",    comment: ""),       isOn: $reminderAfterFood_240Min)
+                            .listRowSeparator(.hidden)
+
                     }
                     .padding(.leading)
                         .transition(.move(edge: .top))
@@ -982,8 +1004,14 @@ struct AncillaryDataSettingsContentView:  View {
                  
                  List {
                      Toggle(NSLocalizedString("Status", comment: ""),       isOn: $showShuggaStatus)
+                         .listRowSeparator(.hidden)
+
                      Toggle(NSLocalizedString("Carb History", comment: ""), isOn: $showCarbHistory)
+                         .listRowSeparator(.hidden)
+
                      Toggle(NSLocalizedString("CGM Info", comment: ""),             isOn: $showCGM_info)
+                         .listRowSeparator(.hidden)
+
                  }.padding(.leading)
                  .transition(.move(edge: .top))
              }
@@ -1428,8 +1456,12 @@ struct VoiceSettingsView: View {
                         
                         
                     }
-                })
-               
+                }
+
+)
+                .listRowSeparator(.hidden)
+                .padding(.leading)
+
                 .onChange(of: sugahVoiceChosen) { selectedLanguage in
                     
                     let sugahVoiceLocal = sugahVoiceChosen.prefix(2)

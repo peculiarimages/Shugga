@@ -389,6 +389,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIApplicationDelegate {
 //               sleep (10)
                if let _ = bloodGlucoseData.manySweetnesses.sweetnesses?.last {
                    
+                   
+                   
+                   /*  this is commented out, suspecting this was the cause of extra "random" Shugga w/o "from background..." label
+                   
                    if bloodGlucoseData.manySweetnesses.returnTimeSinceLastCGM() > Double(speakInterval_seconds) {
                        
                        bloodGlucoseData.fetchLatestBloodGlucoseAndSpeak(whoCalledTheFunction: .foregroundScenePhase) { success in
@@ -399,6 +403,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIApplicationDelegate {
                            }
                        }
                    }
+                   
+                   */
+                   
+                   
+                   
                }
 
         bloodGlucoseData.setMainSugarTimerInterval()

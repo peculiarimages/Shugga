@@ -582,6 +582,12 @@ struct UnitConversionHelpPopupView: View {
     let numbers = Array(5...1200).filter { $0 % 5 == 0 }
     @State private var backgroundToggle = false
 
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ""
+        return formatter
+    }()
     
     var body: some View {
         
@@ -608,8 +614,12 @@ struct UnitConversionHelpPopupView: View {
                     Text("mmol/L")
                         .font(.headline)
                         .lineLimit(1)
+                        .frame(alignment: .leading)
+
+
 //                        .padding(0)
 //                        .frame(alignment: .trailing)
+                    
                     Spacer()
 
                 }
@@ -620,6 +630,10 @@ struct UnitConversionHelpPopupView: View {
 //            }
             
             
+            
+            
+            
+            
             HStack {
                 Text ("\".\" represents a decimal point")
                     .font(.caption2)
@@ -628,6 +642,9 @@ struct UnitConversionHelpPopupView: View {
             }
             
             Spacer()
+            
+            
+            
             HStack {
                 Spacer()
                 ScrollView {
@@ -637,16 +654,28 @@ struct UnitConversionHelpPopupView: View {
                         ForEach(numbers.indices, id: \.self) { index in
                             let number = numbers[index]
                             
-                            Spacer()
+                            Text("")
+
+                            
+                            
+                            
                             
                             HStack {
                                 Spacer()
-                                Text("\(number)")
+                                Text("\(numberFormatter.string(for: number) ?? "")")
                                     .frame(alignment: .trailing)
                                     .lineLimit(1)
-                                Text (" ")
+                                    .fixedSize(horizontal: true, vertical: false) // Allow the Text view to expand horizontally
+                                    .font(.system(.body, design: .monospaced)) // Use a monospaced font
+
+                                Text ("")
                             }
                             .frame(alignment: .trailing)
+                            
+                            
+                            
+                            
+                            
                             
                             let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
                             let integerPart = Int(mmol)
@@ -654,30 +683,50 @@ struct UnitConversionHelpPopupView: View {
                             
                             HStack {
                                 Spacer()
-                                Text("\(integerPart).")
+                                Text("  \(integerPart).")
                                     .lineLimit(1)
+                                    .font(.system(.body, design: .monospaced)) // Use a monospaced font
+
                             }
                             .frame(alignment: .trailing)
                             .padding(-5.0)
+                            
+                            
+                            
                             
                             HStack {
                                 Text("\(fractionalPart)")
                                     .font(Font.system(.body).monospacedDigit())
                                     .lineLimit(1)
+                                    .font(.system(.body, design: .monospaced)) // Use a monospaced font
+
                                 Spacer()
                             }
                             .frame(alignment: .leading)
                             .padding(0)
                             
-                            Spacer()
+                            
+                            
+                            
+                            
+                            Text("")
+                            
                         }
                     }
                     .padding()
+                    Text (" --- end --- ")
                 }
-                .scrollOverlayOnTheBottom()
 
-                .background(Color(.systemGray5))
-                
+                .background(
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color(.systemGray3), lineWidth: 2)
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color(.systemGray5))
+                    }
+                )
+//                                .scrollOv erlayOnTheBottom()
+
                 .padding()
                 Spacer()
             }
