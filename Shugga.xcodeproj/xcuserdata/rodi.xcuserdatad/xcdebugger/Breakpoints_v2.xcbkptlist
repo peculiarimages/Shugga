@@ -14,8 +14,8 @@
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1692"
-            endingLineNumber = "1692"
+            startingLineNumber = "1679"
+            endingLineNumber = "1679"
             landmarkName = "startBackgroundDelivery(whoCalledTheFunction:)"
             landmarkType = "7">
             <Locations>
@@ -78,8 +78,8 @@
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1364"
-            endingLineNumber = "1364"
+            startingLineNumber = "1351"
+            endingLineNumber = "1351"
             landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "BloodGlucoseData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1365"
-            endingLineNumber = "1365"
+            startingLineNumber = "1352"
+            endingLineNumber = "1352"
             landmarkName = "fetchLatestBloodGlucose(limit:lookFurtherBack:whoCalledTheFunction:completion:)"
             landmarkType = "7">
          </BreakpointContent>

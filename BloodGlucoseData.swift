@@ -583,20 +583,7 @@ class BloodGlucoseData: ObservableObject {
     }
     
     
-    func requestBloodGlucoseAuthorization () {
-        
-        
-        let stepCountType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
 
-        healthStore.requestAuthorization(toShare: nil, read: [BloodGlucoseData]) { success, error in
-            if success {
-                // The user granted permission to read step count data
-            } else {
-                // The user denied permission to read step count data, or an error occurred
-            }
-        }
-    }
-    
     
     
     func startMonitoringStepCount() {
