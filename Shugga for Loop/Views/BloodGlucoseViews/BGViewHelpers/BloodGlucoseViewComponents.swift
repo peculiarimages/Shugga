@@ -456,7 +456,7 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
     var body: some View {
  
         SpeechBubble {
-            VStack {
+            ScrollView {
                 HStack {
                     Spacer()
                     Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
@@ -465,10 +465,11 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
                     Spacer()
                 }.padding(.top, 10)
                 
-                Text (youMustAgreeText)
-                    .foregroundColor(shuggaRed)
+//                Text (youMustAgreeText)
+//                    .foregroundColor(shuggaRed)
+//                    .padding()
                 
-                    .padding()
+                UserAgreementView()
             }
             .padding()
         }
@@ -539,6 +540,8 @@ struct NoBloodGlucosePermissionNoticeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
+                
+                
                 Text("\n\n")
             }
             .overlay(

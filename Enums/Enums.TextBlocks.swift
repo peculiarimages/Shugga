@@ -15,12 +15,6 @@ let acknowledgementText = """
 
    Glo Glo the Nurse
 
-     Future localizations:
-       Italiano: Tiziana
-       한국어: Alex Y.
-       Français: Haruka
-       日本語: Rodi
-
    Moral Support:
        Henri🚀, everyone's secret weapon!!
        Justine🚶🏻‍♀️, a vet who actually cares!!
@@ -28,7 +22,7 @@ let acknowledgementText = """
 
 Moral Hazard & LLC: Gregman G.
 
-As for my own pancreas that stoped behaving 20 odd years ago: For your bad attitude, I would like to express my profound gratitude to everyone who has supported me over the past.
+As for my own pancreas that stoped behaving 20 odd years ago: I would like to express my profound gratitude to everyone who has supported me over the past, despite of your bad attitude.
 
 This includes all the outstanding doctors, nurses and other clinicians, as well as the pharmacists who go the extra mile to provide me with those hard-to-find 3 ml Humalog vials!
 
@@ -36,7 +30,9 @@ I also need to thank all the researchers on this illness, developers of medical 
 """
 
 let tempTemp = """
-While I'm hesitant to thank my insurance company, it's worth noting that if others knew the cost of my monthly premium, they might 💩 in your 👖. It's astonishing that we tolerate such \"culture\" in a nation that considers itself advanced.\n\nTo everyone else, THANK YOU SO MUCH for downloading. Living with diabetes can be immensely challenging, and it might be difficult for others to fully comprehend this struggle. However, I hope this small app will bring some degree of manageability and joy to your life. The only one we've got.
+While I'm hesitant to thank my insurance company, it's worth noting that if others knew the cost of my monthly premium, they might 💩 in your 👖. It's astonishing that we tolerate such \"culture\" in a nation that considers itself advanced.
+
+To everyone else, THANK YOU SO MUCH for downloading. Living with diabetes can be immensely challenging, and it might be difficult for others to fully comprehend this struggle. However, I hope this small app will bring some degree of manageability and joy to your life. The only one we've got.
 """
 
 let doesNotHaveBGonHealth = "Sorry, we couldn't find any blood glucose records in your Health data. This app requires access to your blood glucose (optionally your carbohydrate) data to work properly."
@@ -67,7 +63,7 @@ let webPageLink: String = "https://shugga.app"
 
 let listOfBugs = "The future version will have other languages and more voices."
 
-let youMustAgreeText = "You must agree to the User Agreement, then turn Shugga ON before you can use this app in the app's settings, which you can navigate by tapping the Shugga logo or the gear ⚙️ icon above."
+let youMustAgreeText = "You must agree to the User Agreement, then turn Shugga ON before you can use this app."
 
 let nationalParksText = "Now that you've read this far, go get your free lifetime US National Parks pass! This is the only free thing, beside the love from the people around you that is free for us diabetics. Just show up at the gate of a national park, then inform the park ranger that you are an insulin dpendent diabetic and you can get a freebie. WOO HOO!\n"
 

@@ -320,7 +320,7 @@ struct MainSwitchSettingsContentView: View {
     
     var body: some View {
         List {
-            Toggle((announcementOn ? NSLocalizedString("Shugga is ON", comment: "Toggle label when Shugga is on") : NSLocalizedString("Shugga is OFF", comment: "Toggle label when Shugga is off")) + (demoMode ? NSLocalizedString(": (Demo Mode)", comment: "Demo mode indicator") : ""), isOn: $announcementOn)
+            Toggle((announcementOn ? NSLocalizedString("ShuggaShugga is ON", comment: "Toggle label when Shugga is on") : NSLocalizedString("ShuggaShugga is OFF", comment: "Toggle label when Shugga is off")) + (demoMode ? NSLocalizedString(": (Demo Mode)", comment: "Demo mode indicator") : ""), isOn: $announcementOn)
                 .textCase(.none)
                 .accessibilityLabel(NSLocalizedString("Toggles between on and off.", comment: "Accessibility label for Shugga ME toggle"))
                 .onChange(of: announcementOn) { sugahIsOn in
@@ -332,7 +332,7 @@ struct MainSwitchSettingsContentView: View {
                     }
                 }
             // ___________________________________ lock settings  ___________________________________
-            Toggle("Lock settings access now", isOn: $showLockButton)
+            Toggle("Lock access to settings now", isOn: $showLockButton)
                 .disabled(disableLock || pauseNow)
                 .onChange(of: showLockButton) { showLockButton in
                     theMainViewIsLocked = showLockButton
@@ -601,6 +601,7 @@ struct DetailsSettingsView: View {
             
             VStack{
                 Toggle("Background shugga", isOn: $shuggaInBackground)
+                    .textCase(.none)
 
                 // ___________________________________ Background Shugga every ___________________________________
                 
@@ -623,7 +624,6 @@ struct DetailsSettingsView: View {
 
                 }
                 .padding (.leading)
-
                 .textCase(.none)
                 .pickerStyle(.menu)
                 .disabled(!shuggaInBackground)
@@ -634,6 +634,7 @@ struct DetailsSettingsView: View {
                 
                 
                 Toggle("Add \"From the background...\"", isOn: $tellMeItsFromBackground)
+                .textCase(.none)
                 .disabled(!shuggaInBackground)
                 .padding(.leading)
                 .listRowSeparator(.hidden)
@@ -1200,7 +1201,7 @@ struct NitPickySettingsContentView: View {
                     .onChange(of: skipHundredth) { skipHundredthBool in
                         bloodGlucoseData.theTranslator.setSkipHundredths(skipHundredth: skipHundredthBool) }
                 
-                Toggle(NSLocalizedString("Double tap the main blood glucose value or app logo above for Shugga", comment: ""), isOn: $doubleTapForSugah)
+                Toggle(NSLocalizedString("Double tap the main blood glucose value or app logo above to shugga", comment: ""), isOn: $doubleTapForSugah)
                     .onChange(of: doubleTapForSugah) { doubleTapForSugah in
                         bloodGlucoseData.theTranslator.setAnnounceWithDoubleTap(doubleTapForSugah: doubleTapForSugah) }
                 
@@ -1689,6 +1690,7 @@ struct UserAgreementView: View {
                                     .font(.footnote)
                                     .accessibilityLabel(_: "This is the agreement that you must agree by clicking the button below for the app to work.")
                             }.padding()
+                            
                         }
                         .background(shuggaRed.opacity(0.5))
                         .cornerRadius(10)

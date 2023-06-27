@@ -164,7 +164,7 @@ struct HubView: View {
         
         let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
         
-        let theImageWidthRatio = 7.0
+        let theImageWidthRatio = 9.0
         
         
 
@@ -389,7 +389,7 @@ struct HubView: View {
                                         }
                                     }
                                 
-                                Text("Why ShuggaShugga?")
+                                Text("Why?")
                             }
                             
                             

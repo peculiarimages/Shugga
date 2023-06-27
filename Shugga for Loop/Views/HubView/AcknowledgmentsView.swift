@@ -58,10 +58,14 @@ struct AcknowledgmentsView: View {
                         Image("thePass")
                             .resizable()
                             .scaledToFit()
+                            .mask(
+                                   FeatheredEdgeShape(featherWidth: 25)
+                                       .blur(radius: 10, opaque: false)
+                               )
+
                             .cornerRadius(22)
                             .padding([.top, .bottom], 12)
                             .padding([.leading, .trailing], 35)
-                        
                         Text (nationalParksText)
                             .foregroundColor(.primary)
                             .padding([.leading, .trailing], 35)

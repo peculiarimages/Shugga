@@ -75,29 +75,7 @@ struct MainSwitchDescriptionView: View {
                         .padding(.bottom)
                     
                     
-                    Text("This app is designed as a companion to Loop.app. Although it can function as a reminder for carb intake and finger-prick tests, it is most useful when used in conjunction with Loop.")
-                        .foregroundColor(Color.primary)
-                        .padding([.bottom, .leading, .trailing])
-                        .foregroundColor(shuggaRed)
-                        .padding(.bottom)
-                    
-                    Text("We also recommend not enabling the lock screen in the Display & Brightness settings of your phone, especially during extended periods of activity. This ensures that you continue to receive Shugga notifications during those hard-to-manage times.\(shuggaBackgroundWarning)")
-                        .foregroundColor(Color.primary)
-                        .padding([.bottom, .leading, .trailing])
-                        .foregroundColor(shuggaRed)
-                        .padding(.bottom)
-                    
-                    
-                    
-                    Text ("These \"help pop-ups\" will be very verbose to keep the settings simple and uncluttered.")
-                        .foregroundColor(Color.primary)
-                        .padding(.bottom)
-
-                    Text ("Turning off the \"Shugga Me\"  switch will immediately deactivate all voice features of the app. However, the last known blood glucose and ancillary data will continue to be displayed and updated on the main screen.")
-                        .foregroundColor(Color.primary)
-                        .padding(.bottom)
-                    
-                    Text ("Lock the main blood glucose screen now: Turning this on will take you directly back to the main blood glucose screen. The two buttons at the top, the Shugga logo and the gear icons, will be disabled until you slide the lock to the right. You cannot activate the lock from these 'help pop-ups'. Once you close this, you can activate the lock if desired.")
+                    Text("This app is designed as a companion to Loop.app. Although it can function as a reminder for carb intake and finger-prick tests, it is most useful when used in conjunction with Loop.\n\nWe also recommend not enabling the lock screen in the Display & Brightness settings of your phone, especially during extended periods of activity. This ensures that you continue to receive Shugga notifications during those hard-to-manage times.\n\n\(shuggaBackgroundWarning)\n\nThese \"help pop-ups\" will be very verbose to keep the settings simple and uncluttered.\n\nTurning off the \"Shugga Me\"  switch will immediately deactivate all voice features of the app. However, the last known blood glucose and ancillary data will continue to be displayed and updated on the main screen.\n\nLock access to settings now: Turning this on will take you directly back to the main blood glucose screen. The two buttons at the top, the Shugga logo and the gear icons, will be disabled until you slide the lock to the right. You cannot activate the lock from these 'help pop-ups'. Once you close this, you can activate the lock if desired.")
                                             .foregroundColor(Color.primary)
                                             .padding(.bottom)
                     
@@ -140,19 +118,15 @@ struct DetailedSettingsDescriptionView: View {
                
                 ScrollView {
 
-                    Text("When this app returns to the foreground, it will check the last known blood glucose entry in Health. If the entry is older than the value you've set above, the app will initiate Shugga.")
+                    Text("""
+When this app returns to the foreground, it will check the last known blood glucose entry in Health. If the entry is older than the value you've set above, the app will initiate Shugga.
+                         
+If not, the app will initiate Shugga at the next timer interval you've selected here.
+                         
+Note: You can modify the 'Fussy Details' found in the next section for a more detailed Shugga. However, if you've selected a short interval here, a verbose Shugga might be cut off by the next readout.
+""")
                         .foregroundColor(Color.primary)
                         .padding(.bottom)
-
-
-                    Text("If not, the app will initiate Shugga at the next timer interval you've selected here.")
-                    .foregroundColor(Color.primary)
-                    .padding(.bottom)
-
-                    Text("Note: You can modify the 'Fussy Details' found in the next section for a more detailed Shugga. However, if you've selected a short interval here, a verbose Shugga might be cut off by the next readout.")
-                        .italic()
-                        .foregroundColor(Color.primary)
-                        .padding([.bottom, .leading, .trailing])
 
                     
                     endOfDescriptionScrollView
@@ -176,14 +150,14 @@ struct DisplaySettingsDescriptionView: View {
     var body: some View {
         VStack () {
             ScrollView {
-                Text("Example:\n\nIn the USA, it's typically in mg/dL.\n\nThe rate is usually represented in a \"per min\" format. When the \"Multiply glucose trend rate by 10\" option is selected, the rate will be in \"per 10 min\" format, and will only be provided in integer values.")
+                Text("""
+Example:\n\nIn the USA, it's typically in mg/dL.\n\nThe rate is usually represented in a \"per min\" format. When the \"Multiply glucose trend rate by 10\" option is selected, the rate will be in \"per 10 min\" format, and will only be provided in integer values.
+
+The app attempts to read the glucose trend from the blood glucose data in Health, and when this data is available, the app can include it in the Shugga notifications.
+""")
                     .foregroundColor(Color.primary)
                     .padding(.bottom)
-
-                Text("The app attempts to read the glucose trend from the blood glucose data in Health, and when this data is available, the app can include it in the Shugga notifications.")
-                    .foregroundColor(Color.primary)
-                    .padding([.bottom, .leading, .trailing])
-
+             
                 endOfDescriptionScrollView
                 Spacer()
             }
@@ -207,13 +181,19 @@ struct UnitSettingsDescriptionView: View {
     var body: some View {
         VStack () {
             ScrollView {
-                Text("Example:\n\nIn the USA, it's typically in mg/dL.\n\nThe rate is usually represented in a \"per min\" format. When the \"Multiply glucose trend rate by 10\" option is selected, the rate will be in \"per 10 min\" format, and will only be provided in integer values.")
+                Text("""
+Example:
+
+In the USA, blood glucose unit is typically in mg/dL.
+
+The rate is usually represented in a \"per min\" format. When the \"Multiply glucose trend rate by 10\" option is selected, the rate will be in \"per 10 min\" format, and will only be provided in integer values.
+
+The app attempts to read the glucose trend from the blood glucose data in Health, and when this data is available, the app can include it in its shugga.
+""")
                     .foregroundColor(Color.primary)
                     .padding(.bottom)
 
-                Text("The app attempts to read the glucose trend from the blood glucose data in Health, and when this data is available, the app can include it in the Shugga notifications.")
-                    .foregroundColor(Color.primary)
-                    .padding([.bottom, .leading, .trailing])
+                
 
                 endOfDescriptionScrollView
                 Spacer()
@@ -251,36 +231,27 @@ struct RemindersDescriptionView: View {
         VStack () {
  
             ScrollView {
-                Text ("The app will try to Shugga reminders of the last known carbohydrate record at around the selected times.")
-                    .foregroundColor(Color.primary)
-                    .padding(.bottom)
-                Text ("When the app is in the background, the app doesn't really have a whole lot of control when to Shugga.")
-                    .foregroundColor(Color.primary)
-                    .padding(.bottom)
+                Text ("""
+The app will try to Shugga reminders of the last known carbohydrate record at around the selected times.
 
-                Text("For example, if 30 minutes is selected, the app will attempt to Shugga a reminder between 30 to 60 minutes after a carb consumption (30 + 30). The reminder frequency varies based on the app's state: every 5 minutes in the foreground and as frequently as the operating system allows in the background (approximately every ten minutes, though it can sometimes be less frequent). If you want to Shugga without using your phone, we recommend keeping the app open and adjusting the Display & Brightness setting to prevent the screen from locking.")
-                    .foregroundColor(Color.primary)
-                    .padding([.bottom, .leading, .trailing])
-                
-                Text("Please note, when your phone is unlocked, fully charged, and/or being charged, it should have the best chance to Shugga approximately every ten minutes.")
+When the app is in the background, the app doesn't really have a whole lot of control when to Shugga.
+
+For example, if 30 minutes is selected, the app will attempt to Shugga a reminder between 30 to 60 minutes after a carb consumption (30 + 30). The reminder frequency varies based on the app's state: every 5 minutes in the foreground and as frequently as the operating system allows in the background (approximately every ten minutes, though it can sometimes be less frequent). If you want to Shugga without using your phone, we recommend keeping the app open and adjusting the Display & Brightness setting to prevent the screen from locking.
+
+Please note, when your phone is unlocked, fully charged, and/or being charged, it should have the best chance to Shugga approximately every ten minutes.
+
+However, please be aware that background Shugga can be unreliable due to constraints imposed by the operating system.
+""")
                     .foregroundColor(Color.primary)
                     .padding(.bottom)
-                
-                Text("However, please be aware that background Shugga can be unreliable due to constraints imposed by the operating system.")
-                    .foregroundColor(Color.primary)
-                    .padding([.bottom, .leading, .trailing])
-                
+              
                 endOfDescriptionScrollView
                 Spacer()
             }
             .scrollOverlayOnTheBottom()
-
         }
         .textCase(.none)
         .padding()
-        
-        
-        
     }
 }
 

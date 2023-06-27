@@ -27,7 +27,7 @@ class TheHealthBrain: ObservableObject {
         
         
         bloodGlucoseData.requestBloodGlucoseAuthorization()
-        bloodGlucoseData.requestStepsAuthorization()
+       // bloodGlucoseData.requestStepsAuthorization()
 
 //        stepCountData.startMonitoringStepCount()
 

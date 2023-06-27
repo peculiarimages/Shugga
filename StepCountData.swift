@@ -15,7 +15,7 @@ class StepCountData {
 
     init () {
         
-        askForHealthKitStepsPermission()
+       // askForHealthKitStepsPermission()
         
     }
     
