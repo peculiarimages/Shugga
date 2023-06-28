@@ -20,7 +20,7 @@ struct SubHubViewTopMenuLogoPortionView: View {
                 .padding([.top, .leading, .trailing], 10)
                 .accessibilityLabel(_: "This is the logo of this app. It' a red rounded rectangle with a white speech bubble inside with a tiny red blood droplet inside it. This takes you to the settings.")
             
-            Text ("Shugga for Loop")
+            Text ("ShuggaShugga")
                 .foregroundColor(logoTypeColor)
                 .font(.system(size: 14, weight: .bold, design: .rounded))
                 .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")

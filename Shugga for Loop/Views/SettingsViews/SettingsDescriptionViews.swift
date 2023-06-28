@@ -64,7 +64,7 @@ struct MainSwitchDescriptionView: View {
                 
                 ScrollView {
                     VStack{
-                    Text ("Throughout this app, \"Shugga\" is used as a verb to make utterances about your latest known blood glucose value")
+                    Text ("Throughout this app, \"shugga\" is used as a verb to make utterances about your latest known blood glucose value")
                             .foregroundColor(Color.primary)
                     + Text("*")
                         .foregroundColor(shuggaRed) // Change the color of the "*" here
@@ -82,7 +82,7 @@ struct MainSwitchDescriptionView: View {
                     VStack{Text("*")
                             .foregroundColor(shuggaRed) // Change the color of the "*" here
                         +
-                        Text(" Please note that it may take some time for the data to get recorded into your Health. The app relies on the data on Health for the latest blood glucose value.")
+                        Text("Please note that it may take some time for the data to get recorded into your Health. The app relies on the data on Health for the latest blood glucose value.")
                             .foregroundColor(Color.primary)
                             .italic()
 
@@ -119,9 +119,9 @@ struct DetailedSettingsDescriptionView: View {
                 ScrollView {
 
                     Text("""
-When this app returns to the foreground, it will check the last known blood glucose entry in Health. If the entry is older than the value you've set above, the app will initiate Shugga.
+When this app returns to the foreground, it will check the last known blood glucose entry in Health. If the entry is older than the value you've set above, the app will initiate a shugga.
                          
-If not, the app will initiate Shugga at the next timer interval you've selected here.
+If not, the app will initiate a shugga at the next timer interval you've selected here.
                          
 Note: You can modify the 'Fussy Details' found in the next section for a more detailed Shugga. However, if you've selected a short interval here, a verbose Shugga might be cut off by the next readout.
 """)
@@ -343,7 +343,7 @@ struct NitPickyDescriptionView: View {
                 .padding([.leading, .trailing])
 
                 Group{
-                    Text("Double-tap screen for Shugga: When this option is enabled, you can double-tap the blood glucose value displayed on the main screen to manually initiate Shugga. If Ancillary Data: Carb History is showing, double-tapping in that area will trigger Shugga to review your carb intake according to your carb reminder settings. (e.g., if you have a 2-hour reminder selected, Shugga will check for any new blood sugar entries after two hours and notify you).")
+                    Text("Double-tap screen for Shugga: When this option is enabled, you can double-tap the blood glucose value displayed on the main screen to manually initiate a shugga. If Ancillary Data: Carb History is showing, double-tapping in that area will trigger Shugga to review your carb intake according to your carb reminder settings. (e.g., if you have a 2-hour reminder selected, Shugga will check for any new blood sugar entries after two hours and notify you).")
                         .foregroundColor(Color.primary)
                         .padding(.bottom)
 
