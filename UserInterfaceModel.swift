@@ -15,6 +15,7 @@ import CoreImage.CIFilterBuiltins
 
 
 
+
 struct FeatheredEdgeShape: Shape {
     var featherWidth: CGFloat
 
@@ -108,28 +109,39 @@ func isAppInBackground(completion: @escaping (Bool) -> Void) {
 
 
 struct SpeechBubble<Content: View>: View {
+    
+//    let contentTitle: String
     let content: () -> Content
 
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
+//        self.contentTitle = contentTitle
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            content()
+      
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 10) {
+                content()
+            }
+//            .padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
+//            .padding(5)
+            .scaleEffect(0.9)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+//                    .foregroundColor(Color(.systemBackground))
+                    .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+            )
+            .frame(height: geometry.size.height)
+
+            .padding()
+//            .background(Color(.systemBackground))
+            .offset(x: 0, y: -5)
         }
-        .padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color(.systemBackground)) // Apply the color directly to the RoundedRectangle
-                .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-        )
-        .background(Color(.systemBackground)) // Use system primary color
-        .offset(x: 0, y: -5)
     }
 }
 
@@ -267,7 +279,7 @@ struct SlidingUnlockButton: View {
                                     showLockButton = false
                                     
                                     let currentBrightness = UIScreen.main.brightness
-                                    UIScreen.main.brightness = CGFloat(0.8) // sets the brightness to 50%
+                                    UIScreen.main.brightness  = theScreenBrightnessBefore // sets the brightness to previous value
                                     
 
                                     if theMainViewIsLocked { theMainViewIsLocked = false }

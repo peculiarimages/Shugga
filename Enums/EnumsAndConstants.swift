@@ -12,8 +12,7 @@ import BackgroundTasks
 import HealthKit
 
 
-var theScreenBrightnessBefore = 100
-
+var theScreenBrightnessBefore: CGFloat = UIScreen.main.brightness
 let thisIsBeta = false
 
 let hubViewEaseBackToDuration = 0.5

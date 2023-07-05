@@ -17,19 +17,11 @@ struct SettingsView: View {
     @AppStorage("userAgreedToAgreement")        public var userAgreedToAgreement =              false
     @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
 
-
-
-    
-    
 //    @Binding var theHealthKitIsAvailableOnThisDevice: Bool
     
     @State private var isEditingSlider =        false
     
     @State private var refreshIsPressed =       false
-    
-    
-    
-    
     
     @ObservedObject var bloodGlucoseData =      BloodGlucoseData.shared     //***
 //    @EnvironmentObject var bloodGlucoseData: BloodGlucoseData.shared // Replace with your ObservableObject
@@ -50,6 +42,7 @@ struct SettingsView: View {
     @Binding var theMainViewIsLocked: Bool
     @Binding var theShuggaIsPaused: Bool
 
+    @State  var showOtherSettings: Bool = false
 
     var body: some View {
         
@@ -61,10 +54,16 @@ struct SettingsView: View {
         
         NavigationView { // Add NavigationView here
             VStack {
-                
+                HStack {
+                    
+                    Text ("Settings")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    Spacer()
+                }
+                .padding(.leading)
+                .padding([.bottom], -5)
                 if Int(unixTimeForExpirationPurpose) < appExpirationDate {
-                    
-                    
                     
                     Form {
                         
@@ -72,32 +71,84 @@ struct SettingsView: View {
                         
                         if (userAgreedToAgreement) {
                             
-                            MainSwitchSettingsView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused)
+                            MainSwitchSettingsView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, showOtherSettings: $showOtherSettings)
+                            
+                            //theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, showOtherSettings: $showOtherSettings
 
-                            if announcementOn {
-                                
-                                DetailsSettingsView()
-                                UnitSettingsView()
-                                
-                                
-                                WarningSettingsView()
-                                
-                             VoiceSettingsView() // suspecting this to cause an app to crash
-                                
-                                AncillaryDataSettingsView()
-                                
-                                DoNotSleepDisplaySettingView()
-                                
-                                NitPickSettingsView()
-                                
-                                ReminderSettingsView()
 
-//                                DemoSettingsView()
+                            if showOtherSettings {
+                                withAnimation {
+                                    Section {
+                                        DetailsSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        UnitSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        VolumeAndSpeedSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        WarningSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        VoiceSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        DoNotSleepDisplaySettingView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        NitPickSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        AncillaryDataSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        ReminderSettingsView()
+                                            .transition(.opacity)
+                                            .padding(.leading)
+                                    }
+                                }
+                                withAnimation {
+                                    Section {
+                                        ExperimentSettingsView(theMainViewIsLocked: $theMainViewIsLocked)
+                                    }
+                                 }
+                                    
                                 
-                                ExperimentSettingsView( theMainViewIsLocked: $theMainViewIsLocked)
                             }
-                            
-                            
+
                             
                         } // if userAgreedToAgreement
                         
@@ -117,10 +168,15 @@ struct SettingsView: View {
                 }
                 
             }
+            .onAppear {
+                
+                showOtherSettings = announcementOn
+            }
         }
 //        .navigationViewStyle(.stack)
         
     }
+    
 }
 
 

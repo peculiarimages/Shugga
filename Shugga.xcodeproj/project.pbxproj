@@ -960,7 +960,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Shugga-for-Loop-Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake) inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake) inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "For this app to work, you will need to give a read access to your blood glucose data (carb and steps are optional)";
@@ -999,7 +999,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Shugga-for-Loop-Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake) inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The app needs to access your blood glucose (and optionally carbohydrate intake) inside Health to functdion.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "For this app to work, you will need to give a read access to your blood glucose data (carb and steps are optional)";

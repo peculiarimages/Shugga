@@ -364,6 +364,11 @@ struct BloodGlucoseView: View {
                         if theMainViewIsLocked && turnBrightnessDown {
                             UIScreen.main.brightness = CGFloat(0.0) // sets the brightness to 50%
                         }
+                        else
+                        {
+                            UIScreen.main.brightness = theScreenBrightnessBefore // sets the brightness to 50%
+
+                        }
                         
                         
                         

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 let manuals_Shugga_and_shugga = """
 Within the app and in this document, the word shugga (lowercase) is used as a verb.  It refers to the action of announcing the latest blood glucose (BG) reading that is available in the HealthKit data.
@@ -104,3 +104,6 @@ Eg: “Eight minutes and 12 seconds ago, 112 mg/dL. Up 1.1 mg/dL per minute. Thr
 
 What had happened here is that when the app was awaken by the system, the latest value in HealthKit was 112 (which was sampled 8 min and 12 seconds ago). While the app is making that announcement, Loop has entered a new value from the CGM to your HealthKit data. Just be mindful of the battery consumption rate.
 """
+
+
+

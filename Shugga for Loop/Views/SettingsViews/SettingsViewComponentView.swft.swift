@@ -213,10 +213,17 @@ struct DeBugModeForSettingsView: View {
 
 
 struct DoNotSleepDisplaySettingContentView: View {
+    
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+
     @AppStorage("doNotSleepDisplay")  public var doNotSleepDisplay = false
     @AppStorage("turnBrightnessDown") public var turnBrightnessDown = false
     @AppStorage("warnGoingToBackground ") public var warnGoingToBackground = false
 
+    @AppStorage("whiteBackground")                  public var whiteBackground =                    false //nov 1 2022 0:00:00
+    @AppStorage("mainBloodGlucoseDisplayFontSize")  public var mainBloodGlucoseDisplayFontSize =    200
+    @AppStorage("grayAppIcon")                      public var grayAppIcon =                        false
+    @AppStorage("doubleTapForSugah")                public var doubleTapForSugah =                  false
 
     var body: some View {
         Toggle("Prevent display from going to sleep", isOn: $doNotSleepDisplay)
@@ -232,23 +239,48 @@ struct DoNotSleepDisplaySettingContentView: View {
 
         Toggle ("Turn display brightness down when this app settings are locked", isOn: $turnBrightnessDown)
             .padding(.leading)
-            .onChange(of: turnBrightnessDown) { newSetting in
-                DispatchQueue.main.async {
-                    
-                  
-                    if let app = UIApplication.shared.delegate as? AppDelegate {
-
-
-                    }
-                }
-            }
+//            .onChange(of: turnBrightnessDown) { newSetting in
+//                DispatchQueue.main.async {
+//
+//
+//                    if let app = UIApplication.shared.delegate as? AppDelegate {
+//
+//
+//                    }
+//                }
+//            }
         
-        Toggle("Warn me when the app goes into the background while this app settings are locked", isOn: $warnGoingToBackground)
+        Toggle("Background app warning", isOn: $warnGoingToBackground)
                     .onChange(of: warnGoingToBackground) { newScreenSleepValue in
                         DispatchQueue.main.async {
                           print ("warnGoingToBackground")
                         }
                     }
+        
+        Toggle(NSLocalizedString("Double tap the main blood glucose value or app logo above to shugga", comment: ""), isOn: $doubleTapForSugah)
+            .onChange(of: doubleTapForSugah) { doubleTapForSugah in
+                bloodGlucoseData.theTranslator.setAnnounceWithDoubleTap(doubleTapForSugah: doubleTapForSugah) }
+        
+        
+        
+        Toggle(NSLocalizedString("Flat Background", comment: ""), isOn: $whiteBackground)
+            .disabled(false)
+            .onChange(of: whiteBackground) { whiteBackground in
+                bloodGlucoseData.theTranslator.setWhiteBackground(whiteBackground: whiteBackground)}
+        
+        Picker(NSLocalizedString("Glucose value font size", comment: ""), selection: $mainBloodGlucoseDisplayFontSize) {
+            ForEach(mainBloodGlucoseDisplayFontSizeChoices, id: \.self) {
+                Text("\($0)")
+            } }   .pickerStyle(.menu)
+            .accessibilityLabel(_: "This is the size of the font for the main blood glucose value. The default is 200.")
+            .onChange(of: mainBloodGlucoseDisplayFontSize) { mainBloodGlucoseDisplayFontSize in
+                
+                bloodGlucoseData.theTranslator.setMainBGDisplayFontSize(mainBGDisplayFontSize: mainBloodGlucoseDisplayFontSize) }
+        
+        Toggle(NSLocalizedString("Gray app icon", comment: ""), isOn: $grayAppIcon)
+            .onChange(of: grayAppIcon) { grayAppIcon in
+            bloodGlucoseData.theTranslator.setToGrayAppIcon(isSetToGrayAppIcon: grayAppIcon)}
+    
     }
 }
 
@@ -261,8 +293,11 @@ struct DoNotSleepDisplaySettingView:  View {
         
         Section(header:
                     HStack {
-                        Text("Display")
+                        Text("Display Options")
                             .font(.headline)
+                            .foregroundColor(.primary) // This changes the text color to the primary color
+                            .textCase(.uppercase)
+            
                     Spacer()
                         HelpButton(showDescription: $showDescription, title: "Display option")  {
                             VStack(alignment: .leading) {
@@ -316,30 +351,65 @@ struct MainSwitchSettingsContentView: View {
     @AppStorage("as_pauseStartTime") public var as_pauseStartTime: Double = 0
     @AppStorage("as_pauseDuration") public var as_pauseDuration: TimeInterval = 0
 
-    
+    @Binding var showOtherSettings: Bool
+
     
     var body: some View {
+        
+        
+        
+        
         List {
+            
             Toggle((announcementOn ? NSLocalizedString("ShuggaShugga is ON", comment: "Toggle label when Shugga is on") : NSLocalizedString("ShuggaShugga is OFF", comment: "Toggle label when Shugga is off")) + (demoMode ? NSLocalizedString(": (Demo Mode)", comment: "Demo mode indicator") : ""), isOn: $announcementOn)
                 .textCase(.none)
                 .accessibilityLabel(NSLocalizedString("Toggles between on and off.", comment: "Accessibility label for Shugga ME toggle"))
                 .onChange(of: announcementOn) { sugahIsOn in
+                    
+                    
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                                         showOtherSettings = sugahIsOn
+                                     }
+                    
                     bloodGlucoseData.theTranslator.setSugahOnOrOff(sugahStatus: sugahIsOn)
                     
-                    if !announcementOn {
-                        
-                        self.bloodGlucoseData.speech.stopSpeakingNow()
-                    }
+                        if !announcementOn {
+                            
+                            self.bloodGlucoseData.speech.stopSpeakingNow()
+                        }
                 }
             // ___________________________________ lock settings  ___________________________________
-            Toggle("Lock access to settings now", isOn: $showLockButton)
-                .disabled(disableLock || pauseNow)
-                .onChange(of: showLockButton) { showLockButton in
-                    theMainViewIsLocked = showLockButton
+//            Toggle("Lock access to settings now", isOn: $showLockButton)
+//                .disabled(disableLock || pauseNow)
+//                .onChange(of: showLockButton) { showLockButton in
+//
+//                    theScreenBrightnessBefore = UIScreen.main.brightness
+//                    theMainViewIsLocked = showLockButton
+//
+//
+//                }
+//                .padding(.leading)
+//                .listRowSeparator(.hidden)
+            
+            if announcementOn {
+                HStack {
+                    
+                    Spacer()
+                    Button(action: {
+                        theScreenBrightnessBefore = UIScreen.main.brightness
+                        theMainViewIsLocked = true
+                        showLockButton = true
+                    }) {
+                        Text("Lock access to settings now")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(shuggaRed)
+                            .cornerRadius(15)
+                    }
+                    .disabled(disableLock || pauseNow)
+                    Spacer()
                 }
-                .padding(.leading)
-                .listRowSeparator(.hidden)
-
+            }
             // ___________________________________ Pause for ___________________________________
             
             
@@ -412,6 +482,9 @@ struct MainSwitchSettingsContentView: View {
             
         }
         .textCase(.none)
+        
+        
+        
     }
 }
 
@@ -429,14 +502,26 @@ struct MainSwitchSettingsView: View {
     
     @Binding var theMainViewIsLocked: Bool
     @Binding var theShuggaIsPaused: Bool
+    @Binding var showOtherSettings: Bool
+
+    let displayOscillationTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var opacity: Double = 1
     
     var body: some View {
         
         Section(header:     HStack {
-            //                                    Text("Shugga Me")
-            //                                        .font(.headline)
+            Text(announcementOn ? "" : "Turn on shugga here")
+                                                    .font(.headline)
+                                                    .foregroundColor(announcementOn ? .primary : shuggaRed) // This changes the text color to the primary color
+                                                   .opacity(announcementOn ? 1.0 : opacity) // Here we apply the opacity
+
+                                                   .onReceive(displayOscillationTimer) { _ in
+                                                       withAnimation(.easeInOut(duration: 0.5)) {
+                                                                      opacity = opacity == 1 ? 0.1 : 1
+                                                                  }
+                                                              }
             Spacer()
-            HelpButton(showDescription: $showDescription, title: "Shugga Me")  {
+            HelpButton(showDescription: $showDescription, title: "Shugga")  {
                 
                 SpeechBubble {
                     VStack {
@@ -459,7 +544,7 @@ struct MainSwitchSettingsView: View {
                                     .background(Color.clear)
                                 Spacer()
                             }
-                            MainSwitchSettingsContentView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, disableLock: true, unpauseLock: true)
+                            MainSwitchSettingsContentView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, disableLock: true, unpauseLock: true, showOtherSettings: $showOtherSettings)
                             // in the settings view users have access to these toggles
                         }
                     }
@@ -476,12 +561,12 @@ struct MainSwitchSettingsView: View {
                     VStack{
             
             
-            /*
+            
             if announcementOn {
-                Text (shuggaBackgroundWarning)
-                    .foregroundColor(shuggaRed)
+                Text ("The 'Lock access to settings now' option will redirect you back to the main blood glucose display. This feature locks the display to prevent accidental changes to the app settings. Moreover, if the 'Turn display brightness down when app settings are locked' option is enabled in the 'Display' settings below, the screen will darken to save energy.")
+//                    .foregroundColor(shuggaRed)
             }
-            */
+            
             
             
         }
@@ -489,7 +574,7 @@ struct MainSwitchSettingsView: View {
             .font(.footnote)
             .font(.body )
         ) {
-            MainSwitchSettingsContentView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, disableLock: false, unpauseLock: false)
+            MainSwitchSettingsContentView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, disableLock: false, unpauseLock: false, showOtherSettings: $showOtherSettings)
             // in the settings detailed help pop up view users don't  have access to these toggles
         }
     }
@@ -548,8 +633,118 @@ struct MainSwitchSettingsView: View {
 
 
 
+struct VolumeAndSpeedSettingsView: View {
+    @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
+    @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
+ 
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
 
+    @State private var showDescription = false
 
+    var body: some View {
+        
+        Section(header:
+                    HStack {
+                        Text("Volume & Speed")
+                            .font(.headline)
+                            .foregroundColor(.primary) // This changes the text color to the primary color
+                            .textCase(.uppercase)
+            
+                    Spacer()
+                        HelpButton(showDescription: $showDescription, title: "Volume & Speed")  {
+                            VStack(alignment: .leading) {
+                                    SpeechBubble {
+                                        Form {
+
+                                        VolumeAndSpeedSettingsView()
+                                    }
+                                }
+                                VolumeAndSpeedDescriptionView(voiceVolume: $voiceVolume, threeSpeechSpeed: $threeSpeechSpeed)
+                            }
+                        }
+                    }
+                
+            .accessibilityLabel(NSLocalizedString("Blood Glucose Unit. This sets the blood glucose unit. Milligrams per deciliter or millimoles per liter", comment: ""))
+                
+            .font(.headline)
+                //.fontWeight(.regular)
+                , footer:
+                    Text("The volume is relative to the device volume.")
+                
+                
+        ) {
+            VolumeAndSpeedSettingsContentView()
+        }
+    }
+    
+    
+}
+
+struct VolumeAndSpeedSettingsContentView: View {
+    @AppStorage("voiceVolume")                          public var voiceVolume: Double =                1.0
+    @AppStorage("threeSpeechSpeed")                     public var threeSpeechSpeed =                   defaultThreeSpeechSpeed
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+
+    var body: some View {
+        
+        //___________________________________                   ___________________________________
+        // ___________________________________  Shugga Volume   ___________________________________
+        VStack{
+            HStack {
+                Image(systemName: "speaker.wave.1.fill")
+                    .font(.system(size: UIFont.labelFontSize))
+                    .foregroundColor(.secondary)
+                Slider(value: $voiceVolume, in: 0...1)
+                    .valueSlider(value: $voiceVolume)
+                Image(systemName: "speaker.wave.3.fill")
+                    .font(.system(size: UIFont.labelFontSize))
+                    .foregroundColor(.secondary)
+            }
+        }
+        
+        //___________________________________               ___________________________________
+        // ___________________________________  Shugga Speed ___________________________________
+        VStack {
+            HStack {
+//                    Text ("Speed")
+                Picker(NSLocalizedString("Three speeds",
+                                         comment: "Label for speech speed picker"),
+                       selection: $threeSpeechSpeed) {
+                    ForEach(threeSpeeds, id: \.self) {
+                        if $0 == "tortoise" {
+                            Image(systemName: "tortoise.fill")
+                        } else if $0 == "Normal" {
+                            Text(NSLocalizedString("Normal", comment: "Normal speech speed"))
+                        } else {
+                            Image(systemName: "hare.fill")
+                        }
+                    }
+                }
+                       .pickerStyle(SegmentedPickerStyle())
+                       .onChange(of: threeSpeechSpeed) { sugahSpeed in
+                           
+                           switch sugahSpeed {
+                               
+                           case "tortoise":
+                               bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.tortoise)
+                               print ("Shugga speed: tortoise(slow)")
+                           case "Normal":
+                               bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.normal)
+                               print ("Shugga speed: normal(normal)")
+                           case "hare":
+                               bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.hare)
+                               print ("Shugga speed: hare(fast)")
+                           default:
+                               bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.normal)
+                               print ("Shugga speed: normal(default)")
+                           }
+                       }
+            }
+        }
+        
+    }
+    
+}
 
 struct DetailsSettingsView: View {
     
@@ -561,12 +756,17 @@ struct DetailsSettingsView: View {
     @AppStorage("shuggaInBackground")               public var shuggaInBackground =                 true
 
     @AppStorage("tellMeItsFromBackground")               public var tellMeItsFromBackground =                 true
+    @AppStorage("speakElapsedTime")                 public var speakElapsedTime =                   true
 
     @State private var refreshIsPressed = false
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
     @State private var showDescription = false
     
     var DetailedSettingsContentView: some View {
+        
+        
+        
+        
         List{
             VStack{
                 // ___________________________________ Shugga every ___________________________________
@@ -595,6 +795,14 @@ struct DetailsSettingsView: View {
                     let intervalInSeconds = Double(newInterval)
                     bloodGlucoseData.setMainSugarTimerInterval()
                 }
+                
+                Toggle(NSLocalizedString("Shugga \"time elapsed\"", comment: ""), isOn: $speakElapsedTime)
+//                    .listRowSeparator(.hidden)
+                    .padding (.leading)
+
+                        .onChange(of: speakElapsedTime) { speakElapsedTime in
+                            bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }
+                    
             }
             
             
@@ -640,62 +848,10 @@ struct DetailsSettingsView: View {
                 .listRowSeparator(.hidden)
             }
           
-            //___________________________________                   ___________________________________
-            // ___________________________________  Shugga Volume   ___________________________________
-            VStack{
-                HStack {
-                    Image(systemName: "speaker.wave.1.fill")
-                        .font(.system(size: UIFont.labelFontSize))
-                        .foregroundColor(.secondary)
-                    Slider(value: $voiceVolume, in: 0...1)
-                        .valueSlider(value: $voiceVolume)
-                    Image(systemName: "speaker.wave.3.fill")
-                        .font(.system(size: UIFont.labelFontSize))
-                        .foregroundColor(.secondary)
-                }
-            }
-            
-            //___________________________________               ___________________________________
-            // ___________________________________  Shugga Speed ___________________________________
-            VStack {
-                HStack {
-//                    Text ("Speed")
-                    Picker(NSLocalizedString("Three speeds",
-                                             comment: "Label for speech speed picker"),
-                           selection: $threeSpeechSpeed) {
-                        ForEach(threeSpeeds, id: \.self) {
-                            if $0 == "tortoise" {
-                                Image(systemName: "tortoise.fill")
-                            } else if $0 == "Normal" {
-                                Text(NSLocalizedString("Normal", comment: "Normal speech speed"))
-                            } else {
-                                Image(systemName: "hare.fill")
-                            }
-                        }
-                    }
-                           .pickerStyle(SegmentedPickerStyle())
-                           .onChange(of: threeSpeechSpeed) { sugahSpeed in
-                               
-                               switch sugahSpeed {
-                                   
-                               case "tortoise":
-                                   bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.tortoise)
-                                   print ("Shugga speed: tortoise(slow)")
-                               case "Normal":
-                                   bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.normal)
-                                   print ("Shugga speed: normal(normal)")
-                               case "hare":
-                                   bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.hare)
-                                   print ("Shugga speed: hare(fast)")
-                               default:
-                                   bloodGlucoseData.theTranslator.setSugahSpeed(sugahSpeed:SugahSpeed.normal)
-                                   print ("Shugga speed: normal(default)")
-                               }
-                           }
-                }
-            }
             //___________________________________               ___________________________________
         }
+        
+        
     } //   ___________________________________ END OF: var DetailedSettingsContentView: some View {
     
     
@@ -710,10 +866,13 @@ struct DetailsSettingsView: View {
         
         Section(header:
             HStack {
-//                        Text("Shugga Details")
-//                            .font(.headline)
+                        Text("Foreground & Background shugga")
+                            .font(.headline)
+                                .foregroundColor(.primary) // This changes the text color to the primary color
+                                .textCase(.uppercase)
+            
             Spacer()
-            HelpButton(showDescription: $showDescription, title: "Details") {
+            HelpButton(showDescription: $showDescription, title: "Foreground & Background Shugga") {
                 
                 SpeechBubble {
                     Form {
@@ -820,6 +979,9 @@ struct UnitSettingsView: View {
                     HStack {
                         Text("Blood Glucose & Trend Units")
                             .font(.headline)
+                            .foregroundColor(.primary) // This changes the text color to the primary color
+                            .textCase(.uppercase)
+            
                     Spacer()
                         HelpButton(showDescription: $showDescription, title: "Blood Glucose & Trend Units")  {
                             VStack(alignment: .leading) {
@@ -956,10 +1118,14 @@ struct ReminderSettingsView: View {
         
            Section(header:
                        HStack {
-//                           Text("Post carb reminders")
-//                               .font(.headline)
+                           Text("Post carb reminders")
+                               .font(.headline)
+                                   .foregroundColor(.primary) // This changes the text color to the primary color
+                                   .textCase(.uppercase)
+               
+
                Spacer()
-                           HelpButton(showDescription: $showDescription, title: "Blood Glucose Check Reminders")  {
+                           HelpButton(showDescription: $showDescription, title: "Post Carb Reminders")  {
                                VStack(alignment: .leading) {
                                        SpeechBubble{
                                            Form {
@@ -1045,8 +1211,10 @@ struct AncillaryDataSettingsView: View {
            
            Section(header:
                        HStack {
-//                           Text("Ancillary Data")
-//                               .font(.headline)
+                           Text("Ancillary Data")
+                               .font(.headline)
+                                   .foregroundColor(.primary) // This changes the text color to the primary color
+                                   .textCase(.uppercase)
                Spacer()
                            HelpButton(showDescription: $showDescription, title: "Ancillary Data")  {
                                VStack(alignment: .leading) {
@@ -1121,10 +1289,13 @@ struct WarningSettingsView: View {
             Section(header:
                 
                 HStack {
-//                    Text("No Fresh Blood Glucose Data")
-//                        .font(.headline)
+                    Text("Warnings")
+                        .font(.headline)
+                                    .foregroundColor(.primary) // This changes the text color to the primary color
+                                    .textCase(.uppercase)
+                
                 Spacer()
-                    HelpButton(showDescription: $showDescription, title: "No Fresh Blood Glucose Data")  {
+                    HelpButton(showDescription: $showDescription, title: "Warnings")  {
                         VStack(alignment: .leading) {
                             SpeechBubble {
                                 Form { WarningSettingsContentView(dataTooOldPeriod_min: $dataTooOldPeriod_min, warnNoFreshData: $warnNoFreshData) }
@@ -1166,7 +1337,6 @@ struct NitPickySettingsContentView: View {
     @AppStorage("skipHundredth")                    public var skipHundredth =                      false
     @AppStorage("usesApplicationAudioSession")      public var usesApplicationAudioSession =        false
     @AppStorage("userBloodGlucoseUnit")             public var userBloodGlucoseUnit =               defaultBloodGlucoseUnit
-    @AppStorage("doubleTapForSugah")                public var doubleTapForSugah =                  false
     @AppStorage("whiteBackground")                  public var whiteBackground =                    false //nov 1 2022 0:00:00
     @AppStorage("mainBloodGlucoseDisplayFontSize")  public var mainBloodGlucoseDisplayFontSize =    200
     @AppStorage("grayAppIcon")                      public var grayAppIcon =                        false
@@ -1177,7 +1347,7 @@ struct NitPickySettingsContentView: View {
     @AppStorage("showAncillaryData")                public var showAncillaryData =                  true
     @AppStorage("showLockButton")                   public var showLockButton =                     false
     @AppStorage("shuggaRepeats")                    public var shuggaRepeats =                     defaultShuggaRepeats
-
+    @AppStorage("shuggaRepeatsOnlyOutOfRange")                    public var shuggaRepeatsOnlyOutOfRange =                     false
 
     var body: some View {
         
@@ -1186,45 +1356,28 @@ struct NitPickySettingsContentView: View {
             Toggle(NSLocalizedString("Shugga twice in a row", comment: ""), isOn: $shuggaRepeats)
                 .disabled((false))
             
-            Toggle(NSLocalizedString("Only when blood glucose is out of range", comment: ""), isOn: $shuggaRepeats)
+            Toggle(NSLocalizedString("Only when blood glucose is out of range", comment: ""), isOn: $shuggaRepeatsOnlyOutOfRange)
                 .disabled((true))
                 .padding (.leading)
                 .listRowSeparator(.hidden)
 
 
-            Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
-                    .onChange(of: speakElapsedTime) { speakElapsedTime in
-                        bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }
+//            Toggle(NSLocalizedString("Shugga \"time elapsed\" when in foreground", comment: ""), isOn: $speakElapsedTime)
+//                    .onChange(of: speakElapsedTime) { speakElapsedTime in
+//                        bloodGlucoseData.theTranslator.setAnnounceElapsedTime(announceElapsedTime: speakElapsedTime) }
                 
-                Toggle("\"Skip hundred\"\(LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName ? "" : " only works with English voices")", isOn: $skipHundredth)
-                    .disabled((LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName) ? false : true)
-                    .onChange(of: skipHundredth) { skipHundredthBool in
-                        bloodGlucoseData.theTranslator.setSkipHundredths(skipHundredth: skipHundredthBool) }
-                
-                Toggle(NSLocalizedString("Double tap the main blood glucose value or app logo above to shugga", comment: ""), isOn: $doubleTapForSugah)
-                    .onChange(of: doubleTapForSugah) { doubleTapForSugah in
-                        bloodGlucoseData.theTranslator.setAnnounceWithDoubleTap(doubleTapForSugah: doubleTapForSugah) }
-                
-                Toggle(NSLocalizedString("Flat Background", comment: ""), isOn: $whiteBackground)
-                    .disabled(false)
-                    .onChange(of: whiteBackground) { whiteBackground in
-                        bloodGlucoseData.theTranslator.setWhiteBackground(whiteBackground: whiteBackground)}
-                
-                Picker(NSLocalizedString("Glucose value font size", comment: ""), selection: $mainBloodGlucoseDisplayFontSize) {
-                    ForEach(mainBloodGlucoseDisplayFontSizeChoices, id: \.self) {
-                        Text("\($0)")
-                    } }   .pickerStyle(.menu)
-                    .accessibilityLabel(_: "This is the size of the font for the main blood glucose value. The default is 200.")
-                    .onChange(of: mainBloodGlucoseDisplayFontSize) { mainBloodGlucoseDisplayFontSize in
-                        
-                        bloodGlucoseData.theTranslator.setMainBGDisplayFontSize(mainBGDisplayFontSize: mainBloodGlucoseDisplayFontSize) }
-                
-                Toggle(NSLocalizedString("Gray app icon", comment: ""), isOn: $grayAppIcon)
-                    .onChange(of: grayAppIcon) { grayAppIcon in
-                    bloodGlucoseData.theTranslator.setToGrayAppIcon(isSetToGrayAppIcon: grayAppIcon)}
             
-
-             
+            
+            
+//
+//                Toggle("\"Skip hundred\"\(LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName ? "" : " only works with English voices")", isOn: $skipHundredth)
+//                    .disabled((LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName) ? false : true)
+//                    .onChange(of: skipHundredth) { skipHundredthBool in
+//                        bloodGlucoseData.theTranslator.setSkipHundredths(skipHundredth: skipHundredthBool) }
+//
+//
+//
+//
 
             
             
@@ -1280,6 +1433,10 @@ struct NitPickSettingsView: View {
                                                 HStack {
                                                     Text("Fussy Details")
                                                         .font(.headline)
+                                                        .foregroundColor(.primary) // This changes the text color to the primary color
+                                                        .textCase(.uppercase)
+            
+
             Spacer()
                                                     HelpButton(showDescription: $showDescription, title: "Fussy Details")  {
                                                         VStack(alignment: .leading) {
@@ -1321,6 +1478,8 @@ struct DemoSettingsView: View {
                     HStack {
 //                                Text("Demo Setting")
 //                                    .font(.headline)
+            //                    .foregroundColor(.primary) // This changes the text color to the primary color
+
                                 Spacer()
                                 HelpButton(showDescription: $showDescription, title: "Demo Setting")  {
                                     VStack(alignment: .leading) {
@@ -1367,7 +1526,10 @@ struct VoiceSettingsView: View {
     
     @AppStorage("sugahLanguageChosen")     public var sugahLanguageChosen =         defaultSugahLanguage
     @AppStorage("sugahVoiceChosen")     public var sugahVoiceChosen =               defaultSugahVoice
+    @AppStorage("skipHundredth")                    public var skipHundredth =                      false
+
     @AppStorage("sugahLanguageCombinedCodeChosen")
+
     public var sugahLanguageCombinedCodeChosen =         "en-US"
     
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
@@ -1380,13 +1542,15 @@ struct VoiceSettingsView: View {
     var body: some View {
         
         if true {
-            
             Section(header:
                         HStack {
-                            Text("")
+                            Text("Voice & Language Settings")
                                 .font(.headline)
+                                    .foregroundColor(.primary) // This changes the text color to the primary color
+                                    .textCase(.uppercase)
+                
                 Spacer()
-                            HelpButton(showDescription: $showDescription, title: "Voice & Language Setting")  {
+                            HelpButton(showDescription: $showDescription, title: "Voice & Language Settings")  {
                                 VStack(alignment: .leading) {
 //                                    SpeechBubble {
 //                                        Form { VoiceSettingsContentView() }
@@ -1469,11 +1633,9 @@ struct VoiceSettingsView: View {
                         
                     }
                 }
-
-)
+                )
                 .listRowSeparator(.hidden)
                 .padding(.leading)
-
                 .onChange(of: sugahVoiceChosen) { selectedLanguage in
                     
                     let sugahVoiceLocal = sugahVoiceChosen.prefix(2)
@@ -1493,6 +1655,16 @@ struct VoiceSettingsView: View {
                     
                     Text (sugahLanguageCombinedCodeChosen)
                 }
+                
+             
+                Toggle("\"Skip hundred\"\(LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName ? "" : " only works with English voices")", isOn: $skipHundredth)
+                    .disabled((LanguageNamesInEnglish.english.rawValue == bloodGlucoseData.theTranslator.currentLanguageName) ? false : true)
+                    .onChange(of: skipHundredth) { skipHundredthBool in
+                        bloodGlucoseData.theTranslator.setSkipHundredths(skipHundredth: skipHundredthBool) }
+                    .listRowSeparator(.hidden)
+                    .padding(.leading)
+
+                
                 //  Text("sugahVoiceChosen: \(sugahVoiceChosen)")
             }
         } //thisIsBeta
@@ -1535,6 +1707,8 @@ struct ExperimentSettingsView: View {
                         HStack {
                             Text("Experimental Settings")
                                 .font(.headline)
+                                .foregroundColor(.primary) // This changes the text color to the primary color
+
                 Spacer()
                             HelpButton(showDescription: $showDescription, title: "Experimental Settings")  {
                                 VStack(alignment: .leading) {
@@ -1651,7 +1825,8 @@ struct UserAgreementView: View {
             VStack {
                 Section(header: Text(NSLocalizedString("Privacy notice", comment: ""))
                     .font(.headline)
-                        
+                    .foregroundColor(.primary) // This changes the text color to the primary color
+
                 ) {
                     
                     //                                Image (systemName: "eyes.inverse")
@@ -1712,7 +1887,10 @@ struct AcknowledgmentsSettingsView: View {
     
     var body: some View {
         
-        Section(header: Text("Acknowledgments")) {
+        Section(header: Text("Acknowledgments")
+            .font(.headline)
+            .foregroundColor(.primary) // This changes the text color to the primary color
+) {
             VStack {
                 VStack {
                     Text (acknowledgementText)

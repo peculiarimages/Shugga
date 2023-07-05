@@ -53,7 +53,7 @@ struct FAQsView: View {
                     .font(.title2)
                 
                 Text("""
-If you go back to using G6 after G7, you may need to delete and re-sync the G6 using your Loop.app if the trend is no longer available on ShuggaShugga.app. You can check if the trend is missing by checking the latest blood glucose entry in the Health: Blood Glucose: Show All Data. It should have an entry for "...GlucoseTrendRateValue".
+Yes, But if you go back to using G6 after G7, you may need to delete the G7 app and re-sync the G6 using your Loop.app if the trend is no longer available on ShuggaShugga.app. You can check if the trend is missing by checking the latest blood glucose entry in the Health: Blood Glucose: Show All Data. It should have an entry for "...GlucoseTrendRateValue".
 
 """)
                 .padding([.leading, .trailing, .bottom])
