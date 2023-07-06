@@ -214,18 +214,10 @@ struct BloodGlucoseView: View {
                         
                         
                         
-                        TopMenuView( grayAppIcon: $grayAppIcon,     settingsSymbol: $settingsSymbol,    navigationImageSize: $navigationImageSize,
-                                     userAgreedToAgreement: $userAgreedToAgreement,                     orientation: $orientation,
+                        TopMenuView( grayAppIcon: $grayAppIcon, settingsSymbol: $settingsSymbol, navigationImageSize: $navigationImageSize,
+                                     userAgreedToAgreement: $userAgreedToAgreement, orientation: $orientation,
                                      theHealthKitIsAvailableOnThisDevice: $theHealthKitIsAvailableOnThisDevice)
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        Spacer()
+                          Spacer()
                         
                         if (Int(unixTimeForExpirationPurpose) < appExpirationDate && thisIsBeta == true ) || thisIsBeta == false
                         {

@@ -225,19 +225,7 @@ struct HelpButton<Content: View>: View {
                     Button(action: {
                         showDescription = false
                     }) {
-                        Text("Close")
-                            .padding(.vertical)
-                            .padding(.horizontal, 10)
-                            .foregroundColor(.white) // Use white text color
-
-                            .background(Color(.systemBlue)) // Use system blue color
-                            .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 7.5)
-                                    .stroke(Color.blue, lineWidth: 1)
-                            )
-                            .minimumScaleFactor(0.5) // Adjust this value as needed
-                            .lineLimit(1) // Ensure that the text is limited to a single line
+                        CloseButtonText()
                     }
                     Spacer()
 

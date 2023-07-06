@@ -148,10 +148,11 @@ struct VolumeAndSpeedDescriptionView: View {
                     Text("""
 The volume you can select here is in relative to the system volume.
 
-eg: If the system volume is set to 100%, your podcast will sound at 100%. If shugga setting is set to 50% here, shugga volume will be half of that 100%. So use this setting if shugga is too loud compared to an already playing media.
+Example: If the system volume is set to 100%, your podcast will sound at 100%. If shugga setting is set to 50% here, shugga volume will be half of that 100%. So use this setting if shugga is too loud compared to an already playing media.
 """)
                         .foregroundColor(Color.primary)
                         .padding(.bottom)
+                        .padding([.bottom, .leading, .trailing])
 
                     
                     endOfDescriptionScrollView
@@ -164,6 +165,47 @@ eg: If the system volume is set to 100%, your podcast will sound at 100%. If shu
             .padding()
     }
 }
+
+
+
+struct WarningsSettingsDescriptionView: View {
+    
+    @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+
+    @Binding public var dataTooOldPeriod_min: Int
+    @Binding public var warnNoFreshData: Bool
+    
+    
+    var body: some View {
+            
+            VStack() {
+               
+                ScrollView {
+
+                    Text("""
+                    No Fresh Blood Glucose Data: If your CGM samples every 5 minutes, set this time sometime after that.
+                    
+                    This then will warn you if the latest available blood glucose data in Health is older than that, the app will try to Shugga you as such. The default value is \(dateTooOldPeriod_min_default) minutes
+                    """)
+                        .textCase(.none)
+                        .foregroundColor(Color.primary)
+                        .padding(.bottom)
+                        .padding([.bottom, .leading, .trailing])
+
+                    
+                    endOfDescriptionScrollView
+                    Spacer()
+            }
+                .scrollOverlayOnTheBottom()
+
+        }
+            .textCase(.none)
+            .padding()
+    }
+}
+
+
+
 
 struct DetailedSettingsDescriptionView: View {
     
@@ -179,18 +221,20 @@ struct DetailedSettingsDescriptionView: View {
             VStack() {
                
                 ScrollView {
-
+                    Section {
                     Text("""
 When this app comes to the foreground, it will check the last known blood glucose entry in your Health. If the entry is older than the value you've set above, the app will initiate a shugga.
                          
 If not, the app will initiate a shugga at the next timer interval you've selected here.
 """)
-                        .foregroundColor(Color.primary)
-                        .padding(.bottom)
-
+                    .foregroundColor(Color.primary)
+                    
                     
                     endOfDescriptionScrollView
                     Spacer()
+                }
+                    .padding([.bottom, .leading, .trailing])
+
             }
                 .scrollOverlayOnTheBottom()
 
@@ -222,10 +266,12 @@ The app attempts to read the glucose trend from the blood glucose data in Health
                 
                     .foregroundColor(Color.primary)
                     .padding(.bottom)
-             
+                    .padding([.bottom, .leading, .trailing])
+
                 endOfDescriptionScrollView
                 Spacer()
             }
+            .padding()
             .scrollOverlayOnTheBottom()
 
         }
@@ -257,6 +303,7 @@ The app attempts to read the glucose trend from the blood glucose data in Health
 """)
                     .foregroundColor(Color.primary)
                     .padding(.bottom)
+                    .padding([.bottom, .leading, .trailing])
 
                 
 
@@ -338,29 +385,35 @@ struct AncillaryDataViewSettingsDescriptionView: View {
         VStack () {
             ScrollView {
                 VStack {
-                    Spacer()
                     
-                    SpeechBubble{ VStack{ShuggaStatusInfoView()}.padding() }
-                    Text ("Status: Toggles between showing and hiding status icons and output port.")
-                        .foregroundColor(Color.primary)
-                        .padding(.bottom)
-                    
-                    Spacer()
+                    Text ("""
+Choose the ancillary data you would like to be shown in the main display.
 
-                    SpeechBubble{ VStack{CGM_InfoView()}.padding() }
-                    Text ("CGM Info: Toggles between showing and hiding the basic CGM info in your recent blood glucose data.")
-                        .foregroundColor(Color.primary)
-                        .padding(.bottom)
+""")
                     
-                    Spacer()
-
-                    SpeechBubble{ VStack{CarbStatusView()}.padding() }
-                    Text ("Carb History: When this is turned on, the main screen will show your carb history over the 24 hours.")
-                        .foregroundColor(Color.primary)
-                        .padding([.bottom, .leading, .trailing])
                     
-                    endOfDescriptionScrollView
+//
+//                    SpeechBubble{ VStack{ShuggaStatusInfoView()}.padding() }
+//                    Text ("Status: Toggles between showing and hiding status icons and output port.")
+//                        .foregroundColor(Color.primary)
+//                        .padding(.bottom)
+//
 //                    Spacer()
+//
+//                    SpeechBubble{ VStack{CGM_InfoView()}.padding() }
+//                    Text ("CGM Info: Toggles between showing and hiding the basic CGM info in your recent blood glucose data.")
+//                        .foregroundColor(Color.primary)
+//                        .padding(.bottom)
+//
+//                    Spacer()
+//
+//                    SpeechBubble{ VStack{CarbStatusView()}.padding() }
+//                    Text ("Carb History: When this is turned on, the main screen will show your carb history over the 24 hours.")
+//                        .foregroundColor(Color.primary)
+//                        .padding([.bottom, .leading, .trailing])
+//
+                    endOfDescriptionScrollView
+                    Spacer()
                 }
             }
             .scrollOverlayOnTheBottom()
@@ -403,9 +456,8 @@ struct NitPickyDescriptionView: View {
 
                     Text("Skip Hundred: When English is the selected language, enabling this option will prompt Shugga to say \"One twenty three\" instead of \"One hundred twenty three\" when the value is 123.")
                         .foregroundColor(Color.primary)
-                        .padding(.bottom)
                 }
-                .padding([.leading, .trailing])
+                .padding([.bottom, .leading, .trailing])
 
                 Group{
                     Text("Double-tap screen for Shugga: When this option is enabled, you can double-tap the blood glucose value displayed on the main screen to manually initiate a shugga. If Ancillary Data: Carb History is showing, double-tapping in that area will trigger Shugga to review your carb intake according to your carb reminder settings. (e.g., if you have a 2-hour reminder selected, Shugga will check for any new blood sugar entries after two hours and notify you).")
@@ -414,9 +466,8 @@ struct NitPickyDescriptionView: View {
 
                     Text("Flat Background: Enable this if you prefer a non-gradient background on the main screen.")
                         .foregroundColor(Color.primary)
-                        .padding(.bottom)
                 }
-                .padding([.leading, .trailing])
+                .padding([.bottom, .leading, .trailing])
 
                 Group{
                     Text("Glucose Value Font Size: This setting controls the size of the blood glucose value displayed on the main screen. It also impacts the size of other ancillary data relative to the blood glucose font size.")
@@ -431,15 +482,15 @@ struct NitPickyDescriptionView: View {
                         .foregroundColor(Color.primary)
                         .padding(.bottom)
                 }
-                .padding([.leading, .trailing])
+                .padding([.bottom, .leading, .trailing])
 
-                Group{
-                    Text("Other Audio: NOT IMPLEMENTED YET")
-                        .foregroundColor(Color.primary)
-                        .padding([.bottom, .leading, .trailing])
-                }
-
-                .padding([.leading, .trailing])
+//                Group{
+//                    Text("Other Audio: NOT IMPLEMENTED YET")
+//                        .foregroundColor(Color.primary)
+//                        .padding([.bottom, .leading, .trailing])
+//                }
+//
+//                .padding([.leading, .trailing])
                 
                 endOfDescriptionScrollView
                 

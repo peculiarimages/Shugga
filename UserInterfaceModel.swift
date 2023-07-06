@@ -14,6 +14,28 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 
+struct CloseButtonText: View {
+    
+    var body: some View {
+        
+        Text("Close")
+            .padding(.vertical)
+            .padding(.horizontal, 10)
+            .foregroundColor(.white) // Use white text color
+
+            .background(Color(.systemBlue)) // Use system blue color
+            .cornerRadius(5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 7.5)
+                    .stroke(Color.blue, lineWidth: 1)
+            )
+            .minimumScaleFactor(0.5) // Adjust this value as needed
+            .lineLimit(1) // Ensure that the text is limited to a single line
+        
+    }
+    
+    
+}
 
 
 struct FeatheredEdgeShape: Shape {
@@ -126,9 +148,11 @@ struct SpeechBubble<Content: View>: View {
             }
 //            .padding(EdgeInsets(top: 22, leading: 22, bottom: 22, trailing: 22))
 //            .padding(5)
-            .scaleEffect(0.9)
+            .scaleEffect(0.85)
             .background(
                 RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(UIColor.systemBackground)) // System background color
+
 //                    .foregroundColor(Color(.systemBackground))
                     .shadow(color: Color(.black).opacity(0.4), radius: 8, x: 0, y: 2)
                     .overlay(

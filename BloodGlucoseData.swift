@@ -1344,6 +1344,12 @@ class BloodGlucoseData: ObservableObject {
                 
                 
                 
+                
+                
+                
+                
+                
+                
             let hkSamples = samples.compactMap { $0 as? HKQuantitySample }
 
                 

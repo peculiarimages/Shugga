@@ -542,8 +542,11 @@ struct MainSwitchSettingsView: View {
                                         .accessibilityLabel(_: "\"S U G G A H\" is how we spell this app's name. This accessibility label reader says Shugga")
                                 }.padding(.bottom)
                                     .background(Color.clear)
+                                
                                 Spacer()
                             }
+                            
+                            
                             MainSwitchSettingsContentView(theMainViewIsLocked: $theMainViewIsLocked, theShuggaIsPaused: $theShuggaIsPaused, disableLock: true, unpauseLock: true, showOtherSettings: $showOtherSettings)
                             // in the settings view users have access to these toggles
                         }
@@ -1296,13 +1299,16 @@ struct WarningSettingsView: View {
                 
                 Spacer()
                     HelpButton(showDescription: $showDescription, title: "Warnings")  {
-                        VStack(alignment: .leading) {
+                        VStack/*(alignment: .leading) */ {
                             SpeechBubble {
-                                Form { WarningSettingsContentView(dataTooOldPeriod_min: $dataTooOldPeriod_min, warnNoFreshData: $warnNoFreshData) }
+                                VStack {
+                                    Form { WarningSettingsContentView(dataTooOldPeriod_min: $dataTooOldPeriod_min, warnNoFreshData: $warnNoFreshData) }
+                                }
                             }
-                            Text("No Fresh Blood Glucose Data: If your CGM samples every 5 minutes, set this time sometime after that. This then will warn you if the latest available blood glucose data in Health is older than that, the app will try to Shugga you as such. The default value is \(dateTooOldPeriod_min_default) minutes")
-                                .textCase(.none)
-                            Spacer()
+                            WarningsSettingsDescriptionView(dataTooOldPeriod_min: $dataTooOldPeriod_min, warnNoFreshData: $warnNoFreshData)
+                            
+ 
+//                            Spacer()
                         }
                     }
                 }
@@ -1826,19 +1832,15 @@ struct UserAgreementView: View {
                 Section(header: Text(NSLocalizedString("Privacy notice", comment: ""))
                     .font(.headline)
                     .foregroundColor(.primary) // This changes the text color to the primary color
-
                 ) {
-                    
                     //                                Image (systemName: "eyes.inverse")
                     //                                    .font(.system(size: 33, weight: .regular))
                     Text (whatThisAppDoes)
                         .font(.callout)
                         .minimumScaleFactor(0.5)
-                    
                 }
                 .accessibilityLabel(_: "Privacy notice")
             }                        .padding()
-
             
             VStack {
                 Section( footer: Text(userAgreedToAgreement ? "" : "You have to agree to this before the app is functional.").foregroundColor(shuggaRed)
@@ -1855,7 +1857,6 @@ struct UserAgreementView: View {
                         }.onChange(of: userAgreedToAgreement) { newValue in
                             if newValue {
                                 // user agreed to the terms, so stop the player
-                                
 //                                bloodGlucoseData.thePlayer.stopSpeakingNow()
                             }
                         }
@@ -1865,19 +1866,17 @@ struct UserAgreementView: View {
                                     .font(.footnote)
                                     .accessibilityLabel(_: "This is the agreement that you must agree by clicking the button below for the app to work.")
                             }.padding()
-                            
                         }
                         .background(shuggaRed.opacity(0.5))
                         .cornerRadius(10)
-
                     }
                 }
+                Spacer()
 
                 //                if userAgreedToAgreement {
                 //                    NavigationLink(destination: BloodGlucoseView(), isActive: $userAgreedToAgreement, label: { EmptyView() } )
                 //                }
             }
-
             .frame(height: 400)
         }
     }

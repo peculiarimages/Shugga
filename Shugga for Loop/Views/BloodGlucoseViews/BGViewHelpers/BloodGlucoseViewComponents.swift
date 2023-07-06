@@ -295,6 +295,23 @@ struct CarbStatusView: View {
     var totalCarbsIn24Hrs: Double = 0
     var body: some View {
         
+//        var carbHistory: [String] {
+//            var history = [String]()
+//            
+//            for carb in carbohydrateData.carbs.reversed() {
+//                history.append(String(Int(carb.amount ?? 0)))
+//                
+//                if let date = carb.date {
+//                    history.append((Date().timeIntervalSince(date) > SecondsIn.fourHours.asDouble
+//                         ? formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.hours)
+//                         : formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.minutes)
+//                    ))
+//                }
+//            }
+//            
+//            return history
+//        }
+        
         
 //        GeometryReader { geometry in
             
@@ -306,7 +323,7 @@ struct CarbStatusView: View {
 
                 HStack {
                     Spacer()
-                    Text("CARB HISTORY")
+                    Text("CARB HISTORY (g)")
 //                                .foregroundColor(.secondary)
                         .background(Color.clear)
                         .opacity(0.35)
@@ -337,15 +354,39 @@ struct CarbStatusView: View {
                         
                         else {
                             VStack{
-                                                              
+                                   
+                                
+                                
+                              
+                                
+                                
+//
+//                                let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+//
+//                                           LazyVGrid(columns: gridItems, spacing: 1) {
+//                                               ForEach(carbHistory, id: \.self) { thisCarbHistory in
+//                                                   Text(thisCarbHistory)
+////                                                       .frame(minWidth: 0, maxWidth: .infinity)
+////                                                       .padding()
+////                                                       .background(Color.yellow)
+////                                                       .border(Color.black, width: 1)
+//                                               }
+//                                           }
+////                                           .padding(.horizontal)
+//
+                                   
+                                
+                                
+                                
+                                
                                 ForEach(carbohydrateData.carbs.reversed(), id: \.self) { carb in
                                     HStack {
                                         Spacer()
-                                        Text("\(Int(carb.amount ?? 0))g: ")
+                                        Text("\(Int(carb.amount ?? 0)): ")
                                         
                                         if let date = carb.date {
                                             Text(Date().timeIntervalSince(date) > SecondsIn.fourHours.asDouble
-                                                 ? "More than \(formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.hours)) ago."
+                                                 ? "\(formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.hours)) ago."
                                                  : "\(formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.minutes)) ago."
                                             )
                                         }
@@ -355,6 +396,14 @@ struct CarbStatusView: View {
                                     .background(Color.clear)
                                     .padding(.bottom, 3)
                                 }
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                             }
                     }
                 }
@@ -457,6 +506,7 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
  
         SpeechBubble {
             ScrollView {
+                
                 HStack {
                     Spacer()
                     Image(systemName: "person.crop.circle.badge.exclamationmark.fill")
@@ -473,6 +523,7 @@ struct UserHasNotAgreedToAgreementNoticeView: View {
             }
             .padding()
         }
+
         .padding()
         Spacer()
         Spacer()
@@ -740,19 +791,8 @@ struct UnitConversionHelpPopupView: View {
                 Button(action: {
                     dismiss()
                 }) {
-                    Text("Close")
-                        .padding(.vertical)
-                        .padding(.horizontal, 10)
-                        .foregroundColor(.white) // Use white text color
-                        .background(Color(.systemBlue)) // Use system blue color
+                    CloseButtonText()
 
-                        .cornerRadius(5)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 7.5)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                        .minimumScaleFactor(0.5) // Adjust this value as needed
-                        .lineLimit(1) // Ensure that the text is limited to a single line
                 }
                 
             }
@@ -788,57 +828,112 @@ struct StatusHelpPopupView: View {
             Spacer()
             Text ("Shugga Status Symbols Help")
                 .padding()
-            HStack {
-                Image(systemName: "circle.inset.filled")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
+                .bold()
+            LazyVStack(alignment: .leading) {
+
+                HStack {
+                    Image(systemName: "circle.inset.filled")
+                        .font(.system(size: 20))
+                        .foregroundColor(shuggaRed)
+                        .opacity(0.5)
+                        .frame(width: 40)
+                    
+                    Text ("This turns red when the app is checking your Health data.")
+                }
+                .padding()
                 
-                Image(systemName: "bubble.left.fill")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
+                HStack {
+//                    Image(systemName: "bubble.left.fill")
+//                        .font(.system(size: 20))
+//                        .foregroundColor(.primary)
+//                        .opacity(0.5)
+//                        .frame(width: 40)
+//
+//
+//                    Image(systemName:  "text.bubble")
+//                        .font(.system(size: 20))
+//                        .foregroundColor(.primary)
+//                        .opacity(0.5)
+//                        .frame(width: 40)
+                    
+                    Image(systemName:  "speaker.wave.2.bubble.left.fill")
+                        .font(.system(size: 20))
+                        .foregroundColor(.primary)
+                        .opacity(0.5)
+                        .frame(width: 40)
+                    
+                    Text ("The speaker shows when the app is speaking.")
+                    
+                }
+                .padding()
+
+                HStack {
+//                    Image(systemName: "bubble.left.fill")
+//                        .font(.system(size: 20))
+//                        .foregroundColor(.primary)
+//                        .opacity(0.5)
+//                        .frame(width: 40)
+//
+//
+//                    Image(systemName:  "text.bubble")
+//                        .font(.system(size: 20))
+//                        .foregroundColor(.primary)
+//                        .opacity(0.5)
+//                        .frame(width: 40)
+                    
+                    Image(systemName: "x.circle.fill")
+                        .font(.system(size: 20))
+                        .foregroundColor(shuggaRed)
+                        .opacity(0.5)
+                        .frame(width: 40)
+                    
+                    Text ("This X will show in red when shugga is turned off in the settings and/or when the app encounters errors upon shugga.")
+                    
+                }
+                .padding()
                 
-                Image(systemName:  "text.bubble")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
-                
-                Image(systemName:  "speaker.wave.2.bubble.left.fill")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
-                
-                Image(systemName: "x.circle.fill")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
-                
-                Image(systemName: "drop.circle")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
-                    .foregroundColor(shuggaRed)
-                
-                Image(systemName: "drop.circle.fill")
-                    .font(.system(size: 20))
-                    .foregroundColor(.primary)
-                    .opacity(0.5)
-                    .frame(width: 40)
+                HStack {
+                    
+                    //                Image(systemName: "x.circle.fill")
+                    //                    .font(.system(size: 20))
+                    //                    .foregroundColor(.primary)
+                    //                    .opacity(0.5)
+                    //                    .frame(width: 40)
+                    //
+                    //                Image(systemName: "drop.circle")
+                    //                    .font(.system(size: 20))
+                    //                    .foregroundColor(.primary)
+                    //                    .opacity(0.5)
+                    //                    .frame(width: 40)
+                    //                    .foregroundColor(shuggaRed)
+                    //
+                    Image(systemName: "drop.circle.fill")
+                        .font(.system(size: 20))
+                        .foregroundColor(shuggaRed)
+                        .opacity(0.5)
+                        .frame(width: 40)
+                    
+                 Text ("Turns red when Carb Reminder shows it's time to add manual blood glucose data to Health.")
+                }
+                .padding()
+
             }
             .padding()
             
             Spacer()
-            Button("OK") {
-                dismiss()
+            Button(action: {
+                dismiss()            }) {
+                    CloseButtonText()
+
             }
         }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                dismiss()
+            }
+       
+        }
+        
     }
 }
 
@@ -854,6 +949,7 @@ struct ShuggaStatusInfoView: View {
     @State var glucoseFetchImage = "lasso"
     @ObservedObject var speech = Speech.shared
     @AppStorage("mainBloodGlucoseDisplayFontSize")  public var mainBloodGlucoseDisplayFontSize =    200
+    @AppStorage("announcementOn")               public var announcementOn =                     defaultShuggaIsOn
 
     @State private var showingStatusHelpPopup: Bool = false
 
@@ -937,8 +1033,17 @@ struct ShuggaStatusInfoView: View {
                 Spacer()
                 Text("Audio Port Type: ")
                     .opacity (0.4)
-                Text ("\(speech.currentAudioPortType ?? "Unknown")")
-                    .opacity (0.6)
+                Group {
+                    if announcementOn {
+                        Text("\(speech.currentAudioPortType ?? "Unknown")")
+                            .opacity(0.6)
+                    } else {
+                        Text("Shugga is turned off in the settings")
+                            .foregroundColor(shuggaRed)
+                            .opacity(0.6)
+
+                    }
+                }
                 Spacer()
             }
         }
