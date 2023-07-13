@@ -205,6 +205,42 @@ struct WarningsSettingsDescriptionView: View {
 }
 
 
+struct VoiceSettingsDescriptionView: View {
+    
+  
+    
+    
+    var body: some View {
+            
+            VStack() {
+               
+                ScrollView {
+
+                    Text("""
+                    Only English is available in this version of this app.
+                    
+                    You have 4 voices to choose from.
+                    
+                    When English is selected, "Skip hundred" will omit "hundred" from shugga.
+                    
+                    Example: Instead of "One hundred twenty one" -> "One twenty one"
+                    """)
+                        .textCase(.none)
+                        .foregroundColor(Color.primary)
+                        .padding(.bottom)
+                        .padding([.bottom, .leading, .trailing])
+
+                    
+                    endOfDescriptionScrollView
+                    Spacer()
+            }
+                .scrollOverlayOnTheBottom()
+
+        }
+            .textCase(.none)
+            .padding()
+    }
+}
 
 
 struct DetailedSettingsDescriptionView: View {

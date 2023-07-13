@@ -24,6 +24,8 @@ struct DebugStruct {
     
 }
 
+
+
 struct Sweetness: Identifiable, Equatable, Hashable{
     
     static func ==(lhs: Sweetness, rhs: Sweetness) -> Bool {
@@ -63,6 +65,9 @@ struct Sweetness: Identifiable, Equatable, Hashable{
     
 //    var userUnit : String = ""              
 }
+
+
+
 
 class ManySweetnesses: ObservableObject {  // array of Sweetness
     

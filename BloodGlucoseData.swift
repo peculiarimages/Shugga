@@ -976,7 +976,8 @@ class BloodGlucoseData: ObservableObject {
             
             counter = counter + 1
             
-            if counter == 2 {
+//            if counter == 2
+//            {
                 
                 if (           whoCalledTheFunction == .HKObserverQuery
                             || whoCalledTheFunction == .backgroundFetch
@@ -986,9 +987,9 @@ class BloodGlucoseData: ObservableObject {
                             || whoCalledTheFunction == .healthKitBackgroundDelivery
                             || whoCalledTheFunction == .backgroundTask
                 ) {
-                    localWhoCalledTheFunction = .backgroundImmediateSecondTry
+                    localWhoCalledTheFunction = .anyBackground
                 }
-            }
+//            }
         
             fetchLatestBloodGlucose(limit: theLimit, whoCalledTheFunction: localWhoCalledTheFunction) { result in
                 switch result {
@@ -997,6 +998,12 @@ class BloodGlucoseData: ObservableObject {
                         
                         DispatchQueue.main.async {
                             print("fetched. about to speak....")
+
+
+
+                           // self.speech.speakAnything(speechString: whoCalledTheFunction.rawValue, typesOfSpeech: .other)
+
+
 
                             self.speakBloodGlucose(whoCalledTheFunction: whoCalledTheFunction, completion: { result in
                                 switch result {
@@ -1157,6 +1164,8 @@ class BloodGlucoseData: ObservableObject {
                         || whoCalledTheFunction == .healthKitBackgroundDelivery
                         || whoCalledTheFunction == .backgroundTask
                         || whoCalledTheFunction == .backgroundImmediateSecondTry
+                        || whoCalledTheFunction == .anyBackground
+
                     )
             {
                 aBackGroundCalledTheFunction = true
@@ -1215,6 +1224,10 @@ class BloodGlucoseData: ObservableObject {
                         case .success:
                             print("Speech finished successfully")
                             
+                            DispatchQueue.main.async {
+                                self.recordToASweetnessThatItHasBeenAnnounced (theSweetness: theSweetness)
+                            }
+                            
                             let currentTime = Date().timeIntervalSince1970
                             DispatchQueue.main.async { self.lastTimeBloodGlucoseWasSentToSpeak = currentTime }
  
@@ -1254,6 +1267,10 @@ class BloodGlucoseData: ObservableObject {
                                                 }
                                             })
                                         }
+                                        DispatchQueue.main.async {
+                                            self.recordToASweetnessThatItHasBeenAnnounced (theSweetness: theSweetness)
+                                        }
+                                        
                                         print("Latest blood glucose fetched and spoken successfully!412 \(WhoCalledTheFunction.healthKitBackgroundDelivery.rawValue)")
                                     }
                                 case .failure(_):
@@ -1749,6 +1766,26 @@ class BloodGlucoseData: ObservableObject {
             }
         }
     }
+    
+    
+    
+    
+    
+    
+    func recordToASweetnessThatItHasBeenAnnounced (theSweetness: Sweetness) {
+        
+        
+        self.lastSweetnessThatWasAnnounced = theSweetness
+        
+        if let index = ManySweetnesses.shared.sweetnesses?.firstIndex(where: { $0.id == theSweetness.id }) {
+            ManySweetnesses.shared.sweetnesses?[index].thisValueWasUttered = true
+        }
+        
+        
+        
+    }
+    
+    
 }
 
 

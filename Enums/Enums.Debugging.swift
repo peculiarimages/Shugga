@@ -42,6 +42,7 @@ enum WhoCalledTheFunction: String {
     case scheduleBackgroundAppRefreshTaskMethod = "scheduleBackgroundAppRefreshTask"
     
     case healthKitBackgroundDelivery =             "HK Background Delivery"
+    
     case bloodGlucoseDataInit   =           "blood Glucose Data Init"
     
     case userWalkedMoreThanXsteps =         "user walked more than x steps"
@@ -57,6 +58,7 @@ enum WhoCalledTheFunction: String {
     case backgroundImmediateSecondTry = "background Immediate Second Try"
     // if there is a new bg data while speaking
     
+    case anyBackground = "any background"
     
 }
 

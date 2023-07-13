@@ -297,10 +297,10 @@ struct CarbStatusView: View {
         
 //        var carbHistory: [String] {
 //            var history = [String]()
-//            
+//
 //            for carb in carbohydrateData.carbs.reversed() {
 //                history.append(String(Int(carb.amount ?? 0)))
-//                
+//
 //                if let date = carb.date {
 //                    history.append((Date().timeIntervalSince(date) > SecondsIn.fourHours.asDouble
 //                         ? formatSecondsToTimeString(seconds: (Int(Date().timeIntervalSince(date))), cutOffAt: CutOffAt.hours)
@@ -308,7 +308,7 @@ struct CarbStatusView: View {
 //                    ))
 //                }
 //            }
-//            
+//
 //            return history
 //        }
         
@@ -633,7 +633,7 @@ struct UnitConversionHelpPopupView: View {
 
     let diabetes = Diabetes()
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
-    let numbers = Array(5...1200).filter { $0 % 5 == 0 }
+    let numbers = Array(20...1200).filter { $0 % 5 == 0 }
     @State private var backgroundToggle = false
 
     let numberFormatter: NumberFormatter = {
@@ -646,129 +646,155 @@ struct UnitConversionHelpPopupView: View {
     var body: some View {
         
         VStack {
-            Text ("Blood Glucose Units Table")
+           
+
+            
+            Text ("Blood Glucose Table")
                 .font(.title)
+//            Text ("NGSP (USA)")
 //            LazyVGrid(columns: columns) {
             Spacer()
 
-                HStack {
-                    Spacer()
+            
+            HStack {
+                
+                Spacer()
+                
+                    //                    Spacer()
+                    Text ("NGSP")
+                        .font(.headline)
+                    
+                        .opacity(0.5)
+                        .lineLimit(1)
+                        .frame(alignment: .center)
+
+                Spacer()
 
                     Text(BloodGlucoseUnit.milligramsPerDeciliter.rawValue)
                         .font(.headline)
                         .lineLimit(1)
+                        .frame(alignment: .center)
+
+                    //                Spacer()
                     
-              
+                    //                        .padding(0)
+                Spacer()
 
-//                Spacer()
                 
-                    Spacer()
-//                        .padding(0)
-
                     Text("mmol/L")
                         .font(.headline)
                         .lineLimit(1)
-                        .frame(alignment: .leading)
-
-
-//                        .padding(0)
-//                        .frame(alignment: .trailing)
+                        .frame(alignment: .center)
                     
-                    Spacer()
+                Spacer()
 
-                }
-                .frame(alignment: .center)
-                .padding([.top], 10)
+                    
+                    Text ("IFCC")
+                        .font(.headline)
+                        .frame(alignment: .center)
+
+                    //                        .padding(0)
+                    //                        .frame(alignment: .trailing)
+                        .opacity(0.5)
+                        .lineLimit(1)
+                    
+               
                 
-             
-//            }
-            
-            
-            
-            
-            
-            
-            HStack {
-                Text ("\".\" represents a decimal point")
-                    .font(.caption2)
-                    .padding([.top], 5)
+                
+                //            }
+                
+                Spacer()
 
+                
             }
+            
+      
             
             Spacer()
             
-            
+            // https://ngsp.org/ifccngsp.asp
             
             HStack {
                 Spacer()
                 ScrollView {
                     
-                    LazyVGrid(columns: columns, spacing: 5) {
+                    LazyVGrid(columns: columns, spacing: 4) {
                         
                         ForEach(numbers.indices, id: \.self) { index in
                             let number = numbers[index]
                             
-                            Text("")
-
+                            //                   -------- NGSP
+                            let a1cPercent = (Double(number) + 46.7) / 28.7
+                            //A1C(%) = (Estimated average glucose(mg/dL) + 46.7) / 28.7.
+                            //
+                            HStack {
+                                Spacer()
                             
-                            
-                            
-                            
+                            Text(String(format: "%.1f", a1cPercent))
+                                .opacity(0.5)
+                        }
+//                   -------- mg/dL
                             HStack {
                                 Spacer()
                                 Text("\(numberFormatter.string(for: number) ?? "")")
-                                    .frame(alignment: .trailing)
                                     .lineLimit(1)
                                     .fixedSize(horizontal: true, vertical: false) // Allow the Text view to expand horizontally
                                     .font(.system(.body, design: .monospaced)) // Use a monospaced font
+                                    .frame(alignment: .trailing)
 
-                                Text ("")
                             }
-                            .frame(alignment: .trailing)
+                            .frame(alignment: .leading)
+
                             
-                            
-                            
-                            
+//                   -------- A space
+
+                            Spacer()
+//                   -------- mmol/L
                             
                             
                             let mmol = diabetes.mgPerdLTommolPerLiter(mgPerdL: Double(number))
                             let integerPart = Int(mmol)
                             let fractionalPart = String(String(format: "%.1f", mmol).split(separator: ".").last ?? "")
-                            
+                           
+
                             HStack {
                                 Spacer()
-                                Text("  \(integerPart).")
+                                Text("\(integerPart).\(fractionalPart)   ")
                                     .lineLimit(1)
                                     .font(.system(.body, design: .monospaced)) // Use a monospaced font
-
                             }
-                            .frame(alignment: .trailing)
-                            .padding(-5.0)
-                            
-                            
-                            
-                            
-                            HStack {
-                                Text("\(fractionalPart)")
-                                    .font(Font.system(.body).monospacedDigit())
-                                    .lineLimit(1)
-                                    .font(.system(.body, design: .monospaced)) // Use a monospaced font
 
-                                Spacer()
-                            }
-                            .frame(alignment: .leading)
-                            .padding(0)
+                          
+                    
                             
-                            
-                            
-                            
-                            
-                            Text("")
-                            
+//                   -------- IFCC
+
+                            //10.929 * (A1C(%) - 2.15)
+                            //NGSP = (0.09148*IFCC) + 2.152
+                            // (10.93*NGSP) - 23.50
+                            Text(String(format: "%.1f", (10.929 * a1cPercent ) - 23.58 ))
+                                .opacity(0.5)
+
                         }
                     }
                     .padding()
-                    Text (" --- end --- ")
+                    HStack {
+                        Spacer()
+                        
+                        Text ("NGSP (A1c %)")
+                            .opacity(0.5)
+                            .font(.caption2)
+
+                        Spacer()
+                        Spacer()
+
+                        Text ("IFCC (A1c mmol/L)")
+                            .opacity(0.5)
+                            .font(.caption2)
+
+                        Spacer()
+
+                    }
                 }
 
                 .background(
@@ -777,13 +803,35 @@ struct UnitConversionHelpPopupView: View {
                             .stroke(Color(.systemGray3), lineWidth: 2)
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color(.systemGray5))
+                        
+                        Rectangle()
+                              .frame(width: 1)
+                              .foregroundColor(.black)
+                              .padding(.vertical)
+                              .opacity (0.15)
                     }
                 )
 //                                .scrollOv erlayOnTheBottom()
 
                 .padding()
+                
+                
                 Spacer()
             }
+            
+            
+            HStack {
+                Text ("""
+\".\" represents a decimal point
+Outer columns are the corresponding A1C values
+""")
+                    .font(.caption2)
+                    .padding([.top], 4)
+//                    .frame(alignment: .center)
+
+            }.padding(-5)
+            
+            
             Spacer()
             
             
@@ -796,10 +844,10 @@ struct UnitConversionHelpPopupView: View {
                 }
                 
             }
-
+            .padding([.top])
             
         }
-        .padding()
+        .padding(5)
     }
 }
 
@@ -809,6 +857,11 @@ struct UnitConversionHelpPopupView: View {
 
 
 
+struct UnitConversionHelpPopupView_Previews: PreviewProvider {
+    static var previews: some View {
+        UnitConversionHelpPopupView()
+    }
+}
 
 
 
@@ -828,9 +881,9 @@ struct StatusHelpPopupView: View {
             Spacer()
             Text ("Shugga Status Symbols Help")
                 .padding()
-                .bold()
+                .font(.title)
             LazyVStack(alignment: .leading) {
-
+                Spacer()
                 HStack {
                     Image(systemName: "circle.inset.filled")
                         .font(.system(size: 20))
@@ -913,7 +966,7 @@ struct StatusHelpPopupView: View {
                         .opacity(0.5)
                         .frame(width: 40)
                     
-                 Text ("Turns red when Carb Reminder shows it's time to add manual blood glucose data to Health.")
+                 Text ("This will turn red when Carb Reminder shows it's time to add manual blood glucose data to Health.")
                 }
                 .padding()
 
@@ -934,6 +987,12 @@ struct StatusHelpPopupView: View {
        
         }
         
+    }
+}
+
+struct StatusHelpPopupView_Previews: PreviewProvider {
+    static var previews: some View {
+        StatusHelpPopupView()
     }
 }
 
@@ -1131,6 +1190,16 @@ struct NoBloodGlucoseDataWarningView: View {
         
     }
 }
+
+
+
+struct NoBloodGlucoseDataWarningView_Previews: PreviewProvider {
+    static var previews: some View {
+        NoBloodGlucoseDataWarningView()
+    }
+}
+
+
 
 struct SheetView: View {
     

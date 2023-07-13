@@ -1518,16 +1518,31 @@ struct DemoSettingsView: View {
 
 struct VoiceSettingsContentView:  View {
     @ObservedObject var bloodGlucoseData =  BloodGlucoseData.shared
+    @AppStorage("sugahLanguageChosen")     public var sugahLanguageChosen =         defaultSugahLanguage
+    @AppStorage("sugahVoiceChosen")     public var sugahVoiceChosen =               defaultSugahVoice
+    @AppStorage("skipHundredth")                    public var skipHundredth =                      false
 
+    @AppStorage("sugahLanguageCombinedCodeChosen")
+
+    public var sugahLanguageCombinedCodeChosen =         "en-US"
+        
+    var thisVoiceIsProblematic = false
+    
+    let voiceNames: [String] = GetVoices()
     
     var body: some View {
                 
         VStack{
             
-            Text ("Choose your language and available voice.")
+            Text ("You cannot select your voice settings in this help display")
         }
+        
         }
     }
+
+
+
+
 struct VoiceSettingsView: View {
     
     @AppStorage("sugahLanguageChosen")     public var sugahLanguageChosen =         defaultSugahLanguage
@@ -1558,11 +1573,11 @@ struct VoiceSettingsView: View {
                 Spacer()
                             HelpButton(showDescription: $showDescription, title: "Voice & Language Settings")  {
                                 VStack(alignment: .leading) {
-//                                    SpeechBubble {
-//                                        Form { VoiceSettingsContentView() }
-//                                    }
-                                    Text("Choose your language and available voice.")
-                                        .textCase(.none)
+                                    SpeechBubble {
+                                        Form { VoiceSettingsContentView() }
+                                    }
+                                    VoiceSettingsDescriptionView()
+
                                 }
                             }
                         }
@@ -1659,7 +1674,7 @@ struct VoiceSettingsView: View {
                     print ("ssssssss theNameAndCodeMatchingVoice: \(String(describing: theNameAndCodeMatchingVoice?.combinedCode))")
                     //                                    sugahLanguageCombinedCodeChosen = theNameAndCodeMatchingVoice?.combinedCode ?? defaultSugahLanguageCombinedCode
                     
-                    Text (sugahLanguageCombinedCodeChosen)
+//                    Text (sugahLanguageCombinedCodeChosen)
                 }
                 
              
@@ -1676,6 +1691,8 @@ struct VoiceSettingsView: View {
         } //thisIsBeta
     }
 }
+
+
 
 struct ExperimentSettingsView: View {
     
